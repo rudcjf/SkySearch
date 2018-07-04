@@ -1,0 +1,35 @@
+
+/* Drop Tables */
+
+DROP TABLE SS_MEMBER CASCADE CONSTRAINTS;
+
+
+
+
+/* Create Tables */
+
+-- 회원정보
+CREATE TABLE SS_MEMBER
+(
+	MEMBER_SEQ varchar(60) NOT NULL,
+	MEMBER_EMAIL varchar(1000),
+	MEMBER_PASSWORD varchar(100) NOT NULL,
+	MEMBER_NAME varchar(1000) NOT NULL,
+	MEMBER_CELLPHONE varchar(20),
+	MEMBER_ADDR varchar(2000),
+	MEMBER_INT_LOC varchar(2000),
+	REGISTER_SEQ varchar(50) NOT NULL,
+	REGISTRY_DATE varchar(20) NOT NULL,
+	MODIFIER_SEQ varchar(40) NOT NULL,
+	MODIFY_DATE varchar(20) NOT NULL,
+	PRIMARY KEY (MEMBER_SEQ)
+);
+
+
+
+CREATE TABLE dept (
+  dept_no INT(11) unsigned NOT NULL,
+  dept_name VARCHAR(32) NOT NULL,
+  PRIMARY KEY (dept_no)
+);
+
