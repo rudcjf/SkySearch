@@ -47,6 +47,7 @@
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+<<<<<<< HEAD
 								
 								<div class="row">
 									<div class="col-sm-12">
@@ -75,6 +76,80 @@
 														colspan="1"
 														aria-label="Salary: activate to sort column ascending"
 														style="width: 60px;">Salary</th>
+=======
+								<div class="row">
+									
+									<div class="col-sm-12 col-md-4">
+										<div class="dataTables_length"
+											id="bootstrap-data-table_length">
+											<label>Show <select
+												name="bootstrap-data-table_length"
+												aria-controls="bootstrap-data-table"
+												class="form-control form-control-sm">
+													<option value="10">10</option>
+													<option value="20">20</option>
+													<option value="50">50</option>
+													<option value="-1">All</option>
+											</select> entries
+											</label>
+										</div>
+									</div>
+									
+									<div class="col-sm-12 col-md-4">
+										<div class="dataTables_length"
+											id="bootstrap-data-table_length">
+											<label>Crawling Site: <select
+												name="bootstrap-data-table_length"
+												aria-controls="bootstrap-data-table"
+												class="form-control form-control-sm">
+													<option value="10">10</option>
+													<option value="20">20</option>
+													<option value="50">50</option>
+													<option value="-1">All</option>
+											</select>
+											</label>
+										</div>
+									</div>
+									
+									<div class="col-sm-12 col-md-4">
+										<div id="bootstrap-data-table_filter"
+											class="dataTables_filter">
+											<label>Search:<input type="search"
+												class="form-control form-control-sm" placeholder=""
+												aria-controls="bootstrap-data-table">
+											</label>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-12">
+										<table id="bootstrap-data-table"
+											class="table table-striped table-bordered dataTable no-footer"
+											role="grid" aria-describedby="bootstrap-data-table_info">
+											<thead>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0"
+														aria-controls="bootstrap-data-table" rowspan="1"
+														colspan="1" aria-sort="ascending"
+														aria-label="Name: activate to sort column descending"
+														style="width: 116px;">Title</th>
+													<th class="sorting" tabindex="0"
+														aria-controls="bootstrap-data-table" rowspan="1"
+														colspan="1"
+														aria-label="Position: activate to sort column ascending"
+														style="width: 201px;">ThumbNail</th>
+													<th class="sorting" tabindex="0"
+														aria-controls="bootstrap-data-table" rowspan="1"
+														colspan="1"
+														aria-label="Office: activate to sort column ascending"
+														style="width: 80px;">Link</th>
+													<th class="sorting" tabindex="0"
+														aria-controls="bootstrap-data-table" rowspan="1"
+														colspan="1"
+														aria-label="Salary: activate to sort column ascending"
+														style="width: 60px;">Reg.</th>
+>>>>>>> branch 'developer' of https://github.com/rudcjf/SkySearch.git
 												</tr>
 											</thead>
 											<tbody>
