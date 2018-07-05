@@ -35,90 +35,61 @@
          <div class="slider-form">
             <div class="container">
                <h1 class="text-center text-white mb-5">언제든 가볍게 지.구.산.책!</h1>
+               <!-- 특가상품 검색: form태그 안 데이터값으로 결과 출력한다 -->
                <form>
                   <div class="row no-gutters">
-                     <div class="col-md-4">
-                        <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
-                           <input class="form-control" placeholder="국가명, 도시명" type="text">
-                        </div>
-                     </div>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-google-maps"></i></div>
-                           <select class="form-control select2 no-radius">
-                              <option value="">Locations</option>
-                              <option value="AL">Alabama</option>
-                              <option value="AK">Alaska</option>
-                              <option value="AZ">Arizona</option>
-                              <option value="AR">Arkansas</option>
-                              <option value="CA">California</option>
-                              <option value="CO">Colorado</option>
-                              <option value="CT">Connecticut</option>
-                              <option value="DE">Delaware</option>
-                              <option value="DC">District Of Columbia</option>
-                              <option value="FL">Florida</option>
-                              <option value="GA">Georgia</option>
-                              <option value="HI">Hawaii</option>
-                              <option value="ID">Idaho</option>
-                              <option value="IL">Illinois</option>
-                              <option value="IN">Indiana</option>
-                              <option value="IA">Iowa</option>
-                              <option value="KS">Kansas</option>
-                              <option value="KY">Kentucky</option>
-                              <option value="LA">Louisiana</option>
-                              <option value="ME">Maine</option>
-                              <option value="MD">Maryland</option>
-                              <option value="MA">Massachusetts</option>
-                              <option value="MI">Michigan</option>
-                              <option value="MN">Minnesota</option>
-                              <option value="MS">Mississippi</option>
-                              <option value="MO">Missouri</option>
-                              <option value="MT">Montana</option>
-                              <option value="NE">Nebraska</option>
-                              <option value="NV">Nevada</option>
-                              <option value="NH">New Hampshire</option>
-                              <option value="NJ">New Jersey</option>
-                              <option value="NM">New Mexico</option>
-                              <option value="NY">New York</option>
-                              <option value="NC">North Carolina</option>
-                              <option value="ND">North Dakota</option>
-                              <option value="OH">Ohio</option>
-                              <option value="OK">Oklahoma</option>
-                              <option value="OR">Oregon</option>
-                              <option value="PA">Pennsylvania</option>
-                              <option value="RI">Rhode Island</option>
-                              <option value="SC">South Carolina</option>
-                              <option value="SD">South Dakota</option>
-                              <option value="TN">Tennessee</option>
-                              <option value="TX">Texas</option>
-                              <option value="UT">Utah</option>
-                              <option value="VT">Vermont</option>
-                              <option value="VA">Virginia</option>
-                              <option value="WA">Washington</option>
-                              <option value="WV">West Virginia</option>
-                              <option value="WI">Wisconsin</option>
-                              <option value="WY">Wyoming</option>
+                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
+                           <select class="form-control select2 no-radius" placeholder="여행지역">
+                              <option value="">여행지역</option>
+                              <option value="Japan">일본</option>
+                              <option value="Hongkong">홍콩,싱카포르,대만,마카오</option>
+                              <option value="China">중국</option>
+                              <option value="Asia">아시아</option>
+                              <option value="Jeju">국내(제주)</option>
+                              <option value="South_pacificocean">남태평양</option>
+                              <option value="North_america">북미</option>
+                              <option value="South_america">중남미</option>
+                              <option value="Europe">유럽</option>
+                              <option value="Etc">기타</option>
                            </select>
                         </div>
                      </div>
+
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-security-home"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
                            <select class="form-control select2 no-radius">
-                              <option value="">Property Type</option>
-                              <option value="">House/Villa</option>
-                              <option value="">Flat</option>
-                              <option value="">Plot/Land</option>
-                              <option value="">Office Space</option>
-                              <option value="">Shop/Showroom</option>
-                              <option value="">Commercial Land</option>
-                              <option value="">Warehouse/ Godown</option>
-                              <option value="">Industrial Building</option>
+                              <option value="">나라명</option>
+                              <option value="Japan">일본</option>
+                              <option value="Singapore">싱가포르</option>
+                              <option value="India">인도</option>
+                              <option value="France">프랑스</option>
+                              <option value="Swiss">스위스</option>
+                              <option value="America">미국</option>
+                              <option value="Canada">캐나다</option>
                            </select>
                         </div>
                      </div>
-                     <div class="col-md-2">  
+
+                     <div class="col-md-3">
+                        <div class="input-group">
+                           <div class="input-group-addon"><i class="mdi mdi-map-marker-outline"></i></div>
+                           <select class="form-control select2 no-radius">
+                              <option value="">도시명</option>
+                              <option value="Osaka">오사카</option>
+                              <option value="Paris">파리</option>
+                              <option value="Newyork">뉴욕</option>
+                              <option value="LA">로스엔젤레스</option>
+                              <option value="London">런던</option>
+                              <option value="Tokyo">도쿄</option>
+                              <option value="Rome">로마</option>
+                           </select>
+                        </div>
+                     </div>
+                   <div class="col-md-2">  
                         <button type="submit" class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>
                      </div>
                   </div>
@@ -134,10 +105,15 @@
          <div class="section-title text-center mb-5">
             <h2>추천 특가 상품</h2>
             <p>빅 프로모션! 놓치지 마세용!</p>
+                     <div class="col-lg-1 col-md-1 sort-by-btn float-right">
+                     <em>광고</em><i class="mdi mdi-help-circle-outline"></i></div>
          </div>
+
          <div class="container">
             <div class="row">
+            
                <div class="col-lg-4 col-md-4">
+               
                   <div class="card card-list">
                      <a href="#">
                         <span class="badge badge-success">For Sale</span>
@@ -268,12 +244,23 @@
 <!-- 추천 여행지 : 조회수 높은 도시 출력 6개 할것 -->
       <section class="section-padding bg-white">
          <div class="section-title text-center mb-5">
-            <h2>여행지 정보</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <h2>인기 여행지 정보</h2>
+            <p>나만의 여행계획을 세워보세요</p>
          </div>
          <div class="container">
             <div class="row">
-               <div class="col-lg-8 col-md-8">
+               <div class="col-lg-4 col-md-4">
+                  <div class="card bg-dark text-white card-overlay">
+                     <a href="#">
+                        <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
+                        <div class="card-img-overlay">
+                           <h3 class="card-title text-white">New York</h3>
+                           <p class="card-text text-white">16 Properties</p>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4">
                   <div class="card bg-dark text-white card-overlay">
                      <a href="#">
                         <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
@@ -309,7 +296,18 @@
                      .    
                   </div>
                </div>
-               <div class="col-lg-8 col-md-8">
+               <div class="col-lg-4 col-md-4">
+                  <div class="card bg-dark text-white card-overlay">
+                     <a href="#">
+                        <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
+                        <div class="card-img-overlay">
+                           <h3 class="card-title text-white">Philadelphia</h3>
+                           <p class="card-text text-white">28 Properties</p>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4">
                   <div class="card bg-dark text-white card-overlay">
                      <a href="#">
                         <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
