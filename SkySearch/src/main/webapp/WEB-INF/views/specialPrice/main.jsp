@@ -31,27 +31,24 @@
          </div>
          <div class="slider-form inner-page-form">
             <div class="container">
-               <h1 class="text-center text-white mb-5">Find Your Favorite Property</h1>
+               <h1 class="text-center text-white mb-5">특가 검색</h1>
                <form>
                   <div class="row no-gutters">
                      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-map-marker-multiple"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">Any Location</option>
-                              <option>Australia</option>
-                              <option>Brazil</option>
-                              <option>Cambodia</option>
-                              <option>Dominica</option>
-                              <option>France</option>
-                              <option>Guyana</option>
-                              <option>Hong Kong</option>
-                              <option>Ireland</option>
-                              <option>Japan</option>
-                              <option>Malaysia</option>
-                              <option>Nepal</option>
-                              <option>Oman</option>
-                              <option>Peru</option>
+                              <option disabled="" selected="">여행지역</option>
+                              <option>동남아시아</option>
+                              <option>중국</option>
+                              <option>대만/홍콩/마카오</option>
+                              <option>일본</option>
+                              <option>남태평양</option>
+                              <option>괌/사이판</option>
+                              <option>유럽</option>
+                              <option>미주</option>
+                              <option>아프리카</option>
+                              <option>국내</option>
                            </select>
                         </div>
                      </div>
@@ -59,7 +56,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">Any Status</option>
+                              <option disabled="" selected="">국가</option>
                               <option>Heigh </option>
                               <option>Midium</option>
                               <option>Normal</option>
@@ -70,7 +67,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-home-modern"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">Any Type</option>
+                              <option disabled="" selected="">도시</option>
                               <option>Property Types</option>
                               <option value="">House/Villa</option>
                               <option value="">Flat</option>
@@ -83,7 +80,7 @@
                            </select>
                         </div>
                      </div>
-                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                    <!--  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-hotel"></i></div>
                            <select class="form-control select2" name="location">
@@ -100,8 +97,8 @@
                               <option>10</option>
                            </select>
                         </div>
-                     </div>
-                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                     </div> -->
+<!--                      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-magnify-minus-outline"></i></div>
                            <select class="form-control select2" name="location">
@@ -118,8 +115,8 @@
                               <option>1000</option>
                            </select>
                         </div>
-                     </div>
-                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                     </div> -->
+                    <!--  <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-magnify-plus-outline"></i></div>
                            <select class="form-control select2" name="location">
@@ -136,8 +133,8 @@
                               <option>10000</option>
                            </select>
                         </div>
-                     </div>
-                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                     </div> -->
+                     <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-hot-tub"></i></div>
                            <select class="form-control select2" name="location">
@@ -154,7 +151,7 @@
                               <option>10</option>
                            </select>
                         </div>
-                     </div>
+                     </div> -->
                      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="input-group"><button type="submit" class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>   </div>
                      </div>
@@ -174,26 +171,9 @@
                   <div class="osahan_top_filter row">
                      <div class="col-lg-11 col-md-11 tags-action">
                         <h4> 이 특가 추천 </h4>
-                        <!-- <span>Plot/Land <a href="#"><i class="mdi mdi-window-close"></i></a></span> --> 
                     </div>
                      <div class="col-lg-1 col-md-1 sort-by-btn float-right">
-                     <em>광고</em><i class="mdi-help-circle-outline"></i>
-                       <!--  <div class="view-mode float-right">
-                           <a class="active" href="properties-grid.html"><i class="mdi mdi-grid"></i></a><a href="properties-list.html"><i class="mdi mdi-format-list-bulleted"></i></a>
-                        </div>
-                        <div class="dropdown float-right">
-                        
-                             <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <i class="mdi mdi-filter"></i> Sort by 
-                           </button>
-                         <div class="dropdown-menu float-right" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i> Popularity </a>
-                              <a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i> New </a>
-                              <a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i> Discount </a>
-                              <a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i> Price: Low to High </a>
-                              <a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i> Price: High to Low </a>
-                           </div>
-                        </div> -->
+                     	<em>광고</em><i class="mdi-help-circle-outline"></i>
                      </div>
                   </div>
              
@@ -272,8 +252,10 @@
                   <div class="osahan_top_filter row">
                      
                      <div class="col-lg-12 col-md-12 sort-by-btn float-right">
-                   
-                        <div class="dropdown float-right">
+
+		
+
+						<div class="dropdown float-right">
                            <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <i class="mdi mdi-filter"></i> Sort by 
                            </button>
@@ -292,8 +274,8 @@
                               <span class="badge badge-success">For Sale</span>
                               <img class="card-img-top" src="<c:url value='/resources/img/list/1.png'/>" alt="Card image cap">
                               <div class="card-body">
-                                 <h5 class="card-title">House in Kent Street</h5>
-                                 <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
+                                 <h5 class="card-title">도시명</h5>
+                                 <h6 class="card-subtitle mb-2 text-muted"> <i class="mdi mdi-home-map-marker"></i>  </h6>
                                  <h2 class="text-success mb-0 mt-3">
                                     $130,000 <small>/month</small>
                                  </h2>
