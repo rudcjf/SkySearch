@@ -7,9 +7,9 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12 text-center">
-                  <h1 class="mt-0 mb-3 text-white">User Profile</h1>
+                  <h1 class="mt-0 mb-3 text-white">My Page</h1>
                   <div class="breadcrumbs">
-                     <p class="mb-0 text-white"><a class="text-white" href="#">Home</a>  /  <span class="text-success">User Profile</span></p>
+                     <p class="mb-0 text-white"><a class="text-white" href="#">My Page</a>  /  <span class="text-success">My Page</span></p>
                   </div>
                </div>
             </div>
@@ -23,25 +23,23 @@
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="user-profile.html">User Profile</a>
+                        <a class="nav-link" href="<c:url value='/mypage/main'/>">My Page</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="social-profiles.html">Social Profiles</a>
+                        <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보수정</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="my-properties.html">My Properties</a>
+                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호변경</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="favorite-properties.html">Favorite Properties</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="add-property.html">Add Property</a>
+                        <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal'/>">회원탈퇴</a>
                      </li>
                   </ul>
                </div>
             </div>
          </div>
       </section>
+      
       <!-- User Profile -->
       <section class="section-padding">
          <div class="container">

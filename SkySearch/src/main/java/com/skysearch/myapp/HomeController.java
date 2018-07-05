@@ -63,5 +63,17 @@ public class HomeController {
 		
 		return "/home/signup";
 	}
-	
+	@RequestMapping(value = "/home/forget", method = {RequestMethod.GET,RequestMethod.POST})
+	public String forget(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "/home/forget";
+	}
 }

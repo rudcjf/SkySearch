@@ -35,7 +35,4 @@
    <!-- Custom -->
       <script type="text/javascript" src="<c:url value='/resources/js/custom.js' />"></script>
       
-      
-      
-      
- 
+   

@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class AboutusController {
+public class AboutUsController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(AboutusController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AboutUsController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/home/aboutus", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/aboutUs/aboutus", method = {RequestMethod.GET,RequestMethod.POST})
 	public String aboutUs(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -33,9 +33,9 @@ public class AboutusController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/home/aboutus";
+		return "/aboutUs/aboutus";
 	}
-	@RequestMapping(value = "/home/contact", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/aboutUs/contact", method = {RequestMethod.GET,RequestMethod.POST})
 	public String contact(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -46,9 +46,9 @@ public class AboutusController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/home/contact";
+		return "/aboutUs/contact";
 	}
-	@RequestMapping(value = "/home/faq", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/aboutUs/faq", method = {RequestMethod.GET,RequestMethod.POST})
 	public String faq(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -59,7 +59,7 @@ public class AboutusController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/home/faq";
+		return "/aboutUs/faq";
 	}
 	
 }
