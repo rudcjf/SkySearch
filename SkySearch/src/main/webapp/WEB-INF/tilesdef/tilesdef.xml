@@ -23,6 +23,8 @@
 			value="/WEB-INF/views/template/admintop.jsp" />
 		<put-attribute name="layout.adminleft"
 		 	value="/WEB-INF/views/template/adminleft.jsp" />
+		<put-attribute name="layout.adminfooter"
+		 	value="/WEB-INF/views/template/adminfooter.jsp" />
    	</definition>
 	
 	<!-- home by user -->
