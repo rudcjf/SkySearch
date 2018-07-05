@@ -43,6 +43,10 @@ public class ManageController {
 		if ("main".equalsIgnoreCase(action)) {
 		}else if("member_list".equalsIgnoreCase(action)) {
 			
+		}else if("sp_list".equalsIgnoreCase(action)) {
+			
+		}else if("ti_list".equalsIgnoreCase(action)) {
+			
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}

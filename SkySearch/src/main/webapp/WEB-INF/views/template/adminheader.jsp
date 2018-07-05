@@ -24,7 +24,9 @@
     <!-- <link type='text/css' href="<c:url value='/resources/assets/css/bootstrap-select.less'/>"rel="stylesheet"/> -->
     <link  type='text/css'  href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
     <link  type='text/css' href="<c:url value='/resources/assets/css/lib/vector-map/jqvmap.min.css'/>"rel="stylesheet"/>
-
+	 <link type='text/css' href="<c:url value='/resources/assets/css/lib/datatable/dataTables.bootstrap.min.css'/>"rel="stylesheet"/>
+    <!-- <link type='text/css' href="<c:url value='/resources/assets/css/bootstrap-select.less'/>"rel="stylesheet"/> -->
+    <link type='text/css' href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
 
 	<!-- JavaScript -->
     <link type='text/css' href="<c:url value='/resources/assets/css/google_font.css'/>" rel="stylesheet"/>
@@ -43,6 +45,20 @@
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/jquery.vmap.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/jquery.vmap.sampledata.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/country/jquery.vmap.world.js'/>"></script>
+    
+    <!-- data-table -->
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/datatables.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/dataTables.bootstrap.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/dataTables.buttons.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/buttons.bootstrap.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/jszip.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/pdfmake.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/vfs_fonts.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/buttons.html5.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/buttons.print.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/buttons.colVis.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/assets/js/lib/data-table/datatables-init.js'/>"></script>
+  
     <script>
         ( function ( $ ) {
             "use strict";
@@ -61,6 +77,15 @@
             } );
         } )( jQuery );
     </script>
+      
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $('#bootstrap-data-table-export').DataTable();
+        } );
+    </script>
+      
+      
       
       
  
