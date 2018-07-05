@@ -13,6 +13,7 @@
      	<tiles:insertAttribute name="layout.adminleft" />
      	<tiles:insertAttribute name="layout.admintop" />
 		<tiles:insertAttribute name="layout.body" />
+		<tiles:insertAttribute name="layout.adminfooter" />
 		
 </body>
 </html>
