@@ -90,4 +90,4 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
-    </aside>
+    </aside><!-- /#left-panel -->
