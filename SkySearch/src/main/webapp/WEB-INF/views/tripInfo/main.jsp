@@ -10,10 +10,10 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('resources/img/slider/1.jpg')">
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/3.jpg'/>')">
                   <div class="overlay"></div>
                </div>
-               <div class="carousel-item" style="background-image: url('resources/img/slider/2.jpg')">
+               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/4.jpg'/>')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -31,8 +31,9 @@
             <div class="container">
                <h1 class="text-center text-white mb-5">여행 정보</h1>    
                <!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함 -->
-               <form>
+               <form method="POST" action="<c:url value='/tripInfo/read'/>">
                   <div class="row no-gutters">
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
@@ -75,7 +76,7 @@
                            </select>
                         </div>
                      </div>
-                     <div class="col-md-3">  
+                     <div class="col-md-2">  
                         <button type="submit" class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>
                      </div>
                   </div>
@@ -88,6 +89,10 @@
       
       <!-- 여행정보 리스트(상위 6개) -->
    <section class="section-padding">
+      <div class="section-title text-center mb-5">
+         <h2>여행지 추천</h2>
+         <p>회원가입시 관심지역을 기준으로 나타냅니다.</p>
+      </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -98,19 +103,12 @@
 								src="<c:url value = '/resources/img/blog/1.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-success">House/Villa</span>
-									<h6>Possimus aut mollitia eum ipsum</h6>
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur
-										adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio
-										officiis odit.</p>
+									<span class="badge badge-success">첫번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/3.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 03, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>
@@ -121,19 +119,12 @@
 								src="<c:url value = '/resources/img/blog/2.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-danger">Shop/Showroom</span>
-									<h6>Consectetur adipisicing elit</h6>
-									<p class="mb-0">Cnsectetur ipsum dolor sit amet,
-										consectetur adipisicing elit. Possimus aut mollitia eum ipsum
-										fugiat odio officiis odit.</p>
+									<span class="badge badge-danger">두번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/2.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 05, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>
@@ -144,19 +135,12 @@
 								src="<c:url value = '/resources/img/blog/3.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-info">Industrial Building</span>
-									<h6>Fugiat odio officiis odit</h6>
-									<p class="mb-0">Mollitia ipsum dolor sit amet, consectetur
-										adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio
-										officiis odit.</p>
+									<span class="badge badge-info">세번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/1.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 06, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>
@@ -169,19 +153,12 @@
 								src="<c:url value = '/resources/img/blog/4.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white">House/Villa</span>
-									<h6>Possimus aut mollitia eum ipsum</h6>
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur
-										adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio
-										officiis odit.</p>
+									<span class="badge badge-white">네번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/4.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 03, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>
@@ -192,19 +169,12 @@
 								src="<c:url value = '/resources/img/blog/5.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-info">Shop/Showroom</span>
-									<h6>Consectetur adipisicing elit</h6>
-									<p class="mb-0">Cnsectetur ipsum dolor sit amet,
-										consectetur adipisicing elit. Possimus aut mollitia eum ipsum
-										fugiat odio officiis odit.</p>
+									<span class="badge badge-info">다섯번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/5.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 05, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>
@@ -215,19 +185,12 @@
 								src="<c:url value = '/resources/img/blog/6.png'/>"
 								alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-dark">Industrial Building</span>
-									<h6>Fugiat odio officiis odit</h6>
-									<p class="mb-0">Mollitia ipsum dolor sit amet, consectetur
-										adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio
-										officiis odit.</p>
+									<span class="badge badge-dark">여섯번째 추천도시</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">도시설명</p>
 								</div>
 								<div class="card-footer">
-									<p class="mb-0">
-										<img class="rounded-circle"
-											src="<c:url value = '/resources/img/user/1.jpg'/>"
-											alt="Card image cap"> <strong>Rahul Yadav</strong> On
-										October 06, 2018
-									</p>
+									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
 						</div>

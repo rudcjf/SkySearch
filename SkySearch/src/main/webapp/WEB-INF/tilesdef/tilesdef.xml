@@ -17,14 +17,14 @@
    	</definition>
 	<!-- Admin template -->
 	<definition name="layout.admin" template="/WEB-INF/views/template/layout_admin.jsp">
-		<put-attribute name="layout.header"
-			value="/WEB-INF/views/template/header.jsp" />
-	    <put-attribute name="layout.top"
-			value="/WEB-INF/views/template/top.jsp" />
-		<put-attribute name="layout.left"
-		 	value="/WEB-INF/views/template/left.jsp" />
-		<put-attribute name="layout.footer"
-			value="/WEB-INF/views/template/footer.jsp" />	
+		<put-attribute name="layout.adminheader"
+			value="/WEB-INF/views/template/adminheader.jsp" /> 
+	    <put-attribute name="layout.admintop"
+			value="/WEB-INF/views/template/admintop.jsp" />
+		<put-attribute name="layout.adminleft"
+		 	value="/WEB-INF/views/template/adminleft.jsp" />
+		<put-attribute name="layout.adminfooter"
+		 	value="/WEB-INF/views/template/adminfooter.jsp" />
    	</definition>
 	
 	<!-- home by user -->
