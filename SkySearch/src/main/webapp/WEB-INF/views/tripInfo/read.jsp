@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-      <!-- Property Single Slider header -->
+      <!-- 메인 슬라이더 -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -10,10 +10,10 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('img/slider/1.jpg')">
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/1.jpg'/>')">
                   <div class="overlay"></div>
                </div>
-               <div class="carousel-item" style="background-image: url('img/slider/2.jpg')">
+               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/2.jpg'/>')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -30,362 +30,264 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">House in Kent Street</h1>
-                     <h6 class="text-white"><i class="mdi mdi-home-map-marker"></i> 250-260 3rd St, Hoboken, NJ 07030, USA</h6>
+                     <h1 class="text-white">도쿄</h1>
                   </div>
-                  <div class="col-lg-4 col-md-4 text-right">
-                     <h6 class="text-white mt-2">For Rent</h6>
-                     <h2 class="text-success">$25,000 <small>/month</small></h2>
+                  <div class="col-lg-2 col-md-2 text-right">
+                     <h6 class="text-white mt-2">날씨정보</h6>
+                     <h4 class="text-success">날씨정보</h4>
+                  </div>
+                  <div class="col-lg-2 col-md-2 text-right">
+                     <h6 class="text-white mt-2">환율정보</h6>
+                     <h4 class="text-success">환율정보</h4>
                   </div>
                </div>
                <hr>
                <div class="row">
-                  <div class="col-lg-8 col-md-8">
-                     <p class="mt-1 mb-0 text-white"><strong>Property ID</strong> : 533566 &nbsp;&nbsp; <strong>Add to favorites</strong> <i class="mdi mdi-heart text-white"></i></p>
-                  </div>
+                  <div class="col-lg-8 col-md-8"></div>
                   <div class="col-lg-4 col-md-4 text-right">
-                     <div class="footer-social">
-                        <span class="text-white">Share :</span> &nbsp;
-                        <a href="#"><i class="mdi mdi-facebook"></i></a>
-                        <a href="#"><i class="mdi mdi-twitter"></i></a>
-                        <a href="#"><i class="mdi mdi-instagram"></i></a>
-                        <a href="#"><i class="mdi mdi-google"></i></a>
-                     </div>
+                  	<h6 class="text-white"><i class="mdi mdi-home-map-marker">&nbsp;</i>도쿄 주소</h6>
                   </div>
                </div>
             </div>
          </div>
       </section>
-      <!-- End Property Single Slider header -->
+      <!-- 메인 슬라이더 끝 -->
       
       <!-- Property Single Slider -->
       <section class="section-padding">
+      <div class="section-title text-center mb-5">
+         <h2>관광지 추천</h2>
+         <p>도쿄의 핵심 관광지</p>
+      </div>
+      	 <!-- 메인 뷰 시작 -->
          <div class="container">
             <div class="row">
-               <div class="col-lg-8 col-md-8">
-                  <div class="card padding-card">
+               <div class="col-lg-12 col-md-12">
+               	  <div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/1.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/2.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/3.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/4.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/5.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/6.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<h6>관광지이름</h6>
+									<p class="mb-0">관광지설명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				  <!-- 회원들이 쓴 글이 나타나는 공간 -->
+                  <!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
+				  <div class="col-lg-8 col-md-12">
+                  <div class="card padding-card reviews-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-3">Description</h5>
-                        <div class="row">
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-move-resize-variant"></i>
-                                 <strong>Area:</strong>
-                                 <p class="mb-0">1270 aq ft</p>
+                        <h5 class="card-title mb-4">회원들이 쓴 글</h5>
+                        <form>
+                           <div class="control-group form-group">
+                              <div class="controls">
+                                 <label>평점</label>
+                                 <select class="form-control custom-select">
+                                    <option name="STAR" value="1star">1 Star</option>
+                                    <option name="STAR" value="2star">2 Star</option>
+                                    <option name="STAR" value="3star">3 Star</option>
+                                    <option name="STAR" value="4star">4 Star</option>
+                                    <option name="STAR" value="5star">5 Star</option>
+                                 </select>
                               </div>
                            </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-sofa"></i>
-                                 <strong>Beds:</strong>
-                                 <p class="mb-0">4 Bedrooms</p>
+                           <div class="control-group form-group">
+                              <div class="controls">
+                                 <label>내용</label>
+                                 <textarea rows="3" cols="50" class="form-control" name="CONTENTS"></textarea>
                               </div>
                            </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-hot-tub"></i>
-                                 <strong>Baths:</strong>
-                                 <p class="mb-0">2 Bathrooms</p>
-                              </div>
+                           <button type="submit" class="btn btn-success btn-block">올리기</button>
+                        </form>
+                        <hr>
+                        <div class="media mb-4">
+                           <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/1.jpg'/>">
+                           <div class="media-body">
+                              <h5 class="mt-0">회원 아이디1 <small>작성일</small> 
+                                 <span class="star-rating float-right">
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
+                                 </span>
+                              </h5>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                            </div>
                         </div>
-                        <div class="row">
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-garage"></i>
-                                 <strong>Rooms:</strong>
-                                 <p class="mb-0">6 Rooms</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-floor-plan"></i>
-                                 <strong>Floors:</strong>
-                                 <p class="mb-0">4 Floors</p>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4">
-                              <div class="list-icon">
-                                 <i class="mdi mdi-car-convertible"></i>
-                                 <strong>Garage:</strong>
-                                 <p class="mb-0">2 Garages</p>
-                              </div>
+                        <div class="media mb-4">
+                           <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/2.jpg'/>">
+                           <div class="media-body">
+                              <h5 class="mt-0">회원 아이디2 <small>작성일</small> 
+                                 <span class="star-rating float-right">
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
+                                 </span>
+                              </h5>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                            </div>
                         </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,</p>
-                        <p class="mb-0">is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
-                     </div>
-                  </div>
-                  
+                        <div class="media mb-4">
+                           <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/3.jpg'/>">
+                           <div class="media-body">
+                              <h5 class="mt-0">회원 아이디3 <small>작성일</small> 
+                                 <span class="star-rating float-right">
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
+                                 </span>
+                              </h5>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                        <div class="media mb-4">
+                           <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/4.jpg'/>">
+                           <div class="media-body">
+                              <h5 class="mt-0">회원 아이디4 <small>작성일</small> 
+                                 <span class="star-rating float-right">
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
+                                 </span>
+                              </h5>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                          <div class="media mb-4">
+                           <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/5.jpg'/>">
+                           <div class="media-body">
+                              <h5 class="mt-0">회원 아이디5 <small>작성일</small> 
+                                 <span class="star-rating float-right">
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i>
+                                 <i class="mdi mdi-star-half text-warning"></i><small class="text-success">5/2</small>
+                                 </span>
+                              </h5>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                        	<nav class="mt-5">
+                     			<ul class="pagination justify-content-center">
+                        			<li class="page-item disabled">
+                           				<a class="page-link" href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                        			</li>
+                        			<li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        			<li class="page-item"><a class="page-link" href="#">2</a></li>
+                        			<li class="page-item"><a class="page-link" href="#">3</a></li>
+                        			<li class="page-item"><a class="page-link" href="#">...</a></li>
+                        			<li class="page-item"><a class="page-link" href="#">10</a></li>
+                        			<li class="page-item">
+                            			<a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
+                        			</li>
+                     			</ul>
+                     		</nav>
+                     	</div>
+                  	</div>
+                  <!-- 회원들이 쓴 글이 나타나는 공간 끝 -->
+               	</div>
+               	  <!-- 구글지도  -->
+               	<div class="col-lg-4 col-md-12">
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-3">Location</h5>
+                        <h5 class="card-title mb-3">지도</h5>
                         <div class="row mb-3">
                            <div class="col-lg-6 col-md-6">
-                              <p><strong class="text-dark">Address :</strong> 1200 Petersham Town</p>
-                              <p><strong class="text-dark">State :</strong> Newcastle</p>
+                              <p><strong class="text-dark">주소</strong><br>Petersham Town</p>
                            </div>
                            <div class="col-lg-6 col-md-6">
-                              <p><strong class="text-dark">City :</strong> Sydney</p>
-                              <p><strong class="text-dark">Zip/Postal Code  :</strong> 54330</p>
+                              <p><strong class="text-dark">도시</strong><br>Sydney</p>
                            </div>
                         </div>
                         <div id="map"></div>
                      </div>
                   </div>
-
-                  <div class="card padding-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Leave a Review</h5>
-                        <form name="sentMessage">
-                           <div class="row">
-                              <div class="control-group form-group col-lg-4 col-md-4">
-                                 <div class="controls">
-                                    <label>Your Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" required>
-                                 </div>
-                              </div>
-                              <div class="control-group form-group col-lg-4 col-md-4">
-                                 <div class="controls">
-                                    <label>Your Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" required>
-                                 </div>
-                              </div>
-                              <div class="control-group form-group col-lg-4 col-md-4">
-                                 <div class="controls">
-                                    <label>Rating <span class="text-danger">*</span></label>
-                                    <select class="form-control custom-select">
-                                       <option>1 Star</option>
-                                       <option>2 Star</option>
-                                       <option>3 Star</option>
-                                       <option>4 Star</option>
-                                       <option>5 Star</option>
-                                    </select>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="control-group form-group">
-                              <div class="controls">
-                                 <label>Review <span class="text-danger">*</span></label>
-                                 <textarea rows="10" cols="100" class="form-control"></textarea>
-                              </div>
-                           </div>
-                           <button type="submit" class="btn btn-success">Send Message</button>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card sidebar-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">About Agent</h5>
-                        <div id="featured-properties">
-                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                 <div class="card card-list">
-                                    <a href="#">
-                                       <img class="card-img-top" src="<c:url value='/resources/img/agent.jpg'/>" alt="Card image cap">
-                                       <div class="card-body pb-0">
-                                          <h5 class="card-title mb-4">Gurdeep Osahan</h5>
-                                          <h6 class="card-subtitle mb-3 text-muted"><i class="mdi mdi-phone"></i> (950) 491-570-180</h6>
-                                          <h6 class="card-subtitle mb-3 text-muted"><i class="mdi mdi-email"></i> support@example.com</h6>
-                                          <h6 class="card-subtitle text-muted"><i class="mdi mdi-link"></i> www.askbootstrap.com</h6>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                 
-                  <div class="card sidebar-card">
-                     <div class="card-body">
-                        <h5 class="card-title mb-4">Featured Properties</h5>
-                        <div id="featured-properties" class="carousel slide" data-ride="carousel">
-                           <ol class="carousel-indicators">
-                              <li data-target="#featured-properties" data-slide-to="0" class="active"></li>
-                              <li data-target="#featured-properties" data-slide-to="1"></li>
-                           </ol>
-                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                 <div class="card card-list">
-                                    <a href="#">
-                                       <span class="badge badge-success">For Sale</span>
-                                       <img class="card-img-top" src="<c:url value='/resources/img/list/1.png'/>" alt="Card image cap">
-                                       <div class="card-body">
-                                          <h5 class="card-title">House in Kent Street</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                                          <h2 class="text-success mb-0 mt-3">
-                                             $130,000 <small>/month</small>
-                                          </h2>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="carousel-item">
-                                 <div class="card card-list">
-                                    <a href="#">
-                                       <span class="badge badge-secondary">For Rent</span>
-                                       <img class="card-img-top" src="img/list/2.png" alt="Card image cap">
-                                       <div class="card-body">
-                                          <h5 class="card-title">Family House in Hudson</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ, USA</h6>
-                                          <h2 class="text-success mb-0 mt-3">
-                                             $127,000 <small>/month</small>
-                                          </h2>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-
-               </div>
+                  <!-- 구글 지도 끝 -->
+			    </div>
+			  </div>
             </div>
-         </div>
+          </div>
+        </div>
+        <!-- 메인 뷰 끝 --> 
       </section>
       <!-- End Property Single Slider -->	 
-      <!-- Similar Properties -->
-      <section class="section-padding  border-top">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12 col-md-12 section-title text-left mb-4">
-                  <h2>Similar Properties</h2>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-success">For Sale</span>
-                        <img class="card-img-top" src="img/list/1.png" alt="Card image cap">
-                        <div class="card-body">
-                           <h5 class="card-title">House in Kent Street</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $130,000 <small>/month</small>
-                           </h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-secondary">For Rent</span>
-                        <img class="card-img-top" src="img/list/2.png" alt="Card image cap">
-                        <div class="card-body">
-                           <h5 class="card-title">Family House in Hudson</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ, USA</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $127,000 <small>/month</small>
-                           </h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>5</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>3</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>300 sq ft</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-success">For Sale</span>
-                        <img class="card-img-top" src="img/list/3.png" alt="Card image cap">
-                        <div class="card-body">
-                           <h5 class="card-title">Loft Above The City</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hope Street (Stop P), London SW11, UK</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $55,000 <small>/month</small>
-                           </h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>2</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>1</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>100 sq ft</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- End Similar Properties -->
-      <!-- Join Team -->
-      <section class="section-padding bg-dark text-center">
-         <h2 class="text-white mt-0">Join our professional team & agents<br>to start selling your house</h2>
-         <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-         <button type="button" class="btn btn-success">Contact Us</button> <button type="button" class="btn btn-outline-success">Read More</button>
-      </section>
-      <!-- End Join Team -->
-      <!-- Footer -->
-      <section class="section-padding footer bg-white">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-4 col-md-3">
-                  <h4 class="mb-5"><a class="text-success logo" href="index.html"><i class="mdi mdi-home-map-marker"></i> <strong>Osahan</strong>Land</a></h4>
-                  <p>86 Petersham town, New South wales<br>Waedll Steet, Australia PA 6550</p>
-                  <p class="mb-0"><a class="text-dark" href="#">+61 525 240 310</a></p>
-                  <p class="mb-0"><a class="text-success" href="#">iamosahan@gmail.com</a></p>
-                  <p class="mb-0"><a class="text-info" href="#">www.askbootstrap.com</a></p>
-               </div>
-               <div class="col-lg-2 col-md-2">
-                  <h6 class="mb-4">COMPANY</h6>
-                  <ul>
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Career</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Properties</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <ul>
-               </div>
-               <div class="col-lg-2 col-md-2">
-                  <h6 class="mb-4">LEARN MORE</h6>
-                  <ul>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms & Conditions</a></li>
-                  <li><a href="#">Account</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <ul>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <h6 class="mb-4">NEWSLETTER</h6>
-                  <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Email Address..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button"><i class="mdi mdi-arrow-right"></i></button>
-                     </div>
-                  </div>
-                  <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
-                  <div class="footer-social">
-                     <a href="#"><i class="mdi mdi-facebook"></i></a>
-                     <a href="#"><i class="mdi mdi-twitter"></i></a>
-                     <a href="#"><i class="mdi mdi-instagram"></i></a>
-                     <a href="#"><i class="mdi mdi-google"></i></a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- End Footer -->
-      <!-- Copyright -->
-      <section class="pt-4 pb-4 text-center">
-         <p class="mt-0 mb-0">Â© Copyright 2018 OsahanLand. All Rights Reserved</p>
-         <small class="mt-0 mb-0">
-         Made with <i class="mdi mdi-heart text-danger"></i>	by 
-         <a class="text-dark" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
-         </small>
-      </section>
-      <!-- End Copyright -->
+
       <!-- Bootstrap core JavaScript -->
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
