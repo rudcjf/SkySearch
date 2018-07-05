@@ -9,7 +9,7 @@
 <title><tiles:getAsString name="layout.title" /></title>
 </head>
 <body>
-     	
+
      	<tiles:insertAttribute name="layout.top" />
 		<tiles:insertAttribute name="layout.body" />
 		<tiles:insertAttribute name="layout.footer" />
