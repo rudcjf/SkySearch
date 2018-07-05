@@ -18,7 +18,7 @@
       <!-- End Inner Header -->
       
       <!-- Contact Us -->
-      <section class="section-padding">
+      <section class="section-padding" >
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4">
@@ -54,8 +54,8 @@
       </section>
       <!-- End Contact Us -->
       
-      <!-- Contact Me -->
-      <section class="section-padding  bg-white">
+<!--       Contact Me
+      <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-12 col-md-12 section-title text-left mb-4">
@@ -90,13 +90,13 @@
                         </div>
                      </div>
                      <div id="success"></div>
-                     <!-- For success/fail messages -->
+                     For success/fail messages
                      <button type="submit" class="btn btn-success">Send Message</button>
                </form>
             </div>
          </div>
       </section>
-      <!-- End Contact Me -->
+      End Contact Me -->
 
       <!-- Google Map Api -->
       <script>

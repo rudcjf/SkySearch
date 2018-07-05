@@ -9,15 +9,15 @@
                <div class="col-lg-4 col-md-4 mx-auto">
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">Login</h5>
+                        <h3 class="card-title mb-4">Login</h3>
                         <form>
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
-                              <input type="email" class="form-control" placeholder="Enter Email address">
+                              <input type="email" name="EMAIL" class="form-control" placeholder="Base form : mulcam@mulcam.com">
                            </div>
                            <div class="form-group">
                               <label>Password <span class="text-danger">*</span></label>
-                              <input type="password" class="form-control" placeholder="Enter Password">
+                              <input type="password" name="PASSWORD" class="form-control" placeholder="Password">
                            </div>
                            <div class="form-group">
                               <div class="custom-control custom-checkbox">
@@ -33,7 +33,7 @@
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
                         </div>
                         <div class="mt-4 text-center">
-                           <a href="<c:url value='/mypage/forget'/>">Forget your password?</a>
+                           <a href="<c:url value='/home/forget'/>">Forget your ID or Password?</a>
                         </div>
                      </div>
                   </div>
