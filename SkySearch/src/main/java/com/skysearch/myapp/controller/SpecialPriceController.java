@@ -36,11 +36,13 @@ public class SpecialPriceController {
 
 		// divided depending on action value
 		if ("main".equalsIgnoreCase(action)) {
+			//**특가 메인 데이터 가져오기
+			
 		} 
-		/*else if ("update".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			paramMap.put("action", action);
-		} else if ("merge".equalsIgnoreCase(action)) {
+		else if ("read".equalsIgnoreCase(action)) {
+			//**특가 상품 read 데이터 가져오기
+			
+		}/* else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.saveObject(paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
