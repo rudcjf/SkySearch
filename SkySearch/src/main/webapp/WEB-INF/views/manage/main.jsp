@@ -1,160 +1,100 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-   
-   <body>
-     
-   
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-      <!-- Agency List -->
-      <section class="section-padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12 col-md-12">
-                  <div class="row">
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card card-list card-list-view">
-                           <a href="#">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-4 col-md-4">					 
-                                    <span class="badge badge-success">10 Property</span>
-                                    <img class="card-img-top" src="img/agency-list/1.png" alt="Card image cap">
-                                 </div>
-                                 <div class="col-lg-8 col-md-8">
-                                    <div class="card-body">
-                                       <h3>House in Kent Street</h3>
-                                       <h6 class="card-subtitle mt-1 mb-4 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                                       <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum.  consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. </p>
+</head>
+<body>
+       
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="card-title mb-0">Traffic</h4>
+                                <div class="small text-muted">October 2017</div>
+                            </div>
+                            <!--/.col-->
+                            <div class="col-sm-8 hidden-sm-down">
+                                <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i class="fa fa-cloud-download"></i></button>
+                                <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
+                                        <label class="btn btn-outline-secondary">
+                                            <input type="radio" name="options" id="option1"> Day
+                                        </label>
+                                        <label class="btn btn-outline-secondary active">
+                                            <input type="radio" name="options" id="option2" checked=""> Month
+                                        </label>
+                                        <label class="btn btn-outline-secondary">
+                                            <input type="radio" name="options" id="option3"> Year
+                                        </label>
                                     </div>
-                                    <div class="card-footer">
-                                       <span><i class="mdi mdi-phone"></i> (+91) 123 456 7890</span>
-                                       <span><i class="mdi mdi-email"></i> iamosahan@gmail.com</span>
-                                       <span><i class="mdi mdi-link"></i> www.askbootstrap.com</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card card-list card-list-view">
-                           <a href="#">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-4 col-md-4">					 
-                                    <span class="badge badge-danger">16 Property</span>
-                                    <img class="card-img-top" src="img/agency-list/2.png" alt="Card image cap">
-                                 </div>
-                                 <div class="col-lg-8 col-md-8">
-                                    <div class="card-body">
-                                       <h3>Rodeo Realty</h3>
-                                       <h6 class="card-subtitle mt-1 mb-4 text-muted"><i class="mdi mdi-home-map-marker"></i>  Hoboken, NJ, USA</h6>
-                                       <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum.  consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. </p>
-                                    </div>
-                                    <div class="card-footer">
-                                       <span><i class="mdi mdi-phone"></i> (+91) 123 456 7890</span>
-                                       <span><i class="mdi mdi-email"></i> rodeorealty@gmail.com</span>
-                                       <span><i class="mdi mdi-link"></i> www.askbootstrap.com</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card card-list card-list-view">
-                           <a href="#">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-4 col-md-4">					 
-                                    <span class="badge badge-info">60 Property</span>
-                                    <img class="card-img-top" src="img/agency-list/3.png" alt="Card image cap">
-                                 </div>
-                                 <div class="col-lg-8 col-md-8">
-                                    <div class="card-body">
-                                       <h3>Platinum Properties</h3>
-                                       <h6 class="card-subtitle mt-1 mb-4 text-muted"><i class="mdi mdi-home-map-marker"></i>   Hope Street (Stop P), London SW11, UK</h6>
-                                       <p class="mb-0">Ipsum dolor sit amet, consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum.  consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. </p>
-                                    </div>
-                                    <div class="card-footer">
-                                       <span><i class="mdi mdi-phone"></i> (+91) 123 456 7890</span>
-                                       <span><i class="mdi mdi-email"></i> platinum@gmail.com</span>
-                                       <span><i class="mdi mdi-link"></i> www.askbootstrap.com</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card card-list card-list-view">
-                           <a href="#">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-4 col-md-4">					 
-                                    <span class="badge badge-primary">05 Property</span>
-                                    <img class="card-img-top" src="img/agency-list/4.png" alt="Card image cap">
-                                 </div>
-                                 <div class="col-lg-8 col-md-8">
-                                    <div class="card-body">
-                                       <h3>House in Kent Street</h3>
-                                       <h6 class="card-subtitle mt-1 mb-4 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                                       <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum.  consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. </p>
-                                    </div>
-                                    <div class="card-footer">
-                                       <span><i class="mdi mdi-phone"></i> (+91) 123 456 7890</span>
-                                       <span><i class="mdi mdi-email"></i> iamosahan@gmail.com</span>
-                                       <span><i class="mdi mdi-link"></i> www.askbootstrap.com</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card card-list card-list-view">
-                           <a href="#">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-4 col-md-4">					 
-                                    <span class="badge badge-dark">99 Property</span>
-                                    <img class="card-img-top" src="img/agency-list/5.png" alt="Card image cap">
-                                 </div>
-                                 <div class="col-lg-8 col-md-8">
-                                    <div class="card-body">
-                                       <h3>Rodeo Realty</h3>
-                                       <h6 class="card-subtitle mt-1 mb-4 text-muted"><i class="mdi mdi-home-map-marker"></i>  Hoboken, NJ, USA</h6>
-                                       <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum.  consectetur adipiscing elit. Quisqu lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. </p>
-                                    </div>
-                                    <div class="card-footer">
-                                       <span><i class="mdi mdi-phone"></i> (+91) 123 456 7890</span>
-                                       <span><i class="mdi mdi-email"></i> rodeorealty@gmail.com</span>
-                                       <span><i class="mdi mdi-link"></i> www.askbootstrap.com</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <nav class="mt-5">
-                     <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                           <a class="page-link" href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        <li class="page-item">
-                           <a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
-                        </li>
-                     </ul>
-                  </nav>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- End Agency List -->
-     
-   </body>
-</html>
+                                </div>
+                            </div><!--/.col-->
 
+
+                        </div><!--/.row-->
+                        <div class="chart-wrapper mt-4" >
+                            <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <ul>
+                            <li>
+                                <div class="text-muted">Visits</div>
+                                <strong>29.703 Users (40%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">Unique</div>
+                                <strong>24.093 Users (20%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-muted">Pageviews</div>
+                                <strong>78.706 Views (60%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">New Users</div>
+                                <strong>22.123 Users (80%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">Bounce Rate</div>
+                                <strong>40.15%</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+         
+
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+ 
+
+</body>
+</html>
