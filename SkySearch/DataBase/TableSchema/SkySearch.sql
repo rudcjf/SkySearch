@@ -218,8 +218,6 @@ CREATE TABLE SS_MEMBER
 	PASSWORD varchar(30),
 	-- 이름
 	NAME varchar(20),
-	-- 등급
-	GRADE varchar(10),
 	-- 핸드폰
 	PHONE varchar(40),
 	-- 관심지역
