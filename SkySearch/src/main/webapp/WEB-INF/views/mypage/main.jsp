@@ -2,8 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+ <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+
       <!-- Inner Header -->
-      <section class="section-padding bg-dark inner-header">
+      <section class="section-padding bg-dark inner-header1">
          <div class="container">
             <div class="row">
                <div class="col-md-12 text-center">
@@ -43,30 +45,29 @@
  <!-- END mypage tab -->   
      
       <!-- member Profile -->
+      <!-- 회원 리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 read 나타낸다 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
-               <div class="col-lg-5 col-md-5">
-                <img class="rounded img-fluid" src="<c:url value='/resources/img/member.jpg'/>" alt="Card image cap">
-               </div>
-                <p> </p>
-                  <p> </p>
-                  <p> </p>
-               <div class="col-lg-7 col-md-7 pl-5 pr-5">
-                 <form role="form" method="POST" action="<c:url value='/member/update?MEMBER_SEQ=${paramMap.MEMBER_SEQ}' />">
-                  <h2 class="mb-0 mt-4">Member ID :  <%-- ${resultMap.EMAIL} --%></h2>
-                  <h5 class="text-success mb-3">Member no. :  <%-- ${resultMap.MEMBER_SEQ} --%></h5>
-                 
-                  <div class="row mt-5">
-                     <div class="col-lg-6 col-md-6">
-                        <p><strong class="text-dark">NAME :</strong> <%-- ${resultMap.NAME} --%></p>
-                        <p><strong class="text-dark">PASSWORD :</strong> <%-- ${resultMap.PASSWORD} --%></p>
-                     <%--   <p><strong class="text-dark">GRADE :</strong>  ${resultMap.GRADE} ></p>--%>
-                        <p><strong class="text-dark">PHONE :</strong> <%-- ${resultMap.PHONE} --%></p>
-                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <%-- ${resultMap.INT_LOCAL} --%></p>
-                     </div>
-                  </div>
-                 </form>  
+               <div class="col-lg-6 col-md-6 mx-auto">
+                 <div class="card padding-card"> 
+	                 <form role="form" method="POST" action="<c:url value='/member/update?MEMBER_SEQ=${paramMap.MEMBER_SEQ}' />">
+	                  <div class="card-body">
+		                  <h2 class="mb-0 mt-4">Member ID :  <%-- ${resultMap.EMAIL} --%></h2>
+		                  <h5 class="text-success mb-3">Member no. :  <%-- ${resultMap.MEMBER_SEQ} --%></h5>
+		                 
+		                  <div class="row mt-5">
+		                     <div class="col-lg-6 col-md-6">
+		                        <p><strong class="text-dark">NAME :</strong> <%-- ${resultMap.NAME} --%></p>
+		                        <p><strong class="text-dark">PASSWORD :</strong> <%-- ${resultMap.PASSWORD} --%></p>
+		                     <%--   <p><strong class="text-dark">GRADE :</strong>  ${resultMap.GRADE} ></p>--%>
+		                        <p><strong class="text-dark">PHONE :</strong> <%-- ${resultMap.PHONE} --%></p>
+		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <%-- ${resultMap.INT_LOCAL} --%></p>
+		                     </div>
+		                  </div>
+                  	  </div>
+                 	</form>  
+                 </div>
                </div>
             </div>
          </div>

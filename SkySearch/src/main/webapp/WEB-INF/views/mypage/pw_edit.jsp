@@ -2,8 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+
       <!-- Inner Header -->
-      <section class="section-padding bg-dark inner-header">
+      <section class="section-padding bg-dark inner-header1">
          <div class="container">
             <div class="row">
                <div class="col-md-12 text-center">
@@ -43,6 +45,7 @@
   <!-- END mypage tab --> 
        
       <!-- 비밀번호 변경 -->
+            <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원의 비밀번호를 수정(edit)한다-->
      <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -64,12 +67,13 @@
                               <label>새 비밀번호 확인 <span class="text-danger">*</span></label>
                               <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="새 비밀번호를 다시 입력하세요">
                            </div>
-                        </div>
-                     </div>
-					 <div align="right">	
-                     	<button type="submit" class="btn btn-success">EDIT</button>
-                     	<button type="reset" class="btn btn-default">RESET</button>
-                     </div>
+                        	<br>
+	                        <div align="center">	
+		                     	<button type="submit" class="btn btn-success">EDIT</button>
+		                     	<button type="reset" class="btn btn-default">RESET</button>
+	                        </div>
+                    	 </div>
+					 </div>
                   </form>
                </div>
             </div>
