@@ -30,7 +30,7 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="#">Dashboard</a></li>
+						<li><a href="<c:url value='/manage/main'/>">Dashboard</a></li>
 						<li class="active">여행정보</li>
 					</ol>
 				</div>
@@ -59,12 +59,15 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<table id="bootstrap-data-table"
-											class="table table-striped table-bordered">
+											class="table table-striped table-bordered" style="overflow:hidden;">
 											<thead>
 												<tr>
 													<th>도시명</th>
 													<th>주소</th>
 													<th>관광지</th>
+													<th>조회수</th>
+													<th>등록자</th>
+													<th>등록일자</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -73,78 +76,120 @@
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>도쿄타워</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>스카이트리</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>시부야109</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>롯폰기힐즈</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>센소지</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>도쿄도청사 전망대</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>아사쿠사</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>도쿄</td>
 													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
 														163-8001 일본</td>
 													<td>대관람차</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>자유의 여신상</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>타임스퀘어</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>센트럴파크</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>엠파이어스테이트빌딩</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>LOVE조각상</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 												<tr>
 													<td>뉴욕</td>
 													<td>City Hall Park, New York, NY 10007 미국</td>
 													<td>브루클린다리</td>
+													<td>20</td>
+													<td>0knave0</td>
+													<td>2018.07.06</td>
 												</tr>
 											</tbody>
 										</table>

@@ -30,8 +30,9 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="#">Dashboard</a></li>
-						<li class="active">여행정보</li>
+						<li><a href="<c:url value='/manage/main'/>">Dashboard</a></li>
+						<li><a href="<c:url value='/manage/ti_list'/>">여행정보</a></li>
+						<li class="active">여행정보 입력</li>
 					</ol>
 				</div>
 			</div>
@@ -137,12 +138,13 @@
 						</div>
 						<div class="form-group">
 							<label>관광지 설명 :</label>
-							<textarea name="textarea-input" id="textarea-input" rows="9"
-								placeholder="Content..." class="form-control"></textarea>
+							<textarea name="textarea-input LANDMARK_EXP" id="textarea-input" rows="5"
+								placeholder="내용을 입력하세요." class="form-control">${resultMap.LANDMARK_EXP}</textarea>
 						</div>
 						<div class="col col-md-3">
 							<label for="file-input" class=" form-control-label">이미지 넣기</label>
 						</div>
+						<br>
 						<div class="col-12 col-md-9">
 							<input type="file" id="file-input" name="file-input"
 								class="form-control-file">

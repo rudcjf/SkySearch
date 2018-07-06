@@ -17,15 +17,22 @@
 
     <link type='text/css'  href="<c:url value='/resources/assets/css/normalize.css'/>"rel="stylesheet"/>
     <link type='text/css'  href="<c:url value='/resources/assets/css/bootstrap.min.css'/>"rel="stylesheet"/>
+    <link type='text/css' href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
+    <link  type='text/css'  href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
+    <link  type='text/css'  href="<c:url value='/resources/assets/css/cs-skin-elastic.css'/>"rel="stylesheet"/>
+    
+    <!-- Fonts -->
     <link type='text/css'  href="<c:url value='/resources/assets/css/font-awesome.min.css'/>"rel="stylesheet"/>
     <link type='text/css'  href="<c:url value='/resources/assets/css/themify-icons.css'/>"rel="stylesheet"/>
     <link type='text/css'  href="<c:url value='/resources/assets/css/flag-icon.min.css'/>"rel="stylesheet"/>
-    <link  type='text/css'  href="<c:url value='/resources/assets/css/cs-skin-elastic.css'/>"rel="stylesheet"/>
+    <link type="text/css" href="<c:url value='/resources/vendor/icons/css/materialdesignicons.min.css'/>" media="all" rel="stylesheet" />
+    
     <!-- <link type='text/css' href="<c:url value='/resources/assets/css/bootstrap-select.less'/>"rel="stylesheet"/> -->
-    <link  type='text/css'  href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
+    
+    
+    <!-- Map&Table -->
     <link  type='text/css' href="<c:url value='/resources/assets/css/lib/vector-map/jqvmap.min.css'/>"rel="stylesheet"/>
 	 <link type='text/css' href="<c:url value='/resources/assets/css/lib/datatable/dataTables.bootstrap.min.css'/>"rel="stylesheet"/>
     <!-- <link type='text/css' href="<c:url value='/resources/assets/css/bootstrap-select.less'/>"rel="stylesheet"/> -->
-    <link type='text/css' href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
 
 	
