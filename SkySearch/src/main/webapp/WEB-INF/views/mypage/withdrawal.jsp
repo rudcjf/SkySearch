@@ -43,6 +43,7 @@
  <!-- END mypage tab -->     
              
       <!-- 회원탈퇴 -->
+            <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 delete(하지만 db에는 남는다?)-->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -55,16 +56,18 @@
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
                             	<input type="email" name="EMAIL" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                            	<br>
                             	<label>Password <span class="text-danger">*</span></label>
                             	<input type="password" name="PASSWORD" class="form-control" placeholder="Password">
                            	</div>
+                           	<br>
+                           	<div align="center">	
+				            	<button type="submit" class="btn btn-success">EDIT</button>
+				                <button type="reset" class="btn btn-default">RESET</button>
+				            </div>
 					 	</div> 
 					</div>	
-					<div align="right">	
-		            	<button type="submit" class="btn btn-success">EDIT</button>
-		                <button type="reset" class="btn btn-default">RESET</button>
-		            </div>
-                 </form> 
+               </form> 
                </div>
             </div>
          </div>
