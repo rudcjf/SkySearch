@@ -2,8 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+ <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+
       <!-- Inner Header -->
-      <section class="section-padding bg-dark inner-header">
+      <section class="section-padding bg-dark inner-header1">
          <div class="container">
             <div class="row">
                <div class="col-md-12 text-center">

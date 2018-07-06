@@ -48,6 +48,10 @@ public class ManageController {
 			
 		}else if("ti_list".equalsIgnoreCase(action)) {
 			
+		}else if("sp_regList".equalsIgnoreCase(action)) {
+			
+		}else if("sp_read".equalsIgnoreCase(action)) {
+
 		}else if("ti_edit".equalsIgnoreCase(action)) {
 			
 		}
