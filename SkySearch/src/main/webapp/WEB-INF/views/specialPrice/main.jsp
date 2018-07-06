@@ -91,7 +91,7 @@
       </section>
       <!-- End 특가 검색 Main Slider With Form -->
       <!-- 광고 특가  Product List -->
-      <section class="section-padding">
+      <section class="section-padding bg-white">
          <div class="container">
             <div class="row" >
              
@@ -104,13 +104,6 @@
                      <div class="tooltipmj" >
                      	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
                      	
-        <!--              	<div class="tooltip">
-                     			<i class="icon-comm icon-tooltip-arrow"></i>
-                     			<div class="show">
-                     				<p>skysearch의 광고상품을 구입한 특가가 보여지는 영역입니다.</p>
-                     			</div>
-                     	
-                     	</div> -->
                      	
                      	<!-- tooltip -->
 	                     	<!-- <div class="">arrow
@@ -179,7 +172,7 @@
                   </div>
                </div>
             </div>
-      </section> <hr>
+      </section> 
        <!-- End 광고 특가  Product List -->
       <!--  Product List -->
       <section class="section-padding">
