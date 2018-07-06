@@ -47,6 +47,8 @@ public class ManageController {
 			
 		}else if("ti_list".equalsIgnoreCase(action)) {
 			
+		}else if("ti_edit".equalsIgnoreCase(action)) {
+			
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
