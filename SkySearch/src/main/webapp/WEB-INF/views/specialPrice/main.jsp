@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+ <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
+
       <!-- 특가 검색 Main Slider With Form -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
@@ -54,7 +56,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">국가</option>
+                              <option disabled="" selected="">국가명</option>
                               <option>Heigh </option>
                               <option>Midium</option>
                               <option>Normal</option>
@@ -65,7 +67,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">도시</option>
+                              <option disabled="" selected="">도시명</option>
                               <option>Property Types</option>
                               <option value="">House/Villa</option>
                               <option value="">Flat</option>
@@ -99,7 +101,26 @@
                         <h4> 이 특가 추천 </h4>
                     </div>
                      <div class="col-lg-1 col-md-1 sort-by-btn float-right">
+                     <div class="tooltipmj" >
                      	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
+                     	
+        <!--              	<div class="tooltip">
+                     			<i class="icon-comm icon-tooltip-arrow"></i>
+                     			<div class="show">
+                     				<p>skysearch의 광고상품을 구입한 특가가 보여지는 영역입니다.</p>
+                     			</div>
+                     	
+                     	</div> -->
+                     	
+                     	<!-- tooltip -->
+	                     	<!-- <div class="">arrow
+	                     	<i class="mdi mdi-tooltip"></i>
+	                     	</div> -->
+	                     	<span class="tooltiptextmj"><!-- tooltip-inner -->
+	                     		skysearch의 광고상품을 구입한 특가가 보여지는 영역입니다.
+	                     	</span>
+                     	</div>
+                     	
                      </div>
                   </div>
              

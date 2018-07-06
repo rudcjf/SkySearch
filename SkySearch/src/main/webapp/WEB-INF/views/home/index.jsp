@@ -45,7 +45,7 @@
                            <select class="form-control select2 no-radius" placeholder="여행지역">
                               <option value="">여행지역</option>
                               <option value="Japan">일본</option>
-                              <option value="Hongkong">홍콩,싱카포르,대만,마카오</option>
+                              <option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
                               <option value="China">중국</option>
                               <option value="Asia">아시아</option>
                               <option value="Jeju">국내(제주)</option>
@@ -98,37 +98,32 @@
          </div>
       </section>
  <!-- End Main Slider With Form -->
-      
-<!-- 추천 특가 상품 List -->
-<!-- 최신순 6개 뽑아서 출력할것 -->
-      <section class="section-padding">
-         <div class="section-title text-center mb-5">
-            <h2>추천 특가 상품</h2>
-            <p>빅 프로모션! 놓치지 마세용!</p>
-                     <div class="col-lg-1 col-md-1 sort-by-btn float-right">
-                     <em>광고</em><i class="mdi mdi-help-circle-outline"></i></div>
-         </div>
 
+
+<!-- 이번주 특가상품 List -->
+      <section class="section-padding bg-white">
+         <div class="section-title text-center mb-5">
+            <h2>이번주 항공권 특가상품</h2>
+            <div class="col-lg-2 col-md-2 sort-by-btn float-right">
+            	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
+            </div>         
+         </div>
+<!-- 이번주 특가상품 3개 -->
          <div class="container">
             <div class="row">
-            
                <div class="col-lg-4 col-md-4">
-               
                   <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-success">For Sale</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image cap"/>
+                     <a href="<c:url value='/specialPrice/read'/>">
+                        <span class="badge badge-danger">HOT</span><!-- 뱃지 ->빨간(danger):조회수 기준 이상(예 100아성),흑색(secondary): 마감, 노란색(warning): 마감임박 -->
+                        <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">뉴욕 특가 떴다!</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $130,000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">제주항공 찜 특가<!-- 이부분은 특가 게시판 제목입니다 --></h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>다낭, 베트남<!-- 이부분은 도시명,국가명입니다 --> </h6>
+                           <h2 class="text-success mb-0 mt-3"> 140,000원 ~ <!-- 이부분은 특가정보 가격입니다 --></h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>제주항공<!--이 부분은 특가정보의 항공사명입니다 --></strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>18.07.24<!-- 이부분은 특가상품의 종료일입니다  --></strong></span>
                         </div>
                      </a>
                   </div>
@@ -136,19 +131,16 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card card-list">
                      <a href="#">
-                        <span class="badge badge-info">For Rent</span>
+                        <span class="badge badge-danger">HOT</span>
                         <img class="card-img-top" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">필라델피아</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> The Village, Jersey City, NJ 07302, USA</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $356, 000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>1</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>3</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>187 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
                         </div>
                      </a>
                   </div>
@@ -157,19 +149,88 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card card-list">
                      <a href="#">
-                        <span class="badge badge-success">For Sale</span>
+                        <span class="badge badge-danger">HOT</span>
                         <img class="card-img-top" src="<c:url value='/resources/img/overlay/london.png'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">런던 런던</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hope Street (Stop P), London SW11, UK</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $55,000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>2</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>1</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>100 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+
+
+
+         </div>
+         </div>
+      </section>
+<!-- End 추천 특가 상품 List -->       
+<!-- 추천 특가 상품 List -->
+      <section class="section-padding">
+         <div class="section-title text-center mb-5">
+            <h2>추천 특가 상품</h2>
+            <p>빅 프로모션! 놓치지 마세요!</p>
+            <div class="col-lg-2 col-md-2 sort-by-btn float-right">
+            	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
+            </div>         
+         </div>
+<!-- 조회순 또는 최신순 6개/ 로그인 할 경우 회원의 관심 지역에 해당하는 상품들 중 랜덤으로 추천할 것 -->
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4">
+                  <div class="card card-list">
+                     <a href="<c:url value='/specialPrice/read'/>">
+                        <span class="badge badge-danger">HOT</span><!-- 뱃지 ->빨간(danger):조회수 기준 이상(예 100아성),흑색(secondary): 마감, 노란색(warning): 마감임박 -->
+                        <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>" alt="Card image cap"/>
+                        <div class="card-body">
+                           <h5 class="card-title">제주항공 찜 특가<!-- 이부분은 특가 게시판 제목입니다 --></h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>다낭, 베트남<!-- 이부분은 도시명,국가명입니다 --> </h6>
+                           <h2 class="text-success mb-0 mt-3"> 140,000원 ~ <!-- 이부분은 특가정보 가격입니다 --></h2>
+                        </div>
+                        <div class="card-footer">
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>제주항공<!--이 부분은 특가정보의 항공사명입니다 --></strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>18.07.24<!-- 이부분은 특가상품의 종료일입니다  --></strong></span>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4">
+                  <div class="card card-list">
+                     <a href="#">
+                        <span class="badge badge-danger">HOT</span>
+                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image cap"/>
+                        <div class="card-body">
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
+                        </div>
+                        <div class="card-footer">
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
+                        </div>
+                     </a>
+                  </div>
+               </div>               
+               
+               <div class="col-lg-4 col-md-4">
+                  <div class="card card-list">
+                     <a href="#">
+                        <span class="badge badge-danger">HOT</span>
+                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/london.png'/>" alt="Card image cap"/>
+                        <div class="card-body">
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
+                        </div>
+                        <div class="card-footer">
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
                         </div>
                      </a>
                   </div>
@@ -179,19 +240,16 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card card-list">
                      <a href="#">
-                        <span class="badge badge-danger">For Sale</span>
+                        <span class="badge badge-warning">마감임박</span>
                         <img class="card-img-top" src="<c:url value='/resources/img/overlay/paris.jpg'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">파리 파리</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 250-260 3rd St, Hoboken, NJ 07030, USA</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $25,000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>6</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>4</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>987 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
                         </div>
                      </a>
                   </div>
@@ -199,19 +257,16 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card card-list">
                      <a href="#">
-                        <span class="badge badge-warning">For Rent</span>
+                        <span class="badge badge-warning">마감임박</span>
                         <img class="card-img-top" src="<c:url value='/resources/img/overlay/swiss.jpg'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">스위스</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> NJ 07305, USA</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $12,000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>8</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>4</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>120 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
                         </div>
                      </a>
                   </div>
@@ -219,19 +274,16 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card card-list">
                      <a href="#">
-                        <span class="badge badge-secondary">For Rent</span>
+                        <span class="badge badge-secondary">마감</span>
                         <img class="card-img-top" src="<c:url value='/resources/img/overlay/newyork02.jpg'/>" alt="Card image cap"/>
                         <div class="card-body">
-                           <h5 class="card-title">뉴욕뉴욕</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ, USA</h6>
-                           <h2 class="text-success mb-0 mt-3">
-                              $127,000 <small>/month</small>
-                           </h2>
+                           <h5 class="card-title">특가상품의 제목</h5>
+                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
+                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
                         </div>
                         <div class="card-footer">
-                           <span><i class="mdi mdi-sofa"></i> Beds : <strong>5</strong></span>
-                           <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>3</strong></span>
-                           <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>300 sq ft</strong></span>
+                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
+                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
                         </div>
                      </a>
                   </div>
@@ -241,7 +293,7 @@
       </section>
 <!-- End 추천 특가 상품 List --> 
       
-<!-- 추천 여행지 : 조회수 높은 도시 출력 6개 할것 -->
+<!-- 추천 여행지 : 조회수/인기순 높은 도시 출력 6개 할것 -->
       <section class="section-padding bg-white">
          <div class="section-title text-center mb-5">
             <h2>인기 여행지 정보</h2>
@@ -254,8 +306,8 @@
                      <a href="#">
                         <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
-                           <h3 class="card-title text-white">New York</h3>
-                           <p class="card-text text-white">16 Properties</p>
+                           <h3 class="card-title text-white">New York<!-- 도시명 --></h3>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                   </div>
@@ -266,7 +318,7 @@
                         <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">New York</h3>
-                           <p class="card-text text-white">16 Properties</p>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                   </div>
@@ -277,7 +329,7 @@
                         <img class="card-img" src="<c:url value='/resources/img/overlay/la.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Los Angeles</h3>
-                           <p class="card-text text-white">265 Properties</p>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                   </div>
@@ -290,7 +342,7 @@
                         <img class="card-img" src="<c:url value='/resources/img/overlay/chicago.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Chicago</h3>
-                           <p class="card-text text-white">620 Properties</p>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                      .    
@@ -302,7 +354,7 @@
                         <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Philadelphia</h3>
-                           <p class="card-text text-white">28 Properties</p>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                   </div>
@@ -313,7 +365,7 @@
                         <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Philadelphia</h3>
-                           <p class="card-text text-white">28 Properties</p>
+                           <p class="card-text text-white">USA<!--국가명  --></p>
                         </div>
                      </a>
                   </div>
