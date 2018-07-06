@@ -107,8 +107,8 @@
                      <div class="col-lg-4 col-md-4">
                         <div class="card card-list">
                            <a href="<c:url value='/specialPrice/read'/>">
-                              <span class="badge badge-danger">HOT</span><!-- 이부분은 뱃지 영역 ->빨간 뱃지: 조회수 기준 이상(예 100아성) 띄워줌, 흑색 뱃지: 마감된 뱃지  -->
-                              <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>"  alt="Card image cap"><!-- 이미지 크기 약 800*553 -->
+                              <span class="badge badge-danger">HOT</span><!-- 이부분은 뱃지 영역 ->빨간 뱃지: 조회수 기준 이상(예 100이상) 띄워줌, 흑색 뱃지: 마감된 뱃지  -->
+                              <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>"  alt="Card image cap">
                               <div class="card-body">
                                  <h5 class="card-title">제주항공 찜 특가<!-- 이부분은 특가 게시판 제목입니다 --></h5>
                                  <h6 class="card-subtitle mb-2 text-muted"> <i class="mdi mdi-map-marker-multiple"></i>다낭, 베트남<!-- 이부분은 도시명,국가명입니다 --> </h6>
