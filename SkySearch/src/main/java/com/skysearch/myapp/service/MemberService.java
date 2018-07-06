@@ -17,7 +17,7 @@ public class MemberService {
 	@Autowired
 	private CommonUtil commonUtil;
 
-	/*public Object getList(Object dataMap) {
+	public Object getList(Object dataMap) {
 		String sqlMapId = "member.list";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
@@ -71,5 +71,5 @@ public class MemberService {
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 
 		return resultObject;
-	}*/
+	}
 }

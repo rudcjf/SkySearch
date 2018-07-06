@@ -11,7 +11,7 @@
                 </button>
                 <a class="navbar-brand" href="<c:url value='/'/>"><i class="mdi mdi-airplane-takeoff"></i> <strong> SKY
 					Search</strong></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="<c:url value='/'/>"><i class="mdi mdi-airplane-takeoff"></i></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">

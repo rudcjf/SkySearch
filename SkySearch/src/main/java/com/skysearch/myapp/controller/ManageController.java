@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skysearch.myapp.service.MemberService;
 
 
+
 @Controller
 public class ManageController {
 	private final static String MAPPING = "/manage/";
@@ -42,10 +43,12 @@ public class ManageController {
 		// divided depending on action value
 		if ("main".equalsIgnoreCase(action)) {
 		}else if("member_list".equalsIgnoreCase(action)) {
-			
+			resultList=(List<Object>) service.getList(paramMap);
 		}else if("sp_list".equalsIgnoreCase(action)) {
 			
 		}else if("ti_list".equalsIgnoreCase(action)) {
+			
+		}else if("ti_edit".equalsIgnoreCase(action)) {
 			
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {

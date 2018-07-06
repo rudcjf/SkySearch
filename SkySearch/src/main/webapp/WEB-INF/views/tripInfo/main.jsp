@@ -10,10 +10,10 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/3.jpg'/>')">
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/tokyo1.jpg'/>')">
                   <div class="overlay"></div>
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/4.jpg'/>')">
+               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')">
                   <div class="overlay"></div>
                </div>
             </div>
@@ -36,9 +36,9 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
                            <select class="form-control select2 no-radius">
-                              <option value="">대륙</option>
+                              <option value="">여행지역</option>
                               <option value="NorthAmerica">북아메리카</option>
                               <option value="SouthAmerica">남아메리카</option>
                               <option value="Europe">유럽</option>
@@ -50,9 +50,9 @@
                      </div>
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
                            <select class="form-control select2 no-radius">
-                              <option value="">나라</option>
+                              <option value="">국가명</option>
                               <option value="">나라1</option>
                               <option value="">나라2</option>
                               <option value="">나라3</option>
@@ -64,9 +64,9 @@
                      </div>
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-google-maps"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-map-marker-outline"></i></div>
                            <select class="form-control select2 no-radius">
-                              <option value="">도시</option>
+                              <option value="">도시명</option>
                               <option value="">도시1</option>
                               <option value="">도시2</option>
                               <option value="">도시3</option>
@@ -99,18 +99,20 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/1.png'/>"
+							<form>
+							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img class="card-img-top"
+								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-success">첫번째 추천도시</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<h6>괌</h6>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
 								</div>
 							</a>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
@@ -121,7 +123,7 @@
 								<div class="card-body">
 									<span class="badge badge-danger">두번째 추천도시</span>
 									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
@@ -137,7 +139,7 @@
 								<div class="card-body">
 									<span class="badge badge-info">세번째 추천도시</span>
 									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
@@ -155,7 +157,7 @@
 								<div class="card-body">
 									<span class="badge badge-white">네번째 추천도시</span>
 									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
@@ -171,7 +173,7 @@
 								<div class="card-body">
 									<span class="badge badge-info">다섯번째 추천도시</span>
 									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
@@ -187,7 +189,7 @@
 								<div class="card-body">
 									<span class="badge badge-dark">여섯번째 추천도시</span>
 									<h6>도시이름</h6>
-									<p class="mb-0">도시설명</p>
+									<p class="mb-0">국가명</p>
 								</div>
 								<div class="card-footer">
 									<p class="mb-0">관광지1, 관광지2...</p>
@@ -196,6 +198,27 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+					</div>
+					<div class="col-lg-4 col-md-4">
+				       <nav class="mt-5">
+                          <ul class="pagination justify-content-center">
+                        	 <li class="page-item disabled">
+                           		<a class="page-link" href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                        	 </li>
+                        		<li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        		<li class="page-item"><a class="page-link" href="#">2</a></li>
+                        		<li class="page-item"><a class="page-link" href="#">3</a></li>
+                        		<li class="page-item"><a class="page-link" href="#">...</a></li>
+                        		<li class="page-item"><a class="page-link" href="#">10</a></li>
+                        		<li class="page-item">
+                            	 <a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
+                        	</li>
+                     		</ul>
+                     	</nav>
+					</div>
+                </div>
 			</div>
 		</div>
 	</div>
