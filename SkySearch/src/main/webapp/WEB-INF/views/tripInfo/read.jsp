@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-      <!-- 메인 슬라이더 -->
+      <!-- Property Single Slider header -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -10,12 +10,8 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/1.jpg'/>')">
-                  <div class="overlay"></div>
-               </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/2.jpg'/>')">
-                  <div class="overlay"></div>
-               </div>
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/tripinfo2.jpg'/>')"></div>
+               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/tripinfo3.jpg'/>')"></div>
             </div>
             <a class="carousel-control-prev" href="#osahanslider" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,38 +22,38 @@
             <span class="sr-only">Next</span>
             </a>
          </div>
-         <div class="property-single-title">
+         <div class="property-single-title property-single-title-gallery">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">도쿄</h1>
+                  <div class="col-lg-4 col-md-4">
+                     <h1>도시이름</h1>
+                     <h6><i class="mdi mdi-home-map-marker"></i>&nbsp;도시주소</h6>
                   </div>
-                  <div class="col-lg-2 col-md-2 text-right">
-                     <h6 class="text-white mt-2">날씨정보</h6>
-                     <h4 class="text-success">날씨정보</h4>
+                  <div class="col-lg-1 col-md-1">
+                     <h4 class="mt-3">날씨</h4>
                   </div>
-                  <div class="col-lg-2 col-md-2 text-right">
-                     <h6 class="text-white mt-2">환율정보</h6>
-                     <h4 class="text-success">환율정보</h4>
+                  <div class="col-lg-2 col-md-2">
+                  	 <img src="<c:url value='/resources/img/special/weather.jpg'/>">
                   </div>
-               </div>
-               <hr>
-               <div class="row">
-                  <div class="col-lg-8 col-md-8"></div>
-                  <div class="col-lg-4 col-md-4 text-right">
-                  	<h6 class="text-white"><i class="mdi mdi-home-map-marker">&nbsp;</i>도쿄 주소</h6>
+                  <div class="col-lg-1 col-md-1">
+                  </div>
+                  <div class="col-lg-1 col-md-1">
+                     <h4 class="mt-3">환율</h4>
+                  </div>
+                  <div class="col-lg-2 col-md-2">
+                  	 <h2 class="mt-3">환율정보(텍스트)</h2>
                   </div>
                </div>
             </div>
          </div>
       </section>
-      <!-- 메인 슬라이더 끝 -->
+      <!-- End Property Single Slider header -->
       
       <!-- Property Single Slider -->
       <section class="section-padding">
       <div class="section-title text-center mb-5">
          <h2>관광지 추천</h2>
-         <p>도쿄의 핵심 관광지</p>
+         <p>${param.CITY_NAME}의 핵심 관광지</p>
       </div>
       	 <!-- 메인 뷰 시작 -->
          <div class="container">
@@ -139,13 +135,14 @@
 						</div>
 					</div>
 				</div>
+				<!-- 회원들이 쓴 글이 나타나는 공간 -->
+                <!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 				<div class="row">
-				  <!-- 회원들이 쓴 글이 나타나는 공간 -->
-                  <!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
-				  <div class="col-lg-8 col-md-12">
+				  <div class="col-lg-12 col-md-12">
                   <div class="card padding-card reviews-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">회원들이 쓴 글</h5>
+                        <div>
                         <form>
                            <div class="control-group form-group">
                               <div class="controls">
@@ -168,6 +165,7 @@
                            <button type="submit" class="btn btn-success btn-block">올리기</button>
                         </form>
                         <hr>
+                        </div>
                         <div class="media mb-4">
                            <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/1.jpg'/>">
                            <div class="media-body">
@@ -263,7 +261,7 @@
                   <!-- 회원들이 쓴 글이 나타나는 공간 끝 -->
                	</div>
                	  <!-- 구글지도  -->
-               	<div class="col-lg-4 col-md-12">
+               	<div class="col-lg-12 col-md-12">
                   <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-3">지도</h5>
@@ -280,8 +278,6 @@
                   </div>
                   <!-- 구글 지도 끝 -->
 			    </div>
-			  </div>
-            </div>
           </div>
         </div>
         <!-- 메인 뷰 끝 --> 
@@ -457,4 +453,5 @@
           
       </script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
+      
 

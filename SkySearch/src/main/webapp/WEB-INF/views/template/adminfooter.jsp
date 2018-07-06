@@ -23,10 +23,10 @@
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/country/jquery.vmap.world.js'/>"></script>
     
     <!-- data-table -->
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables.min.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.bootstrap.min.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.buttons.min.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/buttons.bootstrap.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables.min.js?ver=1'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.bootstrap.min.js?ver=1'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.buttons.min.js?ver=1'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/buttons.bootstrap.min.js?ver=1'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/jszip.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/pdfmake.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/vfs_fonts.js'/>"></script>
@@ -60,6 +60,33 @@
           $('#bootstrap-data-table-export').DataTable();
         } );
     </script>
+    
+    <script type="text/javascript">
+
+function add_div(){
+
+    var div = document.createElement('div');
+
+
+
+    div.innerHTML = document.getElementById('room_type').innerHTML;
+
+    document.getElementById('field').appendChild(div);
+
+}
+
+
+
+function remove_div(obj){
+
+document.getElementById('field').removeChild(obj.parentNode);
+
+}
+
+</script>
+
+
+
       
       
       

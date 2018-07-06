@@ -62,7 +62,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
                            <select class="form-control select2 no-radius">
-                              <option value="">나라명</option>
+                              <option value="">국가명</option>
                               <option value="Japan">일본</option>
                               <option value="Singapore">싱가포르</option>
                               <option value="India">인도</option>
@@ -164,9 +164,6 @@
                   </div>
                </div>
             </div>
-
-
-
          </div>
          </div>
       </section>

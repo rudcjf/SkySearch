@@ -38,8 +38,6 @@
                            <!-- 관심지역 -->
                            <div class="form-group" >
                                <label>Interest Location<span class="text-danger">*</span></label> 
-                               <p>관심 지역을 2곳 선택하세요</p>
-
                               <div class="row">
                               <div class="form-group col-md-6">
 	                              <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
