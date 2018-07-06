@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+<!--이 부분은 특가 부분 사용하는 css입니다 -->
+
+.tooltipmj {
+    position: relative;
+    display: inline-block;
+   /*  border-bottom: 1px dotted black; */
+}
+
+.tooltipmj .tooltiptextmj {
+    visibility: hidden; 
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltipmj:hover .tooltiptextmj {
+    visibility: visible;
+}
+
+<!-- END 이 부분은 특가 부분 사용하는 css입니다 -->

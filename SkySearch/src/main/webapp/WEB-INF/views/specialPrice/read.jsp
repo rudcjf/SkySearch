@@ -11,7 +11,7 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/special/thumb_2.png'/>')"><!-- 이부분은 썸네일의 파일명이 들어갈 부분입니다. (사진 크기 :약 1264*450) --></div>
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/special/thumb_2.png'/>')"><!-- 이부분은 썸네일의 파일명이 들어갈 부분입니다.  --></div>
             </div>
             <a class="carousel-control-prev" href="#osahanslider" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -195,6 +195,21 @@
                  </div>
 	           </div>
             </div>
+	            <nav class="mt-5">
+                     <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                           <a class="page-link" href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                           <a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                     </ul>
+                  </nav>
          </div>
       </section>
       <!-- End Similar Properties -->
