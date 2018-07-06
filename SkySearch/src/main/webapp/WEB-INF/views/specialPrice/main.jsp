@@ -54,7 +54,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">국가</option>
+                              <option disabled="" selected="">국가명</option>
                               <option>Heigh </option>
                               <option>Midium</option>
                               <option>Normal</option>
@@ -65,7 +65,7 @@
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
                            <select class="form-control select2" name="location">
-                              <option disabled="" selected="">도시</option>
+                              <option disabled="" selected="">도시명</option>
                               <option>Property Types</option>
                               <option value="">House/Villa</option>
                               <option value="">Flat</option>
