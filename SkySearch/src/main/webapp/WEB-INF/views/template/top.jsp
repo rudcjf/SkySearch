@@ -47,12 +47,11 @@
                        <ul class="list-inline main-nav-right" style="margin-top:10px;">
                             <li class="list-inline-item">
                               <form action="/action_page.php" >
-                              <input type="text" class="form-control" placeholder="나라명, 도시명 검색..." style="height:34px;">
+                              <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                           </form>
                              </li>
                            <li class="list-inline-item">
-                                 <%-- <a class="btn btn-link btn-sm" href="<c:url value='/home/login'/>">Log In</a> --%>
-                                  <a class="btn btn-success btn-sm" href="<c:url value='/home/login'/>"><i class="mdi mdi-login"></i> Log In</a>
+                                <a class="btn btn-success btn-sm" href="<c:url value='/home/login'/>"><i class="mdi mdi-login"></i> Log In</a>
                               </li>
                            <li class="list-inline-item">
                                  <a class="btn btn-success btn-sm" href="<c:url value='/home/signup'/>"><i class="mdi mdi-account-settings"></i> Sign Up</a>

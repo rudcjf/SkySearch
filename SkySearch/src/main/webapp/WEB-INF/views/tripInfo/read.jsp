@@ -10,11 +10,11 @@
                <li data-target="#osahanslider" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/1.jpg'/>')">
-                  <div class="overlay"></div>
+               <div class="carousel-item active" style="background-image: url('<c:url value='/resources/img/slider/tripinfo2.jpg'/>')">
+                <!-- <div class="overlay"></div> -->
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/2.jpg'/>')">
-                  <div class="overlay"></div>
+               <div class="carousel-item" style="background-image: url('<c:url value='/resources/img/slider/tripinfo3.jpg'/>')">
+                <!-- <div class="overlay"></div> -->
                </div>
             </div>
             <a class="carousel-control-prev" href="#osahanslider" role="button" data-slide="prev">
@@ -30,7 +30,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-8 col-md-8">
-                     <h1 class="text-white">도쿄</h1>
+                     <h1 class="text-white">도시이름 ${param.CITY_NAME}</h1>
                   </div>
                   <div class="col-lg-2 col-md-2 text-right">
                      <h6 class="text-white mt-2">날씨정보</h6>
@@ -45,7 +45,7 @@
                <div class="row">
                   <div class="col-lg-8 col-md-8"></div>
                   <div class="col-lg-4 col-md-4 text-right">
-                  	<h6 class="text-white"><i class="mdi mdi-home-map-marker">&nbsp;</i>도쿄 주소</h6>
+                  	<h6 class="text-white"><i class="mdi mdi-home-map-marker">&nbsp;</i>${param.CITY_NAME} 주소</h6>
                   </div>
                </div>
             </div>
@@ -57,7 +57,7 @@
       <section class="section-padding">
       <div class="section-title text-center mb-5">
          <h2>관광지 추천</h2>
-         <p>도쿄의 핵심 관광지</p>
+         <p>${param.CITY_NAME}의 핵심 관광지</p>
       </div>
       	 <!-- 메인 뷰 시작 -->
          <div class="container">
@@ -139,13 +139,14 @@
 						</div>
 					</div>
 				</div>
+				<!-- 회원들이 쓴 글이 나타나는 공간 -->
+                <!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 				<div class="row">
-				  <!-- 회원들이 쓴 글이 나타나는 공간 -->
-                  <!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
-				  <div class="col-lg-8 col-md-12">
+				  <div class="col-lg-12 col-md-12">
                   <div class="card padding-card reviews-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">회원들이 쓴 글</h5>
+                        <div style="padding-left:20%; padding-right:20%">
                         <form>
                            <div class="control-group form-group">
                               <div class="controls">
@@ -168,6 +169,7 @@
                            <button type="submit" class="btn btn-success btn-block">올리기</button>
                         </form>
                         <hr>
+                        </div>
                         <div class="media mb-4">
                            <img class="d-flex mr-3 rounded-circle" src="<c:url value='/resources/img/user/1.jpg'/>">
                            <div class="media-body">
@@ -263,7 +265,7 @@
                   <!-- 회원들이 쓴 글이 나타나는 공간 끝 -->
                	</div>
                	  <!-- 구글지도  -->
-               	<div class="col-lg-4 col-md-12">
+               	<div class="col-lg-12 col-md-12">
                   <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-3">지도</h5>

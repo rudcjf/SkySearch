@@ -4,7 +4,6 @@
 
 
 <!-- 아이디, 비밀번호 중복체크 들어가야한다-->
-<!-- 회원가입시 이메일 인증 들어가야한다 -->
       <!-- Sign Up -->
       <section class="section-padding">
          <div class="container">
@@ -16,19 +15,21 @@
                         <form>
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
-                              <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
-                           	  <br> 
-							  <input type="button" class="btn btn-warning btn-block" value="아이디 중복 확인" onclick="idcheck()">
-							  <input type="button" class="btn btn-danger btn-block" value="회원 아이디 이메일 인증" onclick="idcheck()">
-							  <br> 
-                           </div>
+                             	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+								 <p> </p>
+								 <input type="button" class="btn btn-warning btn-block" value="아이디 중복 확인" onclick="idcheck()"> 
+				           </div>
                            <div class="form-group">
                               <label>Password <span class="text-danger">*</span></label>
-                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="Enter Password">
+                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="6~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요">
+                           </div>
+						   <div class="form-group">
+                              <label>Password Reconfirm <span class="text-danger">*</span></label>
+                              <input id="RePASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="비밀번호를 다시 입력하세요">
                            </div>
                            <div class="form-group">
                               <label>Full Name <span class="text-danger">*</span></label>
-                              <input id="NAME" name="NAME" type="text" class="form-control" placeholder="Enter Full Name">
+                              <input id="NAME" name="NAME" type="text" class="form-control" placeholder="Base form : 박보검">
                            </div>
                            <div class="form-group">
                               <label>Mobile Number <span class="text-danger">*</span></label>
@@ -37,22 +38,41 @@
                            <!-- 관심지역 -->
                            <div class="form-group" >
                                <label>Interest Location<span class="text-danger">*</span></label> 
-     				          <select id="INT_LOCAL" name="INT_LOCAL" class="form-control select2 no-radius" placeholder="관심지역" >
-							  <option value="">관심 지역 택1</option>
-                              <option value="Japan">일본</option>
-                              <option value="Hongkong">홍콩,싱카포르,대만,마카오</option>
-                              <option value="China">중국</option>
-                              <option value="Asia">아시아</option>
-                              <option value="Jeju">국내(제주)</option>
-                              <option value="South_pacificocean">남태평양</option>
-                              <option value="North_america">북미</option>
-                              <option value="South_america">중남미</option>
-                              <option value="Europe">유럽</option>
-                              <option value="Etc">기타</option>
-				           </select> 
-                           </div>
-                           <P> </P>
-                           <div class="form-group">
+                               <p>관심 지역을 2곳 선택하세요</p>
+
+                              <div class="row">
+                              <div class="form-group col-md-6">
+	                              <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
+	                              	<option value="">Location 1</option>
+	                              	<option value="Japan">일본</option>
+	                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
+	                              	<option value="China">중국</option>
+	                              	<option value="Asia">아시아</option>
+	                              	<option value="Jeju">국내(제주)</option>
+	                              	<option value="South_pacificocean">남태평양</option>
+	                              	<option value="North_america">북미</option>
+	                              	<option value="South_america">중남미</option>
+	                              	<option value="Europe">유럽</option>
+	                              	<option value="Etc">기타</option>
+	                              </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                 <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
+	                              	<option value="">Location 2</option>
+	                              	<option value="Japan">일본</option>
+	                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
+	                              	<option value="China">중국</option>
+	                              	<option value="Asia">아시아</option>
+	                              	<option value="Jeju">국내(제주)</option>
+	                              	<option value="South_pacificocean">남태평양</option>
+	                              	<option value="North_america">북미</option>
+	                              	<option value="South_america">중남미</option>
+	                              	<option value="Europe">유럽</option>
+	                              	<option value="Etc">기타</option>
+                              </select>
+                              </div>
+                              </div>
+                          <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                  <label class="custom-control-label" for="customControlAutosizing">I agree with all <a href="terms.html">Terms & Conditions</a></label>

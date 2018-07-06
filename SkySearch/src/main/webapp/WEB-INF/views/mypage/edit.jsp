@@ -43,6 +43,7 @@
      <!--  END mypage tab --> 
         
       <!-- 회원정보수정 -->
+      <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 (read)에서 수정(edit), 회원번호, 아이디, 이름, 비밀번호는 변경 안된다 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -74,25 +75,45 @@
                            </div>
                            <div class="form-group">
                               <label>INTEREST LOCATION :</label>
-                              <select class="form-control select2 no-radius" name="INT_LOCAL" value="${resultMap.INT_LOCAL}" placeholder="관심지역" >
-							  <option value="">관심 지역 택1</option>
-                              <option value="Japan">일본</option>
-                              <option value="Hongkong">홍콩,싱카포르,대만,마카오</option>
-                              <option value="China">중국</option>
-                              <option value="Asia">아시아</option>
-                              <option value="Jeju">국내(제주)</option>
-                              <option value="South_pacificocean">남태평양</option>
-                              <option value="North_america">북미</option>
-                              <option value="South_america">중남미</option>
-                              <option value="Europe">유럽</option>
-                              <option value="Etc">기타</option>
-				              </select> 
+	                           <div class="row">
+	                              <div class="form-group col-md-6">
+		                              <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL" value="${resultMap.INT_LOCAL}">
+		                              	<option value="">Location 1</option>
+		                              	<option value="Japan">일본</option>
+		                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
+		                              	<option value="China">중국</option>
+		                              	<option value="Asia">아시아</option>
+		                              	<option value="Jeju">국내(제주)</option>
+		                              	<option value="South_pacificocean">남태평양</option>
+		                              	<option value="North_america">북미</option>
+		                              	<option value="South_america">중남미</option>
+		                              	<option value="Europe">유럽</option>
+		                              	<option value="Etc">기타</option>
+		                              </select>
+	                              </div>
+	                              <div class="form-group col-md-6">
+	                                 <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
+		                              	<option value="">Location 2</option>
+		                              	<option value="Japan">일본</option>
+		                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
+		                              	<option value="China">중국</option>
+		                              	<option value="Asia">아시아</option>
+		                              	<option value="Jeju">국내(제주)</option>
+		                              	<option value="South_pacificocean">남태평양</option>
+		                              	<option value="North_america">북미</option>
+		                              	<option value="South_america">중남미</option>
+		                              	<option value="Europe">유럽</option>
+		                              	<option value="Etc">기타</option>
+	                              	</select>
+	                               </div>
+	                           </div>
                            </div>
-                       </div>
-                     </div>
-                   	 <div align="right">
-						<button type="submit" class="btn btn-success">EDIT</button>
-                        <button type="reset" class="btn btn-default">RESET</button>
+                           <br>
+                           <div align="center">
+								<button type="submit" class="btn btn-success">EDIT</button>
+		                        <button type="reset" class="btn btn-default">RESET</button>
+                           </div>
+                      </div>
                      </div>
                  </form>
                </div>
