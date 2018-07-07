@@ -18,13 +18,13 @@
                         </li>
                         <li class="nav-item">
                      <a class="nav-link" href="<c:url value='/specialPrice/main'/>" id="navbarDropdownPortfolio" 
-                     aria-haspopup="true" aria-expanded="false"> <strong>특가 상품</strong> </a>
+                     aria-haspopup="true" aria-expanded="false"> <strong>항공권 특가</strong> </a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <li class="nav-item dropdown">
+                        <%-- <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" 
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <strong>About Us</strong> </a>
                              <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
@@ -32,23 +32,23 @@
                                <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">F&Q</a>
                                <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact</a>
                            </div>
-                        </li>
+                        </li> --%>
                         <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/mypage/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
                         </li>
-<!--                          <li class="nav-item">
-                           <a class="nav-link" href="#" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>Manager Page</strong> </a>
-                        </li>  -->
+                          <li class="nav-item">
+                           <a class="nav-link" href="<c:url value='/manage/main'/>" id="navbarDropdownPortfolio" 
+                           aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
+                        </li> 
                      </ul>   
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
                      <div class="my-2 my-lg-0">
                        <ul class="list-inline main-nav-right" style="margin-top:10px;">
                             <li class="list-inline-item">
                               <form action="/action_page.php" >
-                              <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
-                          </form>
+                             	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
+                              </form>
                              </li>
                            <li class="list-inline-item">
                                 <a class="btn btn-success btn-sm" href="<c:url value='/home/login'/>"><i class="mdi mdi-login"></i> Log In</a>

@@ -33,10 +33,10 @@
                <!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함 -->
                <form method="POST" action="<c:url value='/tripInfo/read'/>">
                   <div class="row no-gutters">
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
                            <select class="form-control select2 no-radius">
                               <option value="">여행지역</option>
                               <option value="NorthAmerica">북아메리카</option>
@@ -50,7 +50,7 @@
                      </div>
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
                            <select class="form-control select2 no-radius">
                               <option value="">국가명</option>
                               <option value="">나라1</option>
@@ -64,7 +64,7 @@
                      </div>
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-map-marker-outline"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
                            <select class="form-control select2 no-radius">
                               <option value="">도시명</option>
                               <option value="">도시1</option>
