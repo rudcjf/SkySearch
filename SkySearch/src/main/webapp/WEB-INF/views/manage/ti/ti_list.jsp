@@ -30,7 +30,7 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="<c:url value='/manage/main'/>">Dashboard</a></li>
+						<li><a href="<c:url value='/manage/main/index'/>">Dashboard</a></li>
 						<li class="active">여행정보</li>
 					</ol>
 				</div>
@@ -47,7 +47,7 @@
 						<div class="card-header">
 							<strong class="card-title">여행정보</strong> <input type="submit"
 								class="btn btn-primary" value=글쓰기
-								onClick="location.href='<c:url value="/manage/ti_edit"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
 								style="float: right;">
 
 						</div>

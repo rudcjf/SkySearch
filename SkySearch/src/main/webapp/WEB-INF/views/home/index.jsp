@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
+
 <!-- Main Slider With Form -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
@@ -36,12 +38,12 @@
             <div class="container">
                <h1 class="text-center text-white mb-5">언제든 가볍게 지.구.산.책!</h1>
                <!-- 특가상품 검색: form태그 안 데이터값으로 결과 출력한다 -->
-               <form>
+               <form method="POST" action="<c:url value='/specialPrice/main'/>">
                   <div class="row no-gutters">
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
                            <select class="form-control select2 no-radius" placeholder="여행지역">
                               <option value="">여행지역</option>
                               <option value="Japan">일본</option>
@@ -60,7 +62,7 @@
 
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
                            <select class="form-control select2 no-radius">
                               <option value="">국가명</option>
                               <option value="Japan">일본</option>
@@ -76,7 +78,7 @@
 
                      <div class="col-md-3">
                         <div class="input-group">
-                           <div class="input-group-addon"><i class="mdi mdi-map-marker-outline"></i></div>
+                           <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
                            <select class="form-control select2 no-radius">
                               <option value="">도시명</option>
                               <option value="Osaka">오사카</option>
@@ -103,11 +105,19 @@
 <!-- 이번주 특가상품 List -->
       <section class="section-padding bg-white">
          <div class="section-title text-center mb-5">
-            <h2>이번주 항공권 특가상품</h2>
+            <h2>이번주 항공권 특가</h2>
             <div class="col-lg-2 col-md-2 sort-by-btn float-right">
-            	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
+            	<div class="tooltipmj" >
+               <em>광고</em><i class="mdi mdi-help-circle-outline"></i> 
+               <span class="tooltiptextmj"><!-- tooltip-inner -->
+	              skysearch의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
+          </div>
             </div>         
          </div>
+         <!-- tooltip -->
+         
+         
+         
 <!-- 이번주 특가상품 3개 -->
          <div class="container">
             <div class="row">
@@ -171,7 +181,7 @@
 <!-- 추천 특가 상품 List -->
       <section class="section-padding">
          <div class="section-title text-center mb-5">
-            <h2>추천 특가 상품</h2>
+            <h2>추천 항공권 특가</h2>
             <p>빅 프로모션! 놓치지 마세요!</p>
             <div class="col-lg-2 col-md-2 sort-by-btn float-right">
             	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>

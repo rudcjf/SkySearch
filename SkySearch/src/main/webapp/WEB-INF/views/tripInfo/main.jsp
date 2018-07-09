@@ -102,7 +102,6 @@
 	</div>
 </section>
 <!-- 메인 슬라이드 이미지 끝 -->
-
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
@@ -241,8 +240,6 @@
 	</div>
 </section>
 <hr>
-
-
 
 <!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
 <section class="section-padding">
@@ -461,12 +458,7 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
 				<!-- END 이부분은 전체 여행지를 보여주는 부분입니다. -->
-
 				<!-- 이부분은 페이징 부분입니다 -->
 				<div class="row">
 					<div class="col-lg-4 col-md-4"></div>
