@@ -38,16 +38,16 @@ public class MemberService {
 
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
+			dataMap.put("MEMBER_SEQ", uniqueSequence);
+			dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+			dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		}
-		dataMap.put("MEMBER_SEQ", uniqueSequence);
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
-
+		
 		String sqlMapId = "member.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
-
-		sqlMapId = "member.read";
+		System.out.println((int)resultKey);
+		sqlMapId = "member.list";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 

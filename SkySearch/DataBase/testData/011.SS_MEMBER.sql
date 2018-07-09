@@ -41,6 +41,3 @@ VALUES
 ('SYSUID-SS033','hotto@skysearch.com','hotto123','jake','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now());
 
 -- password = "123456" with BCryptPasswordEncoder() 
-update SS_MEMBER
-set PASSWORD = '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.';
-

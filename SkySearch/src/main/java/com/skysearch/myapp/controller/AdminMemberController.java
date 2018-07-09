@@ -45,8 +45,9 @@ public class AdminMemberController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
-		} else if ("pw_edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+		} else if ("merge".equalsIgnoreCase(action)) {
+			service.saveObject(paramMap);
+			resultList = (List<Object>) service.getList(paramMap);
 		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

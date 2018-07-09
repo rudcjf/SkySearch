@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2015-12-10 13:31:41</creation_date>
-			<updated_date>2018-07-09 13:24:35</updated_date>
+			<updated_date>2018-07-09 13:25:29</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -1218,7 +1218,7 @@
 			<connections>
 				<relation>
 					<id>1</id>
-					<source>5</source>
+					<source>4</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1240,7 +1240,7 @@
 				</relation>
 				<relation>
 					<id>2</id>
-					<source>4</source>
+					<source>5</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1271,7 +1271,7 @@
 				<normal_column>
 					<id>9</id>
 					<referenced_column>13</referenced_column>
-					<relation>2</relation>
+					<relation>1</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1305,7 +1305,7 @@
 				<normal_column>
 					<id>10</id>
 					<referenced_column>15</referenced_column>
-					<relation>1</relation>
+					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
