@@ -15,13 +15,7 @@
                          <a class="nav-link" href="<c:url value='/'/>" style="float:left;"> <strong>HOME</strong> </a>
                      <a class="nav-link" href="<c:url value='/specialPrice/main'/>" style="float:left;" > <strong>특가 상품</strong> </a>
                         <a class="nav-link" href="<c:url value='/tripInfo/main'/>"  style="float:left;"> <strong>여행 정보</strong> </a> 
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" 
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float:left;"> <strong>About Us</strong> </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/aboutus'/>">About us</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">F&Q</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact</a>
-                           </div>
+                         
                            <a class="nav-link" href="<c:url value='/mypage/main'/>"  style="float:left;"> <strong>My page</strong> </a>
                     </div>
                 </div>
@@ -33,7 +27,9 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                             <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                             <a class="nav-link" href="<c:url value='/aboutUs/aboutus'/>"><i class="fa fa- user"></i>About Us</a>
+                             <a class="nav-link" href="<c:url value='/aboutUs/faq'/>"><i class="fa fa- user"></i>F&Q</a>
+                             <a class="nav-link" href="<c:url value='/aboutUs/contact'/>"><i class="fa fa- user"></i>Contact</a>
                              <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
