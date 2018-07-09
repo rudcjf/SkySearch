@@ -48,7 +48,7 @@
 						<div class="card-header">
 							<strong class="card-title">여행정보</strong> <input type="submit"
 								class="btn btn-primary" value=뒤로가기
-								onClick="location.href='<c:url value="/manage/ti_list"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
 								style="float: right;">
 
 						</div>
@@ -58,31 +58,65 @@
 									<div class="row">
 										<div class="col-lg-12 col-md-12 mx-auto">
 											<form role="form" method="POST"
-												action="<c:url value='/member/merge' />">
+												action="<c:url value='/manage/ti/merge' />">
+												<input type="hidden" name="forwardView"
+													value="/manage/ti/ti_list" />
 												<div class="card padding-card">
 													<div class="card-body">
 														<h4 class="card-title mb-4">도시정보 입력</h4>
 														<p>도시 정보를 입력하세요</p>
 														<div class="form-group">
+														<input type="hidden" class="form-control" name="TRAVEL_SEQ"
+															value="${resultMap.TRAVEL_SEQ}" />
+															</div>
+														<div class="form-group">
 															<label>도시명 :</label> <input type="text"
 																class="form-control" name="CITY_NAME"
-																value="${resultMap.CITY_NAME}" readonly>
+																value="${resultMap.CITY_NAME}">
 														</div>
 														<div class="form-group">
 															<label>주소 :</label> <input type="text"
-																class="form-control" name="ADDRESS"
-																value="${resultMap.ADDRESS}" readonly>
+																class="form-control" name="CITY_ADD"
+																value="${resultMap.CITY_ADD}">
 														</div>
 														<!-- Repeat Contents -->
 														<div id="room_type">
+
 															<div align="left">
-																<label>관광지 :</label> <input type="text"
-																	class="form-control" name="LAND_NAME"
-																	value="${resultMap.LAND_NAME}" readonly> <input
-																	type="button" class="btn btn-secondary mb-1" value="+"
-																	onclick="add_div()" data-toggle="modal"
-																	data-target="#scrollmodal" style="float: right;">
+
+																<div class="card-body">
+																	<div class="form-group">
+																		<label>관광지명 :</label> <input type="text"
+																			class="form-control" name="LANDMARK_NAME"
+																			value="${resultMap.LANDMARK_NAME}" >
+																	</div>
+																	<div class="form-group">
+																		<label>관광지 주소 :</label> <input type="text"
+																			class="form-control" name="LANDMARK_ADDR"
+																			value="${resultMap.LANDMARK_ADDR}" >
+																	</div>
+																	<div class="form-group">
+																		<label>관광지 설명 :</label>
+																		<textarea name="textarea-input LANDMARK_EXP"
+																			id="textarea-input" rows="3"
+																			class="form-control">${resultMap.LANDMARK_EXP}</textarea>
+																	</div>
+																	<div class="col col-md-3">
+																		<label for="file-input" class=" form-control-label">이미지
+																			넣기</label>
+																	</div>
+																	<br>
+																	<div class="col-12 col-md-9">
+																		<input type="file" id="file-input" name="file-input"
+																			class="form-control-file">
+																	</div>
+
+																</div>
+
+																<input type="button" class="btn btn-secondary mb-1"
+																	value="+" onclick="add_div()" style="float: right;">
 															</div>
+
 															<input type="button" class="btn btn-secondary mb-1"
 																value="-" onclick="remove_div(this)"
 																style="float: right;">
@@ -90,11 +124,11 @@
 														</div>
 														<div id="field"></div>
 														<!-- Repeat Contents End -->
+
 													</div>
 													<div align="right">
-														<button type="submit" class="btn btn-success">글쓰기</button>
-														<button type="submit" class="btn btn-success">수정</button>
-														<button type="reset" class="btn btn-default">내용비우기</button>
+														<button type="submit" class="btn btn-success">입력</button>
+														<button type="reset" class="btn btn-default">RESET</button>
 													</div>
 												</div>
 											</form>
@@ -138,11 +172,12 @@
 						</div>
 						<div class="form-group">
 							<label>관광지 설명 :</label>
-							<textarea name="textarea-input LANDMARK_EXP" id="textarea-input" rows="5"
-								placeholder="내용을 입력하세요." class="form-control">${resultMap.LANDMARK_EXP}</textarea>
+							<textarea name="textarea-input LANDMARK_EXP" id="textarea-input"
+								rows="5" placeholder="내용을 입력하세요." class="form-control">${resultMap.LANDMARK_EXP}</textarea>
 						</div>
 						<div class="col col-md-3">
-							<label for="file-input" class=" form-control-label">이미지 넣기</label>
+							<label for="file-input" class=" form-control-label">이미지
+								넣기</label>
 						</div>
 						<br>
 						<div class="col-12 col-md-9">

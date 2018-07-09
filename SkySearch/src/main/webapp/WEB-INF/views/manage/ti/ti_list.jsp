@@ -58,139 +58,39 @@
 									
 								<div class="row">
 									<div class="col-sm-12">
-										<table id="bootstrap-data-table"
-											class="table table-striped table-bordered" style="overflow:hidden;">
+									
+									<!-- Table -->
+										<table class="table table-striped table-bordered table-hover"
+											id="bootstrap-data-table">
 											<thead>
 												<tr>
+												
+													<th><input type="checkbox" id="selecctall" /></th>
+													<th>관광지명</th>
 													<th>도시명</th>
+													<th>설명</th>
 													<th>주소</th>
-													<th>관광지</th>
-													<th>조회수</th>
 													<th>등록자</th>
-													<th>등록일자</th>
+													<th>등록날짜</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>도쿄타워</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>스카이트리</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>시부야109</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>롯폰기힐즈</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>센소지</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>도쿄도청사 전망대</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>아사쿠사</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>도쿄</td>
-													<td>2 Chome-8-1 Nishishinjuku, Shinjuku-ku, Tōkyō-to
-														163-8001 일본</td>
-													<td>대관람차</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>자유의 여신상</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>타임스퀘어</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>센트럴파크</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>엠파이어스테이트빌딩</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>LOVE조각상</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
-												<tr>
-													<td>뉴욕</td>
-													<td>City Hall Park, New York, NY 10007 미국</td>
-													<td>브루클린다리</td>
-													<td>20</td>
-													<td>0knave0</td>
-													<td>2018.07.06</td>
-												</tr>
+												<c:forEach items="${resultList}" var="resultData"
+													varStatus="loop">
+													<tr
+														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+														<td><input type="checkbox" class="checkbox"
+															name="TRAVEL_SEQ" value="${resultData.TRAVEL_SEQ}" /></td>
+														<td><a
+															href="<c:url value="/manage/ti/ti_edit?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
+																${resultData.LANDMARK_NAME}</a></td>
+														<td>${resultData.CITY_NAME}</td>
+														<td>${resultData.LANDMARK_EXP}</td>
+														<td>${resultData.LANDMARK_ADDR}</td>
+														<td>${resultData.REGISTER_SEQ}</td>
+														<td>${resultData.REGISTRY_DATE}</td>
+													</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>
