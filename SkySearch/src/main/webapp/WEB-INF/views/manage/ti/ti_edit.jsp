@@ -30,8 +30,8 @@
 			<div class="page-header float-right">
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
-						<li><a href="<c:url value='/manage/main'/>">Dashboard</a></li>
-						<li><a href="<c:url value='/manage/ti_list'/>">여행정보</a></li>
+						<li><a href="<c:url value='/manage/main/index'/>">Dashboard</a></li>
+						<li><a href="<c:url value='/manage/ti/ti_list'/>">여행정보</a></li>
 						<li class="active">여행정보 입력</li>
 					</ol>
 				</div>
