@@ -125,6 +125,164 @@
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star-half text-warning"></i> <i
 										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>괌</h6>
+									<p class="mb-0">미국</p>
+								</div> </a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/2.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">국가명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/3.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">국가명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/4.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">국가명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/5.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">국가명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="#"> <img class="card-img-top"
+								src="<c:url value = '/resources/img/blog/6.png'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
+									<h6>도시이름</h6>
+									<p class="mb-0">국가명</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<hr>
+
+<!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
+<section class="section-padding">
+	<div class="section-title text-center mb-5">
+		<h2>도시 전체보기</h2>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<!-- 정렬 선택하는 부분입니다-->
+				<div class="osahan_top_filter row">
+					<div class="col-lg-12 col-md-12 sort-by-btn float-right">
+						<div class="dropdown float-right">
+							<button class="btn btn-success btn-sm dropdown-toggle"
+								type="button" id="dropdownMenuButton" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<i class="mdi mdi-filter"></i> Sort by
+							</button>
+							<div class="dropdown-menu float-right"
+								aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#"><i
+									class="mdi mdi-chevron-right"></i> 별점순 </a> <a
+									class="dropdown-item" href="#"><i
+									class="mdi mdi-chevron-right"></i> 가나다순 </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END 정렬 선택하는 부분입니다-->
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
+								class="card-img-top"
+								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
 										class="text-success">5/2</small>
 									</span>
 									<h6>괌</h6>
@@ -169,106 +327,11 @@
 									<h6>도시이름</h6>
 									<p class="mb-0">국가명</p>
 								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/4.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/5.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/6.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<hr>
 
-<!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
-<section class="section-padding">
-	<div class="section-title text-center mb-5">
-		<h2>여행지 전체보기</h2>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<!-- 정렬 선택하는 부분입니다-->
-				<div class="osahan_top_filter row">
-					<div class="col-lg-12 col-md-12 sort-by-btn float-right">
-						<div class="dropdown float-right">
-							<button class="btn btn-success btn-sm dropdown-toggle"
-								type="button" id="dropdownMenuButton" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="mdi mdi-filter"></i> Sort by
-							</button>
-							<div class="dropdown-menu float-right"
-								aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#"><i
-									class="mdi mdi-chevron-right"></i> 별점순 </a> <a
-									class="dropdown-item" href="#"><i
-									class="mdi mdi-chevron-right"></i> 가나다순 </a>
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>
-				<!-- END 정렬 선택하는 부분입니다-->
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
