@@ -38,9 +38,9 @@
                 <div class="col-lg-2 col-md-2">
                   <h6 class="mb-4">About Us</h6>
                   <ul>
-                  <li><a href="<c:url value='/home/aboutus'/>">About us</a></li>
-                  <li><a href="<c:url value='/home/faq'/>">F&Q</a></li>
-                  <li><a href="<c:url value='/home/contact'/>">Contact</a></li>
+                  <li><a href="<c:url value='/aboutUs/aboutus'/>">About us</a></li>
+                  <li><a href="<c:url value='/aboutUs/faq'/>">F&Q</a></li>
+                  <li><a href="<c:url value='/aboutUs/contact'/>">Contact</a></li>
                   <ul>
                 </div>
 <!--                 <div class="col-lg-4 col-md-4">
