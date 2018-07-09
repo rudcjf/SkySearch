@@ -21,7 +21,7 @@
                     </li>
                     <h3 class="menu-title">관리 메뉴</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/member/member_list'/>"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>회원 관리</a>
+                        <a href="<c:url value='/manage/member/list'/>"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>회원 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>
                     </li>
