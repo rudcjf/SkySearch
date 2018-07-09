@@ -200,18 +200,11 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
-		</div>
-		<!-- .animated -->
+		</div><!-- .animated -->
 	</div>
-
-
-	</div>
-	<!-- .content -->
-	</div>
-	<!-- /#right-panel -->
+	</div><!-- .content -->
+	</div><!-- /#right-panel -->
 
 	<!-- Right Panel -->
 

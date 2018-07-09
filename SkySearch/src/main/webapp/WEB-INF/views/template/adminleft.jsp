@@ -7,9 +7,10 @@
 
             <div class="navbar-header">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars" ></i>
                 </button>
-                <a class="navbar-brand" href="<c:url value='/'/>"><i class="mdi mdi-airplane-takeoff"></i> <strong> SKY
+                <a class="navbar-brand" href="<c:url value='/'/>">
+                <i class="mdi mdi-airplane-takeoff"></i> <strong> SKY
 					Search</strong></a>
                 <a class="navbar-brand hidden" href="<c:url value='/'/>"><i class="mdi mdi-airplane-takeoff"></i></a>
             </div>
@@ -21,17 +22,17 @@
                     </li>
                     <h3 class="menu-title">관리 메뉴</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/member/list'/>"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>회원 관리</a>
+                        <a href="<c:url value='/manage/member/list'/>" > <i class="menu-icon fa fa-laptop"></i>회원 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/sp/sp_list'/>"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>특가 관리</a>
+                        <a href="<c:url value='/manage/sp/sp_list'/>"  > <i class="menu-icon fa fa-table"></i>특가 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/ti/ti_list'/>"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>여행정보 관리</a>
+                        <a href="<c:url value='/manage/ti/ti_list'/>" > <i class="menu-icon fa fa-th"></i>여행정보 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>
                     </li>
