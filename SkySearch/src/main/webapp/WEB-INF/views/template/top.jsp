@@ -38,7 +38,7 @@
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
                         </li>
                           <li class="nav-item">
-                           <a class="nav-link" href="<c:url value='/manage/main'/>" id="navbarDropdownPortfolio" 
+                           <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
                         </li> 
                      </ul>   

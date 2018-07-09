@@ -33,9 +33,9 @@
 		<put-attribute name="layout.body" value="/WEB-INF/views/{1}.jsp" />
 	</definition>
 
-	<definition name="/manage/*" extends="layout.admin">
+	<definition name="/manage/*/*" extends="layout.admin">
 		<put-attribute name="layout.title" value="{1} > {2}" />
-		<put-attribute name="layout.body" value="/WEB-INF/views/manage/{1}.jsp" />
+		<put-attribute name="layout.body" value="/WEB-INF/views/manage/{1}/{2}.jsp" />
 	</definition>
 	<!-- shared view uri by user -->
 	<definition name="/*/*" extends="layout.user">

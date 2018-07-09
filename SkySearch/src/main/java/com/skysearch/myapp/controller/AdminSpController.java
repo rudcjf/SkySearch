@@ -24,8 +24,8 @@ import com.skysearch.myapp.service.MemberService;
 
 
 @Controller
-public class ManageController {
-	private final static String MAPPING = "/manage/";
+public class AdminSpController {
+	private final static String MAPPING = "/manage/sp/";
 	
 	@Autowired
 	private MemberService service;
@@ -41,33 +41,12 @@ public class ManageController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-		if ("main".equalsIgnoreCase(action)) {
-		}else if("member_list".equalsIgnoreCase(action)) {
-			resultList=(List<Object>) service.getList(paramMap);
-		}else if("sp_list".equalsIgnoreCase(action)) {
+		if ("sp_list".equalsIgnoreCase(action)) {
+		}else if("sp_read".equalsIgnoreCase(action)){
 			
-		}else if("ti_list".equalsIgnoreCase(action)) {
-			
-		}else if("sp_regList".equalsIgnoreCase(action)) {
-			
-		}else if("sp_read".equalsIgnoreCase(action)) {
-
-		}else if("ti_edit".equalsIgnoreCase(action)) {
+		}else if("sp_edit".equalsIgnoreCase(action)){
 			
 		}
-			/*else if ("update".equalsIgnoreCase(action)) {
-		}
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			paramMap.put("action", action);
-		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-		} else if ("list".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("delete".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.deleteObject(paramMap);
-		} */
 		
 		if(forwardView != null){
 			viewName = forwardView;
