@@ -4,53 +4,31 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
 
-      <!-- Inner Header -->
-      <section class="section-padding bg-dark inner-header1">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 text-center">
-                  <h1 class="mt-0 mb-3 text-white">My Page</h1>
-                  <div class="breadcrumbs">
-                     <p class="mb-0 text-white"><a class="text-white" href="#">My Page</a>  /  <span class="text-success">회원정보 수정</span></p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- End Inner Header -->
-  
-   <!--  mypage tab -->      
-      <section class="tab-view">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                  <ul class="nav justify-content-center">
-                     <li class="nav-item">
-                        <a class="nav-link " href="<c:url value='/mypage/main'/>">내 정보</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호 변경</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/withdrawal'/>">회원 탈퇴</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </section>
-     <!--  END mypage tab --> 
-        
+	<div class="breadcrumbs">
+		<div class="col-sm-4">
+			<div class="page-header float-left">
+				<div class="page-title">
+					<h1>Member Edit</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="page-header float-right">
+				<div class="page-title">
+					<ol class="breadcrumb text-right">
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
       <!-- 회원정보수정 -->
       <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 (read)에서 수정(edit), 회원번호, 아이디, 이름, 비밀번호는 변경 안된다 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
-                  <form role="form" method="POST"	action="<c:url value='/member/merge' />">
+                  <form role="form" method="POST"	action="<c:url value='/manage/member/merge' />">
+                  <input type="hidden" name="forwardView" value="/manage/member/list" />
                      <div class="card padding-card">
                         <div class="card-body">
                            <h4 class="card-title mb-4">회원정보 수정</h4>
@@ -61,15 +39,15 @@
                            </div>
                            <div class="form-group">
                               <label>Member ID :</label>
-                              <input type="email" class="form-control" name="EMAIL" value="${resultMap.EMAIL}" readonly>
+                              <input type="email" class="form-control" name="EMAIL" value="${resultMap.EMAIL}">
                            </div>
                            <div class="form-group">
                               <label>Name :</label>
-                              <input type="text" class="form-control" name="NAME" value="${resultMap.NAME}" readonly>
+                              <input type="text" class="form-control" name="NAME" value="${resultMap.NAME}">
                            </div>
                            <div class="form-group">
                               <label>PASSWORD :</label>
-                              <input type="password" class="form-control" name="PASSWORD" value="${resultMap.PASSWORD}" readonly>
+                              <input type="password" class="form-control" name="PASSWORD" value="${resultMap.PASSWORD}">
                            </div>
                            <div class="form-group">
                               <label>Phone :</label>

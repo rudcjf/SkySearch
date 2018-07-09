@@ -38,9 +38,40 @@ VALUES
 ('SYSUID-SS030','mc1501@skysearch.com','mc1501','SinSol','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS031','loki@skysearch.com','loki123','TomHedle','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS032','hajin@skysearch.com','hajin123','jake','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
-('SYSUID-SS033','hotto@skysearch.com','hotto123','jake','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now());
+('SYSUID-SS033','hotto@skysearch.com','hotto123','jake','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS034','hobit@skysearch.com','hobit123','hobit','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS035','martin@skysearch.com','martin123','martin','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS036','ianmckellen@skysearch.com','ianmckellen123','ianmckellen','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS037','richard@skysearch.com','richard123','richard','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS038','catevlanchett@skysearch.com','catevlanchett123','catevlanchett','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS039','orlando@skysearch.com','orlando123','orlando','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS040','evanlilly@skysearch.com','lilly121','lilly','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS041','lukeevans@skysearch.com','lukeevans29','lukeevans','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS042','aidanturner@skysearch.com','aidanturner06','aidanturner','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS043','leepace@skysearch.com','leepace924','leepace','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS044','johnnydepp@skysearch.com','johnnydepp01','johnnydepp','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS045','javierbar0@skysearch.com','javierbardem609','javierbardem','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS046','brenton14@skysearch.com','brenton14','brenton','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS047','geoffrey17@skysearch.com','geoffrey234','geoffrey','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS048','kayada@skysearch.com','kayada58','kaya','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS049','wenhamaro@skysearch.com','davidam','davidwenham','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS050','keiraknight@skysearch.com','keira87','keiraknightly','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS051','elijahhoho@skysearch.com','elijahobit','elijahwood','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS052','seanastin@skysearch.com','seanastin321','seanastin','01026506850','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS053','andyserkisis@skysearch.com','andyserkis04','andyserkis','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS054','livlove@skysearch.com','livliv','livtyler','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS055','aragonviggo@skysearch.com','viggo123','viggo','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS056','dominicmon@skysearch.com','dominicmon123','dominic','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS057','vernardbernard@skysearch.com','bernard23','bernardhill','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS058','mirandada@skysearch.com','miranda968','mirandaotto','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS059','hugoweav@skysearch.com','hugobest1','hugoweaving','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS060','harrypotter@skysearch.com','bloombloom','harrypotter','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS061','emmawat@skysearch.com','emma123','emmawatson','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS062','rupertronron@skysearch.com','ronron4','rupertgrint','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS063','geniewizz@skysearch.com','geniewizz501','bonniewright','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS064','iamvold@skysearch.com','ralph123','ralphfiennes','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS065','tomfelton@skysearch.com','tomtom123','tomfelton','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS066','helenacarter@skysearch.com','helena123','helenacarter','0803691234','01','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now());
 
 -- password = "123456" with BCryptPasswordEncoder() 
-update SS_MEMBER
-set PASSWORD = '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.';
 

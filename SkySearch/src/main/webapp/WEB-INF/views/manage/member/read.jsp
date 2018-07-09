@@ -5,18 +5,7 @@
  <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
 
       <!-- Inner Header -->
-      <section class="section-padding bg-dark inner-header1">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 text-center">
-                  <h1 class="mt-0 mb-3 text-white">My Page</h1>
-                  <div class="breadcrumbs">
-                     <p class="mb-0 text-white"><a class="text-white" href="#">My Page</a>  /  <span class="text-success">내 정보</span></p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+
       <!-- End Inner Header -->
  
  <!-- mypage tab -->     
