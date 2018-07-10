@@ -213,6 +213,7 @@ CREATE TABLE SS_SALE_INFO
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
 	REGISTRY_DATE varchar(20) NOT NULL,
+	-- 수정자 SEQ
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
