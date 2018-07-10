@@ -2,7 +2,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<!-- 회원가입 버튼 누르면 메인화면으로 전환 -->
+<script>
+	$(function() {
+		$("#ForwareList").click(function() {
+			$("form").submit(function(e) {
+				$(this).attr("action", "<c:url value='/' />");
+				return;
+			});
+		});
+	});
+</script>
 
+<!-- 아이디 중복 체크 -->
+<!-- <script type="text/javascript">
+	var count = 0;
+	function idcheck() {
+	 var text = $("#M_ID").val();
+	 var regexp = /[0-9a-zA-Z]/; // 숫자,영문,특수문자
+	 // var regexp = /[0-9]/; // 숫자만
+	 // var regexp = /[a-zA-Z]/; // 영문만
+
+	 for (var i = 0; i < text.length; i++) {
+	 if (text.charAt(i) != " " && regexp.test(text.charAt(i)) == false) {
+	 alert("한글이나 특수문자는 입력불가능 합니다."); 
+	 return false;
+	 }
+	 }
+	 overlapCheck();
+	 } 
+
+	function idcheck() {
+		var param = "M_ID" + ":" + $("#M_ID").val();
+		if ($("#M_ID").val() == '' || $("#M_ID").val() == null) {
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		$.ajax({
+
+			url : "<c:url value='/ws/idcheck'/>",
+			type : "POST",
+			data : {
+				'M_ID' : $("#M_ID").val()
+			},
+			//cache : false,
+			//async : false,
+			dataType : "text",
+
+			success : function(data) {
+				if (data == "") {
+					count = 1;
+					alert("사용 가능한 아이디입니다.")
+				} else {
+					alert("아이디가 중복이 됩니다. 다시 입력 해주세요");
+					return false;
+				}
+			},
+
+			error : function(request, status, error) {
+				if (request.status != '0') {
+					alert("code : " + request.status + "\r\nmessage : "
+							+ request.reponseText + "\r\nerror : " + error);
+				}
+			}
+		});
+	} -->
+</script>
 <!-- 아이디, 비밀번호 중복체크 들어가야한다-->
       <!-- Sign Up -->
       <section class="section-padding">
@@ -12,7 +77,8 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h3 class="card-title mb-4">SIGN UP</h3>
-                        <form>
+                        <form  method="POST" action="<c:url value='/member/merge'/>">
+                        <!-- <input type="hidden" name="forwardView" value="/mypage/main" />  -->
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
                              	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
@@ -23,10 +89,10 @@
                               <label>Password <span class="text-danger">*</span></label>
                               <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="6~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요">
                            </div>
-						   <div class="form-group">
+<!-- 						   <div class="form-group">
                               <label>Password Reconfirm <span class="text-danger">*</span></label>
                               <input id="RePASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="비밀번호를 다시 입력하세요">
-                           </div>
+                           </div> -->
                            <div class="form-group">
                               <label>Full Name <span class="text-danger">*</span></label>
                               <input id="NAME" name="NAME" type="text" class="form-control" placeholder="Base form : 박보검">
@@ -76,7 +142,9 @@
                                  <label class="custom-control-label" for="customControlAutosizing">I agree with all <a href="terms.html">Terms & Conditions</a></label>
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+                           <button type="submit" class="btn btn-success btn-sm">Sign Up</button>
+                           <button type="reset" class="btn btn-default btn-sm">Reset</button>
+					        <a class="btn btn-primary btn-sm" role="button" href="<c:url value='/' />">Home</a>
                         </form>
                         <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>

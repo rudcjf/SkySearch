@@ -34,7 +34,7 @@
                            </div>
                         </li> --%>
                         <li class="nav-item">
-                           <a class="nav-link" href="<c:url value='/mypage/main'/>" id="navbarDropdownPortfolio" 
+                           <a class="nav-link" href="<c:url value='/mypage/read'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
                         </li>
                           <li class="nav-item">
@@ -51,7 +51,7 @@
                               </form>
                              </li>
                            <li class="list-inline-item">
-                                <a class="btn btn-success btn-sm" href="<c:url value='/home/login'/>"><i class="mdi mdi-login"></i> Log In</a>
+                                <a class="btn btn-success btn-sm" href="<c:url value='/login'/>"><i class="mdi mdi-login"></i> Log In</a>
                               </li>
                            <li class="list-inline-item">
                                  <a class="btn btn-success btn-sm" href="<c:url value='/home/signup'/>"><i class="mdi mdi-account-settings"></i> Sign Up</a>

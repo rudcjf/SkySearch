@@ -72,7 +72,7 @@
 	</insert>
 
 	<delete id="delete" parameterType="Map">
-		delete from CIP_MEMBER
+		delete from skysearch.ss_member
 		where
 		MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
