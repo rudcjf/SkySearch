@@ -74,7 +74,7 @@
 														<td><input type="checkbox" class="checkbox"
 															name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
 														<td><a
-															href="<c:url value="/mypage/main?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
+															href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
 																${resultData.EMAIL}</a></td>
 														<td>${resultData.NAME}</td>
 														<td>${resultData.PHONE}</td>

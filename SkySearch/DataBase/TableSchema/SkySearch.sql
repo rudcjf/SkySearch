@@ -91,6 +91,10 @@ CREATE TABLE SS_CITY
 	CITY_NAME varchar(60),
 	-- 도시주소
 	CITY_ADD varchar(60),
+	-- 위도 
+	CITY_LATITUDE varchar(1000),
+	-- 경도
+	CITY_LONGITUDE varchar(1000),
 	PRIMARY KEY (CITY_SEQ)
 );
 

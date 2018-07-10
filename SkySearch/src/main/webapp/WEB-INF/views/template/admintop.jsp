@@ -10,11 +10,12 @@
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left" style="float:left;">
-                         <a class="nav-link" href="<c:url value='/'/>" style="float:left;"> <strong>HOME</strong> </a>
-                     <a class="nav-link" href="<c:url value='/specialPrice/main'/>" style="float:left;" > <strong>특가 상품</strong> </a>
-                        <a class="nav-link" href="<c:url value='/tripInfo/main'/>"  style="float:left;"> <strong>여행 정보</strong> </a> 
+                    <a id="menuToggle" class="menutoggle pull-left" ></a>
+                    <div class="header-left" style="float:left; vertical-align: middle;" >
+                         <a class="nav-link" href="<c:url value='/'/>" style="float:left;"> <strong>HOME</strong> </a> <a class="nav-link"
+						href="<c:url value='/specialPrice/main'/>" style="float: left;">
+						<strong>특가 상품</strong>
+					</a> <a class="nav-link" href="<c:url value='/tripInfo/main'/>"  style="float:left;"> <strong>여행 정보</strong> </a> 
                          
                            <a class="nav-link" href="<c:url value='/mypage/main'/>"  style="float:left;"> <strong>My page</strong> </a>
                     </div>
