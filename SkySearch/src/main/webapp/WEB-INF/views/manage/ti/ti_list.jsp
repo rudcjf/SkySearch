@@ -93,69 +93,81 @@
 										</table>
 									</div>
 								</div>
-								<div>
-								
-								<!-- CITY_INSERT -->
-									<div class="col-sm-12">
-										<form role="form" method="POST"
-											action="<c:url value='/manage/ti/merge' />">
-											<input type="hidden" name="forwardView"
-												value="/manage/ti/ti_cityinsert" />
-											<div class="card padding-card">
-												<div class="card-body">
-
-
-													<div align="left">
-
-														<div class="card-body">
-															<div class="form-group">
-																<label>지역 명 :</label> <input type="text"
-																	class="form-control" name="LANDMARK_NAME"
-																	value="${resultMap.LOCAL_NAME}">
-															</div>
-															<div class="form-group">
-																<label>국가 명 :</label> <input type="text"
-																	class="form-control" name="LANDMARK_ADDR"
-																	value="${resultMap.COUNTRY_NAME}">
-															</div>
-															<div class="form-group">
-																<label>도시 명 :</label> <input type="text"
-																	class="form-control" name="LANDMARK_ADDR"
-																	value="${resultMap.CITY_NAME}">
-															</div>
-															<div class="col col-md-3">
-																<label for="file-input" class=" form-control-label">이미지
-																	넣기</label>
-															</div>
-															<br>
-															<div class="col-12 col-md-9">
-																<input type="file" id="file-input" name="file-input"
-																	class="form-control-file">
-															</div>
-
-														</div>
-													</div>
-												</div>
-												<div align="right">
-													<button type="submit" class="btn btn-success">입력</button>
-													<button type="reset" class="btn btn-default">RESET</button>
-												</div>
-											</div>
-										</form>
-
-									</div>
-								</div>
 
 							</div>
 						</div>
 					</div>
+					<div class="card">
+						<div class="card-header">
+							<strong class="card-title">도시입력</strong>
+
+						</div>
+						<div class="card-body">
+							<!-- CITY_INSERT -->
+							<div class="col-sm-12">
+								<form role="form" method="POST"
+									action="<c:url value='/manage/ti/merge' />">
+									<input type="hidden" name="forwardView"
+										value="/manage/ti/ti_cityinsert" />
+									<div class="card padding-card">
+										<div class="card-body">
+
+
+											<div align="left">
+
+												<div class="card-body">
+													<div class="form-group">
+														<label>지역 명 :</label> <input type="text"
+															class="form-control" name="LOCAL_NAME"
+															value="${resultMap.LOCAL_NAME}">
+													</div>
+													<div class="form-group">
+														<label>국가 명 :</label> <input type="text"
+															class="form-control" name="COUNTRY_NAME"
+															value="${resultMap.COUNTRY_NAME}">
+													</div>
+													<div class="form-group">
+														<label>도시 명 :</label> <input type="text"
+															class="form-control" name="ITY_NAME"
+															value="${resultMap.CITY_NAME}">
+													</div>
+													<div class="form-group">
+														<label>도시 주소:</label> <input type="text"
+															class="form-control" name="CITY_ADD"
+															value="${resultMap.CITY_ADD}">
+													</div>
+													<div class="col col-md-3">
+														<label for="file-input" class=" form-control-label">이미지
+															넣기</label>
+													</div>
+													<br>
+													<div class="col-12 col-md-9">
+														<input type="file" id="file-input" name="file-input"
+															class="form-control-file">
+													</div>
+
+												</div>
+											</div>
+										</div>
+										<div align="right">
+											<button type="submit" class="btn btn-success">입력</button>
+										</div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+
 				</div>
-
-
 			</div>
-			<!-- .animated -->
-
 		</div>
+
+
+	</div>
+	<!-- .animated -->
+
+	</div>
 
 	</div>
 
