@@ -10,6 +10,6 @@
 			CITY_SEQ, 
 			CITY_NAME
 			FROM skysearch.ss_city 
-			ORDER BY CITY_SEQ DESC;
+			ORDER BY CITY_NAME ASC;
 	</select>
 </mapper>
