@@ -26,7 +26,7 @@
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/main'/>">내 정보</a>
+                        <a class="nav-link active text-success" href="<c:url value='/mypage/read'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
@@ -51,18 +51,17 @@
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
                  <div class="card padding-card"> 
-	                 <form role="form" method="POST" action="<c:url value='/member/update?MEMBER_SEQ=${paramMap.MEMBER_SEQ}' />">
+	                 <form role="form" method="POST" action="<c:url value='/member/read?MEMBER_SEQ=${paramMap.MEMBER_SEQ}' />">
 	                  <div class="card-body">
-		                  <h2 class="mb-0 mt-4">Member ID :  <%-- ${resultMap.EMAIL} --%></h2>
-		                  <h5 class="text-success mb-3">Member no. :  <%-- ${resultMap.MEMBER_SEQ} --%></h5>
-		                 
+		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL}</h3>
+		                  <p> </p>
+		                  <h5 class="text-success mb-3">NAME : ${resultMap.NAME}</h5>
 		                  <div class="row mt-5">
 		                     <div class="col-lg-6 col-md-6">
-		                        <p><strong class="text-dark">NAME :</strong> <%-- ${resultMap.NAME} --%></p>
-		                        <p><strong class="text-dark">PASSWORD :</strong> <%-- ${resultMap.PASSWORD} --%></p>
+		                        <p><strong class="text-dark">PASSWORD :</strong> ${resultMap.PASSWORD}</p>
 		                     <%--   <p><strong class="text-dark">GRADE :</strong>  ${resultMap.GRADE} ></p>--%>
-		                        <p><strong class="text-dark">PHONE :</strong> <%-- ${resultMap.PHONE} --%></p>
-		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <%-- ${resultMap.INT_LOCAL} --%></p>
+		                        <p><strong class="text-dark">PHONE :</strong> ${resultMap.PHONE}</p>
+		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> ${resultMap.INT_LOCAL}</p>
 		                     </div>
 		                  </div>
                   	  </div>

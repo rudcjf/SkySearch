@@ -36,7 +36,7 @@ public class HomeController {
 		return "/home/index";
 	}
 	
-	@RequestMapping(value = "/home/login", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/login", method = {RequestMethod.GET,RequestMethod.POST})
 	public String Login(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
