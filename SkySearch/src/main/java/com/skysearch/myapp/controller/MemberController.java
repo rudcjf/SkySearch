@@ -48,8 +48,7 @@ public class MemberController {
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			service.saveObject(paramMap);
-			resultList = (List<Object>) service.getList(paramMap);
+			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
 		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

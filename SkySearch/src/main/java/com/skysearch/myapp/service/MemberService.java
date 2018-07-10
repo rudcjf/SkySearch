@@ -33,7 +33,7 @@ public class MemberService {
 		return resultObject;
 	}
 
-	public Object saveObject(Map<Object, Object> dataMap) {
+	public Object saveObject(Map<String, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
 
 		if ("".equals(uniqueSequence)) {
@@ -46,10 +46,13 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
-		System.out.println((int)resultKey);
-		sqlMapId = "member.list";
+		
+		sqlMapId = "int_local.insert";
+		dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId = "member.read";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}

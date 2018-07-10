@@ -2,7 +2,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
- <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+<!-- 회원시퀀스에 해당하는 정보 read 에서 관심지역 가져오기  -->
+<script type="text/javascript">
+var fn_setLocalID = function(url, id, params) {
+    $.ajax({
+             type : "POST",
+             url : url,
+             data : {
+                'MEMBER_SEQ' : params
+             },
+             cache : false,
+             success : function(data) {
+                var formTag = "";
+                formTag += "<p class='form-control-static' name='LOCAL_SEQ'>";
+                $.each(data, function(i, item) {
+                   formTag += item.LOCAL_SEQ + "<br>";
+                });
+                formTag += '</p> ';
+                $('#' + id).html(formTag);
+             },
+             error : function(xhr, status, exception) {
+                alert("Failure \n (" + status + ")");
+                return false;
+             }
+          });
+ }
+$(document).ready(function() {
+	fn_setLocalID("<c:url value='/ws/memberList' />", "IntlocalDIV","${resultMap.MEMBER_SEQ}");
+});
+</script>
 
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
@@ -51,17 +80,19 @@
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
                  <div class="card padding-card"> 
-	                 <form role="form" method="POST" action="<c:url value='/member/read?MEMBER_SEQ=${paramMap.MEMBER_SEQ}' />">
+	                 <form role="form" method="POST" action="<c:url value='/member/edit' />">
 	                  <div class="card-body">
 		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL}</h3>
 		                  <p> </p>
-		                  <h5 class="text-success mb-3">NAME : ${resultMap.NAME}</h5>
+		                  <h5 class="text-success mb-3">Member SEQ : ${resultMap.MEMBER_SEQ}</h5>
+             
 		                  <div class="row mt-5">
 		                     <div class="col-lg-6 col-md-6">
+		                        <p><strong class="text-dark">NAME :</strong> ${resultMap.NAME}</p>
 		                        <p><strong class="text-dark">PASSWORD :</strong> ${resultMap.PASSWORD}</p>
 		                     <%--   <p><strong class="text-dark">GRADE :</strong>  ${resultMap.GRADE} ></p>--%>
 		                        <p><strong class="text-dark">PHONE :</strong> ${resultMap.PHONE}</p>
-		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> ${resultMap.INT_LOCAL}</p>
+		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <div id="IntlocalDIV"></div></p>
 		                     </div>
 		                  </div>
                   	  </div>
