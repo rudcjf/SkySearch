@@ -37,7 +37,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="content mt-3">
 		<div class="animated fadeIn">
 			<div class="row">
@@ -45,26 +44,25 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<strong class="card-title">여행정보</strong> <input type="submit"
-								class="btn btn-primary" value=글쓰기
+							<input type="submit" class="btn btn-primary" value=정보입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
-								style="float: right;">
+								style="float: right;"> <strong class="card-title">여행정보</strong>
 
 						</div>
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-								
-									
+
+
 								<div class="row">
 									<div class="col-sm-12">
-									
-									<!-- Table -->
+
+										<!-- Table -->
 										<table class="table table-striped table-bordered table-hover"
 											id="bootstrap-data-table">
 											<thead>
 												<tr>
-												
+
 													<th><input type="checkbox" id="selecctall" /></th>
 													<th>관광지명</th>
 													<th>도시명</th>
@@ -95,19 +93,76 @@
 										</table>
 									</div>
 								</div>
+								<div>
+								
+								<!-- CITY_INSERT -->
+									<div class="col-sm-12">
+										<form role="form" method="POST"
+											action="<c:url value='/manage/ti/merge' />">
+											<input type="hidden" name="forwardView"
+												value="/manage/ti/ti_cityinsert" />
+											<div class="card padding-card">
+												<div class="card-body">
+
+
+													<div align="left">
+
+														<div class="card-body">
+															<div class="form-group">
+																<label>지역 명 :</label> <input type="text"
+																	class="form-control" name="LANDMARK_NAME"
+																	value="${resultMap.LOCAL_NAME}">
+															</div>
+															<div class="form-group">
+																<label>국가 명 :</label> <input type="text"
+																	class="form-control" name="LANDMARK_ADDR"
+																	value="${resultMap.COUNTRY_NAME}">
+															</div>
+															<div class="form-group">
+																<label>도시 명 :</label> <input type="text"
+																	class="form-control" name="LANDMARK_ADDR"
+																	value="${resultMap.CITY_NAME}">
+															</div>
+															<div class="col col-md-3">
+																<label for="file-input" class=" form-control-label">이미지
+																	넣기</label>
+															</div>
+															<br>
+															<div class="col-12 col-md-9">
+																<input type="file" id="file-input" name="file-input"
+																	class="form-control-file">
+															</div>
+
+														</div>
+													</div>
+												</div>
+												<div align="right">
+													<button type="submit" class="btn btn-success">입력</button>
+													<button type="reset" class="btn btn-default">RESET</button>
+												</div>
+											</div>
+										</form>
+
+									</div>
+								</div>
 
 							</div>
 						</div>
 					</div>
 				</div>
+
+
 			</div>
-		</div><!-- .animated -->
+			<!-- .animated -->
+
+		</div>
+
 	</div>
-	</div><!-- .content -->
-	</div><!-- /#right-panel -->
+
+	<!-- .content -->
+	</div>
+	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
-
-
 </body>
 </html>

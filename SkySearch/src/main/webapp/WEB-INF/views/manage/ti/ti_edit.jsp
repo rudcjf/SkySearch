@@ -50,7 +50,6 @@
 								class="btn btn-primary" value=뒤로가기
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
 								style="float: right;">
-
 						</div>
 						<div class="card-body">
 							<section class="section-padding">
