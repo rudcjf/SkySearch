@@ -53,40 +53,45 @@
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 
 								<div class="row">
-									<div class="col-sm-12">
-										<table class="table table-striped table-bordered table-hover"
-											id="bootstrap-data-table">
-											<thead>
-												<tr>
-													<th><input type="checkbox" id="selecctall" /></th>
-													<th>EMAIL</th>
-													<th>NAME</th>
-													<th>PHONE</th>
-													<th>INT_LOCAL</th>
-													<th>ENABLE</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${resultList}" var="resultData"
-													varStatus="loop">
-													<tr
-														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-														<td><input type="checkbox" class="checkbox"
-															name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
-														<td><a
-															href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
-																${resultData.EMAIL}</a></td>
-														<td>${resultData.NAME}</td>
-														<td>${resultData.PHONE}</td>
-														<td>${resultData.INT_LOCAL}</td>
-														<td>${resultData.ENABLE}</td>
+									<form role="form" method="POST"
+										action="<c:url value='/manage/member/disable?MEMBER_SEQ=${resultData.MEMBER_SEQ}' />">
+										<div class="col-sm-12">
+											<table class="table table-striped table-bordered table-hover"
+												id="bootstrap-data-table">
+												<thead>
+													<tr>
+														<th><input type="checkbox" id="selecctall" /></th>
+														<th>EMAIL</th>
+														<th>NAME</th>
+														<th>PHONE</th>
+														<th>INT_LOCAL</th>
+														<th>ENABLE</th>
 													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
+												</thead>
+												<tbody>
+													<c:forEach items="${resultList}" var="resultData"
+														varStatus="loop">
+														<tr
+															class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+															<td><input type="checkbox" class="checkbox"
+																name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
+															<td><a
+																href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
+																	${resultData.EMAIL}</a></td>
+															<td>${resultData.NAME}</td>
+															<td>${resultData.PHONE}</td>
+															<td>${resultData.INT_LOCAL}</td>
+															<td>${resultData.ENABLE}</td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+											<input type="hidden" name="MEMBER_SEQ" value="dummy_id">
+											<button type="submit" class="btn btn-default">disable
+												Button</button>
+										</div>
+									</form>
 								</div>
-
 							</div>
 						</div>
 					</div>
@@ -99,9 +104,9 @@
 	</div>
 
 
-	
+
 	<!-- .content -->
-	
+
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->

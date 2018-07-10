@@ -33,7 +33,7 @@ public class ShareDao{
 
 	public Object deleteObject(String sqlMapId, Object dataMap) {
 		
-		Integer result = sqlSession.delete(sqlMapId,dataMap);
+		Integer result = sqlSession.update(sqlMapId,dataMap);
 		return result;
 	}
 
