@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"
@@ -10,12 +9,13 @@
 	$(function() {
 		$("#ForwareList").click(function() {
 			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/member/read'/>");
+				$(this).attr("action", "<c:url value='/mypage/read'/>");
 				return;
 			});
 		});
 	});
 </script>
+<!-- 관심지역 다중 클릭 체크박스 -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -98,11 +98,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 mx-auto">
-				<form role="form" method="POST"
-					action="<c:url value='/member/merge' />">
+				<form role="form" method="POST" action="<c:url value='/member/merge' />">
 					<!--<input type="hidden" name="forwardView" value="/member/read" /> -->
-					<input type="hidden" name="MEMBER_SEQ"
-						value="${resultMap.MEMBER_SEQ }" />
+					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">회원정보 수정</h4>
@@ -127,6 +125,7 @@
 							</div>
 							<div class="form-group">
 								<label> INTEREST LOCATION : </label>
+								<p>관심 지역을 1곳 이상 선택하세요</p>
 								<div id=localDIV></div>
 							</div>
 							<%--  <div class="form-group">

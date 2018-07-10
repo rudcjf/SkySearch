@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skysearch.myapp.service.CityService;
 import com.skysearch.myapp.service.LocalService;
+import com.skysearch.myapp.service.MemberService;
 
 
 
@@ -25,6 +26,9 @@ public class RestWSController {
 	@Autowired
 	private CityService cityService;
 	
+	@Autowired
+	private MemberService memberservice;
+	
 	@RequestMapping(value = "/ws/{action}", method = { RequestMethod.GET, RequestMethod.POST },
 			        produces = "application/json")
 	public Object actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable
@@ -37,10 +41,9 @@ public class RestWSController {
 			resultObject = (List<Object>) cityService.getList(paramMap);
 		}
 		/*else if ("organizationList".equalsIgnoreCase(action)) {
-		resultObject = (List<Object>) organizationService.getList(paramMap);
-	    } else if ("authorityID".equalsIgnoreCase(action)) {
-		resultObject = (List<Object>) authorityService.getList(paramMap);
-	   } */
+		}else if("memberList".equals(action)) {
+			resultObject=(List<Object>)localService.getLocalList(paramMap);
+		} */
 		return resultObject;
 	  }
 	

@@ -35,8 +35,8 @@
                               </div>
                            </div>
                            <div align="center">
-                           <button type="submit" class="btn btn-success btn-sm">LOG IN</button>
-                           <a class="btn btn-success btn-sm" role="button" href="<c:url value='/' />">Cancel</a>
+                           <button type="submit" class="btn btn-success btn-block">LOG IN</button>
+                           <a class="btn btn-default btn-block" role="button" href="<c:url value='/' />">Cancel</a>
                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                           </div>
                           <br>
