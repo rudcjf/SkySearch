@@ -67,7 +67,7 @@
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> Member ID와 Password를 입력해주세요</p>
+                        	<p><font color="red">회원탈퇴 실패!<br> Member ID와 Password를 다시 입력해주세요</font></p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
                             	<input type="email" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">

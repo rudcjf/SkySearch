@@ -15,7 +15,7 @@
 		});
 	});
 </script>
-<!-- 관심지역 다중 클릭 체크박스 -->
+<!-- 관심지역 다중 클릭 체크박스/ 회원의 관심지역으로 체크박스가 체크되어야함. -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -31,10 +31,15 @@
 								.each(
 										data,
 										function(i, item) {
-											formTag += "<label class='checkbox-inline'>";
-											formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
-													+ item.LOCAL_NAME;
-											formTag += '</label> ';
+											if("${resultMap.LOCAL_NAME}"==""){
+												formTag += "<label class='checkbox-inline'>";
+												formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">' + item.LOCAL_NAME;
+												formTag += '</label> ';
+											}else{
+												formTag += "<label class='checkbox-inline'>";
+												formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">' + "${resultMap.LOCAL_NAME}";
+												formTag += '</label> ';
+											}
 										});
 						$('#' + id).html(formTag);
 
@@ -128,41 +133,6 @@
 								<p>관심 지역을 1곳 이상 선택하세요</p>
 								<div id=localDIV></div>
 							</div>
-							<%--  <div class="form-group">
-                              <label>INTEREST LOCATION :</label>
-	                           <div class="row">
-	                              <div class="form-group col-md-6">
-		                              <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL" value="${resultMap.INT_LOCAL}">
-		                              	<option value="">Location 1</option>
-		                              	<option value="Japan">일본</option>
-		                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-		                              	<option value="China">중국</option>
-		                              	<option value="Asia">아시아</option>
-		                              	<option value="Jeju">국내(제주)</option>
-		                              	<option value="South_pacificocean">남태평양</option>
-		                              	<option value="North_america">북미</option>
-		                              	<option value="South_america">중남미</option>
-		                              	<option value="Europe">유럽</option>
-		                              	<option value="Etc">기타</option>
-		                              </select>
-	                              </div>
-	                              <div class="form-group col-md-6">
-	                                 <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
-		                              	<option value="">Location 2</option>
-		                              	<option value="Japan">일본</option>
-		                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-		                              	<option value="China">중국</option>
-		                              	<option value="Asia">아시아</option>
-		                              	<option value="Jeju">국내(제주)</option>
-		                              	<option value="South_pacificocean">남태평양</option>
-		                              	<option value="North_america">북미</option>
-		                              	<option value="South_america">중남미</option>
-		                              	<option value="Europe">유럽</option>
-		                              	<option value="Etc">기타</option>
-	                              	</select>
-	                               </div>
-	                           </div>
-                           </div> --%>
 							<br>
 							<div align="center">
 								<button type="submit" class="btn btn-success">EDIT</button>

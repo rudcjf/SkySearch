@@ -54,7 +54,7 @@
 <!-- <script type="text/javascript">
 	var count = 0;
 	function idcheck() {
-	 var text = $("#M_ID").val();
+	 var text = $("#EMAIL").val();
 	 var regexp = /[0-9a-zA-Z]/; // 숫자,영문,특수문자
 	 // var regexp = /[0-9]/; // 숫자만
 	 // var regexp = /[a-zA-Z]/; // 영문만
@@ -69,8 +69,8 @@
 	 } 
 
 	function idcheck() {
-		var param = "M_ID" + ":" + $("#M_ID").val();
-		if ($("#M_ID").val() == '' || $("#M_ID").val() == null) {
+		var param = "EMAIL" + ":" + $("#EMAIL").val();
+		if ($("#EMAIL").val() == '' || $("#EMAIL").val() == null) {
 			alert("아이디를 입력하세요");
 			return false;
 		}
@@ -79,7 +79,7 @@
 			url : "<c:url value='/ws/idcheck'/>",
 			type : "POST",
 			data : {
-				'M_ID' : $("#M_ID").val()
+				'EMAIL' : $("#EMAIL").val()
 			},
 			//cache : false,
 			//async : false,
@@ -104,6 +104,7 @@
 		});
 	} 
 </script>-->
+
 <!-- 아이디, 비밀번호 중복체크 들어가야한다-->
       <!-- Sign Up -->
       <section class="section-padding">
@@ -114,7 +115,7 @@
                      <div class="card-body">
                         <h3 class="card-title mb-4">SIGN UP</h3>
                         <form  method="POST" action="<c:url value='/member/merge'/>">
-                        <!-- <input type="hidden" name="forwardView" value="/member/read" />  -->
+                         <input type="hidden" name="forwardView" value="/member/read" /> 
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
                              	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
@@ -139,43 +140,10 @@
                            </div>
                            <!-- 관심지역 -->
                            <div class="form-group">
+                        	<input type="hidden" name="LOCAL_SEQ" value="dummy_id">
 								<label> INTEREST LOCATION : </label>
 								<div id=localDIV></div>
 							</div>
-                           <!-- <div class="form-group" >
-                               <label>Interest Location<span class="text-danger">*</span></label> 
-                              <div class="row">
-                              <div class="form-group col-md-6">
-	                              <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
-	                              	<option value="">Location 1</option>
-	                              	<option value="Japan">일본</option>
-	                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-	                              	<option value="China">중국</option>
-	                              	<option value="Asia">아시아</option>
-	                              	<option value="Jeju">국내(제주)</option>
-	                              	<option value="South_pacificocean">남태평양</option>
-	                              	<option value="North_america">북미</option>
-	                              	<option value="South_america">중남미</option>
-	                              	<option value="Europe">유럽</option>
-	                              	<option value="Etc">기타</option>
-	                              </select>
-                              </div>
-                              <div class="form-group col-md-6">
-                                 <select class="form-control custom-select" id="INT_LOCAL" name="INT_LOCAL">
-	                              	<option value="">Location 2</option>
-	                              	<option value="Japan">일본</option>
-	                              	<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-	                              	<option value="China">중국</option>
-	                              	<option value="Asia">아시아</option>
-	                              	<option value="Jeju">국내(제주)</option>
-	                              	<option value="South_pacificocean">남태평양</option>
-	                              	<option value="North_america">북미</option>
-	                              	<option value="South_america">중남미</option>
-	                              	<option value="Europe">유럽</option>
-	                              	<option value="Etc">기타</option>
-                              </select>
-                              </div>
-                              </div> -->
                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">

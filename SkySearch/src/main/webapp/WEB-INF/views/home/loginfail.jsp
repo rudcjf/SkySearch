@@ -10,14 +10,7 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h3 class="card-title mb-4">Login</h3>
-                       <%--  <fieldset>
-                    		 <c:if test="${not empty param.fail}">
-							 	<font color="red"> 로그인 실패! 다시 시도해보세요.<br /> Reason:
-									${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}<br />
-								</font>
-								<br/>
-							</c:if>
-                    	 </fieldset> --%>
+                    	 <P><font color="red">로그인을 다시 시도해 보세요</font></P>
                         <form role="form" action="<c:url value='/member/check'/>" method="POST">
                           <fieldset>
                            <div class="form-group">
@@ -37,8 +30,7 @@
                            <div align="center">
                            <button type="submit" class="btn btn-success btn-block">LOGIN</button>
                            <a class="btn btn-default btn-block" role="button" href="<c:url value='/' />">Cancel</a>
-                           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                          </div>
+                            </div>
                           <br>
                            </fieldset>
                         </form>

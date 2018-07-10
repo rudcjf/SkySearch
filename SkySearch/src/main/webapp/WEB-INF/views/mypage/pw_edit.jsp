@@ -57,7 +57,7 @@
                            <h4 class="card-title mb-4">비밀번호 변경</h4>
                            <div class="form-group">
                               <label>현재 비밀번호 <span class="text-danger">*</span></label>
-                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="비밀번호를 입력하세요">
+                              <input id="PASSWORD" name="PASSWORD" value="${resultMap.PASSWORD} type="password" class="form-control">
                            </div>
                            <div class="form-group">
                               <label>새 비밀번호 <span class="text-danger">*</span></label>

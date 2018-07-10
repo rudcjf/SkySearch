@@ -49,7 +49,43 @@ public class MemberController {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
-		}
+		} else if ("disable".equalsIgnoreCase(action)) {
+			service.deleteObject(paramMap);
+			resultList = (List<Object>) service.getList(paramMap);
+			
+			//회원탈퇴, 아이디와 비번이 일치하믄 회원의 enable을 n으로 바꾼다
+			
+//			String id=(String)paramMap.get("email");//입력한 이메일과 비밀번호
+//			String pw=(String)paramMap.get("password");
+//			
+//			resultMap = (Map<Object, Object>) service.membercheck(paramMap);//DB에 저장된 이메일과 비번
+//			String email = (String)resultMap.get("EMAIL");
+//			String pass = (String)resultMap.get("PASSWORD");
+//			
+//			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
+//				service.deleteObject(paramMap);
+//				resultList = (List<Object>) service.getList(paramMap);
+//			}else {
+//				viewName = "/mypage/withdrawalfail";
+//			}
+		
+		} else if("check".equalsIgnoreCase(action)) {
+	         resultMap = (Map<Object, Object>) service.membercheck(paramMap);
+	         
+	         if(resultMap!=null) {//검색된 아이디가 있으면,
+	            String dbPass = (String)resultMap.get("PASSWORD");
+	            String jspPass = (String) paramMap.get("password");
+	            
+	            if(dbPass.equals(jspPass)) {//비밀번호가 일치하면, 로그인성공
+	               viewName = "/home/index";
+	               resultMap.put("email",(String)resultMap.get("email"));
+	            }else {//비밀번호가 실패하면, 로그인 실패
+	               viewName = "/home/loginfail";
+	            }
+	         }else {//검색된 아이디가 없으면
+	            viewName = "/home/loginfail";
+	         }
+	      }
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
 		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
@@ -63,7 +99,6 @@ public class MemberController {
 		if(forwardView != null){
 			viewName = forwardView;
 		}
-		
 		modelandView.setViewName(viewName);
 
 		modelandView.addObject("paramMap", paramMap);

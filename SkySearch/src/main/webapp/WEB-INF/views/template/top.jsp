@@ -24,15 +24,6 @@
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <%-- <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" 
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <strong>About Us</strong> </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/aboutus'/>">About us</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">F&Q</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact</a>
-                           </div>
-                        </li> --%>
                         <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/mypage/read'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
@@ -40,9 +31,10 @@
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
+                           <a class="nav-link" href="#" style="display: none">${resultMap.EMAIL}</a>
                         </li> 
                      </ul>   
-                 
+                   
                      <div class="my-2 my-lg-0">
                        <ul class="list-inline main-nav-right" style="margin-top:10px;">
                             <li class="list-inline-item">

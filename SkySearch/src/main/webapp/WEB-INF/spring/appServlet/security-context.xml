@@ -11,13 +11,13 @@
 		<intercept-url pattern="/*" 	access="permitAll()"/>
 	
 <!-- 로그인 관련 설정 -->
-<!--        <form-login login-page="/login" login-processing-url="/j_spring_security_check"
+        <form-login login-page="/login" login-processing-url="/j_spring_security_check"
 		authentication-failure-url="/login?fail=true" 
-		username-parameter="email" password-parameter="password" /> -->
+		username-parameter="email" password-parameter="password" /> 
 		
 <!-- 로그아웃 관련 설정 -->		
-      <!--   <logout logout-success-url="/" logout-url="/j_spring_security_logout"
-                 invalidate-session="true" delete-cookies="JSESSIONID" /> -->
+         <logout logout-success-url="/" logout-url="/j_spring_security_logout"
+                 invalidate-session="true" delete-cookies="JSESSIONID" /> 
 <!-- 페이지 해킹을 방지하기 위함 -->      
        <csrf disabled="true"/>
 		
@@ -25,11 +25,9 @@
 	<authentication-manager>
 		<authentication-provider>
 		  <user-service>
-				
-		
 			<user name="system@skysearch.com" password="system123" authorities="ROLE_SYSTEM"/>				
 			</user-service> 
- 		<jdbc-user-service data-source-ref="dataSource"
+ 		 <jdbc-user-service data-source-ref="dataSource"
 		users-by-username-query="SELECT EMAIL as username, PASSWORD as password,
 		 1 as enabled FROM skysearch.SS_MEMBER WHERE MEMBER_SEQ = ?"
 		authorities-by-username-query="SELECT MA.M_SEQ as username, A.A_NAME as authority 
