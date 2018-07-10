@@ -36,7 +36,7 @@ public class MemberController {
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
 
-		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		Map<Object, Object> resultMap = new HashMap<Object, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
@@ -44,12 +44,11 @@ public class MemberController {
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			service.saveObject(paramMap);
-			resultList = (List<Object>) service.getList(paramMap);
+			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
 		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

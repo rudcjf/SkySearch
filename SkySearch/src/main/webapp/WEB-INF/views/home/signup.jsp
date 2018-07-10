@@ -13,6 +13,42 @@
 		});
 	});
 </script>
+<!-- 관심지역 다중 클릭 체크박스 -->
+<script>
+	var fn_setFormTagCheckbox = function(url, id, params) {
+		$
+				.ajax({
+					type : "POST",
+					url : url,
+					data : params,
+					cache : false,
+					success : function(data) {
+
+						var formTag = "";
+						$
+								.each(
+										data,
+										function(i, item) {
+											formTag += "<label class='checkbox-inline'>";
+											formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
+													+ item.LOCAL_NAME;
+											formTag += '</label> ';
+										});
+						$('#' + id).html(formTag);
+
+					},
+					error : function(xhr, status, exception) {
+						alert("Failure \n (" + status + ")");
+						return false;
+					}
+				});
+	}
+
+	$(document).ready(function() {
+		fn_setFormTagCheckbox("<c:url value='/ws/localList' />", "localDIV");
+
+	});
+</script>
 
 <!-- 아이디 중복 체크 -->
 <!-- <script type="text/javascript">
@@ -66,8 +102,8 @@
 				}
 			}
 		});
-	} -->
-</script>
+	} 
+</script>-->
 <!-- 아이디, 비밀번호 중복체크 들어가야한다-->
       <!-- Sign Up -->
       <section class="section-padding">
@@ -78,7 +114,7 @@
                      <div class="card-body">
                         <h3 class="card-title mb-4">SIGN UP</h3>
                         <form  method="POST" action="<c:url value='/member/merge'/>">
-                        <!-- <input type="hidden" name="forwardView" value="/mypage/main" />  -->
+                        <!-- <input type="hidden" name="forwardView" value="/member/read" />  -->
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
                              	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
@@ -102,7 +138,11 @@
                               <input id="PHONE" name="PHONE" type="text" class="form-control" placeholder="010-1234-5678">
                            </div>
                            <!-- 관심지역 -->
-                           <div class="form-group" >
+                           <div class="form-group">
+								<label> INTEREST LOCATION : </label>
+								<div id=localDIV></div>
+							</div>
+                           <!-- <div class="form-group" >
                                <label>Interest Location<span class="text-danger">*</span></label> 
                               <div class="row">
                               <div class="form-group col-md-6">
@@ -135,17 +175,17 @@
 	                              	<option value="Etc">기타</option>
                               </select>
                               </div>
-                              </div>
+                              </div> -->
                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                  <label class="custom-control-label" for="customControlAutosizing">I agree with all <a href="terms.html">Terms & Conditions</a></label>
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-success btn-sm">Sign Up</button>
-                           <button type="reset" class="btn btn-default btn-sm">Reset</button>
-					        <a class="btn btn-primary btn-sm" role="button" href="<c:url value='/' />">Home</a>
-                        </form>
+                          
+	                           <button type="submit" class="btn btn-success btn-block ">Sign Up</button>
+	                           <button type="reset" class="btn btn-default btn-block">Reset</button>
+                      
                         <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
