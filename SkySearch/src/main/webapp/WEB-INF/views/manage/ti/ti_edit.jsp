@@ -29,7 +29,7 @@
 						cache : false,
 						success : function(data) {
 							var formTag = "";
-							formTag += "<select class='form-control' name='CITY_SEQ'>";
+							formTag += "<select class='form-control' name='CITY_SEQ' disabled>";
 							$
 									.each(
 											data,
@@ -38,7 +38,7 @@
 													formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
 													+ item.CITY_NAME;
 												}else {
-													formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
+													formTag += '<option selected="selected" value="'+item.CITY_SEQ+'" >'
 													+ "${resultMap.CITY_NAME}";
 												}
 												
@@ -122,7 +122,7 @@
 														</div>
 														<div class="form-group">
 															<label>도시명 :</label> 
-															<div id=cityDIV></div>
+															<div id=cityDIV name="CITY_NAME"></div>
 														</div>
 														<!-- Repeat Contents -->
 														<div id="room_type">
@@ -140,11 +140,13 @@
 																			class="form-control" name="LANDMARK_ADDR"
 																			value="${resultMap.LANDMARK_ADDR}">
 																	</div>
+																	
 																	<div class="form-group">
-																		<label>관광지 설명 :</label>
-																		<textarea name="textarea-input LANDMARK_EXP"
-																			id="textarea-input" rows="3" class="form-control">${resultMap.LANDMARK_EXP}</textarea>
+																		<label>관광지 설명 :</label> <input type="text"
+																			class="form-control" name="LANDMARK_EXP"
+																			value="${resultMap.LANDMARK_EXP}">
 																	</div>
+																	
 																	<div class="col col-md-3">
 																		<label for="file-input" class=" form-control-label">이미지
 																			넣기</label>
