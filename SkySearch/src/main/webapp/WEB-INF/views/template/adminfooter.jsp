@@ -8,7 +8,7 @@
     <link type='text/css' href="<c:url value='/resources/assets/css/google_font.css'/>" rel="stylesheet"/>
       
     <!-- <script type="text/javascript" src="<c:url value='/resources/assets/js/html5shiv.min'/>"> </script> -->
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/vendor/jquery-2.1.4.min.js'/>"></script>
+    
     <script type="text/javascript" src="<c:url value='/resources/assets/js//popper.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/plugins.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/main.js'/>"></script>
@@ -34,6 +34,7 @@
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/buttons.print.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/buttons.colVis.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables-init.js'/>"></script>
+  
   
     <script>
         ( function ( $ ) {

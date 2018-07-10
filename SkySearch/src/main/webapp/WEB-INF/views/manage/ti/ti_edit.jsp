@@ -18,6 +18,45 @@
 
 </head>
 <body>
+
+<script>
+		var fn_setFormTagCheckbox = function(url, id, params) {
+			$
+					.ajax({
+						type : "POST",
+						url : url,
+						data : params,
+						cache : false,
+						success : function(data) {
+							var formTag = "";
+							formTag += "<select class='form-control' name='CITY_SEQ'>";
+							$
+									.each(
+											data,
+											function(i, item) {
+												formTag += '<option value="'+item.CITY_SEQ+'">'
+														+ item.CITY_NAME;
+											});
+							formTag += '</select> ';
+							$('#' + id).html(formTag);
+						},
+						error : function(xhr, status, exception) {
+							alert("Failure \n (" + status + ")");
+							return false;
+						}
+					});
+
+		}
+
+		$(document).ready(
+				function() {
+					fn_setFormTagCheckbox("<c:url value='/ws/cityList' />",
+							"cityDIV");
+
+				});
+	</script>
+
+
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
@@ -46,10 +85,16 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<strong class="card-title">여행정보</strong> <input type="submit"
+							<strong class="card-title">여행정보</strong> 
+							<input type="submit"
 								class="btn btn-primary" value=뒤로가기
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
+								style="float: right;"> 
+							<input type="submit"
+								class="btn btn-primary" value=도시추가
+								onClick="location.href='<c:url value="/manage/ti/ti_insertCity"/>'"
 								style="float: right;">
+
 						</div>
 						<div class="card-body">
 							<section class="section-padding">
@@ -65,18 +110,11 @@
 														<h4 class="card-title mb-4">도시정보 입력</h4>
 														<p>도시 정보를 입력하세요</p>
 														<div class="form-group">
-														<input type="hidden" class="form-control" name="TRAVEL_SEQ"
-															value="${resultMap.TRAVEL_SEQ}" />
-															</div>
-														<div class="form-group">
-															<label>도시명 :</label> <input type="text"
-																class="form-control" name="CITY_NAME"
-																value="${resultMap.CITY_NAME}">
+															<input type="hidden" class="form-control"
+																name="TRAVEL_SEQ" value="${resultMap.TRAVEL_SEQ}" />
 														</div>
 														<div class="form-group">
-															<label>주소 :</label> <input type="text"
-																class="form-control" name="CITY_ADD"
-																value="${resultMap.CITY_ADD}">
+															<label>도시명 :</label> <div id=cityDIV></div>
 														</div>
 														<!-- Repeat Contents -->
 														<div id="room_type">
@@ -87,18 +125,17 @@
 																	<div class="form-group">
 																		<label>관광지명 :</label> <input type="text"
 																			class="form-control" name="LANDMARK_NAME"
-																			value="${resultMap.LANDMARK_NAME}" >
+																			value="${resultMap.LANDMARK_NAME}">
 																	</div>
 																	<div class="form-group">
 																		<label>관광지 주소 :</label> <input type="text"
 																			class="form-control" name="LANDMARK_ADDR"
-																			value="${resultMap.LANDMARK_ADDR}" >
+																			value="${resultMap.LANDMARK_ADDR}">
 																	</div>
 																	<div class="form-group">
 																		<label>관광지 설명 :</label>
 																		<textarea name="textarea-input LANDMARK_EXP"
-																			id="textarea-input" rows="3"
-																			class="form-control">${resultMap.LANDMARK_EXP}</textarea>
+																			id="textarea-input" rows="3" class="form-control">${resultMap.LANDMARK_EXP}</textarea>
 																	</div>
 																	<div class="col col-md-3">
 																		<label for="file-input" class=" form-control-label">이미지
