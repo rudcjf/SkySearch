@@ -6,9 +6,14 @@
 
 <mapper namespace="member">
 	<select id="list" resultType="Map" parameterType="Map">
-		SELECT
-		MEMBER_SEQ, EMAIL,PASSWORD,NAME,PHONE,INT_LOCAL,ENABLE FROM
-		skysearch.ss_member ORDER BY NAME ASC;
+		SELECT member.MEMBER_SEQ,
+		member.EMAIL,member.PASSWORD,member.NAME,member.PHONE,member.ENABLE
+		,local.LOCAL_NAME
+		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local
+		ON member.MEMBER_SEQ =int_local.MEMBER_SEQ left JOIN
+		skysearch.ss_local local
+		on int_local.local_SEQ = local.local_SEQ
+		ORDER BY NAME ASC;
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
@@ -18,7 +23,6 @@
 		PASSWORD,
 		NAME,
 		PHONE,
-		INT_LOCAL,
 		ENABLE
 		from
 		skysearch.ss_member
@@ -41,7 +45,6 @@
 		,PASSWORD
 		,NAME
 		,PHONE
-		,INT_LOCAL
 		,ENABLE
 		,REGISTER_SEQ
 		,REGISTRY_DATE
@@ -49,30 +52,30 @@
 		,MODIFY_DATE
 		)
 		VALUES(
-		#{MEMBER_SEQ} 
-		, #{EMAIL} 
-		, #{PASSWORD} 
-		, #{NAME} 
-		, #{PHONE} 
-		, #{INT_LOCAL} 
-		, #{ENABLE} 
-		, #{REGISTER_SEQ} 
-		, now() 
-		, #{MODIFIER_SEQ} 
+		#{MEMBER_SEQ}
+		, #{EMAIL}
+		, #{PASSWORD}
+		, #{NAME}
+		, #{PHONE}
+		, #{ENABLE}
+		, #{REGISTER_SEQ}
+		, now()
+		, #{MODIFIER_SEQ}
 		, now() )
 		ON DUPLICATE KEY UPDATE
-		EMAIL = #{EMAIL} 
+		EMAIL = #{EMAIL}
 		, PASSWORD = #{PASSWORD}
-		, NAME = #{NAME} 
-		, PHONE = #{PHONE} 
+		, NAME = #{NAME}
+		, PHONE = #{PHONE}
 		, INT_LOCAL = #{INT_LOCAL}
-		, MODIFIER_SEQ = #{MODIFIER_SEQ} 
+		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
 
 	</insert>
 
 	<delete id="delete" parameterType="Map">
-		delete from skysearch.ss_member
+		delete from
+		skysearch.ss_member
 		where
 		MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
