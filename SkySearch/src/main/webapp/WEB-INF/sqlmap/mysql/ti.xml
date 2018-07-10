@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ti">
+	<select id="list" resultType="Map" parameterType="Map">
+		SELECT
+		TI.TRAVEL_SEQ AS TRAVEL_SEQ, 
+		TI.LANDMARK_NAME AS LANDMARK_NAME, 
+		CI.CITY_NAME AS CITY_NAME,
+		TI.LANDMARK_ADDR AS LANDMARK_ADDR,
+		TI.LANDMARK_EXP AS LANDMARK_EXP,
+		TI.REGISTER_SEQ AS REGISTER_SEQ, 
+		TI.REGISTRY_DATE AS REGISTRY_DATE
+		FROM
+		SKYSEARCH.SS_TRAVEL_INFO AS TI
+		INNER JOIN SKYSEARCH.SS_CITY AS CI
+		ON TI.CITY_SEQ = CI.CITY_SEQ
+		ORDER BY 
+		LANDMARK_NAME ASC;
+	</select>
+
+	<select id="read" resultType="Map" parameterType="Map">
+		select
+		TI.TRAVEL_SEQ AS TRAVEL_SEQ, 
+		CI.CITY_NAME AS CITY_NAME,
+		CI.CITY_ADD AS CITY_ADD,
+		TI.LANDMARK_NAME AS LANDMARK_NAME,
+		TI.LANDMARK_ADDR AS LANDMARK_ADDR,
+		TI.LANDMARK_EXP AS LANDMARK_EXP
+		FROM
+		SKYSEARCH.SS_TRAVEL_INFO AS TI
+		INNER JOIN SKYSEARCH.SS_CITY AS CI
+		ON TI.CITY_SEQ = CI.CITY_SEQ
+		where TRAVEL_SEQ = #{TRAVEL_SEQ}
+	</select>
+
+	<insert id="merge" parameterType="Map">
+		<selectKey keyProperty="TRAVEL_SEQ" resultType="String"
+			order="AFTER">	<!-- order="BEFORE" -->
+			SELECT 
+			TRAVEL_SEQ
+			FROM SKYSEARCH.SS_TRAVEL_INFO
+			WHERE TRAVEL_SEQ =
+			#{TRAVEL_SEQ}
+		</selectKey>
+		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
+			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
+		INSERT INTO SKYSEARCH.SS_TRAVEL_INFO(
+		TRAVEL_SEQ	
+		,LANDMARK_NAME
+		,LANDMARK_ADDR
+		,REGISTER_SEQ
+		,REGISTRY_DATE
+		,MODIFIER_SEQ
+		,MODIFY_DATE
+		)
+		VALUES(
+		#{TRAVEL_SEQ} 
+		, #{LANDMARK_NAME} 
+		, #{LANDMARK_ADDR} 
+		, #{REGISTER_SEQ} 
+		, now() 
+		, #{MODIFIER_SEQ} 
+		, now() )
+		ON DUPLICATE KEY UPDATE
+		LANDMARK_NAME = #{LANDMARK_NAME} 
+		, LANDMARK_ADDR = #{LANDMARK_ADDR}
+		, LANDMARK_EXP = #{LANDMARK_EXP}
+		, MODIFIER_SEQ = #{MODIFIER_SEQ} 
+		, MODIFY_DATE = now()
+
+	</insert>
+
+	<delete id="delete" parameterType="Map">
+		delete from CIP_MEMBER
+		where
+		TRAVEL_SEQ = #{TRAVEL_SEQ}
+	</delete>
+</mapper>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skysearch.myapp.service.AdminTiService;
 import com.skysearch.myapp.service.MemberService;
 
 
@@ -28,7 +29,7 @@ public class AdminTiController {
 	private final static String MAPPING = "/manage/ti/";
 	
 	@Autowired
-	private MemberService service;
+	private AdminTiService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
@@ -42,8 +43,14 @@ public class AdminTiController {
 
 		// divided depending on action value
 		if ("ti_list".equalsIgnoreCase(action)) {
-		}else if ("ti_edit".equalsIgnoreCase(action)) {
-			
+			resultList = (List<Object>) service.getList(paramMap);
+		}else if ("ti_read".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getObject(paramMap);
+		} else if ("ti_edit".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getObject(paramMap);
+		} else if ("merge".equalsIgnoreCase(action)) {
+			service.saveObject(paramMap);
+			resultList = (List<Object>) service.getList(paramMap);
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
