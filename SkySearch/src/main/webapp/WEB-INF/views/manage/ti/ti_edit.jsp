@@ -34,8 +34,15 @@
 									.each(
 											data,
 											function(i, item) {
-												formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
-														+ "${resultMap.CITY_NAME}";
+												if("${resultMap.CITY_NAME}"==""){
+													formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
+													+ item.CITY_NAME;
+												}else {
+													formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
+													+ "${resultMap.CITY_NAME}";
+												}
+												
+												
 											});
 							formTag += '</select> ';
 							$('#' + id).html(formTag);
