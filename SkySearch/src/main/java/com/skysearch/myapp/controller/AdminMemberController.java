@@ -16,9 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skysearch.myapp.component.MapParamCollector;
 import com.skysearch.myapp.service.MemberService;
 
 @Controller
@@ -29,9 +29,11 @@ public class AdminMemberController {
 	private MemberService service;
 
 	@RequestMapping(value = MAPPING + "{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
-
+		
+		
+		Map<Object, Object> paramMap = paramMethodMap.getMap();
 		String viewName = MAPPING + action;
 		String forwardView = (String) paramMap.get("forwardView");
 
@@ -47,6 +49,9 @@ public class AdminMemberController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObject(paramMap);
+			resultList = (List<Object>) service.getList(paramMap);
+		} else if ("disable".equalsIgnoreCase(action)) {
+			service.deleteObject(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
 		}
 		/*
