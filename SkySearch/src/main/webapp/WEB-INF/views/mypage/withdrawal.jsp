@@ -26,7 +26,7 @@
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/main'/>">내 정보</a>
+                        <a class="nav-link" href="<c:url value='/mypage/read'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보수정</a>
@@ -50,7 +50,7 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
-                 <form role="form">
+                 <form role="form" >
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>

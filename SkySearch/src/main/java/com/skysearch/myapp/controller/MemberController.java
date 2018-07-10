@@ -40,20 +40,27 @@ public class MemberController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-	/*	if ("edit".equalsIgnoreCase(action)) {
-		} else if ("update".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			paramMap.put("action", action);
-		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+	
+		if ("list".equalsIgnoreCase(action)) {
+			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
-		} else if ("list".equalsIgnoreCase(action)) {
+		} else if ("edit".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getObject(paramMap);
+		} else if ("merge".equalsIgnoreCase(action)) {
+			service.saveObject(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("delete".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.deleteObject(paramMap);
-		} */
-		
+		}
+		/*
+		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
+		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
+		 * if ("merge".equalsIgnoreCase(action)) { resultMap = (Map<String, Object>)
+		 * service.saveObject(paramMap); } else if ("read".equalsIgnoreCase(action)) {
+		 * resultMap = (Map<String, Object>) service.getObject(paramMap); } else if
+		 * ("list".equalsIgnoreCase(action)) { resultList = (List<Object>)
+		 * service.getList(paramMap); } else if ("delete".equalsIgnoreCase(action)) {
+		 * resultList = (List<Object>) service.deleteObject(paramMap); }
+		 */
 		if(forwardView != null){
 			viewName = forwardView;
 		}

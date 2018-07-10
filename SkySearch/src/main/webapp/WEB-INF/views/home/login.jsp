@@ -10,14 +10,23 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h3 class="card-title mb-4">Login</h3>
-                        <form>
+                        <fieldset>
+                    		 <c:if test="${not empty param.fail}">
+							 	<font color="red"> 로그인 실패! 다시 시도해보세요.<br /> Reason:
+									${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}<br />
+								</font>
+								<br/>
+							</c:if>
+                    	 </fieldset>
+                        <form role="form" <%-- action="<c:url value='/j_spring_security_check'/>"  --%>method="POST">
+                          <fieldset>
                            <div class="form-group">
-                              <label>Member ID <span class="text-danger">*</span></label>
-                              <input type="email" name="EMAIL" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                              <label for="username">Member ID <span class="text-danger">*</span></label>
+                              <input type="text" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
                            </div>
                            <div class="form-group">
-                              <label>Password <span class="text-danger">*</span></label>
-                              <input type="password" name="PASSWORD" class="form-control" placeholder="Password">
+                              <label for="password">Password <span class="text-danger">*</span></label>
+                              <input type="password" name="password" class="form-control" placeholder="Password">
                            </div>
                            <div class="form-group">
                               <div class="custom-control custom-checkbox">
@@ -25,7 +34,13 @@
                                  <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-success btn-block">LOG IN</button>
+                           <div align="center">
+                           <button type="submit" class="btn btn-success btn-sm">LOG IN</button>
+                           <a class="btn btn-success btn-sm" role="button" href="<c:url value='/' />">Cancel</a>
+                           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                          </div>
+                          <br>
+                           </fieldset>
                         </form>
                         <div class="mt-4 text-center login-with-social">
                           <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
