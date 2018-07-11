@@ -44,10 +44,10 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-						 <strong class="card-title">여행정보</strong>
-							<input type="submit" class="btn btn-primary" value=정보입력
+							<strong class="card-title">여행정보</strong> <input type="submit"
+								class="btn btn-primary" value=정보입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
-								style="float: right;">
+								style="float: right;"> 
 						</div>
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
@@ -82,7 +82,9 @@
 														<td><a
 															href="<c:url value="/manage/ti/ti_edit?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
 																${resultData.LANDMARK_NAME}</a></td>
-														<td>${resultData.CITY_NAME}</td>
+														<td><a
+															href="<c:url value="/manage/ti/ti_local?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
+															${resultData.CITY_NAME}</a></td>
 														<td>${resultData.LANDMARK_EXP}</td>
 														<td>${resultData.LANDMARK_ADDR}</td>
 														<td>${resultData.REGISTER_SEQ}</td>
@@ -97,7 +99,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 
 				</div>
 			</div>
