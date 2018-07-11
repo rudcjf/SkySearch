@@ -115,6 +115,9 @@
 				<div class="osahan_top_filter row">
 					<div class="col-lg-11 col-md-11 tags-action">
 						<h4>이 특가 추천</h4>
+						<!-- test -->
+						<a href="<c:url value='/transport/flight'/>">항공권</a>
+						<!-- end test -->
 					</div>
 					<div class="col-lg-1 col-md-1 sort-by-btn float-right">
 						<div class="tooltipmj">
