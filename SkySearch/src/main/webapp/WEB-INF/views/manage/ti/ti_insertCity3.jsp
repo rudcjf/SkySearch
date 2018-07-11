@@ -90,7 +90,7 @@
 						</div>
 						<div class="card-body">
 						<!-- CITY_INSERT -->
-							<div class="col-sm-6">
+							<div class="col-sm-12">
 								<form role="form" method="POST"
 									action="<c:url value='/manage/ti/citymerge' />">
 									<input type="hidden" name="forwardView"
@@ -118,53 +118,15 @@
 															class="form-control" name="CITY_ADD"
 															value="${resultMap.CITY_ADD}">
 													</div>
-													<div class="col col-md-3">
-														<label for="file-input" class=" form-control-label">이미지
-															넣기</label>
-													</div>
-													<br>
-													<div class="col-12 col-md-9">
-														<input type="file" id="file-input" name="file-input"
-															class="form-control-file">
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div align="right">
-											<input type="submit" class="btn btn-success" value="입력"/>
-										</div>
-									</div>
-								</form>
-
-							</div>
-							<div class="col-sm-6">
-								<form role="form" method="POST"
-									action="<c:url value='/manage/ti/citymerge' />">
-									<input type="hidden" name="forwardView"
-										value="/manage/ti/ti_ㅣlist" />
-									<div class="card padding-card">
-										<div class="card-body">
-											<div align="left">
-												<div class="card-body">
-													<div class="form-group col-sm-4">
-														<label> 지역 명 : </label>
-														<div id=localDIV></div>
-													</div>
-													<div class="form-group col-sm-4">
-														<label>국가 명 :</label> <input type="text"
-															class="form-control" name="COUNTRY_NAME"
-															value="${resultMap.COUNTRY_NAME}">
-													</div>
-													<div class="form-group col-sm-4">
-														<label>도시 명 :</label> <input type="text"
-															class="form-control" name="ITY_NAME"
-															value="${resultMap.CITY_NAME}">
+													<div class="form-group col-sm-12">
+														<label>위도:</label> <input type="text"
+															class="form-control" name="CITY_ADD"
+															value="${resultMap.CITY_LATITUDE}">
 													</div>
 													<div class="form-group col-sm-12">
-														<label>도시 주소:</label> <input type="text"
+														<label>경도:</label> <input type="text"
 															class="form-control" name="CITY_ADD"
-															value="${resultMap.CITY_ADD}">
+															value="${resultMap.CITY_LONGITUDE}">
 													</div>
 													<div class="col col-md-3">
 														<label for="file-input" class=" form-control-label">이미지
@@ -186,6 +148,7 @@
 								</form>
 
 							</div>
+							
 						</div>
 					</div>
 				</div>

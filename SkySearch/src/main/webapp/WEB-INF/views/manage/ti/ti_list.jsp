@@ -48,10 +48,6 @@
 							<input type="submit" class="btn btn-primary" value=정보입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
 								style="float: right;">
-							<input type="submit" class="btn btn-primary" value=도시추가
-								onClick="location.href='<c:url value="/manage/ti/ti_insertCity"/>'"
-								style="float: right;"> 
-
 						</div>
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
