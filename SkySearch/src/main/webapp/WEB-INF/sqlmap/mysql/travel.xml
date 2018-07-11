@@ -8,14 +8,14 @@
 
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT 
-		CITY_NAME, <!-- 도시 이름 -->
-		CITY_ADD, <!-- 도시 주소 --> 
-		CITY_LATITUDE, <!-- 위도 -->
-		CITY_LONGITUDE, <!-- 경도 -->
-		LANDMARK_NAME, <!-- 관광지 이름 -->
-		LANDMARK_EXP, <!-- 관광지 설명 -->
-		LANDMARK_ADDR, <!-- 관광지 주소 -->
-		VIEWS <!-- 조회수 -->
+		c.CITY_NAME, <!-- 도시 이름 -->
+		c.CITY_ADD, <!-- 도시 주소 --> 
+		c.CITY_LATITUDE, <!-- 위도 -->
+		c.CITY_LONGITUDE, <!-- 경도 -->
+		t.LANDMARK_NAME, <!-- 관광지 이름 -->
+		t.LANDMARK_EXP, <!-- 관광지 설명 -->
+		t.LANDMARK_ADDR, <!-- 관광지 주소 -->
+		t.VIEWS <!-- 조회수 -->
 		FROM 
 		SS_CITY c, SS_TRAVEL_INFO t
 		WHERE

@@ -372,7 +372,7 @@
 <!-- Contact form JavaScript -->
 <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 <script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
-<script src="js/contact_me.js"></script>
+<script src="<c:url value='/resources/js/contact_me.js'/>"></script>
 <!-- select2 Js -->
 <script src="<c:url value='/resources/vendor/select2/js/select2.min.js'/>"></script>
 <!-- Custom -->
@@ -533,10 +533,8 @@
          	marker.addListener('click', function() {
          		infowindow.open(map, marker);
          	});
-         }
-          
+         }       
       </script>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
 
 
