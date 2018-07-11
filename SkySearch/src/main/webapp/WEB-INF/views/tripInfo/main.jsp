@@ -12,11 +12,11 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo1.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/3.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/4.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 		</div>
@@ -28,7 +28,34 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+	
+	<script>
+		//AJAX select box
+		function CountrySelect(LOCAL_NAME){
+		$.ajax({
+		 type: "POST",
+		 url: "<c:url value='/ws/country'/>",
+		 dataType:"json",
+		 data: {param:LOCAL_NAME},
 
+		 // 데이터값 받아오는 작업 성공시
+		 success: function(resultList){
+		  // SELECT BOX 초기화           
+		  $("#country").find("option").remove().end().append("<option value=''>국가선택</option>");
+		  // 배열 개수 만큼 option 추가
+		  $.each(resultList, function(i){
+		  	$("#country").append("<option value='"+resultList[i]+"'>"+resultList[i]+"</option>")
+		   });    
+		  },
+		  
+		// 데이터값 받아오는 작업 실패시
+		   error: function (jqXHR, textStatus, errorThrown) {
+		   alert("오류가 발생하였습니다.");                  
+		  }                     
+		 });
+		}
+	</script>
+	
 	<div class="slider-form">
 		<div class="container">
 			<h1 class="text-center text-white mb-5">여행 정보</h1>
@@ -41,18 +68,14 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-earth"></i>
 							</div>
-							<select class="form-control select2 no-radius" placeholder="여행지역">
+							<select class="form-control select2 no-radius" id="LOCAL_NAME" name="LOCAL_NAME" onchange="CountrySelect(this.value);" placeholder="여행지역">
 								<option value="">여행지역</option>
-								<option value="Japan">일본</option>
-								<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-								<option value="China">중국</option>
-								<option value="Asia">아시아</option>
-								<option value="Jeju">국내(제주)</option>
-								<option value="South_pacificocean">남태평양</option>
-								<option value="North_america">북미</option>
-								<option value="South_america">중남미</option>
-								<option value="Europe">유럽</option>
-								<option value="Etc">기타</option>
+								<option value="아시아">아시아</option>
+								<option value="동남아시아">동남아시아</option>
+								<option value="유럽">유럽</option>
+								<option value="북아메리카">북아메리카</option>
+								<option value="남아메리카">남아메리카</option>
+								<option value="오세아니아">오세아니아</option>
 							</select>
 						</div>
 					</div>
@@ -62,15 +85,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-airplane"></i>
 							</div>
-							<select class="form-control select2 no-radius">
-								<option value="">국가명</option>
-								<option value="Japan">일본</option>
-								<option value="Singapore">싱가포르</option>
-								<option value="India">인도</option>
-								<option value="France">프랑스</option>
-								<option value="Swiss">스위스</option>
-								<option value="America">미국</option>
-								<option value="Canada">캐나다</option>
+							<select class="form-control select2 no-radius" id="country" name="country">
+<!-- 								<option value="">국가명</option> -->
 							</select>
 						</div>
 					</div>
@@ -114,62 +130,62 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
-								alt="Card image cap">
+							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+							<img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
+									<span class="badge badge-white"> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i>
+									<small class="text-success">2/5</small>
+									</span>	
+									<h6><input type="hidden" name="CITY_SEQ" value="CI001">도쿄</h6>
+									<p class="mb-0">일본</p>
+								</div> 
+								<button type="submit" class="btn btn-default">정보 보기</button>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
+							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+							<img class="card-img-top" src="<c:url value = '/resources/img/blog/beijing1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
+									<span class="badge badge-white"> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i>
+								    <i class="mdi mdi-star text-warning"></i> 
+								    <i class="mdi mdi-star-half text-warning"></i> 
+								    <i class="mdi mdi-star-half text-warning"></i>
+								    <small class="text-success">2/5</small>
 									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
+									<h6><input type="hidden" name="CITY_SEQ" value="CI004">베이징</h6>
+									<p class="mb-0">중국</p>
 								</div>
-							</a>
+								<button type="submit" class="btn btn-default">정보 보기</button>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
+						<form action="<c:url value='/tripInfo/read'/>" method="POST">
+						<img class="card-img-top" src="<c:url value = '/resources/img/blog/taibei1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
+									<span class="badge badge-white"> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i>
+									<small class="text-success">2/5</small>
 									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
+									<h6><input type="hidden" name="CITY_SEQ" value="CI007">타이베이</h6>
+									<p class="mb-0">대만</p>
 								</div>
-							</a>
+								<button type="submit" class="btn btn-default">정보 보기</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -272,7 +288,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
+							<a href="<c:url value='/tripInfo/read'/>"><img
 								class="card-img-top"
 								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
 								alt="Card image cap">
@@ -547,6 +563,3 @@
 		</div>
 	</div>
 </section>
-
-
-
