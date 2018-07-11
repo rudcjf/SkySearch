@@ -90,4 +90,9 @@
 		set ENABLE='N'
 		where EMAIL = #{EMAIL} and PASSWORD = #{PASSWORD}
 	</update>
+	<update id="deleteAdmin" parameterType="Map">
+ 		update skysearch.ss_member 
+		set ENABLE='N'
+		where MEMBER_SEQ = #{MEMBER_SEQ}
+	</update>
 </mapper>
