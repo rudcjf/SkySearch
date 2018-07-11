@@ -13,12 +13,12 @@
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 
-	<annotation-driven>
-		<argument-resolvers>
-			<beans:bean
-				class="com.skysearch.myapp.component.CustomizeMethodArgumentResolver" />
-		</argument-resolvers>
-	</annotation-driven>
+<annotation-driven>
+      <argument-resolvers>
+         <beans:bean
+            class="com.skysearch.myapp.component.CustomizeMethodArgumentResolver" />
+      </argument-resolvers>
+   </annotation-driven>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->

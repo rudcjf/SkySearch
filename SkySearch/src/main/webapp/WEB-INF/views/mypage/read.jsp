@@ -55,7 +55,7 @@ $(document).ready(function() {
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/read'/>">내 정보</a>
+                        <a class="nav-link active text-success" href="<c:url value='/member/read'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
@@ -80,7 +80,7 @@ $(document).ready(function() {
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
                  <div class="card padding-card"> 
-	                 <form role="form" method="POST" action="<c:url value='/member/edit' />">
+	                 <form role="form" method="POST" action="<c:url value='/member/read' />">
 	                  <div class="card-body">
 		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL}</h3>
 		                  <p> </p>

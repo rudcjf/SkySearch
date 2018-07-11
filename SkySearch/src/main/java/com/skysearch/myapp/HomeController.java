@@ -50,7 +50,7 @@ public class HomeController {
 		return "/home/login";
 	}
 	
-	@RequestMapping(value = "/home/signup", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/signup", method = {RequestMethod.GET,RequestMethod.POST})
 	public String SignUp(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -63,7 +63,7 @@ public class HomeController {
 		
 		return "/home/signup";
 	}
-	@RequestMapping(value = "/home/forget", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/forget", method = {RequestMethod.GET,RequestMethod.POST})
 	public String forget(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -76,4 +76,33 @@ public class HomeController {
 		
 		return "/home/forget";
 	}
+	
+	@RequestMapping(value = "/findPw", method = {RequestMethod.GET,RequestMethod.POST})
+	public String findPw(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "/home/findPw";
+	}
+	
+	@RequestMapping(value = "/findId", method = {RequestMethod.GET,RequestMethod.POST})
+	public String findId(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "/home/findId";
+	}
+	
 }

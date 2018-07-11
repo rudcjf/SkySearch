@@ -28,8 +28,8 @@
                               </div>
                            </div>
                            <div align="center">
-                           <button type="submit" class="btn btn-success btn-block">LOGIN</button>
-                           <a class="btn btn-default btn-block" role="button" href="<c:url value='/' />">Cancel</a>
+                           <button type="submit" class="btn btn-success col-5">LOGIN</button>
+                           <a class="btn btn-default col-5" role="button" href="<c:url value='/' />">Cancel</a>
                             </div>
                           <br>
                            </fieldset>

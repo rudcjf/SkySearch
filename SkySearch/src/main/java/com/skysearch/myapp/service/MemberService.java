@@ -79,7 +79,6 @@ public class MemberService {
 	}
 	
 	public Object deleteObject(Object dataMap) {
-		// delete child record authority
 		String sqlMapId = "member.delete";
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
@@ -91,10 +90,11 @@ public class MemberService {
 
 		return resultObject;
 	}
-	//로그인시 회원 확인
-	public Object membercheck(Object dataMap) {
+	//회원아이디, 회원 비밀번호 찾기
+	public Object Find(Object dataMap) {
 	      String sqlMapId ="member.check";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
 	      return resultObject;
 	   }
+
 }

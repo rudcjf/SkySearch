@@ -107,17 +107,15 @@
          <div class="section-title text-center mb-5">
             <h2>이번주 항공권 특가</h2>
             <div class="col-lg-2 col-md-2 sort-by-btn float-right">
+            <!-- tooltip -->
             	<div class="tooltipmj" >
                <em>광고</em><i class="mdi mdi-help-circle-outline"></i> 
                <span class="tooltiptextmj"><!-- tooltip-inner -->
-	              skysearch의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
-          </div>
+	              SKY search의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
+                </div>
             </div>         
          </div>
-         <!-- tooltip -->
-         
-         
-         
+        
 <!-- 이번주 특가상품 3개 -->
          <div class="container">
             <div class="row">
@@ -306,17 +304,26 @@
             <h2>인기 여행지 정보</h2>
             <p>나만의 여행계획을 세워보세요</p>
          </div>
+         <!--  회원가입시 관심지역을 기준으로 나타냅니다. -->
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">New York<!-- 도시명 --></h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
+                  <div class="card bg-dark card-overlay">
+                     <a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>">
+                        <img class="card-img" src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>" alt="Card image">
+                      <div class="card-img-overlay">
+                           <h3 class="card-title text-white">괌<!-- 도시명 --></h3>
+                           <p class="card-text text-white">미국<!-- 국가명 --> </p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
-                     </a>
+                      </a>
                   </div>
                </div>
                <div class="col-lg-4 col-md-4">
@@ -326,6 +333,14 @@
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">New York</h3>
                            <p class="card-text text-white">USA<!--국가명  --></p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
                      </a>
                   </div>
@@ -337,6 +352,14 @@
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Los Angeles</h3>
                            <p class="card-text text-white">USA<!--국가명  --></p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
                      </a>
                   </div>
@@ -350,6 +373,14 @@
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Chicago</h3>
                            <p class="card-text text-white">USA<!--국가명  --></p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
                      </a>
                      .    
@@ -362,6 +393,14 @@
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Philadelphia</h3>
                            <p class="card-text text-white">USA<!--국가명  --></p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
                      </a>
                   </div>
@@ -373,6 +412,14 @@
                         <div class="card-img-overlay">
                            <h3 class="card-title text-white">Philadelphia</h3>
                            <p class="card-text text-white">USA<!--국가명  --></p>
+                           <span class="badge badge-white"> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i> <i
+										class="mdi mdi-star-half text-warning"></i><small
+										class="text-success">2/5</small>
+									</span>
                         </div>
                      </a>
                   </div>

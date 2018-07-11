@@ -64,8 +64,8 @@
 														<th>EMAIL</th>
 														<th>NAME</th>
 														<th>PHONE</th>
-														<th>INT_LOCAL</th>
 														<th>ENABLE</th>
+														<th>DISABLE</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -75,13 +75,11 @@
 															class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 															<td><input type="checkbox" class="checkbox"
 																name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
-															<td><a
-																href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
-																	${resultData.EMAIL}</a></td>
+															<td><a href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">${resultData.EMAIL}</a></td>
 															<td>${resultData.NAME}</td>
 															<td>${resultData.PHONE}</td>
-															<td>${resultData.INT_LOCAL}</td>
 															<td>${resultData.ENABLE}</td>
+															<td><a href="<c:url value="/manage/member/disable?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">disable</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="travel">
+
+	<select id="read" resultType="Map" parameterType="Map">
+		SELECT 
+		c.CITY_NAME, <!-- 도시 이름 -->
+		c.CITY_ADD, <!-- 도시 주소 --> 
+		c.CITY_LATITUDE, <!-- 위도 -->
+		c.CITY_LONGITUDE, <!-- 경도 -->
+		t.LANDMARK_NAME, <!-- 관광지 이름 -->
+		t.LANDMARK_EXP, <!-- 관광지 설명 -->
+		t.LANDMARK_ADDR, <!-- 관광지 주소 -->
+		t.VIEWS <!-- 조회수 -->
+		FROM 
+		SS_CITY c, SS_TRAVEL_INFO t
+		WHERE
+		c.CITY_SEQ = t.CITY_SEQ 
+		AND 
+		c.CITY_SEQ = #{CITY_SEQ}
+	</select>
+	
+	<update id="view" parameterType="Map">
+		UPDATE SS_TRAVEL_INFO
+		SET VIEWS = VIEWS+1
+		WHERE CITY_SEQ = #{CITY_SEQ}
+	</update>
+	
+	<select id="country" resultType="List" parameterType="Map">
+		SELECT 
+		COUNTRY_NAME <!-- 국가명 -->
+		FROM 
+		SS_LOCAL l, SS_COUNTRY c
+		WHERE l.LOCAL_SEQ = c.LOCAL_SEQ 
+		AND 
+		LOCAL_NAME = #{LOCAL_NAME}
+	</select>
+
+</mapper>

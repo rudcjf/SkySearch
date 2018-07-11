@@ -1,5 +1,7 @@
 package com.skysearch.myapp.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,14 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skysearch.myapp.service.CityService;
 import com.skysearch.myapp.service.LocalService;
 import com.skysearch.myapp.service.MemberService;
-
-
+import com.skysearch.myapp.service.TravelService;
 
 @RestController
 public class RestWSController {
 
-
-	
 	@Autowired
 	private LocalService localService;
 	@Autowired
@@ -45,5 +44,5 @@ public class RestWSController {
 		return resultObject;
 	  }
 	
-	
 }
+
