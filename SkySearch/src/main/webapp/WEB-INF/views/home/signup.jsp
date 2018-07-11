@@ -18,6 +18,7 @@
 	});
 </script>
 <!-- 관심지역 다중 클릭 체크박스 -->
+
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -52,6 +53,11 @@
 		fn_setFormTagCheckbox("<c:url value='/ws/localList' />", "localDIV");
 
 	});
+	
+	
+	
+	
+	
 </script>
 <!-- 아이디 중복 체크 -->
 <!-- <script type="text/javascript">
@@ -193,7 +199,7 @@
                            </div>
                            <!-- 관심지역 -->
                            <div class="form-group">
-                        	<input type="hidden" name="LOCAL_SEQ" value="dummy_id">
+                        	<!-- <input type="hidden" name="LOCAL_SEQ" value="dummy_id"> -->
 								<label> INTEREST LOCATION : </label>
 								<div id=localDIV></div>
 							</div>

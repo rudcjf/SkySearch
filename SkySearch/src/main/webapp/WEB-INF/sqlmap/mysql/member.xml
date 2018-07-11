@@ -31,9 +31,8 @@
 		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local
 		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local local
 		ON int_local.local_SEQ = local.local_SEQ
-		where member.EMAIL='system@skysearch.com'
-		
-		</select>
+		where member.EMAIL=#{EMAIL}
+	</select>
 		
 		<select id="check" resultType="Map" parameterType="Map">
 		select 
@@ -80,7 +79,6 @@
 		, PASSWORD = #{PASSWORD}
 		, NAME = #{NAME}
 		, PHONE = #{PHONE}
-		, INT_LOCAL = #{INT_LOCAL}
 		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
 	</insert>
@@ -90,6 +88,7 @@
 		set ENABLE='N'
 		where EMAIL = #{EMAIL} and PASSWORD = #{PASSWORD}
 	</update>
+	
 	<update id="deleteAdmin" parameterType="Map">
  		update skysearch.ss_member 
 		set ENABLE='N'

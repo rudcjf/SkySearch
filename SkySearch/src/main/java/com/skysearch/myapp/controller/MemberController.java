@@ -47,12 +47,17 @@ public class MemberController {
 			viewName = "/mypage/read";
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
+			viewName = "/mypage/edit";
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+		} else if ("pwedit".equalsIgnoreCase(action)) {
+			viewName = "/mypage/pw_edit";
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
 		} else if ("disable".equalsIgnoreCase(action)) {
+			viewName = "/mypage/withdrawal";
 			service.deleteObject(paramMap);
-			resultList = (List<Object>) service.getList(paramMap);
+			resultMap = (Map<Object,Object>) service.getObject(paramMap);
 			
 			//회원탈퇴, 아이디와 비번이 일치하믄 회원의 enable을 n으로 바꾼다
 			

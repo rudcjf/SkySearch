@@ -3,6 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+
 <!-- 탈퇴 버튼 누르면 메인화면으로 전환 -->
 <script>
 	$(function() {
@@ -14,6 +15,7 @@
 		});
 	});
 </script>
+
 <!-- 회원 탈퇴시 탈퇴 완료 찹업창 -->
 <%-- <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 <script>
@@ -52,17 +54,18 @@
             <div class="row">
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
+                     <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/read'/>">내 정보</a>
+                        <a class="nav-link active text-success" href="<c:url value='/member/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보수정</a>
+                        <a class="nav-link" href="<c:url value='/member/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호변경</a>
+                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal'/>">회원탈퇴</a>
+                        <a class="nav-link active text-success" href="<c:url value='/member/disable?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
                   </ul>
                </div>
@@ -85,14 +88,14 @@
                 </fieldset> 
                  <form role="form" method="POST"
 					action="<c:url value='/member/disable?EMAIL=${resultData.EMAIL}&PASSWORD=${resultData.PASSWORD}' />">
-                 	<input type="hidden" name="forwardView" value="/member/list" /> 
+                 	<input type="hidden" name="forwardView" value="/" /> 
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> Member ID와 Password를 입력해주세요</p>
+                        	<p>회원 탈퇴를 원하신다면 <br> Password를 입력해주세요</p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
-                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                            	<input id="EMAIL" type="email" name="email" class="form-control" value="${resultMap.EMAIL}">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
                             	<input id="PASSWORD" type="password" name="password" class="form-control" placeholder="Password">

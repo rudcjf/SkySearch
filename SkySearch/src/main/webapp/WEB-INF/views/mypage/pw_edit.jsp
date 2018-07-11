@@ -6,6 +6,22 @@
 <!-- 비밀번호 재확인 -->
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 
+
+
+<script>
+	$(function() {
+		$("#ForwareList").click(function() {
+			$("form").submit(function(e) {
+				$(this).attr("action", "<c:url value='/mypage/read'/>");
+				return;
+			});
+		});
+	});
+</script>
+
+
+
+
 <!-- 비밀번호 재확인 -->
 <script>
  $(function(){
@@ -46,17 +62,18 @@
             <div class="row">
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
+                     <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/read'/>">내 정보</a>
+                        <a class="nav-link" href="<c:url value='/member/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
+                        <a class="nav-link" href="<c:url value='/member/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/pw_edit'/>">비밀번호 변경</a>
+                        <a class="nav-link active text-success" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/withdrawal'/>">회원 탈퇴</a>
+                        <a class="nav-link" href="<c:url value='/member/disable?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
                   </ul>
                </div>
@@ -78,7 +95,7 @@
                            <h4 class="card-title mb-4">비밀번호 변경</h4>
                            <div class="form-group">
                               <label>현재 비밀번호 <span class="text-danger">*</span></label>
-                              <input id="pw" name="pw" value="${resultMap.PASSWORD} type="password" class="form-control">
+                              <input id="pw" name="pw" value="${resultMap.PASSWORD}" class="form-control">
                            </div>
                            <div class="form-group"> <!-- 이번호가 db값에 update되야한다 -->
                               <label>새 비밀번호 <span class="text-danger">*</span></label>

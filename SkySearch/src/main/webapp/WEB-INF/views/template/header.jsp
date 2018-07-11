@@ -21,8 +21,15 @@
       <link type="text/css" href="<c:url value='/resources/vendor/select2/css/select2.min.css'/>" rel="stylesheet" />
       <!-- Custom styles for this template -->
       <link type="text/css" href="<c:url value='/resources/css/osahan.css'/>" rel="stylesheet"/>
-<%--       <link type="text/css" href="<c:url value='/resources/css/style.css'/>"rel="stylesheet" >
- --%>  
+      
+      <!-- top/bottom 버튼, mypage section CSS-->
+      <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+      <!-- tooltip CSS-->
+      <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
+      
+<%--  <link type="text/css" href="<c:url value='/resources/css/style.css'/>"rel="stylesheet" > --%>  
+ 
+ 
   <!-- JavaScript -->
    <!-- Bootstrap core JavaScript -->
       <script type="text/javascript" src="<c:url value='/resources/vendor/jquery/jquery.min.js' />"></script>
@@ -35,5 +42,7 @@
       <script type="text/javascript" src="<c:url value='/resources/vendor/select2/js/select2.min.js' />"></script>
    <!-- Custom -->
       <script type="text/javascript" src="<c:url value='/resources/js/custom.js' />"></script>
+   <!-- top/bottom 버튼, made by MC -->
+    <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>"	rel="stylesheet" />
       
    

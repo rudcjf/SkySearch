@@ -2,8 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"
-	rel="stylesheet" />
+<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"	rel="stylesheet" />
 <!-- 회원정보의 member 테이블 update와, int_local 테이블update가 함께 되야 한다 -->
 <script>
 	$(function() {
@@ -81,14 +80,19 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav justify-content-center">
-					<li class="nav-item"><a class="nav-link "
-						href="<c:url value='/member/read'/>">내 정보</a></li>
-					<li class="nav-item"><a class="nav-link active text-success"
-						href="<c:url value='/mypage/edit'/>">회원정보 수정</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/mypage/pw_edit'/>">비밀번호 변경</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/mypage/withdrawal'/>">회원 탈퇴</a></li>
+					<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                     <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/read?EMAIL=${principalName}'/>">내 정보</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link active text-success" href="<c:url value='/member/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
+                     </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/disable?EMAIL=${principalName}'/>">회원 탈퇴</a>
+                     </li>
 				</ul>
 			</div>
 		</div>
@@ -103,16 +107,14 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-6 mx-auto">
 				<form role="form" method="POST" action="<c:url value='/member/merge' />">
-					<!--<input type="hidden" name="forwardView" value="/member/read" /> -->
+					<input type="hidden" name="forwardView" value="/member/read" /> 
 					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">회원정보 수정</h4>
 							<p>회원 정보를 입력하세요</p>
 							<div class="form-group">
-								<label>Member ID :</label> <input type="email"
-									class="form-control" name="EMAIL" value="${resultMap.EMAIL}"
-									readonly>
+								<label>Member ID :</label> <input type="email"	class="form-control" name="EMAIL" value="${resultMap.EMAIL}" readonly>
 							</div>
 							<div class="form-group">
 								<label>Name :</label> <input type="text" class="form-control"
