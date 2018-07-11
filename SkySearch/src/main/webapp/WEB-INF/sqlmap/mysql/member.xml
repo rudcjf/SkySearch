@@ -37,9 +37,9 @@
 		
 		<select id="check" resultType="Map" parameterType="Map">
 		select 
-		EMAIL, NAME, PHONE
-		from SS_MEMBER 
-		where NAME = #{NAME}
+			EMAIL, NAME, PHONE, PASSWORD
+			from SS_MEMBER 
+			where NAME = #{NAME}
 		</select>
 
 	<insert id="merge" parameterType="Map">

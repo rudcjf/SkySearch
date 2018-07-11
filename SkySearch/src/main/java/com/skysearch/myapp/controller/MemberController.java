@@ -71,7 +71,8 @@ public class MemberController {
 //			}
 		
 		} else if("checkId".equalsIgnoreCase(action)) {
-	         resultMap = (Map<Object, Object>) service.idFind(paramMap);
+	        resultMap = (Map<Object, Object>) service.Find(paramMap);
+	        
 	        String NAME = (String)resultMap.get("NAME");
 	        String PHONE = (String)resultMap.get("PHONE");
 	         
@@ -79,27 +80,27 @@ public class MemberController {
 			String phone=(String)paramMap.get("phone");	         
 	         
 	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호  일치하면
-	        	 viewName = "/home/index";
+	        	 viewName = "/home/findId";
 	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
 	            }else {//일치하지 않으면,
-	               viewName = "/home/forgetfail";
+	               viewName = "/home/forgetId";
 	            }
 	         
 	      }
 		else if("checkPw".equalsIgnoreCase(action)) {
-	         resultMap = (Map<Object, Object>) service.pwFind(paramMap);
+	         resultMap = (Map<Object, Object>) service.Find(paramMap);
 	         
 	         String EMAIL = (String)resultMap.get("EMAIL");
 		     String NAME = (String)resultMap.get("NAME");
 		         
-				String email=(String)paramMap.get("email");//입력한 이름, 이메일
+				String email=(String)paramMap.get("email");//입력한 이름, 아이디
 				String name=(String)paramMap.get("name");	         
 		         
-		        if(NAME.equals(name)&&EMAIL.equals(email)) {//이름, 폰번호  일치하면
-		        	 viewName = "/home/index";
-		             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
+		        if(NAME.equals(name)&&EMAIL.equals(email)) {//이름,아이디  일치하면
+		        	 viewName = "/home/findPw";
+		             resultMap.put("PASSWORD",(String)resultMap.get("PASSWORD"));
 		            }else {//일치하지 않으면,
-		               viewName = "/home/forgetfail";
+		               viewName = "/home/forgetPw";
 		            }
 	      }
 		/*

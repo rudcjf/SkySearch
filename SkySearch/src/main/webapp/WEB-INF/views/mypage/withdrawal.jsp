@@ -99,7 +99,7 @@
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4">EDIT</button>
+				            	<button type="submit" class="btn btn-success col-4">회원 탈퇴</button>
 				                <button type="reset" class="btn btn-default col-4">RESET</button>
 				            </div>
 					 	</div> 

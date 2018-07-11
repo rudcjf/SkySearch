@@ -16,10 +16,10 @@
   $('#RePASSWORD').keyup(function(){
    if($('#PASSWORD').val()!=$('#RePASSWORD').val()){
     $('font[name=check]').text('');
-    $('font[name=check]').html("비밀번호 틀림");
+    $('font[name=check]').html("비밀번호 불일치");
    }else{
     $('font[name=check]').text('');
-    $('font[name=check]').html("비밀번호 맞음");
+    $('font[name=check]').html("비밀번호 일치");
    }
   }); //#chpass.keyup
  });
