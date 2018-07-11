@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="city">
+	<select id="list" resultType="Map" parameterType="Map">
+		SELECT
+			CITY_SEQ, 
+			CITY_NAME
+			FROM skysearch.ss_city 
+			ORDER BY CITY_NAME DESC;
+	</select>
+	<insert id="localmerge" parameterType="Map">
+		<selectKey keyProperty="TRAVEL_SEQ" resultType="String"
+			order="AFTER">	<!-- order="BEFORE" -->
+			SELECT 
+			TRAVEL_SEQ
+			FROM SKYSEARCH.SS_TRAVEL_INFO
+			WHERE TRAVEL_SEQ =
+			#{TRAVEL_SEQ}
+		</selectKey>
+		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
+			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
+		INSERT INTO SKYSEARCH.SS_TRAVEL_INFO(
+		TRAVEL_SEQ	
+		,CITY_SEQ	
+		,LANDMARK_NAME
+		,LANDMARK_ADDR
+		,LANDMARK_EXP
+		,REGISTER_SEQ
+		,REGISTRY_DATE
+		,MODIFIER_SEQ
+		,MODIFY_DATE
+		)
+		VALUES(
+		#{TRAVEL_SEQ}
+		, #{CITY_SEQ} 
+		, #{LANDMARK_NAME}
+		, #{LANDMARK_ADDR}
+		, #{LANDMARK_EXP}  
+		, #{REGISTER_SEQ} 
+		, now() 
+		, #{MODIFIER_SEQ} 
+		, now() )
+		ON DUPLICATE KEY
+		UPDATE
+		LANDMARK_NAME = #{LANDMARK_NAME} 
+		, LANDMARK_EXP = #{LANDMARK_EXP}
+		, LANDMARK_ADDR = #{LANDMARK_ADDR}
+		, MODIFIER_SEQ = #{MODIFIER_SEQ} 
+		, MODIFY_DATE = now()
+
+	</insert>
+	<insert id="citymerge" parameterType="Map">
+		<selectKey keyProperty="TRAVEL_SEQ" resultType="String"
+			order="AFTER">	<!-- order="BEFORE" -->
+			SELECT 
+			TRAVEL_SEQ
+			FROM SKYSEARCH.SS_TRAVEL_INFO
+			WHERE TRAVEL_SEQ =
+			#{TRAVEL_SEQ}
+		</selectKey>
+		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
+			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
+		INSERT INTO SKYSEARCH.SS_TRAVEL_INFO(
+		TRAVEL_SEQ	
+		,CITY_SEQ	
+		,LANDMARK_NAME
+		,LANDMARK_ADDR
+		,LANDMARK_EXP
+		,REGISTER_SEQ
+		,REGISTRY_DATE
+		,MODIFIER_SEQ
+		,MODIFY_DATE
+		)
+		VALUES(
+		#{TRAVEL_SEQ}
+		, #{CITY_SEQ} 
+		, #{LANDMARK_NAME}
+		, #{LANDMARK_ADDR}
+		, #{LANDMARK_EXP}  
+		, #{REGISTER_SEQ} 
+		, now() 
+		, #{MODIFIER_SEQ} 
+		, now() )
+		ON DUPLICATE KEY
+		UPDATE
+		LANDMARK_NAME = #{LANDMARK_NAME} 
+		, LANDMARK_EXP = #{LANDMARK_EXP}
+		, LANDMARK_ADDR = #{LANDMARK_ADDR}
+		, MODIFIER_SEQ = #{MODIFIER_SEQ} 
+		, MODIFY_DATE = now()
+
+	</insert>
+	
+</mapper>

@@ -21,6 +21,10 @@
     <link  type='text/css'  href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
     <link  type='text/css'  href="<c:url value='/resources/assets/css/cs-skin-elastic.css'/>"rel="stylesheet"/>
     
+    <!-- JavaScript -->
+     <!-- Bootstrap core JavaScript -->
+     <script type="text/javascript" src="<c:url value='/resources/assets/js/vendor/jquery-2.1.4.min.js'/>"></script>
+     <%--  <script type="text/javascript" src="<c:url value='/resources/vendor/jquery/jquery.min.js' />"></script> --%>
     <!-- Fonts -->
     <link type='text/css'  href="<c:url value='/resources/assets/css/font-awesome.min.css'/>"rel="stylesheet"/>
     <link type='text/css'  href="<c:url value='/resources/assets/css/themify-icons.css'/>"rel="stylesheet"/>

@@ -2,6 +2,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+
+
+
+<script type="text/javascript">
+function read(){
+    if(confirm("삭제하시겠습니까?")){
+        location.href = "write_del_ok.jsp?num=1";
+        return true;
+    } else {
+        return false;
+    }
+}
+</script>
+
 <!-- Navbar -->
    <header>
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,25 +38,17 @@
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <%-- <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" 
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <strong>About Us</strong> </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/aboutus'/>">About us</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">F&Q</a>
-                               <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact</a>
-                           </div>
-                        </li> --%>
                         <li class="nav-item">
-                           <a class="nav-link" href="<c:url value='/mypage/main'/>" id="navbarDropdownPortfolio" 
+                           <a class="nav-link" href="<c:url value='/member/read'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
                         </li>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
+                                                    
                         </li> 
                      </ul>   
-                 
+                   
                      <div class="my-2 my-lg-0">
                        <ul class="list-inline main-nav-right" style="margin-top:10px;">
                             <li class="list-inline-item">
@@ -50,14 +56,22 @@
                              	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                               </form>
                              </li>
-                           <li class="list-inline-item">
-                                <a class="btn btn-success btn-sm" href="<c:url value='/home/login'/>"><i class="mdi mdi-login"></i> Log In</a>
+                             <li class="list-inline-item">
+                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                                 <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/signup' : 'principalName'}>
+                                 <i class="mdi mdi-account-settings"></i>
+                                 <c:choose>
+                                  <c:when test='${principalName == null}'>SignUp</c:when>
+                                  <c:otherwise>${principalName}</c:otherwise>
+                                 </c:choose></a>
                               </li>
-                           <li class="list-inline-item">
-                                 <a class="btn btn-success btn-sm" href="<c:url value='/home/signup'/>"><i class="mdi mdi-account-settings"></i> Sign Up</a>
+                             <li class="list-inline-item">
+                                <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                                <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/login' : '/SkySearch/j_spring_security_logout' }>
+                                <i class="mdi mdi-login"></i>${principalName == null ? 'Login' : 'Logout' }</a>
                               </li>
-                        </ul>
-                     </div>
+                              </ul>     
+                    </div>
                   </div>
             </div>
          </nav>

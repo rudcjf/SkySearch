@@ -37,7 +37,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="content mt-3">
 		<div class="animated fadeIn">
 			<div class="row">
@@ -45,26 +44,25 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<strong class="card-title">여행정보</strong> <input type="submit"
-								class="btn btn-primary" value=글쓰기
+						 <strong class="card-title">여행정보</strong>
+							<input type="submit" class="btn btn-primary" value=정보입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
 								style="float: right;">
-
 						</div>
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-								
-									
+
+
 								<div class="row">
 									<div class="col-sm-12">
-									
-									<!-- Table -->
+
+										<!-- Table -->
 										<table class="table table-striped table-bordered table-hover"
 											id="bootstrap-data-table">
 											<thead>
 												<tr>
-												
+
 													<th><input type="checkbox" id="selecctall" /></th>
 													<th>관광지명</th>
 													<th>도시명</th>
@@ -99,15 +97,24 @@
 							</div>
 						</div>
 					</div>
+					
+
 				</div>
 			</div>
-		</div><!-- .animated -->
+		</div>
+
+
 	</div>
-	</div><!-- .content -->
-	</div><!-- /#right-panel -->
+	<!-- .animated -->
+
+	</div>
+
+	</div>
+
+	<!-- .content -->
+	</div>
+	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
-
-
 </body>
 </html>

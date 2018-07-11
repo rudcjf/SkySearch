@@ -34,9 +34,10 @@ public class MemberService {
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
+		String uniqueSequence = new String(); 
+				uniqueSequence=(String) dataMap.get("MEMBER_SEQ");
 
-		if ("".equals(uniqueSequence)) {
+		if (uniqueSequence==null) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			dataMap.put("MEMBER_SEQ", uniqueSequence);
 		}
@@ -46,24 +47,41 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
-		System.out.println((int)resultKey);
-		sqlMapId = "member.list";
+		
+		sqlMapId = "int_local.insert";
+		dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId = "member.read";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
-
+	public Object saveObjectAdmin(Map<Object, Object> dataMap) {
+		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
+		
+		if ("".equals(uniqueSequence)) {
+			uniqueSequence = commonUtil.getUniqueSequence();
+			dataMap.put("MEMBER_SEQ", uniqueSequence);
+		}
+		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		
+		String sqlMapId = "member.merge";
+		
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		System.out.println((int)resultKey);
+		sqlMapId = "member.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+	
 	public Object deleteObject(Object dataMap) {
-		// delete child record authority
-		String sqlMapId = "authorityRmember.delete";
+		String sqlMapId = "member.delete";
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
-
-		// delete Mother record authority
-		sqlMapId = "member.delete";
-
-		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
 		sqlMapId = "member.list";
@@ -72,4 +90,11 @@ public class MemberService {
 
 		return resultObject;
 	}
+	//회원아이디, 회원 비밀번호 찾기
+	public Object Find(Object dataMap) {
+	      String sqlMapId ="member.check";
+	      Object resultObject = dao.getObject(sqlMapId,dataMap);
+	      return resultObject;
+	   }
+
 }
