@@ -20,6 +20,13 @@
 <body>
 
 <script>
+
+/* disable change */
+function enable() {
+	$('select').attr('disabled', false);
+	}
+
+/* CITY SelectBox */
 		var fn_setCityFormTagCheckbox = function(url, id, params) {
 			$.ajax({
 						type : "POST",
@@ -36,19 +43,26 @@
 										.each(
 												data,
 												function(i, item) {
-														formTag += '<option selected="selected" value="'+item.CITY_SEQ+'" >'
+														formTag += '<option value="'+item.CITY_SEQ+'" >'
 														+ item.CITY_NAME;
 													
 												});
 							}else{
-								formTag += "<select class='form-control' name='CITY_SEQ' disabled>";
+								formTag += "<select class='form-control' name='CITY_SEQ' disabled >";
+								
 								$
-										.each(
-												data,
-												function(i, item) {
-														formTag += '<option selected="selected" value="'+item.CITY_SEQ+'" >'
-														+ "${resultMap.CITY_NAME}";
-												});
+								.each(
+										data,
+										function(i, item) {
+											if("${resultMap.CITY_NAME}"==item.CITY_NAME){
+												formTag += '<option selected="selected" value="'+item.CITY_SEQ+'">'
+												+ item.CITY_NAME;
+											}else{
+												formTag += '<option  value="'+item.CITY_SEQ+'" >'
+												+ item.CITY_NAME;
+											}
+										});
+								
 							}
 							formTag += '</select> ';
 							$('#' + id).html(formTag);
@@ -60,6 +74,7 @@
 					});
 
 		}
+		/* LOCAL SelectBox */
 		var fn_setLocalFormTagCheckbox = function(url, id, params) {
 			$.ajax({
 						type : "POST",
@@ -75,7 +90,7 @@
 										.each(
 												data,
 												function(i, item) {
-														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
+														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 														+ item.LOCAL_NAME;
 													
 												});
@@ -85,8 +100,13 @@
 										.each(
 												data,
 												function(i, item) {
+													if("${resultMap.LOCAL_NAME}"==item.LOCAL_NAME){
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
-														+ "${resultMap.LOCAL_NAME}";
+														+ item.LOCAL_NAME;
+													}else{
+														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
+														+ item.LOCAL_NAME;
+													}
 												});
 							}
 							formTag += '</select> ';
@@ -139,8 +159,12 @@
 					<div class="card">
 						<div class="card-header">
 							<strong class="card-title">도시입력</strong> <input type="submit"
-								class="btn btn-primary" value=뒤로가기
+								class="btn btn-primary" value=정보목록
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
+								style="float: right;">
+								<input type="submit"
+								class="btn btn-primary" value=도시입력
+								onClick="location.href='<c:url value="/manage/ti/ti_local"/>'"
 								style="float: right;">
 						</div>
 						<div class="card-body">
@@ -158,6 +182,12 @@
 														<label> 지역 명 : </label>
 														<div id=localDIV></div>
 													</div>
+													<input type="hidden"
+															class="form-control" name="CITY_SEQ"
+															value="${resultMap.CITY_SEQ}">
+													<input type="hidden"
+															class="form-control" name="COUNTRY_SEQ"
+															value="${resultMap.COUNTRY_SEQ}">
 													<div class="form-group col-sm-4">
 														<label>국가 명 :</label> <input type="text"
 															class="form-control" name="COUNTRY_NAME"
@@ -197,7 +227,7 @@
 											</div>
 										</div>
 										<div align="right">
-											<input type="submit" class="btn btn-success" value="입력"/>
+											<input type="submit" onclick="enable()" class="btn btn-success" value="입력"/>
 										</div>
 									</div>
 								</form>
@@ -287,7 +317,10 @@
 
 													</div>
 													<div align="right">
-														<button type="submit" class="btn btn-success">입력</button>
+														<script>
+														
+														</script>
+														<input type="submit" onclick="enable()" class="btn btn-success" value="입력"/>
 														<button type="reset" class="btn btn-default">RESET</button>
 													</div>
 												</div>
@@ -306,56 +339,7 @@
 		<!-- .animated -->
 	</div>
 
-	<!-- Modal Contents -->
-	<div class="form-group">
-		<div class="modal fade" id="scrollmodal" tabindex="-1" role="dialog"
-			aria-labelledby="scrollmodalLabel" style="display: none;"
-			aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="scrollmodalLabel">Scrolling Long
-							Content Modal</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>관광지명 :</label> <input type="text" class="form-control"
-								name="LANDMARK_NAME" value="${resultMap.LANDMARK_NAME}" readonly>
-						</div>
-						<div class="form-group">
-							<label>관광지 주소 :</label> <input type="text" class="form-control"
-								name="LANDMARK_ADDR" value="${resultMap.LANDMARK_ADDR}" readonly>
-						</div>
-						<div class="form-group">
-							<label>관광지 설명 :</label>
-							<textarea name="textarea-input LANDMARK_EXP" id="textarea-input"
-								rows="5" placeholder="내용을 입력하세요." class="form-control">${resultMap.LANDMARK_EXP}</textarea>
-						</div>
-						<div class="col col-md-3">
-							<label for="file-input" class=" form-control-label">이미지
-								넣기</label>
-						</div>
-						<br>
-						<div class="col-12 col-md-9">
-							<input type="file" id="file-input" name="file-input"
-								class="form-control-file">
-						</div>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">취소</button>
-						<button type="button" class="btn btn-primary">입력</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- .content -->
+	
 	</div>
 	<!-- /#right-panel -->
 

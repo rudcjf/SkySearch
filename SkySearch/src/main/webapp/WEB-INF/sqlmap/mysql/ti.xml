@@ -27,6 +27,7 @@
 		TI.TRAVEL_SEQ AS TRAVEL_SEQ, 
 		CI.CITY_NAME AS CITY_NAME,
 		CI.CITY_ADD AS CITY_ADD,
+		CI.CITY_SEQ AS CITY_SEQ,
 		CI.CITY_LATITUDE AS CITY_LATITUDE,
 		CI.CITY_LONGITUDE AS CITY_LONGITUDE,
 		CO.COUNTRY_SEQ AS COUNTRY_SEQ,
@@ -100,7 +101,7 @@
         #{COUNTRY_SEQ},
         #{LOCAL_SEQ},
         #{COUNTRY_NAME}
-        );
+        )
 
 	</insert>
 	
@@ -108,7 +109,7 @@
 	<insert id="citymerge" parameterType="Map">
 		
 		INSERT IGNORE INTO 
-		SKYSEARCH.SS_COUNTRY(
+		SKYSEARCH.SS_CITY(
 		CITY_SEQ	
 		, COUNTRY_SEQ	
 		, CITY_NAME
@@ -123,7 +124,7 @@
 		, #{CITY_NAME}
 		, #{CITY_ADD}
 		, #{CITY_LATITUDE}
-		, #{CITY_LONGITUDE}
+		, #{CITY_LONGITUDE})
 
 	</insert>
 	

@@ -82,6 +82,7 @@ public class AdminTiService {
 		}
 		
 		String sqlMapId = "ti.countrymerge";
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
 		String uniqueCitySequence = (String) dataMap.get("CITY_SEQ");
 		
@@ -93,7 +94,7 @@ public class AdminTiService {
 		
 		sqlMapId = "ti.citymerge";
 		
-		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		resultKey = dao.saveObject(sqlMapId, dataMap);
 		System.out.println((int)resultKey);
 		sqlMapId = "ti.list";
 		
