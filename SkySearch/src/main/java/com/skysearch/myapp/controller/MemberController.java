@@ -44,6 +44,7 @@ public class MemberController {
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
+			viewName = "/mypage/read";
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
@@ -69,22 +70,37 @@ public class MemberController {
 //				viewName = "/mypage/withdrawalfail";
 //			}
 		
-		} else if("check".equalsIgnoreCase(action)) {
-	         resultMap = (Map<Object, Object>) service.membercheck(paramMap);
+		} else if("checkId".equalsIgnoreCase(action)) {
+	         resultMap = (Map<Object, Object>) service.idFind(paramMap);
+	        String NAME = (String)resultMap.get("NAME");
+	        String PHONE = (String)resultMap.get("PHONE");
 	         
-	         if(resultMap!=null) {//검색된 아이디가 있으면,
-	            String dbPass = (String)resultMap.get("PASSWORD");
-	            String jspPass = (String) paramMap.get("password");
-	            
-	            if(dbPass.equals(jspPass)) {//비밀번호가 일치하면, 로그인성공
-	               viewName = "/home/index";
-	               resultMap.put("email",(String)resultMap.get("email"));
-	            }else {//비밀번호가 실패하면, 로그인 실패
-	               viewName = "/home/loginfail";
+			String name=(String)paramMap.get("name");//입력한 이름, 폰번호
+			String phone=(String)paramMap.get("phone");	         
+	         
+	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호  일치하면
+	        	 viewName = "/home/index";
+	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
+	            }else {//일치하지 않으면,
+	               viewName = "/home/forgetfail";
 	            }
-	         }else {//검색된 아이디가 없으면
-	            viewName = "/home/loginfail";
-	         }
+	         
+	      }
+		else if("checkPw".equalsIgnoreCase(action)) {
+	         resultMap = (Map<Object, Object>) service.pwFind(paramMap);
+	         
+	         String EMAIL = (String)resultMap.get("EMAIL");
+		     String NAME = (String)resultMap.get("NAME");
+		         
+				String email=(String)paramMap.get("email");//입력한 이름, 이메일
+				String name=(String)paramMap.get("name");	         
+		         
+		        if(NAME.equals(name)&&EMAIL.equals(email)) {//이름, 폰번호  일치하면
+		        	 viewName = "/home/index";
+		             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
+		            }else {//일치하지 않으면,
+		               viewName = "/home/forgetfail";
+		            }
 	      }
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

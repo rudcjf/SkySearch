@@ -4,7 +4,7 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"
 	rel="stylesheet" />
-
+<!-- 회원정보의 member 테이블 update와, int_local 테이블update가 함께 되야 한다 -->
 <script>
 	$(function() {
 		$("#ForwareList").click(function() {
@@ -57,7 +57,6 @@
 	});
 </script>
 
-
 <!-- Inner Header -->
 <section class="section-padding bg-dark inner-header1">
 	<div class="container">
@@ -83,7 +82,7 @@
 			<div class="col-lg-12">
 				<ul class="nav justify-content-center">
 					<li class="nav-item"><a class="nav-link "
-						href="<c:url value='/mypage/read'/>">내 정보</a></li>
+						href="<c:url value='/member/read'/>">내 정보</a></li>
 					<li class="nav-item"><a class="nav-link active text-success"
 						href="<c:url value='/mypage/edit'/>">회원정보 수정</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -135,8 +134,8 @@
 							</div>
 							<br>
 							<div align="center">
-								<button type="submit" class="btn btn-success">EDIT</button>
-								<button type="reset" class="btn btn-default">RESET</button>
+								<button type="submit" class="btn btn-success col-4">EDIT</button>
+								<button type="reset" class="btn btn-default col-4">RESET</button>
 							</div>
 						</div>
 					</div>

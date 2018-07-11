@@ -10,15 +10,15 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h3 class="card-title mb-4">Login</h3>
-                       <%--  <fieldset>
+                        <fieldset>
                     		 <c:if test="${not empty param.fail}">
 							 	<font color="red"> 로그인 실패! 다시 시도해보세요.<br /> Reason:
 									${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}<br />
 								</font>
 								<br/>
 							</c:if>
-                    	 </fieldset> --%>
-                        <form role="form" action="<c:url value='/member/check'/>" method="POST">
+                    	 </fieldset> 
+                        <form role="form" action="<c:url value='/j_spring_security_check'/>" method="POST">
                           <fieldset>
                            <div class="form-group">
                               <label for="username">Member ID <span class="text-danger">*</span></label>
@@ -35,12 +35,12 @@
                               </div>
                            </div>
                            <div align="center">
-                           <button type="submit" class="btn btn-success btn-block">LOGIN</button>
-                           <a class="btn btn-default btn-block" role="button" href="<c:url value='/' />">Cancel</a>
-                           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                           <button type="submit" class="btn btn-success col-5">LOGIN</button>
+                           <a class="btn btn default col-5" role="button" href="<c:url value='/' />">Cancel</a>
                           </div>
                           <br>
                            </fieldset>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         </form>
                         <div class="mt-4 text-center login-with-social">
                           <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>

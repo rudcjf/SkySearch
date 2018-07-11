@@ -3,6 +3,27 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+<!-- 비밀번호 재확인 -->
+<script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
+
+<!-- 비밀번호 재확인 -->
+<script>
+ $(function(){
+  $('#PASSWORD').keyup(function(){
+   $('font[name=check]').text('');
+  }); //#user_pass.keyup
+
+  $('#RePASSWORD').keyup(function(){
+   if($('#PASSWORD').val()!=$('#RePASSWORD').val()){
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 틀림");
+   }else{
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 맞음");
+   }
+  }); //#chpass.keyup
+ });
+</script>
 
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
@@ -26,7 +47,7 @@
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/read'/>">내 정보</a>
+                        <a class="nav-link" href="<c:url value='/member/read'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
@@ -57,20 +78,20 @@
                            <h4 class="card-title mb-4">비밀번호 변경</h4>
                            <div class="form-group">
                               <label>현재 비밀번호 <span class="text-danger">*</span></label>
-                              <input id="PASSWORD" name="PASSWORD" value="${resultMap.PASSWORD} type="password" class="form-control">
+                              <input id="pw" name="pw" value="${resultMap.PASSWORD} type="password" class="form-control">
                            </div>
-                           <div class="form-group">
+                           <div class="form-group"> <!-- 이번호가 db값에 update되야한다 -->
                               <label>새 비밀번호 <span class="text-danger">*</span></label>
                               <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="새 비밀번호를 입력하세요">
                            </div>
                            <div class="form-group">
-                              <label>새 비밀번호 확인 <span class="text-danger">*</span></label>
-                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="새 비밀번호를 다시 입력하세요">
+                              <label>새 비밀번호 확인 <span class="text-danger">*</span>  <font name="check" size="2" color="red"></font></label>
+                              <input id="RePASSWORD" name="RePASSWORD" type="password" class="form-control" placeholder="새 비밀번호를 다시 입력하세요">
                            </div>
                         	<br>
 	                        <div align="center">	
-		                     	<button type="submit" class="btn btn-success">EDIT</button>
-		                     	<button type="reset" class="btn btn-default">RESET</button>
+		                     	<button type="submit" class="btn btn-success col-5">EDIT</button>
+		                     	<button type="reset" class="btn btn-default col-5">RESET</button>
 	                        </div>
                     	 </div>
 					 </div>

@@ -91,10 +91,16 @@ public class MemberService {
 
 		return resultObject;
 	}
-	//로그인시 회원 확인
-	public Object membercheck(Object dataMap) {
+	//회원아이디찾기
+	public Object idFind(Object dataMap) {
 	      String sqlMapId ="member.check";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
 	      return resultObject;
 	   }
+	//회원 비밀번호 찾기
+	public Object pwFind(Object dataMap) {
+		      String sqlMapId ="member.check";
+		      Object resultObject = dao.getObject(sqlMapId,dataMap);
+		      return resultObject;
+		   }
 }

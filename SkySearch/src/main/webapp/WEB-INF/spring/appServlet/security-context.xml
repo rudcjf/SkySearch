@@ -9,10 +9,13 @@
 	<http auto-config="true" use-expressions="true">
 	<!-- return boolean -->
 		<intercept-url pattern="/*" 	access="permitAll()"/>
+	<intercept-url pattern="/manager/*" access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM','ROLE_MANAGER')" /> 
+		
+		
 	
 <!-- 로그인 관련 설정 -->
         <form-login login-page="/login" login-processing-url="/j_spring_security_check"
-		authentication-failure-url="/login?fail=true" 
+		authentication-failure-url="/login?fail=true"  default-target-url="/"
 		username-parameter="email" password-parameter="password" /> 
 		
 <!-- 로그아웃 관련 설정 -->		
@@ -25,13 +28,17 @@
 	<authentication-manager>
 		<authentication-provider>
 		  <user-service>
-			<user name="system@skysearch.com" password="system123" authorities="ROLE_SYSTEM"/>				
+			<user name="system@skysearch.com" password="system123" authorities="ROLE_SYSTEM"/>
+			<user name="admin@skysearch.com" password="admin123" authorities="ROLE_ADMIN"/>
+			<user name="jake0119@skysearch.com" password="jake123" authorities="ROLE_MANAGER"/>
+			
+			
 			</user-service> 
- 		 <jdbc-user-service data-source-ref="dataSource"
+ 		 <!-- <jdbc-user-service data-source-ref="dataSource"
 		users-by-username-query="SELECT EMAIL as username, PASSWORD as password,
 		 1 as enabled FROM skysearch.SS_MEMBER WHERE MEMBER_SEQ = ?"
 		authorities-by-username-query="SELECT MA.M_SEQ as username, A.A_NAME as authority 
-		FROM MEMBER_AUTH MA, AUTH A	WHERE MA.A_SEQ=A.A_SEQ and M_SEQ = ?"/>	 
+		FROM MEMBER_AUTH MA, AUTH A	WHERE MA.A_SEQ=A.A_SEQ and M_SEQ = ?"/>	  -->
 		
 <!-- 	SELECT M_SEQ as username, A_SEQ as authority 
 		FROM MEMBER_AUTH  
