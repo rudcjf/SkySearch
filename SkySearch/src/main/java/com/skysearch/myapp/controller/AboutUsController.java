@@ -9,6 +9,7 @@ import java.util.Map;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,17 +17,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/aboutUs")
 public class AboutUsController{
-	@RequestMapping(value = "/{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+	private final static String MAPPING= "/aboutUs/";
+	
+	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
-		String viewName = "/aboutUs/";
+		String viewName = MAPPING + action;
+		String forwardView = (String) paramMap.get("forwardView") ;
+		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
-
-		viewName = viewName + action;
+        
+		if ("aboutUs".equalsIgnoreCase(action)) {
+			
+		} else if ("contact".equalsIgnoreCase(action)) {
+			
+		} else if ("faq".equalsIgnoreCase(action)) {
+			
+		}
+		
+		if(forwardView != null){
+			viewName = forwardView;
+		}
+		
 		modelandView.setViewName(viewName);
+		
+		modelandView.addObject("paramMap", paramMap);
+		modelandView.addObject("resultMap", resultMap);
+		modelandView.addObject("resultList", resultList);
+		
 		return modelandView;
 	}
 

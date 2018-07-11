@@ -35,7 +35,7 @@ public class MypageController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-		if ("main".equalsIgnoreCase(action)) {
+		if ("read".equalsIgnoreCase(action)) {
 		} 
 		/*else if ("update".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);

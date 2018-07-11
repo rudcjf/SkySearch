@@ -5,12 +5,6 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="int_local">
-	<delete id="delete" parameterType="Map">
-		delete from
-		skysearch.ss_int_local
-		where MEMBER_SEQ = #{MEMBER_SEQ}
-	</delete>
-
 	<select id="list" resultType="Map" parameterType="Map"
 		timeout="10">
 		select
@@ -34,4 +28,13 @@
 		</foreach>
 		SELECT 1 FROM DUAL
 	</insert>
+	
+	<delete id="delete" parameterType="Map">
+		delete from
+		skysearch.ss_int_local
+		where MEMBER_SEQ = #{MEMBER_SEQ}
+	</delete>
+	
+	
+	
 </mapper>

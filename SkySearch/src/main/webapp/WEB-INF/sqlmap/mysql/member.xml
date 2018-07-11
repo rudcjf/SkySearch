@@ -6,28 +6,41 @@
 
 <mapper namespace="member">
 	<select id="list" resultType="Map" parameterType="Map">
-		SELECT member.MEMBER_SEQ,
-		member.EMAIL,member.PASSWORD,member.NAME,member.PHONE,member.ENABLE
-		,local.LOCAL_NAME
+		SELECT 
+		member.MEMBER_SEQ,
+		member.EMAIL,
+		member.PASSWORD,
+		member.NAME,
+		member.PHONE,
+		member.ENABLE,
+		local.LOCAL_NAME
 		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local
-		ON member.MEMBER_SEQ =int_local.MEMBER_SEQ left JOIN
-		skysearch.ss_local local
-		on int_local.local_SEQ = local.local_SEQ
+		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local local
+		ON int_local.local_SEQ = local.local_SEQ
 		ORDER BY NAME ASC;
 	</select>
 
-	<select id="read" resultType="Map" parameterType="Map">
+	<select id="read" resultType="Map" parameterType="String">
 		select
-		MEMBER_SEQ,
-		EMAIL,
-		PASSWORD,
-		NAME,
-		PHONE,
-		ENABLE
-		from
-		skysearch.ss_member
-		where MEMBER_SEQ = #{MEMBER_SEQ}
-	</select>
+		member.MEMBER_SEQ,
+		member.EMAIL,
+		member.PASSWORD,
+		member.NAME,
+		member.PHONE,
+		local.LOCAL_NAME
+		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local
+		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local local
+		ON int_local.local_SEQ = local.local_SEQ
+		where member.EMAIL='system@skysearch.com'
+		
+		</select>
+		
+		<select id="check" resultType="Map" parameterType="Map">
+		select 
+			EMAIL, NAME, PHONE, PASSWORD
+			from SS_MEMBER 
+			where NAME = #{NAME}
+		</select>
 
 	<insert id="merge" parameterType="Map">
 		<selectKey keyProperty="MEMBER_SEQ" resultType="String"
@@ -70,13 +83,11 @@
 		, INT_LOCAL = #{INT_LOCAL}
 		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
-
 	</insert>
 
-	<delete id="delete" parameterType="Map">
-		delete from
-		skysearch.ss_member
-		where
-		MEMBER_SEQ = #{MEMBER_SEQ}
-	</delete>
+	<update id="delete" parameterType="Map">
+ 		update skysearch.ss_member 
+		set ENABLE='N'
+		where EMAIL = #{EMAIL} and PASSWORD = #{PASSWORD}
+	</update>
 </mapper>

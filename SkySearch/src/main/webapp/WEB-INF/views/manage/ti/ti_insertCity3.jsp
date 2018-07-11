@@ -89,24 +89,9 @@
 								style="float: right;">
 						</div>
 						<div class="card-body">
-						<div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Custom Tab</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="custom-tab">
-
-                                        <nav>
-                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active show" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-home" role="tab" aria-controls="custom-nav-home" aria-selected="true">Home</a>
-                                                <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab" href="#custom-nav-profile" role="tab" aria-controls="custom-nav-profile" aria-selected="false">Profile</a>
-                                                <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab" href="#custom-nav-contact" role="tab" aria-controls="custom-nav-contact" aria-selected="false">Contact</a>
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
-                                            <div class="tab-pane fade active show" id="custom-nav-home" role="tabpanel" aria-labelledby="custom-nav-home-tab">
-                                                <form role="form" method="POST"
+						<!-- CITY_INSERT -->
+							<div class="col-sm-12">
+								<form role="form" method="POST"
 									action="<c:url value='/manage/ti/citymerge' />">
 									<input type="hidden" name="forwardView"
 										value="/manage/ti/ti_ㅣlist" />
@@ -133,52 +118,15 @@
 															class="form-control" name="CITY_ADD"
 															value="${resultMap.CITY_ADD}">
 													</div>
-													<div class="col col-md-3">
-														<label for="file-input" class=" form-control-label">이미지
-															넣기</label>
-													</div>
-													<br>
-													<div class="col-12 col-md-9">
-														<input type="file" id="file-input" name="file-input"
-															class="form-control-file">
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div align="right">
-											<input type="submit" class="btn btn-success" value="입력"/>
-										</div>
-									</div>
-								</form>
-                                            </div>
-                                            <div class="tab-pane fade" id="custom-nav-profile" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
-                                                <form role="form" method="POST"
-									action="<c:url value='/manage/ti/citymerge' />">
-									<input type="hidden" name="forwardView"
-										value="/manage/ti/ti_ㅣlist" />
-									<div class="card padding-card">
-										<div class="card-body">
-											<div align="left">
-												<div class="card-body">
-													<div class="form-group col-sm-4">
-														<label> 지역 명 : </label>
-														<div id=localDIV></div>
-													</div>
-													<div class="form-group col-sm-4">
-														<label>국가 명 :</label> <input type="text"
-															class="form-control" name="COUNTRY_NAME"
-															value="${resultMap.COUNTRY_NAME}">
-													</div>
-													<div class="form-group col-sm-4">
-														<label>도시 명 :</label> <input type="text"
-															class="form-control" name="ITY_NAME"
-															value="${resultMap.CITY_NAME}">
+													<div class="form-group col-sm-12">
+														<label>위도:</label> <input type="text"
+															class="form-control" name="CITY_ADD"
+															value="${resultMap.CITY_LATITUDE}">
 													</div>
 													<div class="form-group col-sm-12">
-														<label>도시 주소:</label> <input type="text"
+														<label>경도:</label> <input type="text"
 															class="form-control" name="CITY_ADD"
-															value="${resultMap.CITY_ADD}">
+															value="${resultMap.CITY_LONGITUDE}">
 													</div>
 													<div class="col col-md-3">
 														<label for="file-input" class=" form-control-label">이미지
@@ -198,17 +146,8 @@
 										</div>
 									</div>
 								</form>
-                                            </div>
-                                            <div class="tab-pane fade" id="custom-nav-contact" role="tabpanel" aria-labelledby="custom-nav-contact-tab">
-                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-							
+							</div>
 							
 						</div>
 					</div>

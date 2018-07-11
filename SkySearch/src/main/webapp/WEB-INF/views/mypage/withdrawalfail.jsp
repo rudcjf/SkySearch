@@ -14,23 +14,7 @@
 		});
 	});
 </script>
-<!-- 회원 탈퇴시 탈퇴 완료 찹업창 -->
-<%-- <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
-<script>
- $(function(){
-  //id="btn" 클릭시
-  $("#btn").click(function(){
-   //id="EMAIL"이 공백일경우
-   if($('#EMAIL').val()==""){
-    //얼럿으로처리
-    alert("회원 탈퇴 성공!");
-    //id="EMAIL"인 곳으로 커서를 이동
-    $('#EMAIL').focus();
-    return;
-   }
-     });
- });
-</script> --%>
+
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
          <div class="container">
@@ -77,25 +61,19 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
-               <fieldset>
-                    <c:if test="${not empty param.fail}">
-						<font color="red"> 회원탈퇴 실패! 다시 시도해보세요.<br/> Reason: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}<br/>
-						</font><br/>
-					</c:if>
-                </fieldset> 
                  <form role="form" method="POST"
 					action="<c:url value='/member/disable?EMAIL=${resultData.EMAIL}&PASSWORD=${resultData.PASSWORD}' />">
                  	<input type="hidden" name="forwardView" value="/member/list" /> 
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> Member ID와 Password를 입력해주세요</p>
+                        	<p><font color="red">회원탈퇴 실패!<br> Member ID와 Password를 다시 입력해주세요</font></p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
-                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                            	<input type="email" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
-                            	<input id="PASSWORD" type="password" name="password" class="form-control" placeholder="Password">
+                            	<input type="password" name="password" class="form-control" placeholder="Password">
                            	</div>
                            	<br>
                            	<div align="center">	

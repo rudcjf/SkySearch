@@ -34,9 +34,10 @@ public class MemberService {
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
+		String uniqueSequence = new String(); 
+				uniqueSequence=(String) dataMap.get("MEMBER_SEQ");
 
-		if ("".equals(uniqueSequence)) {
+		if (uniqueSequence==null) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			dataMap.put("MEMBER_SEQ", uniqueSequence);
 		}
@@ -76,9 +77,8 @@ public class MemberService {
 		
 		return resultObject;
 	}
-
+	
 	public Object deleteObject(Object dataMap) {
-		// delete child record authority
 		String sqlMapId = "member.delete";
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
@@ -90,4 +90,11 @@ public class MemberService {
 
 		return resultObject;
 	}
+	//회원아이디, 회원 비밀번호 찾기
+	public Object Find(Object dataMap) {
+	      String sqlMapId ="member.check";
+	      Object resultObject = dao.getObject(sqlMapId,dataMap);
+	      return resultObject;
+	   }
+
 }

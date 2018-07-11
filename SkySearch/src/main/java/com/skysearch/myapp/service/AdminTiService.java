@@ -72,4 +72,34 @@ public class AdminTiService {
 
 		return resultObject;
 	}
+	public Object saveCity(Map<String, Object> dataMap) {
+		String uniqueCountrySequence = (String) dataMap.get("COUNTRY_SEQ");
+		
+			
+		if ("".equals(uniqueCountrySequence)) {
+			uniqueCountrySequence = commonUtil.getUniqueSequence();
+			dataMap.put("COUNTRY_SEQ", uniqueCountrySequence);
+		}
+		
+		String sqlMapId = "ti.countrymerge";
+		
+		String uniqueCitySequence = (String) dataMap.get("CITY_SEQ");
+		
+		
+		if ("".equals(uniqueCitySequence)) {
+			uniqueCitySequence = commonUtil.getUniqueSequence();
+			dataMap.put("CITY_SEQ", uniqueCitySequence);
+		}
+		
+		sqlMapId = "ti.citymerge";
+		
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		System.out.println((int)resultKey);
+		sqlMapId = "ti.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+
+	}
 }
