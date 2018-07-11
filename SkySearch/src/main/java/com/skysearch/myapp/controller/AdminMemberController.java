@@ -51,8 +51,9 @@ public class AdminMemberController {
 			service.saveObjectAdmin(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("disable".equalsIgnoreCase(action)) {
-			service.deleteObject(paramMap);
+			service.deleteObjectAdmin(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
+			viewName = "/manage/member/list";
 		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

@@ -84,13 +84,25 @@ public class MemberService {
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
-		sqlMapId = "member.list";
+		sqlMapId = "member.read";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
-	//È¸¿ø¾ÆÀÌµð, È¸¿ø ºñ¹Ð¹øÈ£ Ã£±â
+	public Object deleteObjectAdmin(Object dataMap) {
+		String sqlMapId = "member.deleteAdmin";
+		
+		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		
+		// get Member List
+		sqlMapId = "member.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½, È¸ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½
 	public Object Find(Object dataMap) {
 	      String sqlMapId ="member.check";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
