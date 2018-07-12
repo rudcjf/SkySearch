@@ -24,13 +24,41 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+	
+	<script>
+	var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+"bb856e3dad69c352312ce3dda9be5408";
+    $.ajax({
+        url: apiURI,
+        dataType: "json",
+        type: "GET",
+        async: "false",
+        success: function(resp) {
+            console.log(resp);
+            console.log("현재온도 : "+ (resp.main.temp- 273.15) );
+            console.log("현재습도 : "+ resp.main.humidity);
+            console.log("날씨 : "+ resp.weather[0].main );
+            console.log("상세날씨설명 : "+ resp.weather[0].description );
+            console.log("날씨 이미지 : "+ resp.weather[0].icon );
+            console.log("바람   : "+ resp.wind.speed );
+            console.log("나라   : "+ resp.sys.country );
+            console.log("도시이름  : "+ resp.name );
+            console.log("구름  : "+ (resp.clouds.all) +"%" );                 
+        }
+    })
+    var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+ 		$("weather").attr("src", imgURL);
+
+	</script>
+	
+	
+	
 	<div class="property-single-title property-single-title-gallery">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4">
 					<h1>${resultMap.CITY_NAME}</h1><!--  도시명  영문도시명 가져오기 -->
 					<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
-					<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.VIEWS}</b>
+					<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
 				</div>
 				<div class="col-lg-1 col-md-1">
 					<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->

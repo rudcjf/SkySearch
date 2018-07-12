@@ -91,7 +91,8 @@
 	</insert>
 	
 	<insert id="countrymerge" parameterType="Map">
-		INSERT IGNORE INTO 
+		
+		INSERT  INTO 
         SKYSEARCH.SS_COUNTRY (
         COUNTRY_SEQ,
         LOCAL_SEQ,
@@ -102,13 +103,14 @@
         #{LOCAL_SEQ},
         #{COUNTRY_NAME}
         )
-
+		ON DUPLICATE KEY
+		UPDATE
+		COUNTRY_NAME = #{COUNTRY_NAME} 
 	</insert>
-	
 	
 	<insert id="citymerge" parameterType="Map">
 		
-		INSERT IGNORE INTO 
+		INSERT INTO 
 		SKYSEARCH.SS_CITY(
 		CITY_SEQ	
 		, COUNTRY_SEQ	
@@ -124,11 +126,18 @@
 		, #{CITY_NAME}
 		, #{CITY_ADD}
 		, #{CITY_LATITUDE}
-		, #{CITY_LONGITUDE})
+		, #{CITY_LONGITUDE}
+		)
 
+		ON DUPLICATE KEY
+		UPDATE
+		CITY_NAME = #{CITY_NAME} 
+		, CITY_ADD = #{CITY_ADD}
+		, CITY_LATITUDE = #{CITY_LATITUDE}
+		, CITY_LONGITUDE = #{CITY_LONGITUDE} 
+		
 	</insert>
 	
-
 	<delete id="delete" parameterType="Map">
 		delete from SKYSEARCH.SS_TRAVEL_INFO
 		where

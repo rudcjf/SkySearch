@@ -18,6 +18,65 @@
 
 </head>
 <body>
+
+<script>
+/* LocalSelectBox2 */
+var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
+	$
+			.ajax({
+				type : "POST",
+				url : url,
+				data : params,
+				cache : false,
+				success : function(data) {
+					var formTag = "";
+					if ("${resultMap.LOCAL_NAME}" == "") {
+
+						formTag += "<select class='form-control' name='LOCAL_SEQ' >";
+						$
+								.each(
+										data,
+										function(i, item) {
+											formTag += '<option value="'+item.LOCAL_SEQ+'" >'
+													+ item.LOCAL_NAME;
+
+										});
+					} else {
+						formTag += "<select class='form-control' name='LOCAL_SEQ' disabled>";
+						$
+								.each(
+										data,
+										function(i, item) {
+											if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
+												formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
+														+ item.LOCAL_NAME;
+											} else {
+												formTag += '<option value="'+item.LOCAL_SEQ+'" >'
+														+ item.LOCAL_NAME;
+											}
+										});
+					}
+					formTag += '</select> ';
+					$('#' + id).html(formTag);
+				},
+				error : function(xhr, status, exception) {
+					alert("Failure \n (" + status + ")");
+					return false;
+				}
+			});
+
+}
+
+$(document).ready(
+		function() {
+
+			fn_setLocalFormTagSelectbox2(
+					"<c:url value='/ws/localList' />", "localDIV2");
+		});
+</script>
+
+
+
 	<div class="breadcrumbs">
 		<div class="col-sm-4">
 			<div class="page-header float-left">
@@ -45,9 +104,12 @@
 					<div class="card">
 						<div class="card-header">
 							<strong class="card-title">여행정보</strong> <input type="submit"
-								class="btn btn-primary" value=정보입력
+								class="btn btn-primary" value=관광지입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
-								style="float: right;"> 
+								style="float: right;">
+							<button type="button" class="btn btn-secondary mb-1"
+								data-toggle="modal" data-target="#mediumModal"
+								style="float: right;">국가추가</button>
 						</div>
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
@@ -63,7 +125,7 @@
 											<thead>
 												<tr>
 
-													<th><input type="checkbox" id="selecctall" /></th>
+													<th></th>
 													<th>관광지명</th>
 													<th>도시명</th>
 													<th>설명</th>
@@ -83,12 +145,14 @@
 															href="<c:url value="/manage/ti/ti_edit?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
 																${resultData.LANDMARK_NAME}</a></td>
 														<td><a
-															href="<c:url value="/manage/ti/ti_local?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
-															${resultData.CITY_NAME}</a></td>
+															href="<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
+																${resultData.CITY_NAME}</a></td>
 														<td>${resultData.LANDMARK_EXP}</td>
 														<td>${resultData.LANDMARK_ADDR}</td>
 														<td>${resultData.REGISTER_SEQ}</td>
-														<td>${resultData.REGISTRY_DATE}</td>
+														<td><a
+															href="<c:url value="/manage/ti/delete?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}&forwardView=/manage/ti/ti_list" />">
+															${resultData.REGISTRY_DATE}</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -103,13 +167,69 @@
 
 				</div>
 			</div>
+
 		</div>
-
-
+			
 	</div>
 	<!-- .animated -->
 
 	</div>
+	<!-- Modal -->
+			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
+				aria-labelledby="mediumModalLabel" aria-hidden="true"
+				style="display: none;">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<!-- 국가입력 -->
+							<div class="col-sm-12">
+								<form role="form" method="POST"
+									action="<c:url value='/manage/ti/countrymerge' />">
+									<input type="hidden" name="forwardView"
+										value="/manage/ti/ti_city" />
+									<div class="card padding-card">
+										<div class="card-body">
+											<div align="left">
+												<div class="card-body">
+													<div class="form-group col-sm-4">
+														<label> 지역 명 : </label>
+														<div id=localDIV2></div>
+													</div>
+
+													<input type="hidden" class="form-control"
+														name="COUNTRY_SEQ" value="${resultMap.COUNTRY_SEQ}">
+
+													<div class="form-group col-sm-4">
+														<label>국가 명 :</label> <input type="text"
+															class="form-control" name="COUNTRY_NAME"
+															value="${resultMap.COUNTRY_NAME}">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div align="right">
+											<input type="submit" onclick="enable()"
+												class="btn btn-success" value="입력" />
+											<button type="button" class="btn btn-secondary"
+												data-dismiss="modal">Cancel</button>
+										</div>
+									</div>
+								</form>
+
+							</div>
+							<!-- 국가입력 END -->
+						</div>
+
+					</div>
+				</div>
+			</div>
 
 	</div>
 
@@ -118,5 +238,6 @@
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
+	
 </body>
 </html>
