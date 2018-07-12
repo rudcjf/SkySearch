@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE mapper
@@ -76,8 +75,7 @@
 		EMAIL = #{EMAIL}
 		, PASSWORD = #{PASSWORD}
 		, NAME = #{NAME}
-		, PHONE
-		= #{PHONE}
+		, PHONE	= #{PHONE}
 		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
 	</insert>
