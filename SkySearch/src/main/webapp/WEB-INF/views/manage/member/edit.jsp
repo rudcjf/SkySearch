@@ -25,17 +25,33 @@
 					data : params,
 					cache : false,
 					success : function(data) {
-
 						var formTag = "";
+						if("${resultMap.LOCAL_NAME}"==""){
+							
+											formTag += "<label class='checkbox-inline'>";
 						$
 								.each(
 										data,
 										function(i, item) {
-											formTag += "<label class='checkbox-inline'>";
 											formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
 													+ item.LOCAL_NAME;
-											formTag += '</label> ';
 										});
+						}else{
+							$
+							.each(
+									data,
+									function(i, item) {
+										if("${resultMap.LOCAL_NAME}"==item.LOCAL_NAME){
+											formTag += '<input type=checkbox checked="checked" name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
+											+ item.LOCAL_NAME;
+										}else{
+										formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
+												+ item.LOCAL_NAME;
+										}
+									});
+							
+						}
+										formTag += '</label> ';
 						$('#' + id).html(formTag);
 
 					},

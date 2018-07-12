@@ -27,7 +27,7 @@ public class MemberService {
 	public Object getPepList(Object dataMap) {
 		String sqlMapId = "member.read";
 		
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
 		return resultObject;
 	}
