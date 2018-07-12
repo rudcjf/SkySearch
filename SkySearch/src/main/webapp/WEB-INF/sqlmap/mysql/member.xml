@@ -41,7 +41,7 @@
 		EMAIL,
 		NAME, PHONE, PASSWORD
 		from SS_MEMBER
-		where NAME = #{NAME}
+		where NAME = #{name}
 	</select>
 
 	<insert id="merge" parameterType="Map">
@@ -75,7 +75,8 @@
 		EMAIL = #{EMAIL}
 		, PASSWORD = #{PASSWORD}
 		, NAME = #{NAME}
-		, PHONE	= #{PHONE}
+		, PHONE
+		= #{PHONE}
 		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
 	</insert>
@@ -84,7 +85,7 @@
 		update skysearch.ss_member
 		set
 		ENABLE='N'
-		where EMAIL = #{EMAIL} and PASSWORD = #{PASSWORD}
+		where EMAIL = #{email} and PASSWORD = #{password}
 	</update>
 
 	<update id="deleteAdmin" parameterType="Map">
