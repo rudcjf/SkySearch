@@ -25,7 +25,7 @@
 		}
 
 		// 지역을 선택했을 때 국가 가져오기
-		function CountrySelect(value) {
+		var selectOption2 = function CountrySelect(value) {
 			$.ajax({
 				type : "GET", // 값을 보낼 방식
 				url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
@@ -49,6 +49,52 @@
 					return false;
 				}
 			});
+		}
+		/* CountrySelectBox */
+		var fn_setCountryFormTagSelectbox = function(url, id, params) {
+			$
+					.ajax({
+						type : "POST",
+						url : url,
+						data : params,
+						cache : false,
+						success : function(data) {
+							var formTag = "";
+							if ("${resultMap.COUNTRY_NAME}" == "") {
+
+								formTag += "<select class='form-control' name='COUNTRY_SEQ' >";
+								$
+										.each(
+												data,
+												function(i, item) {
+													formTag += '<option value="'+item.COUNTRY_SEQ+'" >'
+															+ item.COUNTRY_NAME;
+
+												});
+							} else {
+								formTag += "<select class='form-control' name='COUNTRY_SEQ' disabled>";
+								$
+										.each(
+												data,
+												function(i, item) {
+													if ("${resultMap.COUNTRY_NAME}" == item.COUNTRY_NAME) {
+														formTag += '<option selected="selected" value="'+item.COUNTRY_SEQ+'" >'
+																+ item.COUNTRY_NAME;
+													} else {
+														formTag += '<option value="'+item.COUNTRY_SEQ+'" >'
+																+ item.COUNTRY_NAME;
+													}
+												});
+							}
+							formTag += '</select> ';
+							$('#' + id).html(formTag);
+						},
+						error : function(xhr, status, exception) {
+							alert("Failure \n (" + status + ")");
+							return false;
+						}
+					});
+
 		}
 		
 		/* LocalSelectBox */
@@ -143,12 +189,22 @@
 					});
 
 		}
+		
+		
 
 		$(document).ready(
 				function() {
-
+					if(){
+						
+					}else{
+						
+						fn_setCountryFormTagSelectbox(
+								"<c:url value='/ws/colList' />", "countryDIV"));
+					}
+					
 					fn_setLocalFormTagSelectbox(
 							"<c:url value='/ws/localList' />", "localDIV");
+					
 					fn_setLocalFormTagSelectbox2(
 							"<c:url value='/ws/localList' />", "localDIV2");
 
@@ -219,13 +275,14 @@
 
 													<div class="form-group col-sm-4">
 														<label>국가 명 :</label>
-															<div class="input-group">
+																
+																<div>
 																<select class="form-control select2 no-radius"
 																	id="country" name="COUNTRY_SEQ"
 																	onchange="CitySelect(this.value);">
 																</select>
+																</div>
 															
-														</div>
 
 													</div>
 													<div class="form-group col-sm-4">
