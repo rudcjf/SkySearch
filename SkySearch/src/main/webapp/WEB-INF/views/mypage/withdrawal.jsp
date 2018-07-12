@@ -4,23 +4,15 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
 
-<!-- 회원 탈퇴시 탈퇴 완료 Modal -->
- <script>
-$(document).ready(function(){
-    $("#Btn").click(function(){
-        $("#Modal").modal();
-    });
-});
-</script> 
 <!-- 비밀번호 재확인 -->
 <script>
  $(function(){
-  $('#PASSWORD').keyup(function(){
+  $('#PASSWORD1').keyup(function(){
    $('font[name=check]').text('');
   }); //#user_pass.keyup
 
-  $('#repassword').keyup(function(){
-   if($('#PASSWORD').val()!=$('#repassword').val()){
+  $('#PASSWORD2').keyup(function(){
+   if($('#PASSWORD1').val()!=$('#PASSWORD2').val()){
     $('font[name=check]').text('');
     $('font[name=check]').html("비밀번호 불일치");
    }else{
@@ -30,10 +22,14 @@ $(document).ready(function(){
   }); //#chpass.keyup
  });
 </script>
-
-
-
-<!-- Modal -->
+<%-- 회원 탈퇴시 탈퇴 완료 Modal 
+ <script>
+$(document).ready(function(){
+    $("#Btn").click(function(){
+        $("#Modal").modal();
+    });
+});
+</script> 
   <div class="modal fade" id="Modal" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -48,9 +44,8 @@ $(document).ready(function(){
           <a class="btn btn-success btn-sm" href="<c:url value='/'/>">Close</a>
         </div>
       </div>
-      
     </div>
-  </div>
+  </div> --%>
 
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
@@ -105,27 +100,29 @@ $(document).ready(function(){
 						</font><br/>
 					</c:if>
                 </fieldset> 
-                 <form role="form" method="POST"
-					action="<c:url value='/member/disable?EMAIL=${resultData.EMAIL}&PASSWORD=${resultData.PASSWORD}' />">
-                 	<input type="hidden" name="forwardView" value="/" /> 
+                 <form role="form" method="POST" action="<c:url value='/mypage/disable'/>">
+                 <!-- 	<input type="hidden" name="forwardView" value="/" />  -->
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> Password를 입력해주세요</p>
+                        	<p>회원 탈퇴를 원하신다면 <br> 회원 아이디와 비밀번호를 입력해주세요</p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
-                            	<input id="EMAIL" type="email" name="email" class="form-control" value="${resultMap.EMAIL}">
+                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Member ID">
+                            	<br>
+                            	<label>Name <span class="text-danger">*</span></label>
+                            	<input id="NAME" type="text" name="name" class="form-control" placeholder="name">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
-                            	<input id="PASSWORD" type="password" name="password" class="form-control" value="${resultMap.PASSWORD}" >
+                            	<input id="PASSWORD1" type="password" name="PASSWORD" class="form-control" placeholder="Password" >
                             	<br>
                             	<label>Password <span class="text-danger">*</span><font name="check" size="2" color="red"></font></label>
-                            	<input id="repassword" type="password" name="repassword" class="form-control" placeholder="Password">
+                            	<input id="PASSWORD2" type="password" name="password" class="form-control" placeholder="Password">
                            	</div>
                            	<br>
                            	<div align="center">	
 				            	<button type="submit" class="btn btn-success col-4" >회원 탈퇴</button>
-				                <button type="reset" class="btn btn-default col-4" id="btn">RESET</button>
+				                <button type="reset" class="btn btn-default col-4" >RESET</button>
 				            </div>
 					 	</div> 
 					</div>	

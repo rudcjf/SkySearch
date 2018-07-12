@@ -12,8 +12,9 @@
                         <h5 class="card-title mb-4">아이디 찾기 결과</h5>
                         <br>
                            <div class="form-group">
-                              <label>Member ID : </label><h5>${EMAIL}</h5>
-                              <br>
+                              <label>Member ID : </label>
+                              <h5>${resultMap.EMAIL}</h5>
+                          <br>
 						   </div>
 						   <div align="center">
 						   	<a class="btn btn-success col-5" role="button" href="<c:url value='/login' />">Login</a>

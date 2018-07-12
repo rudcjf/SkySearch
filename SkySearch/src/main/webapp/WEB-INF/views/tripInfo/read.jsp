@@ -25,6 +25,7 @@
 		</a>
 	</div>
 	
+	<!-- 날씨 관련 API -->
 	<script>
 	var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+"bb856e3dad69c352312ce3dda9be5408";
     $.ajax({
@@ -49,8 +50,6 @@
  		$("weather").attr("src", imgURL);
 
 	</script>
-	
-	
 	
 	<div class="property-single-title property-single-title-gallery">
 		<div class="container">
@@ -187,6 +186,38 @@
 		</div> -->
 		<!--END 페이징 -->
 		<hr>
+		
+<%-- 		<c:set var="CITY_SEQ">${resultMap.CITY_SEQ}</c:set>
+		<script>
+		// 데이터베이스에 있는 댓글 목록 가져오기
+		function CommentGet() {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/commentList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"CITY_SEQ" : ${CITY_SEQ}
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category;
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<p value='"
+								+ (list[i])['COUNTRY_SEQ'] + "'>"
+								+ (list[i])['COUNTRY_NAME']
+								+ "</option>";
+						});
+						$("#country").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+		</script> --%>
+		
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 	<div class="section-title text-center mb-5">
