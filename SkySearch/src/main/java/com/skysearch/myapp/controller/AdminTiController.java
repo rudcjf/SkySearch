@@ -57,7 +57,9 @@ public class AdminTiController {
 			service.saveCity(paramMap);
 		} else if ("countrymerge".equalsIgnoreCase(action)) {
 			service.saveCountry(paramMap);
-		} 
+		} else if ("delete".equalsIgnoreCase(action)) {
+			resultList = (List<Object>) service.deleteObject(paramMap);
+		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
@@ -68,9 +70,7 @@ public class AdminTiController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("delete".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.deleteObject(paramMap);
-		} */
+		}  */
 		
 		if(forwardView != null){
 			viewName = forwardView;
