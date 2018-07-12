@@ -55,15 +55,12 @@ public class AdminTiService {
 	}
 
 	public Object deleteObject(Object dataMap) {
-		// delete child record authority
-		String sqlMapId = "authorityRmember.delete";
-
-		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		
 
 		// delete Mother record authority
-		sqlMapId = "ti.delete";
+		String sqlMapId = "ti.delete";
 
-		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		Object resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
 		sqlMapId = "ti.list";

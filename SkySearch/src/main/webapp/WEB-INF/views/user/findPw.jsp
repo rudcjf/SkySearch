@@ -12,7 +12,8 @@
                         <h5 class="card-title mb-4">비밀번호 검색 결과</h5>
                         <br>
                            <div class="form-group">
-                              <label>Password : </label><h5>${PASSWORD}</h5>
+                              <label>Password : </label>
+                              <h5>${resultMap.PASSWORD}</h5>
                               <br>
 						   </div>
 						   <div align="center">

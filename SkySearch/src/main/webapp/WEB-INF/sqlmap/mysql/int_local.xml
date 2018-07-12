@@ -8,33 +8,26 @@
 	<select id="list" resultType="Map" parameterType="Map"
 		timeout="10">
 		select
-			LOCAL_SEQ,
-			MEMBER_SEQ
+		LOCAL_SEQ,
+		MEMBER_SEQ
 		from skysearch.ss_int_local
 	</select>
 
 	<insert id="insert" parameterType="Map">
-	    INSERT ALL
-		<foreach collection="LOCAL_SEQ" item="item" index="index">
-		    INTO skysearch.ss_int_local (
-				LOCAL_SEQ <!-- 지역 코드 --> 
-				, MEMBER_SEQ <!-- 회원_SEQ -->
-			)
-			values
-			(
-				#{item} <!-- 지역 코드 --> 
-				, #{MEMBER_SEQ} <!-- 회원_SEQ -->
-							)
+		INSERT INTO skysearch.ss_int_local
+		(LOCAL_SEQ, MEMBER_SEQ)
+		VALUES
+		<foreach collection="list" item="item" separator=",">
+			(#{item.LOCAL_SEQ}, #{MEMBER.SEQ})
 		</foreach>
-		SELECT 1 FROM DUAL
 	</insert>
-	
+
 	<delete id="delete" parameterType="Map">
 		delete from
 		skysearch.ss_int_local
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
-	
-	
-	
+
+
+
 </mapper>

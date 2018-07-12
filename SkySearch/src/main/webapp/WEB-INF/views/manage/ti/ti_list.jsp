@@ -18,6 +18,7 @@
 
 </head>
 <body>
+
 <script>
 /* LocalSelectBox2 */
 var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
@@ -124,7 +125,7 @@ $(document).ready(
 											<thead>
 												<tr>
 
-													<th><input type="checkbox" id="selecctall" /></th>
+													<th></th>
 													<th>관광지명</th>
 													<th>도시명</th>
 													<th>설명</th>
@@ -149,7 +150,9 @@ $(document).ready(
 														<td>${resultData.LANDMARK_EXP}</td>
 														<td>${resultData.LANDMARK_ADDR}</td>
 														<td>${resultData.REGISTER_SEQ}</td>
-														<td>${resultData.REGISTRY_DATE}</td>
+														<td><a
+															href="<c:url value="/manage/ti/delete?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}&forwardView=/manage/ti/ti_list" />">
+															${resultData.REGISTRY_DATE}</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -166,7 +169,12 @@ $(document).ready(
 			</div>
 
 		</div>
-			<!-- Modal -->
+			
+	</div>
+	<!-- .animated -->
+
+	</div>
+	<!-- Modal -->
 			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
 				aria-labelledby="mediumModalLabel" aria-hidden="true"
 				style="display: none;">
@@ -223,12 +231,6 @@ $(document).ready(
 				</div>
 			</div>
 
-
-	</div>
-	<!-- .animated -->
-
-	</div>
-
 	</div>
 
 	<!-- .content -->
@@ -236,5 +238,6 @@ $(document).ready(
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
+	
 </body>
 </html>

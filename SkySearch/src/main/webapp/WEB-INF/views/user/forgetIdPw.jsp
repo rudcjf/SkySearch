@@ -20,8 +20,8 @@
                               <label>Phone Number <span class="text-danger">*</span></label>
                               	<input type="text" name="phone"class="form-control" placeholder="Enter your Phone Number">
                            </div>
-                           <button type="submit" class="btn btn-success col-4" >아이디 찾기</button>
-                           <input type="button" class="btn btn-success btn-block" value="아이디 찾기" onclick="idcheck()">
+                           <button type="submit" class="btn btn-success btn-block" >아이디 찾기</button>
+                           <!-- <input type="button" class="btn btn-success btn-block" value="아이디 찾기" onclick="idcheck()"> -->
                            <!-- 아이디찾기 버튼을 누르면 DB에서 이름과 번호가 일치하는 회원을 찾아내서 oooo***@ooo.oo 형태로 아이디를 알려주는 팝업창이 뜬다 --> 
                            <br>
                          </form>
@@ -47,7 +47,8 @@
                            <div class="form-group">
   	                       		<input type="text" class="form-control" placeholder="인증번호 4자리를 입력하세요">
 						   		<input type="button" class="btn btn-danger btn-block" value="카운트 3분!!">
-                           		<input type="button" class="btn btn-success btn-block" value="비밀번호 찾기" onclick="idcheck()">
+                           		<button type="submit" class="btn btn-success btn-block" >비밀번호 찾기</button>
+                           		<!-- <input type="button" class="btn btn-success btn-block" value="비밀번호 찾기" onclick="idcheck()"> -->
                           </div>
                       </form>
                      </div>

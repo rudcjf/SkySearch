@@ -32,30 +32,30 @@ public class UserController {
 		Map<Object, Object> resultMap = new HashMap<Object, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
-		// divided depending on action value
+		//로그인화면에서 아이디 비밀번호 찾기
 		if ("forgetIdPw".equalsIgnoreCase(action)) {
-			//로그인화면에서 아이디 비밀번호 찾기
+			//아이디 찾기 실패시
 		} else if ("forgetId".equalsIgnoreCase(action)) {
-			//
+			//비밀번호 찾기 실패시
 		} else if ("forgetPw".equalsIgnoreCase(action)) {
-			//
+			//아이디 찾기
 		}else if("checkId".equalsIgnoreCase(action)) {
 	        resultMap = (Map<Object, Object>) service.Find(paramMap);
 	        
 	        String NAME = (String)resultMap.get("NAME");
 	        String PHONE = (String)resultMap.get("PHONE");
-	         
+	        
 			String name=(String)paramMap.get("name");//입력한 이름, 폰번호
 			String phone=(String)paramMap.get("phone");	         
 	         
 	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호  일치하면 아이디 찾음
-	        	 viewName = "/user/findId";
+	             viewName = "/user/findId";
 	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
-	            }else {//일치하지 않으면,
+	        }else {//일치하지 않으면,
 	               viewName = "/user/forgetId";
-	     }
-	         
-	      }else if("checkPw".equalsIgnoreCase(action)) {
+	         }
+	     //비밀번호 찾기
+		}else if("checkPw".equalsIgnoreCase(action)) {
 	         resultMap = (Map<Object, Object>) service.Find(paramMap);
 	         
 	         String EMAIL = (String)resultMap.get("EMAIL");
