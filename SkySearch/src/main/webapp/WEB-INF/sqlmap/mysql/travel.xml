@@ -12,10 +12,10 @@
 		c.CITY_ADD, <!-- 도시 주소 --> 
 		c.CITY_LATITUDE, <!-- 위도 -->
 		c.CITY_LONGITUDE, <!-- 경도 -->
+		c.CITY_VIEWS, <!-- 조회수 -->
 		t.LANDMARK_NAME, <!-- 관광지 이름 -->
 		t.LANDMARK_EXP, <!-- 관광지 설명 -->
-		t.LANDMARK_ADDR, <!-- 관광지 주소 -->
-		t.VIEWS <!-- 조회수 -->
+		t.LANDMARK_ADDR <!-- 관광지 주소 -->
 		FROM 
 		SS_CITY c, SS_TRAVEL_INFO t
 		WHERE
@@ -25,19 +25,32 @@
 	</select>
 	
 	<update id="view" parameterType="Map">
-		UPDATE SS_TRAVEL_INFO
-		SET VIEWS = VIEWS+1
+		UPDATE SS_CITY
+		SET CITY_VIEWS = CITY_VIEWS+1
 		WHERE CITY_SEQ = #{CITY_SEQ}
 	</update>
 	
-	<select id="country" resultType="List" parameterType="Map">
+	<select id="country" resultType="Map" parameterType="Map">
 		SELECT 
-		COUNTRY_NAME <!-- 국가명 -->
+		c.COUNTRY_NAME, <!-- 국가명 -->
+		c.COUNTRY_SEQ <!-- 국가시퀀스 -->
 		FROM 
 		SS_LOCAL l, SS_COUNTRY c
 		WHERE l.LOCAL_SEQ = c.LOCAL_SEQ 
 		AND 
 		LOCAL_NAME = #{LOCAL_NAME}
+	</select>
+	
+	<select id="city" resultType="Map" parameterType="Map">
+		SELECT 
+		ci.CITY_NAME, 
+		ci.CITY_SEQ
+		FROM 
+		SS_COUNTRY co, SS_CITY ci
+		WHERE 
+		co.COUNTRY_SEQ = ci.COUNTRY_SEQ
+		AND 
+		co.COUNTRY_SEQ = #{COUNTRY_SEQ}
 	</select>
 
 </mapper>
