@@ -19,7 +19,13 @@ public class LocalService {
 		
 		return resultObject;
 	}
-	
+	public Object getCheckLocal(Object dataMap) {
+		String sqlMapId = "local.list";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
 	public Object getLocalList(Object dataMap) {
 		String sqlMapId = "local.localList";
 

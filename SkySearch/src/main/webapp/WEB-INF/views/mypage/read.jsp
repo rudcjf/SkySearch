@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+<%-- <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" /> --%>
 <!-- 회원시퀀스에 해당하는 정보 read 에서 관심지역 가져오기  -->
 <script type="text/javascript">
 var fn_setLocalID = function(url, id, params) {
@@ -15,9 +15,9 @@ var fn_setLocalID = function(url, id, params) {
              cache : false,
              success : function(data) {
                 var formTag = "";
-                formTag += "<p class='form-control-static' name='LOCAL_SEQ'>";
+                formTag += "<p class='form-control-static' name='LOCAL_NAME'>";
                 $.each(data, function(i, item) {
-                   formTag += item.LOCAL_SEQ + "<br>";
+                   formTag += item.LOCAL_NAME + "<br>";
                 });
                 formTag += '</p> ';
                 $('#' + id).html(formTag);
@@ -54,17 +54,18 @@ $(document).ready(function() {
             <div class="row">
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
+                   <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/member/read'/>">내 정보</a>
+                        <a class="nav-link active text-success" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보 수정</a>
+                        <a class="nav-link" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
+                     <%-- <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
+                     </li> --%>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호 변경</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/withdrawal'/>">회원 탈퇴</a>
+                        <a class="nav-link" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
                   </ul>
                </div>
@@ -82,7 +83,7 @@ $(document).ready(function() {
                  <div class="card padding-card"> 
 	                 <form role="form" method="POST" action="<c:url value='/member/read' />">
 	                  <div class="card-body">
-		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL}</h3>
+		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL} </h3>
 		                  <p> </p>
 		                  <h5 class="text-success mb-3">Member SEQ : ${resultMap.MEMBER_SEQ}</h5>
              
@@ -96,7 +97,14 @@ $(document).ready(function() {
 		                     </div>
 		                  </div>
                   	  </div>
-                 	</form>  
+                 	</form> 
+                 	
+                 	
+           	<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+            <input type="hidden" name="MEMBER_SEQ" value="${principalName}">
+                 	
+                 	
+                 	 
                  </div>
                </div>
             </div>

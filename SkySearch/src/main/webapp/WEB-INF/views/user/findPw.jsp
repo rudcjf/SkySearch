@@ -11,7 +11,6 @@
                      <div class="card-body">
                         <h5 class="card-title mb-4">비밀번호 검색 결과</h5>
                         <br>
-                   
                            <div class="form-group">
                               <label>Password : </label><h5>${PASSWORD}</h5>
                               <br>
@@ -20,7 +19,6 @@
 						   	<a class="btn btn-success col-5" role="button" href="<c:url value='/login' />">Login</a>
 						   	<a class="btn btn-default col-5" role="button" href="<c:url value='/' />">Home</a>
                            </div>
-                 
                      </div>
                   </div>
                </div>

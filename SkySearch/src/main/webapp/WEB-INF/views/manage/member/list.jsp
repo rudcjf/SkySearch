@@ -53,8 +53,6 @@
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 
 								<div class="row">
-									<form role="form" method="POST"
-										action="<c:url value='/manage/member/disable?MEMBER_SEQ=${resultData.MEMBER_SEQ}' />">
 										<div class="col-sm-12">
 											<table class="table table-striped table-bordered table-hover"
 												id="bootstrap-data-table">
@@ -75,7 +73,7 @@
 															class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 															<td><input type="checkbox" class="checkbox"
 																name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
-															<td><a href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">${resultData.EMAIL}</a></td>
+															<td><a href="<c:url value="/manage/member/edit?EMAIL=${resultData.EMAIL}" />">${resultData.EMAIL}</a></td>
 															<td>${resultData.NAME}</td>
 															<td>${resultData.PHONE}</td>
 															<td>${resultData.ENABLE}</td>
@@ -85,10 +83,7 @@
 												</tbody>
 											</table>
 											<input type="hidden" name="MEMBER_SEQ" value="dummy_id">
-											<button type="submit" class="btn btn-default">disable
-												Button</button>
 										</div>
-									</form>
 								</div>
 							</div>
 						</div>
