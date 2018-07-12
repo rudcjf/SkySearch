@@ -44,27 +44,23 @@ public class MypageController {
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObject(paramMap);
 		} else if ("withdrawal".equalsIgnoreCase(action)) {
-			service.deleteObject(paramMap);
-			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 			
-			//회원탈퇴, 아이디와 비번이 일치하믄 회원의 enable을 n으로 바꾼다
+		} else if ("disable".equalsIgnoreCase(action)) {
+			String id=(String)paramMap.get("email");//입력한 이메일과 비밀번호
+			String pw=(String)paramMap.get("password");
+     
+			resultMap = (Map<Object, Object>) service.Find(paramMap);
 			
-//			String id=(String)paramMap.get("email");//입력한 이메일과 비밀번호
-//			String pw=(String)paramMap.get("password");
-//			
-//			resultMap = (Map<Object, Object>) service.membercheck(paramMap);//DB에 저장된 이메일과 비번
-//			String email = (String)resultMap.get("EMAIL");
-//			String pass = (String)resultMap.get("PASSWORD");
-//			
-//			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
-//				service.deleteObject(paramMap);
-//				resultList = (List<Object>) service.getList(paramMap);
-//			}else {
-//				viewName = "/mypage/withdrawalfail";
-//			}
+			String email = (String)resultMap.get("EMAIL");
+			String pass = (String)resultMap.get("PASSWORD");
 			
+			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
+				service.deleteObject(paramMap);
+				viewName = "/home/index";
+			}else {
+				viewName = "/mypage/withdrawalfail";
+			}
 		}
-
 		if (forwardView != null) {
 			viewName = forwardView;
 		}
