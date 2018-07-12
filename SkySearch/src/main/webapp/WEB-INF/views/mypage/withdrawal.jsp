@@ -4,35 +4,35 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
 
-<!-- 탈퇴 버튼 누르면 메인화면으로 전환 -->
-<script>
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/' />");
-				return;
-			});
-		});
-	});
-</script>
-
 <!-- 회원 탈퇴시 탈퇴 완료 찹업창 -->
-<%-- <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
-<script>
- $(function(){
-  //id="btn" 클릭시
-  $("#btn").click(function(){
-   //id="EMAIL"이 공백일경우
-   if($('#EMAIL').val()==""){
-    //얼럿으로처리
-    alert("회원 탈퇴 성공!");
-    //id="EMAIL"인 곳으로 커서를 이동
-    $('#EMAIL').focus();
-    return;
-   }
-     });
- });
-</script> --%>
+ <script>
+$(document).ready(function(){
+    $("#Btn").click(function(){
+        $("#Modal").modal();
+    });
+});
+</script> 
+<!-- Modal -->
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">회원탈퇴</h4>
+        </div>
+        <div class="modal-body">
+          <p>회원 탈퇴에 성공하셨습니다</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
          <div class="container">
@@ -102,8 +102,8 @@
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4">회원 탈퇴</button>
-				                <button type="reset" class="btn btn-default col-4">RESET</button>
+				            	<button type="submit" class="btn btn-success col-4" >회원 탈퇴</button>
+				                <button type="reset" class="btn btn-default col-4" id="btn">RESET</button>
 				            </div>
 					 	</div> 
 					</div>	

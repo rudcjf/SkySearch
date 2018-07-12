@@ -40,7 +40,7 @@ public class MemberService {
 		return resultObject;
 	}
 
-	public Object saveObject(Map<String, Object> paramMap) {
+	public Object saveObject(Map<Object, Object> paramMap) {
 		String uniqueSequence = new String(); 
 				uniqueSequence=(String) paramMap.get("MEMBER_SEQ");
 
@@ -113,7 +113,7 @@ public class MemberService {
 		
 		return resultObject;
 	}
-	//회占쏙옙占쏙옙占싱듸옙, 회占쏙옙 占쏙옙橘占싫� 찾占쏙옙
+	//�쉶�뜝�룞�삕�뜝�룞�삕�뜝�떛�벝�삕, �쉶�뜝�룞�삕 �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕
 	public Object Find(Object dataMap) {
 	      String sqlMapId ="member.check";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);

@@ -35,7 +35,7 @@
                   <ul>
                 </div>
 
-<!--                 <div class="col-lg-4 col-md-4">
+<!--       <div class="col-lg-4 col-md-4">
                  <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
                   <div class="footer-social">
                      <a href="https://ko-kr.facebook.com/"><i class="mdi mdi-facebook"></i></a>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skysearch.myapp.component.MapParamCollector;
 import com.skysearch.myapp.service.MemberService;
 
 @Controller
@@ -23,9 +24,10 @@ public class MypageController {
 	private MemberService service;
 
 	@RequestMapping(value = MAPPING + "{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
+		Map<Object, Object> paramMap = paramMethodMap.getMap();
 		String viewName = MAPPING + action;
 		String forwardView = (String) paramMap.get("forwardView");
 
@@ -40,7 +42,7 @@ public class MypageController {
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
+			service.saveObject(paramMap);
 		} else if ("withdrawal".equalsIgnoreCase(action)) {
 			service.deleteObject(paramMap);
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
