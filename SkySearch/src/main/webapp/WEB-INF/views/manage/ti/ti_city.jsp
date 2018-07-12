@@ -194,13 +194,9 @@
 
 		$(document).ready(
 				function() {
-					if(){
-						
-					}else{
-						
+					
 						fn_setCountryFormTagSelectbox(
 								"<c:url value='/ws/colList' />", "countryDIV"));
-					}
 					
 					fn_setLocalFormTagSelectbox(
 							"<c:url value='/ws/localList' />", "localDIV");
