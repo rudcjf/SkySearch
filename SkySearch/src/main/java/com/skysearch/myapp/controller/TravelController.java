@@ -19,28 +19,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skysearch.myapp.service.MemberService;
+import com.skysearch.myapp.service.TravelService;
 
 
 @Controller
 public class TravelController {
 	private final static String MAPPING = "/tripInfo/";
 	
-/*	@Autowired
-	private MemberService service;*/
+	@Autowired
+	private TravelService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
 
 		String viewName = MAPPING + action ;
-
+		int views;
+		
 		Map<String, Object> resultMap = new HashMap<String, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 
 		if ("main".equalsIgnoreCase(action)) {
 			
 		} else if ("read".equalsIgnoreCase(action)) {
-			
+			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		}
 		
 		modelandView.setViewName(viewName);

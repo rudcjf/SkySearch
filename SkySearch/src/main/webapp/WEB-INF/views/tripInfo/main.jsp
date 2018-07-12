@@ -12,11 +12,11 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo1.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/3.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/4.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 		</div>
@@ -28,12 +28,71 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+	
+	<!-- 동적 셀렉트 박스 스크립트 -->
+	<script>
+		// 지역을 선택했을 때 국가 가져오기
+		function CountrySelect(value) {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"LOCAL_NAME" : value
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category = "<option value='' selected>국가명</option>";
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<option value='"
+								+ (list[i])['COUNTRY_SEQ'] + "'>"
+								+ (list[i])['COUNTRY_NAME']
+								+ "</option>";
+						});
+						$("#country").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+		
+		// 국가를 선택했을 때 도시 가져오기
+		function CitySelect(value) {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/cityList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"COUNTRY_SEQ" : value
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category = "<option value='' selected>도시명</option>";
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<option value='"
+								+ (list[i])['CITY_SEQ'] + "'>"
+								+ (list[i])['CITY_NAME']
+								+ "</option>";
+						});
+						$("#city").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+	</script>
 
 	<div class="slider-form">
 		<div class="container">
 			<h1 class="text-center text-white mb-5">여행 정보</h1>
-			<!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함 -->
-			<form>
+			<!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함, 최종적으로 도시 시퀀스를 보내서 정보 출력 -->
+			<form action="<c:url value='/tripInfo/read'/>" method="POST">
 				<div class="row no-gutters">
 					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					<div class="col-md-3">
@@ -41,18 +100,14 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-earth"></i>
 							</div>
-							<select class="form-control select2 no-radius" placeholder="여행지역">
+							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);" placeholder="여행지역" >
 								<option value="">여행지역</option>
-								<option value="Japan">일본</option>
-								<option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-								<option value="China">중국</option>
-								<option value="Asia">아시아</option>
-								<option value="Jeju">국내(제주)</option>
-								<option value="South_pacificocean">남태평양</option>
-								<option value="North_america">북미</option>
-								<option value="South_america">중남미</option>
-								<option value="Europe">유럽</option>
-								<option value="Etc">기타</option>
+								<option value="아시아">아시아</option>
+								<option value="동남아시아">동남아시아</option>
+								<option value="유럽">유럽</option>
+								<option value="북아메리카">북아메리카</option>
+								<option value="남아메리카">남아메리카</option>
+								<option value="오세아니아">오세아니아</option>
 							</select>
 						</div>
 					</div>
@@ -62,15 +117,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-airplane"></i>
 							</div>
-							<select class="form-control select2 no-radius">
+							<select class="form-control select2 no-radius" id="country" name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
 								<option value="">국가명</option>
-								<option value="Japan">일본</option>
-								<option value="Singapore">싱가포르</option>
-								<option value="India">인도</option>
-								<option value="France">프랑스</option>
-								<option value="Swiss">스위스</option>
-								<option value="America">미국</option>
-								<option value="Canada">캐나다</option>
 							</select>
 						</div>
 					</div>
@@ -80,25 +128,18 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-map-marker-outline"></i>
 							</div>
-							<select class="form-control select2 no-radius">
+							<select class="form-control select2 no-radius" id="city" name="CITY_SEQ">
 								<option value="">도시명</option>
-								<option value="Osaka">오사카</option>
-								<option value="Paris">파리</option>
-								<option value="Newyork">뉴욕</option>
-								<option value="LA">로스엔젤레스</option>
-								<option value="London">런던</option>
-								<option value="Tokyo">도쿄</option>
-								<option value="Rome">로마</option>
 							</select>
 						</div>
 					</div>
-					<div class="col-md-2">
-						<button type="submit"
-							class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>
-					</div>
+					
+				<div class="col-md-2">
+					<button type="submit" class="btn btn-success btn-block no-radius font-weight-bold">SEARCH</button>
 				</div>
-			</form>
 		</div>
+		</form>
+	</div>
 	</div>
 </section>
 <!-- 메인 슬라이드 이미지 끝 -->
@@ -114,62 +155,74 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
-								alt="Card image cap">
+							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+								<img class="card-img-top"
+									src="<c:url value='/resources/img/blog/tokyo1.jpg'/>"
+									alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
+										class="mdi mdi-star-half text-warning"></i> <small
 										class="text-success">2/5</small>
 									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
+									<h6>
+										<input type="hidden" name="CITY_SEQ" value="CI001">도쿄
+									</h6>
+									<p class="mb-0">일본</p>
+								</div>
+								<button type="submit" class="btn btn-success">정보 보기</button>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
+							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+								<img class="card-img-top"
+									src="<c:url value = '/resources/img/blog/beijing1.jpg'/>"
+									alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
+										class="mdi mdi-star-half text-warning"></i> <small
 										class="text-success">2/5</small>
 									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
+									<h6>
+										<input type="hidden" name="CITY_SEQ" value="CI004">베이징
+									</h6>
+									<p class="mb-0">중국</p>
 								</div>
-							</a>
+								<button type="submit" class="btn btn-default">정보 보기</button>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
+							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+								<img class="card-img-top"
+									src="<c:url value = '/resources/img/blog/taibei1.jpg'/>"
+									alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star text-warning"></i> <i
 										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
+										class="mdi mdi-star-half text-warning"></i> <small
 										class="text-success">2/5</small>
 									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
+									<h6>
+										<input type="hidden" name="CITY_SEQ" value="CI007">타이베이
+									</h6>
+									<p class="mb-0">대만</p>
 								</div>
-							</a>
+								<button type="submit" class="btn btn-default">정보 보기</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -272,7 +325,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
+							<a href="<c:url value='/tripInfo/read'/>"><img
 								class="card-img-top"
 								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
 								alt="Card image cap">
@@ -547,6 +600,3 @@
 		</div>
 	</div>
 </section>
-
-
-

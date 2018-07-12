@@ -3,34 +3,50 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
-<!-- 탈퇴 버튼 누르면 메인화면으로 전환 -->
-<script>
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/' />");
-				return;
-			});
-		});
-	});
-</script>
-<!-- 회원 탈퇴시 탈퇴 완료 찹업창 -->
-<%-- <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
+
+<!-- 비밀번호 재확인 -->
 <script>
  $(function(){
-  //id="btn" 클릭시
-  $("#btn").click(function(){
-   //id="EMAIL"이 공백일경우
-   if($('#EMAIL').val()==""){
-    //얼럿으로처리
-    alert("회원 탈퇴 성공!");
-    //id="EMAIL"인 곳으로 커서를 이동
-    $('#EMAIL').focus();
-    return;
+  $('#PASSWORD1').keyup(function(){
+   $('font[name=check]').text('');
+  }); //#user_pass.keyup
+
+  $('#PASSWORD2').keyup(function(){
+   if($('#PASSWORD1').val()!=$('#PASSWORD2').val()){
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 불일치");
+   }else{
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 일치");
    }
-     });
+  }); //#chpass.keyup
  });
-</script> --%>
+</script>
+<%-- 회원 탈퇴시 탈퇴 완료 Modal 
+ <script>
+$(document).ready(function(){
+    $("#Btn").click(function(){
+        $("#Modal").modal();
+    });
+});
+</script> 
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">회원 탈퇴</h5>
+        </div>
+        <div class="modal-body">
+          <p>회원 탈퇴에 성공하셨습니다</p>
+          </div>
+        <div class="modal-footer" align="center">
+          <a class="btn btn-success btn-sm" href="<c:url value='/'/>">Close</a>
+        </div>
+      </div>
+    </div>
+  </div> --%>
+
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
          <div class="container">
@@ -52,17 +68,18 @@
             <div class="row">
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
+                     <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/read'/>">내 정보</a>
+                        <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/edit'/>">회원정보수정</a>
+                        <a class="nav-link" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
+                    <%--  <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
+                     </li> --%>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호변경</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal'/>">회원탈퇴</a>
+                        <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
                   </ul>
                </div>
@@ -83,24 +100,29 @@
 						</font><br/>
 					</c:if>
                 </fieldset> 
-                 <form role="form" method="POST"
-					action="<c:url value='/member/disable?EMAIL=${resultData.EMAIL}&PASSWORD=${resultData.PASSWORD}' />">
-                 	<input type="hidden" name="forwardView" value="/member/list" /> 
+                 <form role="form" method="POST" action="<c:url value='/mypage/disable'/>">
+                 <!-- 	<input type="hidden" name="forwardView" value="/" />  -->
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> Member ID와 Password를 입력해주세요</p>
+                        	<p>회원 탈퇴를 원하신다면 <br> 회원 아이디와 비밀번호를 입력해주세요</p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
-                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Member ID">
+                            	<br>
+                            	<label>Name <span class="text-danger">*</span></label>
+                            	<input id="NAME" type="text" name="name" class="form-control" placeholder="name">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
-                            	<input id="PASSWORD" type="password" name="password" class="form-control" placeholder="Password">
+                            	<input id="PASSWORD1" type="password" name="PASSWORD" class="form-control" placeholder="Password" >
+                            	<br>
+                            	<label>Password <span class="text-danger">*</span><font name="check" size="2" color="red"></font></label>
+                            	<input id="PASSWORD2" type="password" name="password" class="form-control" placeholder="Password">
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4">회원 탈퇴</button>
-				                <button type="reset" class="btn btn-default col-4">RESET</button>
+				            	<button type="submit" class="btn btn-success col-4" >회원 탈퇴</button>
+				                <button type="reset" class="btn btn-default col-4" >RESET</button>
 				            </div>
 					 	</div> 
 					</div>	

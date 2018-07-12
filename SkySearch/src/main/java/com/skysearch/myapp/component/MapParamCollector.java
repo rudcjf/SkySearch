@@ -14,7 +14,7 @@ public class MapParamCollector {
     public void put(String key, Object value){
         map.put(key, value);
     }
-    
+    	
     public Map<Object, Object> getMap(){
     	return this.map;
     }

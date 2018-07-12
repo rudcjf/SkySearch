@@ -3,16 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 
-<!--      광고배너, 어떻게 하지? 
-    Join Team
-      <section class="section-padding bg-dark text-center">
-         <h2 class="text-white mt-0">Join our professional team & agents<br>to start selling your house</h2>
-         <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-         <button type="button" class="btn btn-success">Contact Us</button> <button type="button" class="btn btn-outline-success">Read More</button>
-      </section>
-      -->
-      
-    <!-- Footer -->
+   <!-- Footer -->
       <section class="section-padding footer bg-white">
          <div class="container">
             <div class="row">
@@ -43,7 +34,8 @@
                   <li><a href="<c:url value='/aboutUs/contact'/>">Contact</a></li>
                   <ul>
                 </div>
-<!--                 <div class="col-lg-4 col-md-4">
+
+<!--       <div class="col-lg-4 col-md-4">
                  <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
                   <div class="footer-social">
                      <a href="https://ko-kr.facebook.com/"><i class="mdi mdi-facebook"></i></a>

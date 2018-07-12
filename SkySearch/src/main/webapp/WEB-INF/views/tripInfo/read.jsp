@@ -12,9 +12,9 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tripinfo2.jpg'/>')"></div>
+				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
 			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tripinfo3.jpg'/>')"></div>
+				style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
 		</div>
 		<a class="carousel-control-prev" href="#osahanslider" role="button"
 			data-slide="prev"> <span class="carousel-control-prev-icon"
@@ -24,12 +24,40 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+	
+	<!-- 날씨 관련 API -->
+	<script>
+	var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+"bb856e3dad69c352312ce3dda9be5408";
+    $.ajax({
+        url: apiURI,
+        dataType: "json",
+        type: "GET",
+        async: "false",
+        success: function(resp) {
+            console.log(resp);
+            console.log("현재온도 : "+ (resp.main.temp- 273.15) );
+            console.log("현재습도 : "+ resp.main.humidity);
+            console.log("날씨 : "+ resp.weather[0].main );
+            console.log("상세날씨설명 : "+ resp.weather[0].description );
+            console.log("날씨 이미지 : "+ resp.weather[0].icon );
+            console.log("바람   : "+ resp.wind.speed );
+            console.log("나라   : "+ resp.sys.country );
+            console.log("도시이름  : "+ resp.name );
+            console.log("구름  : "+ (resp.clouds.all) +"%" );                 
+        }
+    })
+    var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+ 		$("weather").attr("src", imgURL);
+
+	</script>
+	
 	<div class="property-single-title property-single-title-gallery">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4">
-					<h1>괌 Guam</h1><!--  도시명  영문도시명 가져오기 -->
-					<h6>미국 > 괌</h6><!-- 국가명 > 도시명 가져오기 -->
+					<h1>${resultMap.CITY_NAME}</h1><!--  도시명  영문도시명 가져오기 -->
+					<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
+					<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
 				</div>
 				<div class="col-lg-1 col-md-1">
 					<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
@@ -52,7 +80,7 @@
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>괌의 인기 장소</h2><!-- 도시명 바뀜 -->
+		<h2>${resultMap.CITY_NAME}의 추천 관광지</h2><!-- 도시명 바뀜 -->
 		</div>
 	<!-- 메인 뷰 시작 -->
 	<div class="container">
@@ -63,9 +91,9 @@
 						<div class="card blog-card">
 							<img class="card-img-top" src="<c:url value = '/resources/img/blog/1.png'/>" alt="Card image cap"><!-- 관광지 이미지 가져오기 -->
 							<div class="card-body">
-								<h6>Two Lovers Point</h6><!-- 관광지명  -->
-								<h7><i class="mdi mdi-map-marker-multiple"></i>괌 타뮤닝</h7><!-- 관광지명 주소 -->
-								<p class="mb-0">수족관 및 스쿠버 다이빙</p><!-- 관광지에 대한 설명 -->
+								<h6>${resultMap.LANDMARK_NAME}</h6><!-- 관광지명  -->
+								<h7><i class="mdi mdi-map-marker-multiple">&nbsp;</i>${resultMap.LANDMARK_ADDR}</h7><!-- 관광지명 주소 -->
+								<p class="mb-0">${resultMap.LANDMARK_EXP}</p><!-- 관광지에 대한 설명 -->
 							</div>
 						</div>
 					</div>
@@ -138,7 +166,7 @@
 		</div>
 
 		<!-- 이부분은 인기명소 페이징 부분입니다 -->
-		<div class="row">
+<!-- 		<div class="row">
 			<div class="col-lg-4 col-md-4"></div>
 			<div class="col-lg-4 col-md-4">
 				<nav class="mt-5">
@@ -155,13 +183,45 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
+		</div> -->
 		<!--END 페이징 -->
 		<hr>
+		
+<%-- 		<c:set var="CITY_SEQ">${resultMap.CITY_SEQ}</c:set>
+		<script>
+		// 데이터베이스에 있는 댓글 목록 가져오기
+		function CommentGet() {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/commentList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"CITY_SEQ" : ${CITY_SEQ}
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category;
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<p value='"
+								+ (list[i])['COUNTRY_SEQ'] + "'>"
+								+ (list[i])['COUNTRY_NAME']
+								+ "</option>";
+						});
+						$("#country").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+		</script> --%>
+		
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 	<div class="section-title text-center mb-5">
-		<h2>괌 커뮤니티</h2>
+		<h2>${resultMap.CITY_NAME} 커뮤니티</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -339,6 +399,8 @@
 			<div class="col-lg-12 col-md-12">
 				<div class="card padding-card">
 					<div class="card-body">
+					<c:forTokens var="abc" items="안녕/하세요/hunit블로그/입니다" delims="/" />
+					<p>${abc}</p>
 						<!-- <h5 class="card-title mb-3">지도</h5> -->
 						<!-- <div class="row mb-3">
 							<div class="col-lg-6 col-md-6">
@@ -364,22 +426,24 @@
 <!-- End Property Single Slider -->
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
+<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 <!-- Contact form JavaScript -->
 <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
+<script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
+<script src="<c:url value='/resources/js/contact_me.js'/>"></script>
 <!-- select2 Js -->
-<script src="vendor/select2/js/select2.min.js"></script>
+<script src="<c:url value='/resources/vendor/select2/js/select2.min.js'/>"></script>
 <!-- Custom -->
-<script src="js/custom.js"></script>
+<script src="<c:url value='/resources/js/custom.js'/>"></script>
+<c:set var="lat">${resultMap.CITY_LATITUDE}</c:set> <!-- 위도값 받아오기 -->
+<c:set var="lng">${resultMap.CITY_LONGITUDE}</c:set> <!-- 경도값 받아오기 -->
 <!-- Google Map Api -->
 <script>
          function initMap() {
          	var uluru = {
-         		lat: 35.717611,
-         		lng: 139.726278
+         		lat: ${lat},
+         		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
          		zoom: 3,
@@ -528,18 +592,8 @@
          	marker.addListener('click', function() {
          		infowindow.open(map, marker);
          	});
-         }
-          
+         }       
       </script>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
-	
-	
-<script>
-	function checkComentCount(element){
-		document.getElementById("comentCount").innerHTML = element.value.length;
-	}
-
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
 
 

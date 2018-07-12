@@ -2,17 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-       <!-- 아이디 찾기 결과 -->
+    <!-- 비밀번호찾기 결과 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
                   <div class="card padding-card">
                      <div class="card-body">
-                        <h5 class="card-title mb-4">아이디 찾기 결과</h5>
+                        <h5 class="card-title mb-4">비밀번호 검색 결과</h5>
                         <br>
                            <div class="form-group">
-                              <label>Member ID : </label><h5>${EMAIL}</h5>
+                              <label>Password : </label>
+                              <h5>${resultMap.PASSWORD}</h5>
                               <br>
 						   </div>
 						   <div align="center">

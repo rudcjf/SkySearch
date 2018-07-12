@@ -31,6 +31,7 @@
 			<user name="system@skysearch.com" password="system123" authorities="ROLE_SYSTEM"/>
 			<user name="admin@skysearch.com" password="admin123" authorities="ROLE_ADMIN"/>
 			<user name="jake0119@skysearch.com" password="jake123" authorities="ROLE_MANAGER"/>
+			<user name="evanlilly@skysearch.com" password="lilly121" authorities="ROLE_MANAGER"/>
 			
 			
 			</user-service> 

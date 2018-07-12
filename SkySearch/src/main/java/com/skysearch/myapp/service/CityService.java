@@ -12,19 +12,27 @@ public class CityService {
 	@Autowired
 	private ShareDao dao;
 	
-	public Object getList(Object dataMap) {
-		String sqlMapId = "city.list";
+	public Object getCiList(Object dataMap) {
+		String sqlMapId = "city.cilist";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		
 		return resultObject;
 	}
 	
-	public Object getLocalList(Object dataMap) {
-		String sqlMapId = "city.cityList";
+   public Object getCoList(Object dataMap) {
+      String sqlMapId = "city.colist";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		
-		return resultObject;
-	}
+      Object resultObject = dao.getList(sqlMapId, dataMap);
+      
+      return resultObject;
+   }
+   
+   public Object getLocalList(Object dataMap) {
+      String sqlMapId = "city.cityList";
+
+      Object resultObject = dao.getList(sqlMapId, dataMap);
+      
+      return resultObject;
+   }
 }

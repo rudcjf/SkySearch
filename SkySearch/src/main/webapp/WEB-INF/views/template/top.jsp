@@ -2,20 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-
-
-
-<script type="text/javascript">
-function read(){
-    if(confirm("삭제하시겠습니까?")){
-        location.href = "write_del_ok.jsp?num=1";
-        return true;
-    } else {
-        return false;
-    }
-}
-</script>
-
 <!-- Navbar -->
    <header>
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,10 +24,14 @@ function read(){
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
+                        <form>
                         <li class="nav-item">
-                           <a class="nav-link" href="<c:url value='/member/read'/>" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>My page</strong> </a>
+                          <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                           <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
+                           aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
+                           </a>
                         </li>
+                        </form>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>

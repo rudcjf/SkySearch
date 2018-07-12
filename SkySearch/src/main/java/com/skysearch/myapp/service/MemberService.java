@@ -24,6 +24,13 @@ public class MemberService {
 
 		return resultObject;
 	}
+	public Object getPepList(Object dataMap) {
+		String sqlMapId = "member.read";
+		
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "member.read";
@@ -33,27 +40,27 @@ public class MemberService {
 		return resultObject;
 	}
 
-	public Object saveObject(Map<String, Object> dataMap) {
+	public Object saveObject(Map<Object, Object> paramMap) {
 		String uniqueSequence = new String(); 
-				uniqueSequence=(String) dataMap.get("MEMBER_SEQ");
+				uniqueSequence=(String) paramMap.get("MEMBER_SEQ");
 
 		if (uniqueSequence==null) {
 			uniqueSequence = commonUtil.getUniqueSequence();
-			dataMap.put("MEMBER_SEQ", uniqueSequence);
+			paramMap.put("MEMBER_SEQ", uniqueSequence);
 		}
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		
 		String sqlMapId = "member.merge";
 
-		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 		
 		sqlMapId = "int_local.insert";
-		dao.saveObject(sqlMapId, dataMap);
+		dao.saveObject(sqlMapId, paramMap);
 		
 		sqlMapId = "member.read";
 
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, paramMap);
 
 		return resultObject;
 	}
@@ -70,6 +77,10 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 		
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId = "int_local.insert";
+		dao.saveObject(sqlMapId, dataMap);
+		
 		System.out.println((int)resultKey);
 		sqlMapId = "member.list";
 		
@@ -84,13 +95,25 @@ public class MemberService {
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
-		sqlMapId = "member.list";
+		sqlMapId = "member.read";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
-	//ȸ�����̵�, ȸ�� ��й�ȣ ã��
+	public Object deleteObjectAdmin(Object dataMap) {
+		String sqlMapId = "member.deleteAdmin";
+		
+		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		
+		// get Member List
+		sqlMapId = "member.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+	//�쉶�뜝�룞�삕�뜝�룞�삕�뜝�떛�벝�삕, �쉶�뜝�룞�삕 �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕
 	public Object Find(Object dataMap) {
 	      String sqlMapId ="member.check";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
