@@ -15,9 +15,9 @@ var fn_setLocalID = function(url, id, params) {
              cache : false,
              success : function(data) {
                 var formTag = "";
-                formTag += "<p class='form-control-static' name='LOCAL_SEQ'>";
+                formTag += "<p class='form-control-static' name='LOCAL_NAME'>";
                 $.each(data, function(i, item) {
-                   formTag += item.LOCAL_SEQ + "<br>";
+                   formTag += item.LOCAL_NAME + "<br>";
                 });
                 formTag += '</p> ';
                 $('#' + id).html(formTag);
