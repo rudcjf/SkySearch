@@ -28,7 +28,8 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
-
+	
+	<!-- 동적 셀렉트 박스 스크립트 -->
 	<script>
 		// 지역을 선택했을 때 국가 가져오기
 		function CountrySelect(value) {
@@ -116,7 +117,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-airplane"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="country" name="COUNTRY_NAME" onchange="CitySelect(this.value);">
+							<select class="form-control select2 no-radius" id="country" name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
+								<option value="">국가명</option>
 							</select>
 						</div>
 					</div>
@@ -126,7 +128,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-map-marker-outline"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="city" name="CITY_NAME">
+							<select class="form-control select2 no-radius" id="city" name="CITY_SEQ">
+								<option value="">도시명</option>
 							</select>
 						</div>
 					</div>

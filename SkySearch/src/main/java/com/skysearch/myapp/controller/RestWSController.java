@@ -77,5 +77,18 @@ public class RestWSController {
 		return resultMap;
 	}
 	
+	// 댓글 정보 가져오는 메서드
+	@RequestMapping(value = "/ws/commentList", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public @ResponseBody Map<String, Object> Comment(@RequestParam Map<String, Object> paramMap) {
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		List<Map> resultList = new ArrayList<>();
+		
+		resultList = (List<Map>) travelService.getSelectCity(paramMap);
+		resultMap.put("addList", resultList);
+
+		return resultMap;
+	}
+	
 }
 

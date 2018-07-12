@@ -8,6 +8,7 @@
 
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT 
+		c.CITY_SEQ,
 		c.CITY_NAME, <!-- 도시 이름 -->
 		c.CITY_ADD, <!-- 도시 주소 --> 
 		c.CITY_LATITUDE, <!-- 위도 -->
