@@ -28,13 +28,14 @@
 						var formTag = "";
 						if("${resultMap.LOCAL_NAME}"==""){
 							
-											formTag += "<label class='checkbox-inline'>";
 						$
 								.each(
 										data,
 										function(i, item) {
+											formTag += "<label class='checkbox-inline'>";
 											formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
 													+ item.LOCAL_NAME;
+											formTag += '</label> ';
 										});
 						}else{
 							$
@@ -42,16 +43,19 @@
 									data,
 									function(i, item) {
 										if("${resultMap.LOCAL_NAME}"==item.LOCAL_NAME){
+											formTag += "<label class='checkbox-inline'>";
 											formTag += '<input type=checkbox checked="checked" name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
-											+ item.LOCAL_NAME;
+													+ item.LOCAL_NAME;
+											formTag += '</label> ';
 										}else{
+										formTag += "<label class='checkbox-inline'>";
 										formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
 												+ item.LOCAL_NAME;
+										formTag += '</label> ';
 										}
 									});
 							
 						}
-										formTag += '</label> ';
 						$('#' + id).html(formTag);
 
 					},
@@ -63,7 +67,7 @@
 	}
 
 	$(document).ready(function() {
-		fn_setFormTagCheckbox("<c:url value='/ws/localList' />", "localDIV");
+		fn_setFormTagCheckbox("<c:url value='/ws/checkLocal' />", "localDIV");
 
 	});
 </script>
@@ -157,4 +161,3 @@
 	</div>
 </section>
 <!-- End 회원정보수정 -->
-
