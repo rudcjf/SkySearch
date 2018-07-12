@@ -14,10 +14,12 @@
 	</select>
 
 	<select id="localList" resultType="Map" parameterType="Map">
-		select * from skysearch.ss_int_local
+		select il.local_seq as LOCAL_SEQ , ll.local_name as LOCAL_NAME , il.member_SEQ as MEMBER_SEQ 
+		from skysearch.ss_int_local il INNER JOIN skysearch.ss_local ll 
+		ON il.local_seq = ll.local_seq
 		 <where>
          	<if test = "MEMBER_SEQ != null">
-         		and MEMBER_SEQ = #{MEMBER_SEQ}
+         		and il.MEMBER_SEQ = #{MEMBER_SEQ}
          	</if>
          </where>
 	</select>

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-     <!-- Login -->
+    <!-- Login -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -48,7 +48,7 @@
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
                         </div>
                         <div class="mt-4 text-center">
-                           <a href="<c:url value='/forgetIdPw'/>">Forget your ID or Password?</a>
+                           <a href="<c:url value='/user/forgetIdPw'/>">Forget your ID or Password?</a>
                         </div>
                      </div>
                   </div>
