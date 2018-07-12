@@ -40,8 +40,10 @@ public class RestWSController {
 		if("localList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getList(paramMap);
 		}  else if("memberList".equalsIgnoreCase(action)) {
-
-		} else if("cityList".equalsIgnoreCase(action)) {
+			
+		} else if("coList".equalsIgnoreCase(action)) {
+			resultObject = (List<Object>) cityService.getCoList(paramMap);
+		}else if("ciList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) cityService.getCiList(paramMap);
 		} else if("checkLocal".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getList(paramMap);
