@@ -14,7 +14,9 @@
 	</select>
 
 	<select id="localList" resultType="Map" parameterType="Map">
-		select * from skysearch.ss_int_local
+		select li.local_seq , ll.local_seq 
+		from skysearch.ss_int_local il INNER JOIN skysearch.ss_local ll 
+		ON il.local_seq = ll.local_seq
 		 <where>
          	<if test = "MEMBER_SEQ != null">
          		and MEMBER_SEQ = #{MEMBER_SEQ}
