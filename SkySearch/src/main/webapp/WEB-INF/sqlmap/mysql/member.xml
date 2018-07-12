@@ -22,19 +22,13 @@
 		ORDER BY NAME ASC;
 	</select>
 
-	<!-- <select id="read" resultType="Map" parameterType="String"> select member.MEMBER_SEQ, 
+ <select id="read" resultType="Map" parameterType="String">
+  select member.MEMBER_SEQ, 
 		member.EMAIL, member.PASSWORD, member.NAME, member.PHONE, local.LOCAL_NAME 
 		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local 
 		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local 
 		local ON int_local.local_SEQ = local.local_SEQ where member.EMAIL=#{EMAIL} 
-		</select> -->
-	<select id="read" resultType="Map" parameterType="String">
-		select
-		MEMBER_SEQ,EMAIL,PASSWORD,NAME,PHONE
-		FROM skysearch.ss_member
-		where
-		EMAIL=#{EMAIL};
-	</select>
+		</select> 
 
 	<select id="check" resultType="Map" parameterType="Map">
 		select

@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<!-- 비밀번호 재확인, 필수입력사항 확인 -->
+<!-- 필수입력사항 확인 -->
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 
-<!-- 회원정보의 member 테이블 insert와, int_local 테이블 insert가 함께 되야 한다 -->
+
 <!-- 회원가입 버튼 누르면 메인화면으로 전환 -->
 <script>
 	$(function() {
@@ -18,7 +18,6 @@
 	});
 </script>
 <!-- 관심지역 다중 클릭 체크박스 -->
-
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -53,11 +52,6 @@
 		fn_setFormTagCheckbox("<c:url value='/ws/localList' />", "localDIV");
 
 	});
-	
-	
-	
-	
-	
 </script>
 <!-- 아이디 중복 체크 -->
 <!-- <script type="text/javascript">
@@ -131,7 +125,7 @@
   }); //#chpass.keyup
  });
 </script>
-
+<!-- 필수입력사항 -->
 <script>
  $(function(){
   //id="btn" 클릭시

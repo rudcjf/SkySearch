@@ -4,7 +4,7 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
 
-<!-- 회원 탈퇴시 탈퇴 완료 찹업창 -->
+<!-- 회원 탈퇴시 탈퇴 완료 Modal -->
  <script>
 $(document).ready(function(){
     $("#Btn").click(function(){
@@ -12,21 +12,40 @@ $(document).ready(function(){
     });
 });
 </script> 
+<!-- 비밀번호 재확인 -->
+<script>
+ $(function(){
+  $('#PASSWORD').keyup(function(){
+   $('font[name=check]').text('');
+  }); //#user_pass.keyup
+
+  $('#repassword').keyup(function(){
+   if($('#PASSWORD').val()!=$('#repassword').val()){
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 불일치");
+   }else{
+    $('font[name=check]').text('');
+    $('font[name=check]').html("비밀번호 일치");
+   }
+  }); //#chpass.keyup
+ });
+</script>
+
+
+
 <!-- Modal -->
   <div class="modal fade" id="Modal" role="dialog">
     <div class="modal-dialog">
-  
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">회원탈퇴</h4>
+          <h5 class="modal-title">회원 탈퇴</h5>
         </div>
         <div class="modal-body">
           <p>회원 탈퇴에 성공하셨습니다</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        <div class="modal-footer" align="center">
+          <a class="btn btn-success btn-sm" href="<c:url value='/'/>">Close</a>
         </div>
       </div>
       
@@ -98,7 +117,10 @@ $(document).ready(function(){
                             	<input id="EMAIL" type="email" name="email" class="form-control" value="${resultMap.EMAIL}">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
-                            	<input id="PASSWORD" type="password" name="password" class="form-control" placeholder="Password">
+                            	<input id="PASSWORD" type="password" name="password" class="form-control" value="${resultMap.PASSWORD}" >
+                            	<br>
+                            	<label>Password <span class="text-danger">*</span><font name="check" size="2" color="red"></font></label>
+                            	<input id="repassword" type="password" name="repassword" class="form-control" placeholder="Password">
                            	</div>
                            	<br>
                            	<div align="center">	
