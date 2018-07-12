@@ -211,7 +211,7 @@
                            </div>
                           <div align="center">
 	                           <button type="submit" id="btn" class="btn btn-success col-5 ">Sign Up</button>
-	                           <button type="reset" class="btn btn-default col-5">Reset</button>
+	                           <button type="reset" class="btn btn-default col-5">Cancel</button>
                       </div>
                         <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>

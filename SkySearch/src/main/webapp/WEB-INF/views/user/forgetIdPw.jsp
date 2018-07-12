@@ -8,9 +8,11 @@
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
                   <div class="card padding-card">
+                  <!-- 아이디 찾기 -->
+                  <!-- 입력된 회원의 이름과 휴대폰 번호와 일치하는 회원이 존재한다면 아이디 알려주기 -->
                      <div class="card-body">
                         <h5 class="card-title mb-4">Find Member ID</h5>
-                        <form role="form" action="<c:url value='/member/checkId'/>" method="POST">
+                        <form role="form" action="<c:url value='/user/checkId'/>" method="POST">
                            <div class="form-group">
                            <p>회원님의 이름과 휴대폰번호를 입력하십시오</p>
                               <label>Name <span class="text-danger">*</span></label>
@@ -28,7 +30,7 @@
                                                           회원이 인증번호를 입력하여 일치하면 회원의 비밀번호를 팝업창으로 알려준다  -->
                      <div class="card-body">
                         <h5 class="card-title mb-4">Find Password</h5>
-                       <form role="form" action="<c:url value='/member/checkPw'/>" method="POST">
+                       <form role="form" action="<c:url value='/user/checkPw'/>" method="POST">
                            <div class="form-group">
                               <p>회원님의 아이디와 이름,<br>인증번호를 받을 이메일 주소를 입력하십시오</p>
                               <label>Member ID<span class="text-danger">*</span></label>

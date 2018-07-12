@@ -48,7 +48,7 @@
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
                         </div>
                         <div class="mt-4 text-center">
-                           <a href="<c:url value='/forgetIdPw'/>">Forget your ID or Password?</a>
+                           <a href="<c:url value='/user/forgetIdPw'/>">Forget your ID or Password?</a>
                         </div>
                      </div>
                   </div>

@@ -33,34 +33,12 @@ public class UserController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-		if ("login".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("loginfail".equalsIgnoreCase(action)) {
-			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("signup".equalsIgnoreCase(action)) {
-			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
-		} else if ("withdrawal".equalsIgnoreCase(action)) {
-			service.deleteObject(paramMap);
-			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-			
-			//회원탈퇴, 아이디와 비번이 일치하믄 회원의 enable을 n으로 바꾼다
-			
-//			String id=(String)paramMap.get("email");//입력한 이메일과 비밀번호
-//			String pw=(String)paramMap.get("password");
-//			
-//			resultMap = (Map<Object, Object>) service.membercheck(paramMap);//DB에 저장된 이메일과 비번
-//			String email = (String)resultMap.get("EMAIL");
-//			String pass = (String)resultMap.get("PASSWORD");
-//			
-//			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
-//				service.deleteObject(paramMap);
-//				resultList = (List<Object>) service.getList(paramMap);
-//			}else {
-//				viewName = "/mypage/withdrawalfail";
-//			}
-			
+		if ("forgetIdPw".equalsIgnoreCase(action)) {
+			//로그인화면에서 아이디 비밀번호 찾기
+		} else if ("forgetId".equalsIgnoreCase(action)) {
+			//
+		} else if ("forgetPw".equalsIgnoreCase(action)) {
+			//
 		}else if("checkId".equalsIgnoreCase(action)) {
 	        resultMap = (Map<Object, Object>) service.Find(paramMap);
 	        
@@ -70,11 +48,11 @@ public class UserController {
 			String name=(String)paramMap.get("name");//입력한 이름, 폰번호
 			String phone=(String)paramMap.get("phone");	         
 	         
-	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호  일치하면
-	        	 viewName = "/home/findId";
+	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호  일치하면 아이디 찾음
+	        	 viewName = "/user/findId";
 	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
 	            }else {//일치하지 않으면,
-	               viewName = "/home/forgetId";
+	               viewName = "/user/forgetId";
 	     }
 	         
 	      }else if("checkPw".equalsIgnoreCase(action)) {
@@ -86,11 +64,11 @@ public class UserController {
 				String email=(String)paramMap.get("email");//입력한 이름, 아이디
 				String name=(String)paramMap.get("name");	         
 		         
-		        if(NAME.equals(name)&&EMAIL.equals(email)) {//이름,아이디  일치하면
-		        	 viewName = "/home/findPw";
+		        if(NAME.equals(name)&&EMAIL.equals(email)) {//이름,아이디  일치하면 비밀번호 찾음
+		        	 viewName = "/user/findPw";
 		             resultMap.put("PASSWORD",(String)resultMap.get("PASSWORD"));
 		            }else {//일치하지 않으면,
-		               viewName = "/home/forgetPw";
+		             viewName = "/user/forgetPw";
 		            }
 	      }
 		if (forwardView != null) {
