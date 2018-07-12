@@ -73,7 +73,7 @@
 															class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 															<td><input type="checkbox" class="checkbox"
 																name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
-															<td><a href="<c:url value="/manage/member/edit?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">${resultData.EMAIL}</a></td>
+															<td><a href="<c:url value="/manage/member/edit?EMAIL=${resultData.EMAIL}" />">${resultData.EMAIL}</a></td>
 															<td>${resultData.NAME}</td>
 															<td>${resultData.PHONE}</td>
 															<td>${resultData.ENABLE}</td>

@@ -24,6 +24,13 @@ public class MemberService {
 
 		return resultObject;
 	}
+	public Object getPepList(Object dataMap) {
+		String sqlMapId = "member.read";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "member.read";
@@ -70,6 +77,10 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 		
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId = "int_local.insert";
+		dao.saveObject(sqlMapId, dataMap);
+		
 		System.out.println((int)resultKey);
 		sqlMapId = "member.list";
 		
