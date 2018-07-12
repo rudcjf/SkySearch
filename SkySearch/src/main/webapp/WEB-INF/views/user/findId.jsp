@@ -2,6 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+
+<script>
+
+/* function idMasking(${resultMap.EMAIL}) {
+	 
+	   var len = ${resultMap.EMAIL}.split('@')[0].length-3 ;  //  AB***@gamil.com
+	   return email.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');
+	 
+	} */
+
+
+</script>
        <!-- 아이디 찾기 결과 -->
       <section class="section-padding">
          <div class="container">
