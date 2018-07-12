@@ -5,6 +5,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="member">
+
 	<select id="list" resultType="Map" parameterType="Map">
 		<!-- SELECT member.MEMBER_SEQ, member.EMAIL, member.PASSWORD, member.NAME, 
 			member.PHONE, member.ENABLE, local.LOCAL_NAME FROM skysearch.ss_member member 
@@ -18,39 +19,34 @@
 		NAME,
 		PHONE,
 		ENABLE
-		FROM skysearch.ss_member
+		FROM
+		skysearch.ss_member
 		ORDER BY NAME ASC;
 	</select>
-<select id="read" resultType="Map" parameterType="String">
-select * from skysearch.ss_member
-where EMAIL=#{EMAIL}
-</select>
- <!-- <select id="read" resultType="Map" parameterType="String">
-  select member.MEMBER_SEQ, 
+	
+	<select id="read" resultType="Map" parameterType="String">
+		select * from skysearch.ss_member
+		where EMAIL=#{EMAIL}
+	</select>
+	
+	<!-- <select id="read" resultType="Map" parameterType="String"> select member.MEMBER_SEQ, 
 		member.EMAIL, member.PASSWORD, member.NAME, member.PHONE, local.LOCAL_NAME 
 		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local 
 		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local 
 		local ON int_local.local_SEQ = local.local_SEQ where member.EMAIL=#{EMAIL} 
-		</select>  -->
+		</select> -->
 
 	<select id="check" resultType="Map" parameterType="Map">
 		select
-		EMAIL, NAME, PHONE, PASSWORD
+		EMAIL,
+		NAME, PHONE, PASSWORD
 		from SS_MEMBER
 		where NAME = #{NAME}
 	</select>
 
 	<insert id="merge" parameterType="Map">
-		<selectKey keyProperty="MEMBER_SEQ" resultType="String"
-			order="AFTER">	<!-- order="BEFORE" -->
-			SELECT MEMBER_SEQ
-			FROM skysearch.ss_member
-			WHERE MEMBER_SEQ =
-			#{MEMBER_SEQ}
-		</selectKey>
-		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
-			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
-		INSERT INTO skysearch.ss_member(
+		INSERT INTO
+		skysearch.ss_member(
 		MEMBER_SEQ
 		,EMAIL
 		,PASSWORD
@@ -87,12 +83,14 @@ where EMAIL=#{EMAIL}
 
 	<update id="delete" parameterType="Map">
 		update skysearch.ss_member
-		set ENABLE='N'
+		set
+		ENABLE='N'
 		where EMAIL = #{EMAIL} and PASSWORD = #{PASSWORD}
 	</update>
 
 	<update id="deleteAdmin" parameterType="Map">
-		update skysearch.ss_member
+		update
+		skysearch.ss_member
 		set ENABLE='N'
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</update>
