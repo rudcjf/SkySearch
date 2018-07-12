@@ -20,19 +20,19 @@ public class CityService {
 		return resultObject;
 	}
 	
-	public Object getCoList(Object dataMap) {
-		String sqlMapId = "city.colist";
+   public Object getCoList(Object dataMap) {
+      String sqlMapId = "city.colist";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		
-		return resultObject;
-	}
-	
-	public Object getLocalList(Object dataMap) {
-		String sqlMapId = "city.cityList";
+      Object resultObject = dao.getList(sqlMapId, dataMap);
+      
+      return resultObject;
+   }
+   
+   public Object getLocalList(Object dataMap) {
+      String sqlMapId = "city.cityList";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		
-		return resultObject;
-	}
+      Object resultObject = dao.getList(sqlMapId, dataMap);
+      
+      return resultObject;
+   }
 }

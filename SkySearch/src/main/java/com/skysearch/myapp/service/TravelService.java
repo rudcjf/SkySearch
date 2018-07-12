@@ -14,7 +14,6 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
-	// 도시정보, 관광지정보 뿌려주기
 	public Object getObject(Map<String, Object> dataMap) {
 		
 		// 클릭시 그 도시의 조회수 증가
@@ -27,20 +26,26 @@ public class TravelService {
 		return resultObject;
 	}
 	
-	// 관심지역별 도시 리스트, 도시별 관광지 리스트
-	public Object getList(Object dataMap) {
+/*	public Object getList(Object dataMap) {
 		
-		String sqlMapId = "";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-	}
+	}*/
 	
-	// 동적 셀렉트 박스
-	public Object getSelectList(Object dataMap) {
+	// 동적 셀렉트 박스 - 국가정보 가져오기
+	public Object getSelectCountry(Object dataMap) {
 		
 		String sqlMapId = "travel.country";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
+		
+	}
+	
+	// 동적 셀렉트 박스 - 도시정보 가져오기
+	public Object getSelectCity(Object dataMap) {
+		
+		String sqlMapId = "travel.city";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
 	}
 
 }
