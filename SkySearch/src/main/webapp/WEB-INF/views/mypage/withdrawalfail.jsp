@@ -38,16 +38,16 @@
                   <ul class="nav justify-content-center">
                      <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/member/read?EMAIL=${principalName}'/>">내 정보</a>
+                        <a class="nav-link " href="<c:url value='/member/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/member/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/pw_edit'/>">비밀번호변경</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal'/>">회원탈퇴</a>
+                    <%--  <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
+                     </li> --%>
+                      <li class="nav-item">
+                        <a class="nav-link active text-success" href="<c:url value='/member/disable?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
                   </ul>
                </div>

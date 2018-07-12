@@ -1,9 +1,3 @@
-/**
- * It's Designed For incubation Center
- * @author ohsanghun
- * @version     %I%, %G%
- * @since       1.0
- */
 package com.skysearch.myapp.controller;
 
 import java.util.ArrayList;
@@ -21,38 +15,53 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skysearch.myapp.service.MemberService;
 
-
 @Controller
-public class MemberController {
-	private final static String MAPPING = "/member/";
-	
+public class UserController {
+	private final static String MAPPING = "/user/";
+
 	@Autowired
 	private MemberService service;
-	
-	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
+
+	@RequestMapping(value = MAPPING + "{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
-		String viewName = MAPPING + action ;
-		String forwardView = (String) paramMap.get("forwardView") ;
+		String viewName = MAPPING + action;
+		String forwardView = (String) paramMap.get("forwardView");
 
-		Map<Object, Object> resultMap = new HashMap<Object, Object>() ;
+		Map<Object, Object> resultMap = new HashMap<Object, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-	
-		if ("list".equalsIgnoreCase(action)) {
+		if ("login".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
+		} else if ("loginfail".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("edit".equalsIgnoreCase(action)) {
+		} else if ("signup".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.saveObject(paramMap);
-		} else if ("disable".equalsIgnoreCase(action)) {
+		} else if ("withdrawal".equalsIgnoreCase(action)) {
 			service.deleteObject(paramMap);
-			resultMap = (Map<Object,Object>) service.getObject(paramMap);
-		} else if("checkId".equalsIgnoreCase(action)) {
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+			
+			//회원탈퇴, 아이디와 비번이 일치하믄 회원의 enable을 n으로 바꾼다
+			
+//			String id=(String)paramMap.get("email");//입력한 이메일과 비밀번호
+//			String pw=(String)paramMap.get("password");
+//			
+//			resultMap = (Map<Object, Object>) service.membercheck(paramMap);//DB에 저장된 이메일과 비번
+//			String email = (String)resultMap.get("EMAIL");
+//			String pass = (String)resultMap.get("PASSWORD");
+//			
+//			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
+//				service.deleteObject(paramMap);
+//				resultList = (List<Object>) service.getList(paramMap);
+//			}else {
+//				viewName = "/mypage/withdrawalfail";
+//			}
+			
+		}else if("checkId".equalsIgnoreCase(action)) {
 	        resultMap = (Map<Object, Object>) service.Find(paramMap);
 	        
 	        String NAME = (String)resultMap.get("NAME");
@@ -66,10 +75,9 @@ public class MemberController {
 	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
 	            }else {//일치하지 않으면,
 	               viewName = "/home/forgetId";
-	            }
+	     }
 	         
-	      }
-		else if("checkPw".equalsIgnoreCase(action)) {
+	      }else if("checkPw".equalsIgnoreCase(action)) {
 	         resultMap = (Map<Object, Object>) service.Find(paramMap);
 	         
 	         String EMAIL = (String)resultMap.get("EMAIL");
@@ -85,24 +93,16 @@ public class MemberController {
 		               viewName = "/home/forgetPw";
 		            }
 	      }
-		/*
-		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
-		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
-		 * if ("merge".equalsIgnoreCase(action)) { resultMap = (Map<String, Object>)
-		 * service.saveObject(paramMap); } else if ("read".equalsIgnoreCase(action)) {
-		 * resultMap = (Map<String, Object>) service.getObject(paramMap); } else if
-		 * ("list".equalsIgnoreCase(action)) { resultList = (List<Object>)
-		 * service.getList(paramMap); } else if ("delete".equalsIgnoreCase(action)) {
-		 * resultList = (List<Object>) service.deleteObject(paramMap); }
-		 */
-		if(forwardView != null){
+		if (forwardView != null) {
 			viewName = forwardView;
 		}
+
 		modelandView.setViewName(viewName);
 
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);
+
 		return modelandView;
 	}
 }

@@ -87,9 +87,9 @@
                      <li class="nav-item">
                         <a class="nav-link active text-success" href="<c:url value='/member/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
-					<li class="nav-item">
+					<%-- <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
-                     </li>
+                     </li> --%>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/member/disable?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
@@ -123,7 +123,7 @@
 							<div class="form-group">
 								<label>PASSWORD :</label> <input type="password"
 									class="form-control" name="PASSWORD"
-									value="${resultMap.PASSWORD}" readonly>
+									value="${resultMap.PASSWORD}">
 							</div>
 							<div class="form-group">
 								<label>Phone :</label> <input type="text" class="form-control"
@@ -135,10 +135,11 @@
 								<div id=localDIV></div>
 							</div>
 							<br>
-							<div align="center">
-								<button type="submit" class="btn btn-success col-4">EDIT</button>
-								<button type="reset" class="btn btn-default col-4">RESET</button>
-							</div>
+						       <div align="center">
+								<button type="submit" class="btn btn-success col-3">EDIT</button>
+								<button type="reset" class="btn btn-default col-3">Cancel</button>
+
+						   </div>
 						</div>
 					</div>
 				</form>

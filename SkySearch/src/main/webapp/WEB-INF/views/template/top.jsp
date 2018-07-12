@@ -24,12 +24,14 @@
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
+                        <form>
                         <li class="nav-item">
                           <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-                           <a class="nav-link" href="<c:url value='/member/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
+                           <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
                            </a>
                         </li>
+                        </form>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
