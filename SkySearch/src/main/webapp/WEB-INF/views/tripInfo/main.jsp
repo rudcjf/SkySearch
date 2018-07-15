@@ -99,7 +99,7 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-earth"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);" placeholder="여행지역" >
+							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);">
 								<option value="">여행지역</option>
 								<option value="아시아">아시아</option>
 								<option value="동남아시아">동남아시아</option>
@@ -116,7 +116,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-airplane"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="country" name="COUNTRY_NAME" onchange="CitySelect(this.value);">
+							<select class="form-control select2 no-radius" id="country" name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
+								<option value="">국가명</option>
 							</select>
 						</div>
 					</div>
@@ -126,7 +127,8 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-map-marker-outline"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="city" name="CITY_NAME">
+							<select class="form-control select2 no-radius" id="city" name="CITY_SEQ">
+								<option value="">도시명</option>
 							</select>
 						</div>
 					</div>
@@ -324,7 +326,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -387,7 +389,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -450,7 +452,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -513,7 +515,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i

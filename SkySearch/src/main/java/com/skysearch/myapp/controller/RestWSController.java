@@ -17,10 +17,13 @@ import com.skysearch.myapp.service.CityService;
 import com.skysearch.myapp.service.LocalService;
 import com.skysearch.myapp.service.MemberService;
 import com.skysearch.myapp.service.TravelService;
+import com.skysearch.myapp.util.CommonUtil;
 
 @RestController
 public class RestWSController {
 
+	@Autowired
+	private CommonUtil commonUtil;
 	@Autowired
 	private LocalService localService;
 	@Autowired
@@ -75,6 +78,18 @@ public class RestWSController {
 		resultMap.put("addList", resultList);
 
 		return resultMap;
+	}
+	
+	// 댓글 입력하는 메서드
+	@RequestMapping(value = "/ws/commentSet", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void CommentSet(@RequestParam Map<String, Object> paramMap) {
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		List<Map> resultList = new ArrayList<>();
+		
+		paramMap.put("COMMENT_SEQ", commonUtil.getUniqueSequence());
+		paramMap.put("MEMBER_SEQ", "SYSUID-SS066"); // 임의로 넣어놓은 멤버시퀀스 값
+		travelService.setComment(paramMap);
 	}
 	
 }
