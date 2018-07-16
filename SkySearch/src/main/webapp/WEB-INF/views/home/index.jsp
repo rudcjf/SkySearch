@@ -33,29 +33,83 @@
             </a>
          </div>
          
+         <script>
+		// 지역을 선택했을 때 국가 가져오기
+		function CountrySelect(value) {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"LOCAL_NAME" : value
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category = "<option value='' selected>국가명</option>";
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<option value='"
+								+ (list[i])['COUNTRY_SEQ'] + "'>"
+								+ (list[i])['COUNTRY_NAME']
+								+ "</option>";
+						});
+						$("#country").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+		
+		// 국가를 선택했을 때 도시 가져오기
+		function CitySelect(value) {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/cityList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"COUNTRY_SEQ" : value
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category = "<option value='' selected>도시명</option>";
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<option value='"
+								+ (list[i])['CITY_SEQ'] + "'>"
+								+ (list[i])['CITY_NAME']
+								+ "</option>";
+						});
+						$("#city").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
+	</script>
+        
 	<!-- 메인 특가 검색 slider-->
          <div class="slider-form">
             <div class="container">
                <h1 class="text-center text-white mb-5">언제든 가볍게 지.구.산.책!</h1>
-               <!-- 특가상품 검색: form태그 안 데이터값으로 결과 출력한다 -->
+               <!-- 특가상품 검색: form태그 안에  데이터넣어 컨트롤러 보내야함. 최종적으로 도시시퀀스를 보내서 결과 출력한다 -->
                <form method="POST" action="<c:url value='/specialPrice/main'/>">
                   <div class="row no-gutters">
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                      <div class="col-md-3">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-airplane"></i></div>
-                           <select class="form-control select2 no-radius" placeholder="여행지역">
+                           <select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);">
                               <option value="">여행지역</option>
-                              <option value="Japan">일본</option>
-                              <option value="Hongkong">홍콩,싱가포르,대만,마카오</option>
-                              <option value="China">중국</option>
-                              <option value="Asia">아시아</option>
-                              <option value="Jeju">국내(제주)</option>
-                              <option value="South_pacificocean">남태평양</option>
-                              <option value="North_america">북미</option>
-                              <option value="South_america">중남미</option>
-                              <option value="Europe">유럽</option>
-                              <option value="Etc">기타</option>
+								<option value="아시아">아시아</option>
+								<option value="동남아시아">동남아시아</option>
+								<option value="유럽">유럽</option>
+								<option value="북아메리카">북아메리카</option>
+								<option value="남아메리카">남아메리카</option>
+								<option value="오세아니아">오세아니아</option>
                            </select>
                         </div>
                      </div>
@@ -63,15 +117,8 @@
                      <div class="col-md-3">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-earth"></i></div>
-                           <select class="form-control select2 no-radius">
+                           <select class="form-control select2 no-radius" id="country" name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
                               <option value="">국가명</option>
-                              <option value="Japan">일본</option>
-                              <option value="Singapore">싱가포르</option>
-                              <option value="India">인도</option>
-                              <option value="France">프랑스</option>
-                              <option value="Swiss">스위스</option>
-                              <option value="America">미국</option>
-                              <option value="Canada">캐나다</option>
                            </select>
                         </div>
                      </div>
@@ -79,16 +126,9 @@
                      <div class="col-md-3">
                         <div class="input-group">
                            <div class="input-group-addon"><i class="mdi mdi-city"></i></div>
-                           <select class="form-control select2 no-radius">
+                           <select class="form-control select2 no-radius" id="city" name="CITY_SEQ">
                               <option value="">도시명</option>
-                              <option value="Osaka">오사카</option>
-                              <option value="Paris">파리</option>
-                              <option value="Newyork">뉴욕</option>
-                              <option value="LA">로스엔젤레스</option>
-                              <option value="London">런던</option>
-                              <option value="Tokyo">도쿄</option>
-                              <option value="Rome">로마</option>
-                           </select>
+                            </select>
                         </div>
                      </div>
                    <div class="col-md-2">  
