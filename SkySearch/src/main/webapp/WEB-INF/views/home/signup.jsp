@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<!-- 비밀번호 재확인, 필수입력사항 확인 -->
+<!-- 필수입력사항 확인 -->
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 
-<!-- 회원정보의 member 테이블 insert와, int_local 테이블 insert가 함께 되야 한다 -->
+
 <!-- 회원가입 버튼 누르면 메인화면으로 전환 -->
 <script>
 	$(function() {
@@ -125,7 +125,7 @@
   }); //#chpass.keyup
  });
 </script>
-
+<!-- 필수입력사항 -->
 <script>
  $(function(){
   //id="btn" 클릭시
@@ -193,7 +193,7 @@
                            </div>
                            <!-- 관심지역 -->
                            <div class="form-group">
-                        	<input type="hidden" name="LOCAL_SEQ" value="dummy_id">
+                        	<!-- <input type="hidden" name="LOCAL_SEQ" value="dummy_id"> -->
 								<label> INTEREST LOCATION : </label>
 								<div id=localDIV></div>
 							</div>
@@ -205,13 +205,14 @@
                            </div>
                           <div align="center">
 	                           <button type="submit" id="btn" class="btn btn-success col-5 ">Sign Up</button>
-	                           <button type="reset" class="btn btn-default col-5">Reset</button>
+	                           <button type="reset" class="btn btn-default col-5">Cancel</button>
                       </div>
                         <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
                         </div>
+                        </form>
                      </div>
                   </div>
                </div>

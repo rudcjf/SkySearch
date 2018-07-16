@@ -47,6 +47,9 @@ CREATE TABLE SS_ATTACHFILE
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
+	SALE_SEQ varchar(80),
+	CITY_SEQ varchar(80),
+	TRAVEL_SEQ varchar(80),
 	PRIMARY KEY (ATTACHFILE_SEQ)
 );
 
@@ -68,15 +71,15 @@ CREATE TABLE SS_AUT_MEM_REL
 (
 	-- 회원시퀀스
 	MEMBER_SEQ varchar(80) NOT NULL,
+	-- 권한이름
+	AUTHORITY_NAME varchar(20) NOT NULL,
 	-- 등록자SEQ
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
 	REGISTRY_DATE varchar(20) NOT NULL,
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
-	MODIFY_DATE varchar(20) NOT NULL,
-	-- 권한이름
-	AUTHORITY_NAME varchar(20) NOT NULL
+	MODIFY_DATE varchar(20) NOT NULL
 );
 
 
@@ -94,6 +97,8 @@ CREATE TABLE SS_CITY
 	CITY_LATITUDE varchar(1000),
 	-- 경도
 	CITY_LONGITUDE varchar(1000),
+	-- 도시별 여행 정보 조회수
+	CITY_VIEWS int,
 	PRIMARY KEY (CITY_SEQ)
 );
 
@@ -105,6 +110,8 @@ CREATE TABLE SS_COMMENT
 	COMMENT_SEQ varchar(80) NOT NULL,
 	-- 회원시퀀스
 	MEMBER_SEQ varchar(80) NOT NULL,
+	-- 도시시퀀스
+	CITY_SEQ varchar(80) NOT NULL,
 	-- 댓글내용
 	COMMENT_CON varchar(1000),
 	-- 사용여부
@@ -117,8 +124,6 @@ CREATE TABLE SS_COMMENT
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
-	-- 도시시퀀스
-	CITY_SEQ varchar(80) NOT NULL,
 	PRIMARY KEY (COMMENT_SEQ)
 );
 
@@ -156,7 +161,7 @@ CREATE TABLE SS_LOCAL
 	LOCAL_SEQ varchar(80) NOT NULL,
 	-- 지역이름
 	-- 
-	LOCAL_NAEM varchar(30),
+	LOCAL_NAME varchar(30),
 	PRIMARY KEY (LOCAL_SEQ)
 );
 
@@ -202,16 +207,13 @@ CREATE TABLE SS_SALE_INFO
 	START_DATE date,
 	-- 특가종료일
 	END_DATE date,
-	-- 글제목
 	TITLE varchar(100),
-	--내용(이미지)
 	CONTENTS varchar(1000),
-	--조회수
-	VIEWS int,
-	--도시명들
 	CITIES varchar(100),
 	-- 가격
 	PRICE varchar(100),
+	-- 특가정보 조회수
+	VIEWS int,
 	-- 광고유무
 	AD varchar(10),
 	-- 등록자SEQ
@@ -230,12 +232,13 @@ CREATE TABLE SS_TRAVEL_INFO
 (
 	-- 여행시퀀스
 	TRAVEL_SEQ varchar(80) NOT NULL,
+	-- 도시시퀀스
+	CITY_SEQ varchar(80) NOT NULL,
 	-- 관광지이름
 	LANDMARK_NAME varchar(80),
 	-- 관광지설명
 	LANDMARK_EXP varchar(1500),
 	LANDMARK_ADDR varchar(4000),
-	VIEWS int DEFAULT 0,
 	-- 등록자SEQ
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
@@ -243,8 +246,6 @@ CREATE TABLE SS_TRAVEL_INFO
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
-	-- 도시시퀀스
-	CITY_SEQ varchar(80) NOT NULL,
 	PRIMARY KEY (TRAVEL_SEQ)
 );
 

@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
-
+<%-- <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
+ --%>
 <!-- Main Slider With Form -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
@@ -182,9 +182,16 @@
             <h2>추천 항공권 특가</h2>
             <p>빅 프로모션! 놓치지 마세요!</p>
             <div class="col-lg-2 col-md-2 sort-by-btn float-right">
+             <!-- tooltip -->
+            	<div class="tooltipmj" >
             	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
+            	 <span class="tooltiptextmj"><!-- tooltip-inner -->
+	              SKY search의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
+                </div>
             </div>         
          </div>
+   
+         
 <!-- 조회순 또는 최신순 6개/ 로그인 할 경우 회원의 관심 지역에 해당하는 상품들 중 랜덤으로 추천할 것 -->
          <div class="container">
             <div class="row">

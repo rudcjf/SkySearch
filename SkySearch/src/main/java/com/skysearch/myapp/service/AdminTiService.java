@@ -55,15 +55,12 @@ public class AdminTiService {
 	}
 
 	public Object deleteObject(Object dataMap) {
-		// delete child record authority
-		String sqlMapId = "authorityRmember.delete";
-
-		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		
 
 		// delete Mother record authority
-		sqlMapId = "ti.delete";
+		String sqlMapId = "ti.delete";
 
-		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		Object resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
 		sqlMapId = "ti.list";
@@ -73,33 +70,47 @@ public class AdminTiService {
 		return resultObject;
 	}
 	public Object saveCity(Map<String, Object> dataMap) {
-		String uniqueCountrySequence = (String) dataMap.get("COUNTRY_SEQ");
 		
+			String uniqueSequence = (String) dataMap.get("CITY_SEQ");
 			
-		if ("".equals(uniqueCountrySequence)) {
-			uniqueCountrySequence = commonUtil.getUniqueSequence();
-			dataMap.put("COUNTRY_SEQ", uniqueCountrySequence);
-		}
+			
+			if ("".equals(uniqueSequence)) {
+				uniqueSequence = commonUtil.getUniqueSequence();
+				dataMap.put("CITY_SEQ", uniqueSequence);
+			}
+			
+			String sqlMapId = "ti.citymerge";
+			Object resultKey = dao.saveObject(sqlMapId, dataMap);
+									
+			
 		
-		String sqlMapId = "ti.countrymerge";
-		
-		String uniqueCitySequence = (String) dataMap.get("CITY_SEQ");
-		
-		
-		if ("".equals(uniqueCitySequence)) {
-			uniqueCitySequence = commonUtil.getUniqueSequence();
-			dataMap.put("CITY_SEQ", uniqueCitySequence);
-		}
-		
-		sqlMapId = "ti.citymerge";
-		
-		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		System.out.println((int)resultKey);
-		sqlMapId = "ti.list";
+		sqlMapId = "ti.read";
 		
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		return resultObject;
 		
 
 	}
+	public Object saveCountry(Map<String, Object> dataMap) {
+		
+		
+		String uniqueSequence = (String) dataMap.get("COUNTRY_SEQ");
+		
+		
+		if ("".equals(uniqueSequence)) {
+			uniqueSequence = commonUtil.getUniqueSequence();
+			dataMap.put("COUNTRY_SEQ", uniqueSequence);
+		}
+		
+		String sqlMapId = "ti.countrymerge";
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+	
+		sqlMapId = "ti.read";
+	
+	Object resultObject = dao.getObject(sqlMapId, dataMap);
+	return resultObject;
+	
+
+}
 }

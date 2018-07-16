@@ -46,13 +46,14 @@ public class AdminMemberController {
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<String, Object>) service.getPepList(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObjectAdmin(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("disable".equalsIgnoreCase(action)) {
-			service.deleteObject(paramMap);
+			service.deleteObjectAdmin(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);
+			viewName = "/manage/member/list";
 		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,

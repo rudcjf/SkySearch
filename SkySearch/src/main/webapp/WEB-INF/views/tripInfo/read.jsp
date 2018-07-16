@@ -12,9 +12,9 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tripinfo2.jpg'/>')"></div>
+				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
 			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tripinfo3.jpg'/>')"></div>
+				style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
 		</div>
 		<a class="carousel-control-prev" href="#osahanslider" role="button"
 			data-slide="prev"> <span class="carousel-control-prev-icon"
@@ -24,12 +24,14 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
+		
 	<div class="property-single-title property-single-title-gallery">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4">
-					<h1>괌 Guam</h1><!--  도시명  영문도시명 가져오기 -->
-					<h6>미국 > 괌</h6><!-- 국가명 > 도시명 가져오기 -->
+					<h1>${resultMap.CITY_NAME}</h1><!--  도시명  영문도시명 가져오기 -->
+					<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
+					<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
 				</div>
 				<div class="col-lg-1 col-md-1">
 					<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
@@ -52,262 +54,155 @@
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>괌의 인기 장소</h2><!-- 도시명 바뀜 -->
+		<h2>${resultMap.CITY_NAME}의 추천 관광지</h2><!-- 도시명 바뀜 -->
 		</div>
 	<!-- 메인 뷰 시작 -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
+					<c:forEach items="${resultLandmarkList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<img class="card-img-top" src="<c:url value = '/resources/img/blog/1.png'/>" alt="Card image cap"><!-- 관광지 이미지 가져오기 -->
 							<div class="card-body">
-								<h6>Two Lovers Point</h6><!-- 관광지명  -->
-								<h7><i class="mdi mdi-map-marker-multiple"></i>괌 타뮤닝</h7><!-- 관광지명 주소 -->
-								<p class="mb-0">수족관 및 스쿠버 다이빙</p><!-- 관광지에 대한 설명 -->
+								<h6>${resultData.LANDMARK_NAME}</h6><!-- 관광지명  -->
+								<h7><i class="mdi mdi-map-marker-multiple">&nbsp;</i>${resultData.LANDMARK_ADDR}</h7><!-- 관광지명 주소 -->
+								<p class="mb-0">${resultData.LANDMARK_EXP}</p><!-- 관광지에 대한 설명 -->
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
-							<div class="card-body">
-								<h6>UnderWater World Guam</h6>
-								<h7><i class="mdi mdi-map-marker-multiple"></i> Pale San Vitores Rd, Tamuning, 96913 괌</h7>
-								<p class="mb-0">수족관 및 스쿠버 다이빙</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
-							<div class="card-body">
-								<h6>Tumon Beach</h6>
-								<h7><i class="mdi mdi-map-marker-multiple"></i> 818 North, Marine Corps Dr, Piti, 96915 괌</h7>
-								<p class="mb-0">해변</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/4.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<h6>Fish Eye Marine Park (Visitor Center）</h6>
-									<h7><i class="mdi mdi-map-marker-multiple"></i>207 Archbishop FC Flores St, Hagåtña, 96910 괌</h7>
-									<p class="mb-0">스노클링 및 스쿠버 다이빙</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<!-- <a href="#"> --> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/5.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<h6>코코스 섬</h6>
-									<h7><i class="mdi mdi-map-marker-multiple"></i>마리아나 제도</h7>
-									<p class="mb-0">스쿠버 다이빙, 스노클링 및 해변</p>
-								</div>
-							<!-- </a> -->
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<!-- <a href="#"> --> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/6.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<h6>Ypao Beach Archeological Site</h6>
-									<h7><i class="mdi mdi-map-marker-multiple"></i>괌 96913 타뮤닝</h7>
-									<p class="mb-0">해변, 스노클링 및 공원</p>
-								</div>
-							<!-- </a> -->
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-
-		<!-- 이부분은 인기명소 페이징 부분입니다 -->
-		<div class="row">
-			<div class="col-lg-4 col-md-4"></div>
-			<div class="col-lg-4 col-md-4">
-				<nav class="mt-5">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled"><a class="page-link" href="#"
-							tabindex="-1"><i class="mdi mdi-chevron-left"></i></a></li>
-						<li class="page-item active"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#"><i
-								class="mdi mdi-chevron-right"></i></a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!--END 페이징 -->
 		<hr>
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 	<div class="section-title text-center mb-5">
-		<h2>괌 커뮤니티</h2>
+		<h2>${resultMap.CITY_NAME} 커뮤니티</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="card padding-card reviews-card">
 					<div class="card-body">
 						<!-- 댓글 리스트 : 최신이 위로 뜨게 함 -->
-						<div class="media mb-4">
-							<%-- <img class="d-flex mr-3 rounded-circle" 
-								src="<c:url value='/resources/img/user/1.jpg'/>"> 프로필 사진 없으므로 삭제함--%>
+						<c:forEach items="${resultCommentList}" var="resultData" varStatus="loop">
+						<div class="media mb-4" id="commentList">
 							<div class="media-body">
 								<h5 class="mt-0">
-									회원 이름<!-- 회원의 이름을 가져오는 부분 -->
-									<span><small>2018.7.9. 14:18<!-- 작성일을 가져오는 부분 -->&nbsp;
-										<a href="#">수정</a>&nbsp;<a href="#">삭제</a><!-- 본인이 쓴 댓글에만 수정 삭제가 보임 --></small>
-										<!-- 수정 클릭시  textarea에서 수정 네이버 블로그 댓글 참고 -->
+									${resultData.MEMBER_NAME}
+									<span><small>${resultData.REGISTRY_DATE}&nbsp;
+									<a href="#">수정</a>&nbsp;
+									<a href="#">삭제</a></small>
 									</span> 
-									<span 
-										class="star-rating float-right"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small><!-- 별점을 가져오는 부분 -->
-									</span>
+									<c:choose>
+										<c:when test="${resultData.SS_STAR == 1}">
+											<span class="star-rating float-right">
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/1</small>
+											</span>
+										</c:when>
+										<c:when test="${resultData.SS_STAR == 2}">
+											<span class="star-rating float-right">
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/2</small>
+											</span>
+										</c:when>
+										<c:when test="${resultData.SS_STAR == 3}">
+											<span class="star-rating float-right">
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/3</small>
+											</span>
+										</c:when>
+										<c:when test="${resultData.SS_STAR == 4}">
+											<span class="star-rating float-right">
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/4</small>
+											</span>										
+										</c:when>
+										<c:when test="${resultData.SS_STAR == 5}">
+											<span class="star-rating float-right">
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/5</small>
+											</span>										
+										</c:when>
+										<c:otherwise>
+										<!-- 별점이 0개 일때 아무것도 표시되지 않는다. -->
+										</c:otherwise>
+									</c:choose>
 								</h5>
-								<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel
-									metus scelerisque ante sollicitudin. Cras purus odio,
-									vestibulum in vulputate at, tempus viverra turpis. Fusce
-									condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-									congue felis in faucibus.</p><!-- 댓글 내용을 가져오는 부분 -->
+								<!-- 댓글 내용을 가져오는 부분 -->
+								<p>${resultData.COMMENT_CON}</p>
 							</div>
 						</div>
-						<div class="media mb-4">
-							<%-- <img class="d-flex mr-3 rounded-circle"
-								src="<c:url value='/resources/img/user/2.jpg'/>"> --%>
-							<div class="media-body">
-								<h5 class="mt-0">
-									회원 이름 <small>작성일</small> <span
-										class="star-rating float-right"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-								</h5>
-								<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel
-									metus scelerisque ante sollicitudin. Cras purus odio,
-									vestibulum in vulputate at, tempus viverra turpis. Fusce
-									condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-									congue felis in faucibus.</p>
-							</div>
-						</div>
-						<div class="media mb-4">
-						<%-- 	<img class="d-flex mr-3 rounded-circle"
-								src="<c:url value='/resources/img/user/3.jpg'/>"> --%>
-							<div class="media-body">
-								<h5 class="mt-0">
-									회원 이름 <small>작성일</small> <span
-										class="star-rating float-right"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-								</h5>
-								<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel
-									metus scelerisque ante sollicitudin. Cras purus odio,
-									vestibulum in vulputate at, tempus viverra turpis. Fusce
-									condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-									congue felis in faucibus.</p>
-							</div>
-						</div>
-						<div class="media mb-4">
-							<%-- <img class="d-flex mr-3 rounded-circle"
-								src="<c:url value='/resources/img/user/4.jpg'/>"> --%>
-							<div class="media-body">
-								<h5 class="mt-0">
-									회원 이름 <small>작성일</small> <span
-										class="star-rating float-right"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-								</h5>
-								<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel
-									metus scelerisque ante sollicitudin. Cras purus odio,
-									vestibulum in vulputate at, tempus viverra turpis. Fusce
-									condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-									congue felis in faucibus.</p>
-							</div>
-						</div>
-						<div class="media mb-4">
-							<%-- <img class="d-flex mr-3 rounded-circle"
-								src="<c:url value='/resources/img/user/5.jpg'/>"> --%>
-							<div class="media-body">
-								<h5 class="mt-0">
-									회원 이름 <small>작성일</small> <span
-										class="star-rating float-right"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-								</h5>
-								<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel
-									metus scelerisque ante sollicitudin. Cras purus odio,
-									vestibulum in vulputate at, tempus viverra turpis. Fusce
-									condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-									congue felis in faucibus.</p>
-							</div>
-						</div>
+						</c:forEach>
 						<!-- END 댓글 -->
+        				
 						<!-- 페이징 -->
+						<c:set var="page" value="${resultMap.pagination}"/>
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item disabled"><a class="page-link"
-									href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
-								</li>
-								<li class="page-item active"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><a class="page-link" href="#"><i
-										class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/member/pagination?curPage=${page.nextPage}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
+									<c:choose>
+										<c:when test="${pageNum==page.curPage}">
+											<li class="page-item active"><a class="page-link" href="<c:url value="/member/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item active"><a class="page-link" href="<c:url value="/member/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+										</c:otherwise> 
+									</c:choose>
+								</c:forEach>
+								<li class="page-item"><a class="page-link" href="<c:url value="/member/pagination?curPage=${page.nextPage}"/>"><i class="mdi mdi-chevron-right"></i></a></li>  
 							</ul>
 						</nav>
 						<!-- END 페이징 -->
+	
+						<script>
+						// 댓글 동적으로 데이터베이스에 넣기
+						function SetComment(cityseq) { // 도시시퀀스를 파라미터로 가져오고
+ 				         	var star = $('#star').val(); // 셀렉트박스의 평점 저장
+				            var conment = $('#comment').val(); // 텍스트에어리어의 내용 저장
+				            
+							$.ajax({
+									type : "GET", // 값을 보낼 방식
+									url : "<c:url value='/ws/commentSet'/>", // 보낼 컨트롤러
+									data : { // 서버에 보낼 데이터 (key, value형식)
+										"SS_STAR" : star,
+										"COMMENT_CON" : comment,
+										"CITY_SEQ" : cityseq
+										/* 멤버 시퀀스도 추가 해야 함 */
+									},
+									success : function() { 
+										alert('댓글입력 성공');
+									},
+									error : function(jqXHR, textStatus, errorThrown) {
+										alert("오류발생");
+										return false;
+									}
+								});
+							}							
+						</script>
+						
 						<hr>
 						<div>
-							<form action="#" method="post">
+							<form id="commentForm" name="commentForm" method="POST">
 								<div class="row">
 									<div class="col-lg-12 col-md-12">
 										<div class="row">
 											<div class="col-lg-2 col-md-2">
-												<select class="form-control custom-select">
+												<select class="form-control custom-select" id="star">
 													<option value="0">==별점 선택==</option>
 													<option value="5">★★★★★</option>
 													<option value="4">★★★★☆</option>
@@ -317,13 +212,12 @@
 												</select>
 											</div>
 											<div class="col-lg-9 col-md-9">
-												<textarea rows="3" cols="50" class="form-control"
-													name="contents"
-													placeholder="댓글을 입력하세요. 불괘감을 주는 욕설과 악플은 삭제될 수 있습니다." id="coment" onkeyup="checkComentCount(this)" maxlength="500"></textarea>
+												<textarea rows="3" cols="50" class="form-control" name="contents" placeholder="댓글을 입력하세요. 불괘감을 주는 욕설과 악플은 삭제될 수 있습니다." id="comment"></textarea>
 											</div>
 											<div class="col-lg-1 col-md-1">
 											<span><span id ="comentCount">0</span><!-- 바뀌는 부분 -->/500</span><!--  500자(기준) 중 몇자를 썼는지 글자수 체크 -->
-												<button type="submit" class="btn btn-success btn-block" >등록</button>
+												<c:set var="cityseq">${resultMap.CITY_SEQ}</c:set>
+												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}">등록</button>
 											</div>
 										</div>
 									</div>
@@ -335,10 +229,13 @@
 				</div>
 				<!-- 회원들이 쓴 글이 나타나는 공간 끝 -->
 			</div>
+			
 			<!-- 구글지도  -->
 			<div class="col-lg-12 col-md-12">
 				<div class="card padding-card">
 					<div class="card-body">
+					<c:forTokens var="abc" items="안녕/하세요/hunit블로그/입니다" delims="/" />
+					<p>${abc}</p>
 						<!-- <h5 class="card-title mb-3">지도</h5> -->
 						<!-- <div class="row mb-3">
 							<div class="col-lg-6 col-md-6">
@@ -364,22 +261,24 @@
 <!-- End Property Single Slider -->
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
+<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 <!-- Contact form JavaScript -->
 <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
+<script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
+<script src="<c:url value='/resources/js/contact_me.js'/>"></script>
 <!-- select2 Js -->
-<script src="vendor/select2/js/select2.min.js"></script>
+<script src="<c:url value='/resources/vendor/select2/js/select2.min.js'/>"></script>
 <!-- Custom -->
-<script src="js/custom.js"></script>
+<script src="<c:url value='/resources/js/custom.js'/>"></script>
+<c:set var="lat">${resultMap.CITY_LATITUDE}</c:set> <!-- 위도값 받아오기 -->
+<c:set var="lng">${resultMap.CITY_LONGITUDE}</c:set> <!-- 경도값 받아오기 -->
 <!-- Google Map Api -->
 <script>
          function initMap() {
          	var uluru = {
-         		lat: 35.717611,
-         		lng: 139.726278
+         		lat: ${lat},
+         		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
          		zoom: 3,
@@ -529,17 +428,7 @@
          		infowindow.open(map, marker);
          	});
          }
-          
       </script>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
-	
-	
-<script>
-	function checkComentCount(element){
-		document.getElementById("comentCount").innerHTML = element.value.length;
-	}
-
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
 
 
