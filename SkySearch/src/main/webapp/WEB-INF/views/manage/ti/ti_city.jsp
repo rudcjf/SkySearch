@@ -162,6 +162,33 @@
 					});
 
 		}
+		// 국가를 선택했을 때 도시 가져오기
+		function CitySelect(value) {
+			$.ajax({
+					type : "GET", // 값을 보낼 방식
+					url : "<c:url value='/ws/cityList'/>", // 보낼 컨트롤러
+					data : { // 서버에 보낼 데이터 (key, value형식)
+						"COUNTRY_SEQ" : value
+					},
+					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+						var category = "<option value='' selected>도시명</option>";
+
+						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+							category += "<option value='"
+								+ (list[i])['CITY_SEQ'] + "'>"
+								+ (list[i])['CITY_NAME']
+								+ "</option>";
+						});
+						$("#city").html(category);
+
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("오류발생");
+						return false;
+					}
+				});
+			}
 
 		$(document).ready(
 				function() {
@@ -172,7 +199,7 @@
 							"<c:url value='/ws/localList' />", "localDIV2");
 
 					fn_setCountryFormTagSelectbox(
-							"<c:url value='/ws/countryList' />", "countryDIV");
+							"<c:url value='/ws/coList' />", "countryDIV");
 
 				});
 	</script>
