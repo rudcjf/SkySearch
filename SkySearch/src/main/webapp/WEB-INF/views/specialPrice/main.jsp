@@ -221,7 +221,7 @@
 
 
 <!--  Product List -->
-<a href="<c:url value='/transport/search'/>">항공권</a>
+<%-- <a href="<c:url value='/transport/search'/>">항공권</a> --%>
 <section class="section-padding">
 	<div class="container">
 		<div class="row">
@@ -266,18 +266,19 @@
 									<a href="${resultData.url}" target="_blank"> 
 									<!-- <span
 										class="badge badge-danger">HOT</span> 조회수가 기준(예 100) 이상인 특가 표시 -->
-										<img class="card-img-top" src="${resultData.img}" alt="">
+										<img class="card-img-top" src="${resultData.img}" alt="${resultData.alt}">
 										<div class="card-body">
 											<h5 class="card-title">${resultData.title}</h5>
-											<!-- <h6 class="card-subtitle mb-2 text-muted">
-										<i class="mdi mdi-map-marker-multiple"></i>도시명, 국가
-									</h6> -->
+											<h6 class="card-subtitle mb-2 text-muted">
+										<!-- <i class="mdi mdi-map-marker-multiple"></i>도시명, 국가 -->
+										${resultData.period}
+									</h6> 
 											<!-- <h2 class="text-success mb-0 mt-3">가격 ~</h2> -->
-										</div> <!-- <div class="card-footer">
-									<span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사
-											명</strong></span> <span><i class="mdi mdi-checkbox-marked-outline"></i>
-										특가 종료일 : <strong>날짜</strong></span>
-								</div> -->
+										</div>  <div class="card-footer">
+									<span><!-- <i class="mdi mdi-airplane"></i> --><strong>${resultData.flight}
+											</strong></span> <!-- <span><i class="mdi mdi-checkbox-marked-outline"></i>
+										특가 종료일 : <strong>날짜</strong></span> -->
+								</div> 
 									</a>
 								</div>
 							</div>

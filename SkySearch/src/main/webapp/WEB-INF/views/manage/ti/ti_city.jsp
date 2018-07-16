@@ -20,9 +20,9 @@
 <body>
 	<script>
 		/* DisableChange */
-		function enable() {
+		/* function enable() {
 			$('select').attr('disabled', false);
-		}
+		} */
 
 		/* CountrySelectBox */
 		var fn_setCountryFormTagSelectbox = function(url, id, params) {
@@ -35,7 +35,7 @@
 						success : function(data) {
 							var formTag = "";
 							
-								formTag += "<select class='form-control' name='COUNTRY_SEQ' disabled>";
+								formTag += "<select class='form-control' name='COUNTRY_SEQ' >";
 								$
 										.each(
 												data,
@@ -76,12 +76,15 @@
 										.each(
 												data,
 												function(i, item) {
+												if (item.LOCAL_SEQ == "dummy_loc") {
+													return true;
+												}
 													formTag += '<option value="'+item.LOCAL_NAME+'" >'
 															+ item.LOCAL_NAME;
 
 												});
 							} else {
-								formTag += "<select class='form-control' name='LOCAL_SEQ' disabled>";
+								formTag += "<select class='form-control' name='LOCAL_SEQ' >";
 								$
 										.each(
 												data,
@@ -89,6 +92,9 @@
 													if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
+														
+													} else if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
 													} else {
 														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
@@ -122,19 +128,25 @@
 										.each(
 												data,
 												function(i, item) {
+													if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
+													}
 													formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 															+ item.LOCAL_NAME;
 
 												});
 							} else {
-								formTag += "<select class='form-control' name='LOCAL_SEQ' disabled>";
+								formTag += "<select class='form-control' name='LOCAL_SEQ' >";
 								$
+										
 										.each(
 												data,
 												function(i, item) {
 													if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
+													} else if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
 													} else {
 														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
@@ -223,7 +235,7 @@
 						<div class="card-header">
 							<strong class="card-title">도시입력</strong> <input type="submit"
 								class="btn btn-primary" value=정보목록
-								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_cilist"/>'"
 								style="float: right;"> <input type="submit"
 								class="btn btn-primary" value=신규입력
 								onClick="location.href='<c:url value="/manage/ti/ti_city"/>'"
@@ -231,7 +243,7 @@
 							<button type="button" id=countryAdd
 								class="btn btn-secondary mb-1" data-toggle="modal"
 								data-target="#mediumModal" style="float: right;"
-								onclick="fn_setLocalFormTagSelectbox()">국가추가</button>
+								onclick="fn_setLocalFormTagSelectbox()">국가입력</button>
 
 						</div>
 						<div class="card-body">
@@ -240,7 +252,7 @@
 							<!-- 도시입력 -->
 							<div class="col-sm-12">
 								<form role="form" method="POST"
-									action="<c:url value='/manage/ti/citymerge' />">
+									action="<c:url value='/manage/ti/citymerge' />" enctype="multipart/form-data">
 									<input type="hidden" name="forwardView"
 										value="/manage/ti/ti_edit" />
 									<div class="card padding-card">
@@ -302,15 +314,14 @@
 													</div>
 													<br>
 													<div class="col-12 col-md-9">
-														<input type="file" id="file-input" name="file-input"
-															class="form-control-file">
+														<input type="file" name="ATTACHEDFILES" />
 													</div>
 
 												</div>
 											</div>
 										</div>
 										<div align="right">
-											<input type="submit" onclick="enable()"
+											<input type="submit"
 												class="btn btn-success" value="입력" />
 										</div>
 									</div>
