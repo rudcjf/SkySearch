@@ -29,6 +29,10 @@ public class MemberService {
 		String sqlMapId = "member.read";
 		
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
+	
+		sqlMapId = "member.intloc";
+		
+		((Map<String,Object>)resultObject).put("LOCAL_SEQ", dao.getObject(sqlMapId, dataMap));
 		
 		return resultObject;
 	}
