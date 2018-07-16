@@ -30,7 +30,7 @@ public class FileUtil {
 			String fileName = multiFileList.next();
 			MultipartFile multiFile = multipartRequest.getFile(fileName);
 			String multiFileName = FileUtil.getNewFileName(multiFile.getOriginalFilename());
-			String attachFileName = "C://Users//student//git//SkySearch//SkySearch//src//main//webapp//resources//uploads//"
+			String attachFileName = "C:\\Users\\student\\Documents\\git\\SkySearch\\SkySearch\\src\\main\\webapp\\resources\\uploads\\"
 					+ multiFileName;
 			String fileSize = multiFile.getSize() + "";// 1KByte -> 1048)
 			String fileContentType = multiFile.getContentType(); // jpg ->images/JPEG
