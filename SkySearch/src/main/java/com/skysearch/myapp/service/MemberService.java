@@ -56,6 +56,9 @@ public class MemberService {
 
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 		
+		sqlMapId ="int_local.delete";
+		dao.deleteObject(sqlMapId, paramMap);
+		
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, paramMap);
 		
