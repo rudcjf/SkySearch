@@ -22,43 +22,6 @@
   }); //#chpass.keyup
  });
 </script>
-<!-- 회원 탈퇴시 탈퇴 완료 Modal -->
- <script>
-$(document).ready(function(){
-    $("#Btn").click(function(){
-        $("#Modal").modal();
-    });
-});
-</script> 
-  <div class="modal fade" id="Modal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">회원 탈퇴</h5>
-        </div>
-        <div class="modal-body">
-          <p>회원 탈퇴에 성공하셨습니다</p>
-          </div>
-        <div class="modal-footer" align="center">
-          <a class="btn btn-success btn-sm" href="<c:url value='/'/>">Close</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- END 회원 탈퇴시 탈퇴 완료 Modal -->
-
-<!-- 탈퇴 버튼 누르면 메인화면으로 전환 
-<script>
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/' />");
-				return;
-			});
-		});
-	});
-</script> -->
 
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
@@ -102,13 +65,13 @@ $(document).ready(function(){
  <!-- END mypage tab -->     
              
       <!-- 회원탈퇴 -->
-            <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 delete(하지만 db에는 남는다?)-->
+            <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 delete(하지만 db에는 남는다 enable Y->N)-->
       <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
                  <form role="form" method="POST" action="<c:url value='/mypage/disable' />">
-                 	<!-- <input type="hidden" name="forwardView" value="/" /> --> 
+                 	<input type="hidden" name="forwardView" value="/mypage/withdrawalC" />
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
@@ -125,7 +88,7 @@ $(document).ready(function(){
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4" id="btn">회원 탈퇴</button>
+				            	<button type="submit" class="btn btn-success col-4">회원 탈퇴</button>
 				                <button type="reset" class="btn btn-default col-4" >RESET</button>
 				            </div>
 					 	</div> 

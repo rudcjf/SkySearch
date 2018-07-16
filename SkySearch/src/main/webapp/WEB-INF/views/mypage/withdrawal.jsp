@@ -22,30 +22,6 @@
   }); //#chpass.keyup
  });
 </script>
-<%-- 회원 탈퇴시 탈퇴 완료 Modal 
- <script>
-$(document).ready(function(){
-    $("#Btn").click(function(){
-        $("#Modal").modal();
-    });
-});
-</script> 
-  <div class="modal fade" id="Modal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">회원 탈퇴</h5>
-        </div>
-        <div class="modal-body">
-          <p>회원 탈퇴에 성공하셨습니다</p>
-          </div>
-        <div class="modal-footer" align="center">
-          <a class="btn btn-success btn-sm" href="<c:url value='/'/>">Close</a>
-        </div>
-      </div>
-    </div>
-  </div> --%>
 
       <!-- Inner Header -->
       <section class="section-padding bg-dark inner-header1">
@@ -101,7 +77,7 @@ $(document).ready(function(){
 					</c:if>
                 </fieldset> 
                  <form role="form" method="POST" action="<c:url value='/mypage/disable'/>">
-                 <!-- 	<input type="hidden" name="forwardView" value="/" />  -->
+                <input type="hidden" name="forwardView" value="/mypage/withdrawalC" />
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
@@ -121,8 +97,8 @@ $(document).ready(function(){
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4" >회원 탈퇴</button>
-				                <button type="reset" class="btn btn-default col-4" >RESET</button>
+				            	<button type="submit" class="btn btn-success col-4" id="Btn">회원 탈퇴</button>
+				                <button type="reset" class="btn btn-default col-4">RESET</button>
 				            </div>
 					 	</div> 
 					</div>	

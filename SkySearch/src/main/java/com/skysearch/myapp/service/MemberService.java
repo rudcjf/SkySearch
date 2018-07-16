@@ -56,10 +56,10 @@ public class MemberService {
 
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 		
+		sqlMapId ="int_local.delete";
+		dao.deleteObject(sqlMapId, paramMap);
+		
 		sqlMapId = "int_local.insert";
-		System.out.println(paramMap.toString());
-		List<Object> temp = (List<Object>)(paramMap.get("LOCAL_SEQ"));
-		System.out.println(temp.toString());
 		dao.saveObject(sqlMapId, paramMap);
 		
 		sqlMapId = "member.read";
@@ -81,6 +81,10 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 		
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId ="int_local.delete";
+		dao.deleteObject(sqlMapId, dataMap);
+		
 		
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, dataMap);
@@ -119,9 +123,17 @@ public class MemberService {
 	}
 	//�쉶�뜝�룞�삕�뜝�룞�삕�뜝�떛�벝�삕, �쉶�뜝�룞�삕 �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕
 	public Object Find(Object dataMap) {
-	      String sqlMapId ="member.check";
+	      String sqlMapId ="member.find";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
 	      return resultObject;
 	   }
+    
+	public Object checkID(Object dataMap) {
+	       String sqlMapId="member.idDoubleCheck";
+	      Map resultObject=(Map) dao.getObject(sqlMapId, dataMap);
+	      return resultObject;
+	   }
+
+
 
 }

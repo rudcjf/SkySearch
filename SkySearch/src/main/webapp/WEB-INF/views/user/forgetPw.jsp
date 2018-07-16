@@ -11,7 +11,7 @@
                      <!-- 비밀번호찾기 -->
                     <div class="card-body">
                         <h5 class="card-title mb-4">Find Password</h5>
-                       <form role="form" action="<c:url value='/user/checkPw'/>" method="POST">
+                       <form role="form" action="<c:url value='/user/pwFind'/>" method="POST">
                            <div class="form-group">
                              <p><font color="red">비밀번호 찾기 실패! 회원님의 아이디와 이름,<br>인증번호를 받을 이메일 주소를 입력하십시오</font></p>
                               <label>Member ID<span class="text-danger">*</span></label>

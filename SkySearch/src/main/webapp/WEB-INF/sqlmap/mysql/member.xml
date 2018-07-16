@@ -36,13 +36,22 @@
 		local ON int_local.local_SEQ = local.local_SEQ where member.EMAIL=#{EMAIL} 
 		</select> -->
 
-	<select id="check" resultType="Map" parameterType="Map">
+	<select id="find" resultType="Map" parameterType="Map">
 		select
 		EMAIL,
 		NAME, PHONE, PASSWORD
 		from SS_MEMBER
 		where NAME = #{name}
 	</select>
+
+	<select id="idDoubleCheck" resultType="Map" parameterType="Map">
+	    select 
+		   EMAIL 
+		from SS_MEMBER
+		where EMAIL=#{EMAIL} and ENABLE='Y'
+	</select>
+
+
 
 	<insert id="merge" parameterType="Map">
 		INSERT INTO

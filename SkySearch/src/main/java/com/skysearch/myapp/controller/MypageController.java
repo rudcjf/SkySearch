@@ -56,7 +56,7 @@ public class MypageController {
 			
 			if(id.equals(email)&&pw.equals(pass)) {//이메일과 비번이 일치하면 
 				service.deleteObject(paramMap);
-				viewName = "/home/index";
+				/*viewName = "/home/index";*/
 			}else {
 				viewName = "/mypage/withdrawalfail";
 			}

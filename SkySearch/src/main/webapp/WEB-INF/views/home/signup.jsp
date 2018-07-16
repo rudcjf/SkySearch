@@ -2,21 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<!-- 필수입력사항 확인 -->
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 
-
-<!-- 회원가입 버튼 누르면 메인화면으로 전환 -->
-<script>
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/' />");
-				return;
-			});
-		});
-	});
-</script>
 <!-- 관심지역 다중 클릭 체크박스 -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
@@ -54,7 +41,7 @@
 	});
 </script>
 <!-- 아이디 중복 체크 -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	var count = 0;
 	function idcheck() {
 	 var text = $("#EMAIL").val();
@@ -106,7 +93,8 @@
 			}
 		});
 	} 
-</script>-->
+</script>
+
 <!-- 비밀번호 재확인 -->
 <script>
  $(function(){
@@ -125,6 +113,7 @@
   }); //#chpass.keyup
  });
 </script>
+
 <!-- 필수입력사항 -->
 <script>
  $(function(){
@@ -168,12 +157,12 @@
                         <h3 class="card-title mb-4">SIGN UP</h3>
                         <p><span class="text-danger">*</span>는 필수 입력사항 입니다</p>
                         <form  method="POST" action="<c:url value='/member/merge'/>">
-                         <input type="hidden" name="forwardView" value="/member/read" /> 
+                         <input type="hidden" name="forwardView" value="/home/login" /> 
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
                              	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
 								 <p> </p>
-								 <input type="button" class="btn btn-warning col-5" value="아이디 중복 확인" onclick="idcheck()"> 
+								 <label><span><input type="button" class="btn btn-warning" value="아이디 중복 확인" onclick="idcheck()"></span></label> 
 				           </div>
                            <div class="form-group">
                               <label>Password <span class="text-danger">*</span></label>
@@ -194,7 +183,7 @@
                            <!-- 관심지역 -->
                            <div class="form-group">
                         	<!-- <input type="hidden" name="LOCAL_SEQ" value="dummy_id"> -->
-								<label> INTEREST LOCATION : </label>
+								<label> INTEREST LOCATION : <span class="text-danger">*</span></label>
 								<div id=localDIV></div>
 							</div>
                           <div class="form-group">

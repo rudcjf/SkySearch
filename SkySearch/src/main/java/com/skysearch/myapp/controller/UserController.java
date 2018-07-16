@@ -39,7 +39,7 @@ public class UserController {
 			//비밀번호 찾기 실패시
 		} else if ("forgetPw".equalsIgnoreCase(action)) {
 			//아이디 찾기
-		}else if("checkId".equalsIgnoreCase(action)) {
+		}else if("idFind".equalsIgnoreCase(action)) {
 	        resultMap = (Map<Object, Object>) service.Find(paramMap);
 	        
 	        String NAME = (String)resultMap.get("NAME");
@@ -55,7 +55,7 @@ public class UserController {
 	               viewName = "/user/forgetId";
 	         }
 	     //비밀번호 찾기
-		}else if("checkPw".equalsIgnoreCase(action)) {
+		}else if("pwFind".equalsIgnoreCase(action)) {
 	         resultMap = (Map<Object, Object>) service.Find(paramMap);
 	         
 	         String EMAIL = (String)resultMap.get("EMAIL");
