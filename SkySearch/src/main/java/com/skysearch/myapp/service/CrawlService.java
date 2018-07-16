@@ -31,8 +31,9 @@ public class CrawlService {
 	
 
 		resultObject.add(getAsiana());
-		resultObject.add(getJejuair());
-		resultObject.add(getBusanair());
+		resultObject.add(getJejuair1());
+		resultObject.add(getJejuair2());
+		//resultObject.add(getBusanair());
 		
 		return resultObject;
 	}
@@ -76,7 +77,7 @@ public class CrawlService {
 		
 	}
 	
-	public List getJejuair() {
+	public List getJejuair1() {
 		List resultList = new ArrayList<>();
 		try {
 			Document doc ;
@@ -84,6 +85,57 @@ public class CrawlService {
 			
 			//resultMap = new HashMap<String,Object>();
 			doc = Jsoup.connect("https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_list.do?page=&event_id=&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80").get();
+			
+			Elements questions = doc.select("li");
+			Elements question = questions.select("div");
+
+			for (Element e : question) {
+				if (e.attr("class").contains("item")) {
+					resultMap = new HashMap<>();
+					resultMap.put("title", e.text());
+					//System.out.println(e.text());
+					
+					StringTokenizer tok = new StringTokenizer(e.getElementsByAttribute("href").attr("href"), "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(' ):,;");
+					
+					int[] array = new int[2];
+					int a = 0;
+					while(tok.hasMoreTokens()){
+						//System.out.println(tok.nextToken());
+						array[a] = Integer.parseInt(tok.nextToken());
+						//System.out.println(">>"+a+">>"+array[a]);
+						a++;
+						
+						
+					}
+					
+					StringBuffer sb = new StringBuffer();
+					sb.append("https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_detail.do?page=");
+					sb.append(array[0]);
+					sb.append("&event_id=");
+					sb.append(array[1]);
+					sb.append("&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
+					System.out.println(sb);
+					
+					resultMap.put("url", sb);
+					resultList.add(resultMap);
+				}
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultList;
+	}
+	
+	public List getJejuair2() {
+		List resultList = new ArrayList<>();
+		try {
+			Document doc ;
+			Map<String,Object> resultMap ;
+			
+			//resultMap = new HashMap<String,Object>();
+			doc = Jsoup.connect("https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_list.do?page=&event_id=&nSearch=%ED%94%84%EB%A1%9C%EB%AA%A8%EC%85%98&condition=mix&search=%ED%94%84%EB%A1%9C%EB%AA%A8%EC%85%98").get();
 			
 			Elements questions = doc.select("li");
 			Elements question = questions.select("div");
