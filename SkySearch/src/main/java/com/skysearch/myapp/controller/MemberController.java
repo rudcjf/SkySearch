@@ -19,28 +19,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skysearch.myapp.component.MapParamCollector;
 import com.skysearch.myapp.service.MemberService;
-
 
 @Controller
 public class MemberController {
 	private final static String MAPPING = "/member/";
-	
+
 	@Autowired
 	private MemberService service;
-	
-	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<Object, Object> paramMap, @PathVariable String action,
+
+	@RequestMapping(value = MAPPING + "{action}", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
-		String viewName = MAPPING + action ;
-		String forwardView = (String) paramMap.get("forwardView") ;
+		Map<Object, Object> paramMap = paramMethodMap.getMap();
+		String viewName = MAPPING + action;
+		String forwardView = (String) paramMap.get("forwardView");
 
-		Map<Object, Object> resultMap = new HashMap<Object, Object>() ;
+		Map<Object, Object> resultMap = new HashMap<Object, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-	
+
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
@@ -51,8 +52,8 @@ public class MemberController {
 			service.saveObject(paramMap);
 		} else if ("disable".equalsIgnoreCase(action)) {
 			service.deleteObject(paramMap);
-			resultMap = (Map<Object,Object>) service.getObject(paramMap);
-		} 
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+		}
 		/*
 		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
 		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
@@ -63,7 +64,7 @@ public class MemberController {
 		 * service.getList(paramMap); } else if ("delete".equalsIgnoreCase(action)) {
 		 * resultList = (List<Object>) service.deleteObject(paramMap); }
 		 */
-		if(forwardView != null){
+		if (forwardView != null) {
 			viewName = forwardView;
 		}
 		modelandView.setViewName(viewName);
