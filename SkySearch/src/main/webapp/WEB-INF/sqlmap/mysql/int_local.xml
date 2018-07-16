@@ -17,8 +17,8 @@
 		INSERT INTO skysearch.ss_int_local
 		(LOCAL_SEQ, MEMBER_SEQ)
 		VALUES
-		<foreach collection="list" item="item" separator=",">
-			(#{item.LOCAL_SEQ}, #{MEMBER.SEQ})
+		<foreach collection="LOCAL_SEQ" item="item" index = "index" separator=",">
+			(#{item}, #{MEMBER_SEQ})
 		</foreach>
 	</insert>
 
