@@ -10,7 +10,7 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h5 class="card-title mb-4">Find Member ID</h5>
-                        <form role="form" action="<c:url value='/user/checkId'/>" method="POST">
+                        <form role="form" action="<c:url value='/user/idFind'/>" method="POST">
                            <div class="form-group">
                            <p><font color="red">아이디 찾기 실패! 회원님의 이름과 휴대폰번호를 다 입력하십시오</font></p>
                               <label>Name <span class="text-danger">*</span></label>

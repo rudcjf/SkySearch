@@ -33,7 +33,6 @@
 			<user name="jake0119@skysearch.com" password="jake123" authorities="ROLE_MANAGER"/>
 			<user name="evanlilly@skysearch.com" password="lilly121" authorities="ROLE_MANAGER"/>
 			
-			
 			</user-service> 
  		 <!-- <jdbc-user-service data-source-ref="dataSource"
 		users-by-username-query="SELECT EMAIL as username, PASSWORD as password,

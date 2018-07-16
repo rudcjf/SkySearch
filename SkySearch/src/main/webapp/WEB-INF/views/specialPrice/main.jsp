@@ -105,7 +105,8 @@
 		</div>
 	</div>
 </section>
-<!-- End 특가 검색 Main Slider With Form -->
+
+<%-- <!-- End 특가 검색 Main Slider With Form -->
 <!-- 광고 특가  Product List -->
 <section class="section-padding">
 	<div class="container">
@@ -116,7 +117,7 @@
 					<div class="col-lg-11 col-md-11 tags-action">
 						<h4>이 특가 추천</h4>
 						<!-- test -->
-						<a href="<c:url value='/transport/flight'/>">항공권</a>
+						<a href="<c:url value='/transport/search'/>">항공권</a>
 						<!-- end test -->
 					</div>
 					<div class="col-lg-1 col-md-1 sort-by-btn float-right">
@@ -214,13 +215,18 @@
 		</div>
 </section>
 <hr>
-<!-- End 광고 특가  Product List -->
+<!-- End 광고 특가  Product List -->  --%>
+
+
+
+
 <!--  Product List -->
+<a href="<c:url value='/transport/search'/>">항공권</a>
 <section class="section-padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
-				<div class="osahan_top_filter row">
+<!-- 				<div class="osahan_top_filter row">
 					<div class="col-lg-12 col-md-12 sort-by-btn float-right">
 						<div class="dropdown float-right">
 							<button class="btn btn-success btn-sm dropdown-toggle"
@@ -237,30 +243,56 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card card-list">
-							<a href="#"> <span class="badge badge-danger">HOT</span>
-							<!-- 조회수가 기준(예 100) 이상인 특가 표시 --> <img class="card-img-top"
-								src="<c:url value='/resources/img/list/1.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<h5 class="card-title">제목</h5>
-									<h6 class="card-subtitle mb-2 text-muted">
+				</div> -->
+				<%
+					int cnt = 0;
+				%>
+				<c:forEach items="${resultList}" var="resultList" varStatus="loop">
+					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+						<%
+							cnt++;
+						%>
+						<%
+							if (cnt % 3 == 1) {
+						%>
+						<div class="row">
+
+							<%
+								}
+							%>
+
+							<div class="col-lg-4 col-md-4">
+								<div class="card card-list">
+									<a href="${resultData.url}" target="_blank"> 
+									<!-- <span
+										class="badge badge-danger">HOT</span> 조회수가 기준(예 100) 이상인 특가 표시 -->
+										<img class="card-img-top" src="${resultData.img}" alt="">
+										<div class="card-body">
+											<h5 class="card-title">${resultData.title}</h5>
+											<!-- <h6 class="card-subtitle mb-2 text-muted">
 										<i class="mdi mdi-map-marker-multiple"></i>도시명, 국가
-									</h6>
-									<h2 class="text-success mb-0 mt-3">가격 ~</h2>
-								</div>
-								<div class="card-footer">
+									</h6> -->
+											<!-- <h2 class="text-success mb-0 mt-3">가격 ~</h2> -->
+										</div> <!-- <div class="card-footer">
 									<span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사
 											명</strong></span> <span><i class="mdi mdi-checkbox-marked-outline"></i>
 										특가 종료일 : <strong>날짜</strong></span>
+								</div> -->
+									</a>
 								</div>
-							</a>
+							</div>
+							<%
+						if(cnt %3 == 0){
+						%>
 						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
+						<%
+						}
+						%>
+						<%-- <%=cnt %> --%>
+
+					</c:forEach>
+				</c:forEach>
+				<%-- <div class="col-lg-4 col-md-4">
 						<div class="card card-list">
 							<a href="#"> <span class="badge badge-danger">HOT</span>
 							<!-- 조회수가 기준(예 100) 이상인 특가 표시 --> <img class="card-img-top"
@@ -302,6 +334,8 @@
 							</a>
 						</div>
 					</div>
+					
+					
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
@@ -507,9 +541,9 @@
 						<li class="page-item"><a class="page-link" href="#"><i
 								class="mdi mdi-chevron-right"></i></a></li>
 					</ul>
-				</nav>
+				</nav>--%>
 			</div>
 		</div>
 	</div>
-</section>
+</section> 
 <!-- End Product List -->
