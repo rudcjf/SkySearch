@@ -42,21 +42,26 @@ public class RestWSController {
 		
 		if("localList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getList(paramMap);
-		}  else if("memberList".equalsIgnoreCase(action)) {
-
+		} else if("memberList".equalsIgnoreCase(action)) {
+			resultObject = (List<Object>) localService.getLocalList(paramMap);
 		} else if("ciList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) cityService.getCiList(paramMap);
 		} else if("coList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) cityService.getCoList(paramMap);
 		} else if("checkLocal".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getCheckLocal(paramMap);
-		} else if("memberList".equalsIgnoreCase(action)) {
-			resultObject = (List<Object>) localService.getLocalList(paramMap);
-		} 
+		} else if("idcheck".equalsIgnoreCase(action)) {
+	         
+	         String id=(String) paramMap.get("M_ID");
+	         Object result = memberservice.checkID(paramMap);
+	         return result;
+	       
+		}
+		
 		return resultObject;
 	  }
 
-	// 국가 정보 가져오는 메서드
+	// 援�媛� �젙蹂� 媛��졇�삤�뒗 硫붿꽌�뱶
 	@RequestMapping(value = "/ws/countyList", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public @ResponseBody Map<String, Object> Country(@RequestParam Map<String, Object> paramMap) {
 		
@@ -69,7 +74,7 @@ public class RestWSController {
 		return resultMap;
 	}
 	
-	// 도시 정보 가져오는 메서드
+	// �룄�떆 �젙蹂� 媛��졇�삤�뒗 硫붿꽌�뱶
 	@RequestMapping(value = "/ws/cityList", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public @ResponseBody Map<String, Object> City(@RequestParam Map<String, Object> paramMap) {
 		
@@ -82,7 +87,7 @@ public class RestWSController {
 		return resultMap;
 	}
 	
-	// 댓글 입력하는 메서드
+	// �뙎湲� �엯�젰�븯�뒗 硫붿꽌�뱶
 	@RequestMapping(value = "/ws/commentSet", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public void CommentSet(@RequestParam Map<String, Object> paramMap) {
 		
@@ -90,7 +95,7 @@ public class RestWSController {
 		List<Map> resultList = new ArrayList<>();
 		
 		paramMap.put("COMMENT_SEQ", commonUtil.getUniqueSequence());
-		paramMap.put("MEMBER_SEQ", "SYSUID-SS066"); // 임의로 넣어놓은 멤버시퀀스 값
+		paramMap.put("MEMBER_SEQ", "SYSUID-SS066"); // �엫�쓽濡� �꽔�뼱�넃�� 硫ㅻ쾭�떆���뒪 媛�
 		travelService.setComment(paramMap);
 	}
 	

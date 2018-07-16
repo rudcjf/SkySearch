@@ -3,17 +3,8 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"	rel="stylesheet" />
-<!-- 회원정보의 member 테이블 update와, int_local 테이블update가 함께 되야 한다 -->
-<script>
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/mypage/read'/>");
-				return;
-			});
-		});
-	});
-</script>
+
+<!-- 회원정보의 member 테이블 update와, int_local 테이블 update가 함께 되야 한다 -->
 <!-- 관심지역 다중 클릭 체크박스/ 회원의 관심지역으로 체크박스가 체크되어야함. -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
@@ -26,20 +17,11 @@
 					success : function(data) {
 
 						var formTag = "";
-						$
-								.each(
-										data,
-										function(i, item) {
-											if("${resultMap.LOCAL_NAME}"==""){
+						$.each(data,function(i, item) {
 												formTag += "<label class='checkbox-inline'>";
 												formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">' + item.LOCAL_NAME;
 												formTag += '</label> ';
-											}else{
-												formTag += "<label class='checkbox-inline'>";
-												formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">' + "${resultMap.LOCAL_NAME}";
-												formTag += '</label> ';
-											}
-										});
+											});
 						$('#' + id).html(formTag);
 
 					},
@@ -82,7 +64,7 @@
 				<ul class="nav justify-content-center">
 					<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
+                        <a class="nav-link" href="<c:url value='/mypage/read'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link active text-success" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
@@ -107,7 +89,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-6 mx-auto">
 				<form role="form" method="POST" action="<c:url value='/member/merge' />">
-					<input type="hidden" name="forwardView" value="/member/read" /> 
+					<input type="hidden" name="forwardView" value="/mypage/read" /> 
 					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">

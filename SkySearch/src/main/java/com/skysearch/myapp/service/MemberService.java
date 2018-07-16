@@ -123,9 +123,17 @@ public class MemberService {
 	}
 	//�쉶�뜝�룞�삕�뜝�룞�삕�뜝�떛�벝�삕, �쉶�뜝�룞�삕 �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕
 	public Object Find(Object dataMap) {
-	      String sqlMapId ="member.check";
+	      String sqlMapId ="member.find";
 	      Object resultObject = dao.getObject(sqlMapId,dataMap);
 	      return resultObject;
 	   }
+    
+	public Object checkID(Object dataMap) {
+	       String sqlMapId="member.idDoubleCheck";
+	      Map resultObject=(Map) dao.getObject(sqlMapId, dataMap);
+	      return resultObject;
+	   }
+
+
 
 }
