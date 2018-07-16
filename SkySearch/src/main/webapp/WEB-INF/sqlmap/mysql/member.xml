@@ -62,7 +62,6 @@
 		,PASSWORD
 		,NAME
 		,PHONE
-
 		,REGISTER_SEQ
 		,REGISTRY_DATE
 		,MODIFIER_SEQ
@@ -74,7 +73,6 @@
 		, #{PASSWORD}
 		, #{NAME}
 		, #{PHONE}
-
 		, #{REGISTER_SEQ}
 		, now()
 		, #{MODIFIER_SEQ}
