@@ -34,18 +34,7 @@
 						cache : false,
 						success : function(data) {
 							var formTag = "";
-							if ("${resultMap.COUNTRY_NAME}" == "") {
-
-								formTag += "<select class='form-control' name='COUNTRY_SEQ' >";
-								$
-										.each(
-												data,
-												function(i, item) {
-													formTag += '<option value="'+item.COUNTRY_SEQ+'" >'
-															+ item.COUNTRY_NAME;
-
-												});
-							} else {
+							
 								formTag += "<select class='form-control' name='COUNTRY_SEQ' disabled>";
 								$
 										.each(
@@ -59,7 +48,7 @@
 																+ item.COUNTRY_NAME;
 													}
 												});
-							}
+							
 							formTag += '</select> ';
 							$('#' + id).html(formTag);
 						},
@@ -82,12 +71,12 @@
 							var formTag = "";
 							if ("${resultMap.LOCAL_NAME}" == "") {
 
-								formTag += "<select class='form-control' name='LOCAL_SEQ' >";
+								formTag += "<select class='form-control' name='LOCAL_SEQ' onchange='CountrySelect(this.value);'>";
 								$
 										.each(
 												data,
 												function(i, item) {
-													formTag += '<option value="'+item.LOCAL_SEQ+'" >'
+													formTag += '<option value="'+item.LOCAL_NAME+'" >'
 															+ item.LOCAL_NAME;
 
 												});
@@ -116,7 +105,7 @@
 					});
 
 		}
-		/* LocalSelectBox2 */
+		/* LocalSelectBox2 - MODAL */
 		var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
 			$
 					.ajax({
@@ -162,33 +151,33 @@
 					});
 
 		}
-		// 국가를 선택했을 때 도시 가져오기
-		function CitySelect(value) {
+		// 지역을 선택했을 때 국가 가져오기
+		function CountrySelect(value) {
 			$.ajax({
-					type : "GET", // 값을 보낼 방식
-					url : "<c:url value='/ws/cityList'/>", // 보낼 컨트롤러
-					data : { // 서버에 보낼 데이터 (key, value형식)
-						"COUNTRY_SEQ" : value
-					},
-					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
-						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
-						var category = "<option value='' selected>도시명</option>";
+				type : "GET", // 값을 보낼 방식
+				url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
+				data : { // 서버에 보낼 데이터 (key, value형식)
+					"LOCAL_NAME" : value
+				},
+				success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
+					var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
 
-						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
-							category += "<option value='"
-								+ (list[i])['CITY_SEQ'] + "'>"
-								+ (list[i])['CITY_NAME']
-								+ "</option>";
-						});
-						$("#city").html(category);
+					var category = "<option value='' selected>국가명</option>";
 
-					},
-					error : function(jqXHR, textStatus, errorThrown) {
-						alert("오류발생");
-						return false;
-					}
-				});
-			}
+					$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+						category += "<option value='"
+								+ (list[i])['COUNTRY_SEQ'] + "'>"
+								+ (list[i])['COUNTRY_NAME'] + "</option>";
+					});
+					$("#country").html(category);
+
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("오류발생");
+					return false;
+				}
+			});
+		}
 
 		$(document).ready(
 				function() {
@@ -218,7 +207,7 @@
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
 						<li><a href="<c:url value='/manage/main/index'/>">Dashboard</a></li>
-						<li><a href="<c:url value='/manage/ti/ti_list'/>">여행정보</a></li>
+						<li><a href="<c:url value='/manage/ti/ti_cilist'/>">여행정보</a></li>
 						<li class="active">여행정보 입력</li>
 					</ol>
 				</div>
@@ -239,9 +228,10 @@
 								class="btn btn-primary" value=신규입력
 								onClick="location.href='<c:url value="/manage/ti/ti_city"/>'"
 								style="float: right;">
-							<button type="button" class="btn btn-secondary mb-1"
-								data-toggle="modal" data-target="#mediumModal"
-								style="float: right;">국가추가</button>
+							<button type="button" id=countryAdd
+								class="btn btn-secondary mb-1" data-toggle="modal"
+								data-target="#mediumModal" style="float: right;"
+								onclick="fn_setLocalFormTagSelectbox()">국가추가</button>
 
 						</div>
 						<div class="card-body">
@@ -266,10 +256,28 @@
 														type="hidden" class="form-control" name="COUNTRY_NAME"
 														value="${resultMap.COUNTRY_SEQ}">
 
-													<div class="form-group col-sm-4">
-														<label>국가 명 :</label>
-														<div id=countryDIV name="COUNTRY_NAME"></div>
-													</div>
+													<!-- JSTL SelectBox 조건문 -->
+
+													
+													<c:choose>
+														<c:when test="${resultMap.LOCAL_NAME==null}">
+															<div class="form-group col-sm-4">
+																<label>국가 명 :</label> <select
+																	class="form-control select2 no-radius" id="country"
+																	name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
+																	<option value="">국가명</option>
+																</select>
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="form-group col-sm-4">
+																<label>국가 명 :</label>
+																<div id=countryDIV name="COUNTRY_NAME"></div>
+															</div>
+														</c:otherwise>
+													</c:choose>
+													<!-- JSTL SelectBox 조건문 END -->
+
 													<div class="form-group col-sm-4">
 														<label>도시 명 :</label> <input type="text"
 															class="form-control" name="CITY_NAME"
@@ -345,9 +353,8 @@
 												<label> 지역 명 : </label>
 												<div id=localDIV2></div>
 											</div>
-												
-												<input type="hidden"
-												class="form-control" name="COUNTRY_SEQ"
+
+											<input type="hidden" class="form-control" name="COUNTRY_SEQ"
 												value="${resultMap.COUNTRY_SEQ}">
 
 											<div class="form-group col-sm-4">
@@ -359,8 +366,8 @@
 									</div>
 								</div>
 								<div align="right">
-									<input type="submit" onclick="enable()"
-												class="btn btn-success" value="입력" />
+									<input type="submit" onclick="enable()" class="btn btn-success"
+										value="입력" />
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>

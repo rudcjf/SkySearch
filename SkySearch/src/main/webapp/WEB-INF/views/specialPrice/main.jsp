@@ -244,59 +244,55 @@
 						</div>
 					</div>
 				</div> -->
-					<% int cnt = 0; %>
+				<%
+					int cnt = 0;
+				%>
 				<c:forEach items="${resultList}" var="resultList" varStatus="loop">
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
-					<% cnt++; %>
-
 						<%
-						
-						if(cnt % 3 == 1){
+							cnt++;
 						%>
-							<div class="row">
-						
 						<%
-						}
+							if (cnt % 3 == 1) {
 						%>
-						
-						
-						
+						<div class="row">
 
+							<%
+								}
+							%>
 
-						<div class="col-lg-4 col-md-4">
-							<div class="card card-list">
-								<a href="${resultData.url}" target="_blank"> <span
-									class="badge badge-danger">HOT</span> <!-- 조회수가 기준(예 100) 이상인 특가 표시 -->
-									<img class="card-img-top"
-									src="<c:url value='/resources/img/list/1.png'/>"
-									alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">${resultData.title}</h5>
-										<!-- <h6 class="card-subtitle mb-2 text-muted">
+							<div class="col-lg-4 col-md-4">
+								<div class="card card-list">
+									<a href="${resultData.url}" target="_blank"> 
+									<!-- <span
+										class="badge badge-danger">HOT</span> 조회수가 기준(예 100) 이상인 특가 표시 -->
+										<img class="card-img-top" src="${resultData.img}" alt="">
+										<div class="card-body">
+											<h5 class="card-title">${resultData.title}</h5>
+											<!-- <h6 class="card-subtitle mb-2 text-muted">
 										<i class="mdi mdi-map-marker-multiple"></i>도시명, 국가
 									</h6> -->
-										<!-- <h2 class="text-success mb-0 mt-3">가격 ~</h2> -->
-									</div> <!-- <div class="card-footer">
+											<!-- <h2 class="text-success mb-0 mt-3">가격 ~</h2> -->
+										</div> <!-- <div class="card-footer">
 									<span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사
 											명</strong></span> <span><i class="mdi mdi-checkbox-marked-outline"></i>
 										특가 종료일 : <strong>날짜</strong></span>
 								</div> -->
-								</a>
+									</a>
+								</div>
 							</div>
-						</div>
-						<%
+							<%
 						if(cnt %3 == 0){
 						%>
-							</div>
-						
+						</div>
 						<%
 						}
 						%>
 						<%-- <%=cnt %> --%>
 
-			</c:forEach>
-			</c:forEach>
-			<%-- <div class="col-lg-4 col-md-4">
+					</c:forEach>
+				</c:forEach>
+				<%-- <div class="col-lg-4 col-md-4">
 						<div class="card card-list">
 							<a href="#"> <span class="badge badge-danger">HOT</span>
 							<!-- 조회수가 기준(예 100) 이상인 특가 표시 --> <img class="card-img-top"

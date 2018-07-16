@@ -23,12 +23,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CrawlService {
-
 	
-	
+	//메인 메소드
 	public Object getListMIT(Map<String,Object> dataMap) {
 		List<Object> resultObject = new ArrayList<Object>();
-	
 
 		resultObject.add(getAsiana());
 		resultObject.add(getJejuair1());
@@ -38,7 +36,7 @@ public class CrawlService {
 		return resultObject;
 	}
 	
-	
+	//아시아나 사이트 크롤링
 	public List getAsiana() {
 		List resultList = new ArrayList<>();
 		try {
@@ -49,19 +47,23 @@ public class CrawlService {
 			
 			Elements questions = doc.select("li");
 			Elements question = questions.select("a");
+			Elements img = question.select("img");
 			
 			for(Element e : question){
 				resultMap = new HashMap<String,Object>();
 				if(e.attr("class").contains("inner_box")) {
+					
 					if(e.text().contains("특가")) {
 						StringBuffer sb = new StringBuffer();
 						sb.append("https://flyasiana.com/C/KR/KO/event");
 						sb.append(e.getElementsByAttribute("href").attr("href").substring(1));
 						
+						//System.out.println("22"+e.getElementsByAttribute("src").attr("src"));
+						
+						resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
 						resultMap.put("title",e.text());
 						resultMap.put("url",sb);
 						
-						//System.out.println(e.text());
 						resultList.add(resultMap);
 					}
 				}
@@ -76,7 +78,7 @@ public class CrawlService {
 		
 		
 	}
-	
+	//제주항공 사이트 크롤링->검색 특가로
 	public List getJejuair1() {
 		List resultList = new ArrayList<>();
 		try {
@@ -114,7 +116,7 @@ public class CrawlService {
 					sb.append("&event_id=");
 					sb.append(array[1]);
 					sb.append("&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
-					System.out.println(sb);
+					//System.out.println(sb);
 					
 					resultMap.put("url", sb);
 					resultList.add(resultMap);
@@ -128,6 +130,7 @@ public class CrawlService {
 		return resultList;
 	}
 	
+	//제주항공 사이트 크롤링->검색 프로모션
 	public List getJejuair2() {
 		List resultList = new ArrayList<>();
 		try {
@@ -165,7 +168,7 @@ public class CrawlService {
 					sb.append("&event_id=");
 					sb.append(array[1]);
 					sb.append("&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
-					System.out.println(sb);
+					//System.out.println(sb);
 					
 					resultMap.put("url", sb);
 					resultList.add(resultMap);
@@ -179,7 +182,7 @@ public class CrawlService {
 		return resultList;
 	}
 	
-	
+	//부산항공 사이트 크롤링
 	public List getBusanair() {
 		List resultList = new ArrayList<>();
 		

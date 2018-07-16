@@ -24,6 +24,13 @@ public class AdminTiService {
 
 		return resultObject;
 	}
+	public Object getCiList(Object dataMap) {
+		String sqlMapId = "ti.cilist";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+
+		return resultObject;
+	}
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "ti.read";
