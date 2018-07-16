@@ -1,6 +1,7 @@
 package com.skysearch.myapp.component;
 
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,10 +37,10 @@ public class CustomizeMethodArgumentResolver implements HandlerMethodArgumentRes
 			Enumeration<?> enumeration = request.getParameterNames();
 			while (enumeration.hasMoreElements()) {
 				String key = (String) enumeration.nextElement();
-				String[] values = request.getParameterValues(key);
-				if (values != null) {
-					requestMap.put(key, (values.length > 1) ? values : values[0]);
-				}
+				//List<Object> values = A
+				//if (values != null) {
+				//	requestMap.put(key, (values.length > 1) ? values : values[0]);
+				//}
 			}
 
 			if (request instanceof MultipartHttpServletRequest) {

@@ -1,5 +1,6 @@
 package com.skysearch.myapp.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,9 @@ public class MemberService {
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 		
 		sqlMapId = "int_local.insert";
+		System.out.println(paramMap.toString());
+		List<Object> temp = (List<Object>)(paramMap.get("LOCAL_SEQ"));
+		System.out.println(temp.toString());
 		dao.saveObject(sqlMapId, paramMap);
 		
 		sqlMapId = "member.read";
