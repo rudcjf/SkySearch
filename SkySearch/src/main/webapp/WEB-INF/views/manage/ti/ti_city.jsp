@@ -76,7 +76,7 @@
 										.each(
 												data,
 												function(i, item) {
-												if ("${resultMap.LOCAL_SEQ}" == "dummy_loc") {
+												if (item.LOCAL_SEQ == "dummy_loc") {
 													return true;
 												}
 													formTag += '<option value="'+item.LOCAL_NAME+'" >'
@@ -93,7 +93,7 @@
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
 														
-													} else if ("${resultMap.LOCAL_NAME}" == 'dummy_loc') {
+													} else if (item.LOCAL_SEQ == "dummy_loc") {
 														return true;
 													} else {
 														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
@@ -128,6 +128,9 @@
 										.each(
 												data,
 												function(i, item) {
+													if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
+													}
 													formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 															+ item.LOCAL_NAME;
 
@@ -142,6 +145,8 @@
 													if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
+													} else if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
 													} else {
 														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
@@ -247,7 +252,7 @@
 							<!-- 도시입력 -->
 							<div class="col-sm-12">
 								<form role="form" method="POST"
-									action="<c:url value='/manage/ti/citymerge' />">
+									action="<c:url value='/manage/ti/citymerge' />" enctype="multipart/form-data">
 									<input type="hidden" name="forwardView"
 										value="/manage/ti/ti_edit" />
 									<div class="card padding-card">
