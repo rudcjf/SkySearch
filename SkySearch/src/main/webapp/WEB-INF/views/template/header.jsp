@@ -42,10 +42,10 @@
       <script type="text/javascript" src="<c:url value='/resources/vendor/select2/js/select2.min.js' />"></script>
    <!-- Custom -->
       <script type="text/javascript" src="<c:url value='/resources/js/custom.js' />"></script>
-   <!-- top/bottom 버튼, made by MC -->
-    <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>"	rel="stylesheet" />
+      <!-- updown 스크롤 -->
+      <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.12.4.min.js' />"></script>
+
   
-	
-  
+	 
       
    
