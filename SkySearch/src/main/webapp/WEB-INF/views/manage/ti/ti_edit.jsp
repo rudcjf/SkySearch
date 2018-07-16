@@ -80,7 +80,7 @@ function enable() {
 
 		$(document).ready(
 				function() {
-					fn_setCityFormTagSelectbox("<c:url value='/ws/ciList' />",
+					fn_setCityFormTagSelectbox("<c:url value='/ws/cityList' />",
 							"cityDIV");
 
 				});

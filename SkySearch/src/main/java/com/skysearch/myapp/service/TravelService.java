@@ -1,12 +1,13 @@
 package com.skysearch.myapp.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skysearch.myapp.dao.ShareDao;
-import com.skysearch.myapp.util.CommonUtil;
+import com.skysearch.myapp.util.Pagination;
 
 @Service
 public class TravelService {
@@ -24,11 +25,34 @@ public class TravelService {
 		sqlMapId = "travel.read";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		return resultObject;
+	
 	}
 	
-/*	public Object getList(Object dataMap) {
+	public Object getCommentList(Object dataMap) {
 		
-	}*/
+		// 댓글 리스트 가져오기
+		String sqlMapId = "travel.comment";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+
+	}
+	
+	public void setComment(Object dataMap) {
+		
+		// 댓글 쓰기
+		String sqlMapId = "travel.setcomment";
+		dao.insertObject(sqlMapId, dataMap);
+		
+	}
+	
+	public Object getLandmarkList(Object dataMap) {
+		
+		// 관광지 리스트 가져오기
+		String sqlMapId = "travel.landmark";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+
+	}
 	
 	// 동적 셀렉트 박스 - 국가정보 가져오기
 	public Object getSelectCountry(Object dataMap) {
@@ -47,5 +71,25 @@ public class TravelService {
 		return resultObject;
 		
 	}
+	
+	// 페이징 적용하기
+	public Object getListPagination(Object dataMap) {
 
+		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		String sqlMapId = "travel.totalcount";
+		int totalCount = (int) dao.getObject(sqlMapId, dataMap);
+		int currentPage = 1;
+		if(((Map<String,Object>) dataMap).get("curPage") != null) {
+			currentPage = Integer.valueOf(((Map<String, String>) dataMap).get("curPage"));
+		}
+		Pagination pagination = new Pagination(totalCount, currentPage); // 댓글의 총 갯수와, 하나의 페이지당 들어갈 컬럼수
+		resultMap.put("pagination", pagination);
+		sqlMapId = "travel.listpagination";
+		((Map<String, Object>) dataMap).put("pagination", pagination);
+		Object resultList = dao.getList(sqlMapId, dataMap);
+		resultMap.put("resultList", resultList);
+		return resultMap;
+		
+	}
+	
 }

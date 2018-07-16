@@ -24,32 +24,6 @@
 			$('select').attr('disabled', false);
 		}
 
-		// 지역을 선택했을 때 국가 가져오기
-		var selectOption2 = function CountrySelect(value) {
-			$.ajax({
-				type : "GET", // 값을 보낼 방식
-				url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
-				data : { // 서버에 보낼 데이터 (key, value형식)
-					"LOCAL_NAME" : value
-				},
-				success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
-					var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
-					var category = "<option value='' selected>국가명</option>";
-
-					$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
-						category += "<option value='"
-								+ (list[i])['COUNTRY_SEQ'] + "'>"
-								+ (list[i])['COUNTRY_NAME'] + "</option>";
-					});
-					$("#country").html(category);
-
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert("오류발생");
-					return false;
-				}
-			});
-		}
 		/* CountrySelectBox */
 		var fn_setCountryFormTagSelectbox = function(url, id, params) {
 			$
@@ -96,7 +70,6 @@
 					});
 
 		}
-		
 		/* LocalSelectBox */
 		var fn_setLocalFormTagSelectbox = function(url, id, params) {
 			$
@@ -109,23 +82,23 @@
 							var formTag = "";
 							if ("${resultMap.LOCAL_NAME}" == "") {
 
-								formTag += "<select class='form-control' name='LOCAL_SEQ'  onchange='CountrySelect(this.value);'>";
+								formTag += "<select class='form-control' name='LOCAL_SEQ' >";
 								$
 										.each(
 												data,
 												function(i, item) {
-													formTag += '<option value="'+item.LOCAL_NAME+'" >'
+													formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 															+ item.LOCAL_NAME;
 
 												});
 							} else {
-								formTag += "<select class='form-control' name='LOCAL_SEQ' disabled onchange='CountrySelect(this.value);'>";
+								formTag += "<select class='form-control' name='LOCAL_SEQ' disabled>";
 								$
 										.each(
 												data,
 												function(i, item) {
 													if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
-														formTag += '<option selected="selected" value="'+item.LOCAL_NAME+'" >'
+														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
 													} else {
 														formTag += '<option value="'+item.LOCAL_SEQ+'" >'
@@ -189,20 +162,17 @@
 					});
 
 		}
-		
-		
 
 		$(document).ready(
 				function() {
-					
-						fn_setCountryFormTagSelectbox(
-								"<c:url value='/ws/colList' />", "countryDIV"));
-					
+
 					fn_setLocalFormTagSelectbox(
 							"<c:url value='/ws/localList' />", "localDIV");
-					
 					fn_setLocalFormTagSelectbox2(
 							"<c:url value='/ws/localList' />", "localDIV2");
+
+					fn_setCountryFormTagSelectbox(
+							"<c:url value='/ws/countryList' />", "countryDIV");
 
 				});
 	</script>
@@ -262,7 +232,7 @@
 												<div class="card-body">
 													<div class="form-group col-sm-4">
 														<label> 지역 명 : </label>
-																<div id=localDIV></div>
+														<div id=localDIV></div>
 													</div>
 													<input type="hidden" class="form-control" name="CITY_SEQ"
 														value="${resultMap.CITY_SEQ}"> <input
@@ -271,15 +241,7 @@
 
 													<div class="form-group col-sm-4">
 														<label>국가 명 :</label>
-																
-																<div>
-																<select class="form-control select2 no-radius"
-																	id="country" name="COUNTRY_SEQ"
-																	onchange="CitySelect(this.value);">
-																</select>
-																</div>
-															
-
+														<div id=countryDIV name="COUNTRY_NAME"></div>
 													</div>
 													<div class="form-group col-sm-4">
 														<label>도시 명 :</label> <input type="text"
@@ -356,8 +318,9 @@
 												<label> 지역 명 : </label>
 												<div id=localDIV2></div>
 											</div>
-
-											<input type="hidden" class="form-control" name="COUNTRY_SEQ"
+												
+												<input type="hidden"
+												class="form-control" name="COUNTRY_SEQ"
 												value="${resultMap.COUNTRY_SEQ}">
 
 											<div class="form-group col-sm-4">
@@ -369,8 +332,8 @@
 									</div>
 								</div>
 								<div align="right">
-									<input type="submit" onclick="enable()" class="btn btn-success"
-										value="입력" />
+									<input type="submit" onclick="enable()"
+												class="btn btn-success" value="입력" />
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>

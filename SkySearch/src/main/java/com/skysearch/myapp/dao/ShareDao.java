@@ -35,10 +35,13 @@ public class ShareDao{
 		sqlSession.update(sqlMapId, dataMap);
 	}
 	
-
 	public Object deleteObject(String sqlMapId, Object dataMap) {
 		Integer result = sqlSession.update(sqlMapId,dataMap);
 		return result;
+	}
+	
+	public void insertObject(String sqlMapId, Object dataMap) {
+		sqlSession.insert(sqlMapId, dataMap);
 	}
 
 }

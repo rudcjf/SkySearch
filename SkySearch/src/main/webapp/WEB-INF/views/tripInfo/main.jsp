@@ -28,8 +28,7 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
-	
-	<!-- 동적 셀렉트 박스 스크립트 -->
+
 	<script>
 		// 지역을 선택했을 때 국가 가져오기
 		function CountrySelect(value) {
@@ -100,7 +99,7 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-earth"></i>
 							</div>
-							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);" placeholder="여행지역" >
+							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);">
 								<option value="">여행지역</option>
 								<option value="아시아">아시아</option>
 								<option value="동남아시아">동남아시아</option>
@@ -327,7 +326,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -390,7 +389,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -453,7 +452,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
@@ -516,7 +515,7 @@
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
 								class="card-img-top"
-								src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>"
+								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
 								alt="Card image cap">
 								<div class="card-body">
 									<span class="badge badge-white"> <i
