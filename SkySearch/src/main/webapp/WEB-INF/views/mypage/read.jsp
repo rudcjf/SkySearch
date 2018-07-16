@@ -83,9 +83,9 @@ $(document).ready(function() {
                  <div class="card padding-card"> 
 	                 <form role="form" method="POST" action="<c:url value='/member/read' />">
 	                  <div class="card-body">
-		                  <h3 class="mb-0 mt-4">Member ID : ${resultMap.EMAIL} </h3>
+		                  <h3 class="mb-0 mt-4">Member ID : </h3>
 		                  <p> </p>
-		                  <h5 class="text-success mb-3">Member SEQ : ${resultMap.MEMBER_SEQ}</h5>
+		                  <h5 class="text-success mb-3">${resultMap.EMAIL}</h5>
              
 		                  <div class="row mt-5">
 		                     <div class="col-lg-6 col-md-6">
