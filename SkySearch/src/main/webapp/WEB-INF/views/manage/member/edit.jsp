@@ -36,8 +36,7 @@
 						} else {
 							$
 									.each(
-											data,
-											function(i, item) {
+											data,											function(i, item) {
 												if(item.LOCAL_SEQ=="dummy_loc"){
 													return true;
 												}

@@ -20,6 +20,9 @@
 								.each(
 										data,
 										function(i, item) {
+										if(item.LOCAL_SEQ=="dummy_loc"){
+											return true;
+										}
 											formTag += "<label class='checkbox-inline'>";
 											formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
 													+ item.LOCAL_NAME;
@@ -112,42 +115,123 @@
    }
   }); //#chpass.keyup
  });
-</script>
+</script> 
 
-<!-- 필수입력사항 -->
+
+<!-- 유효성검사 -->
 <script>
- $(function(){
-  //id="btn" 클릭시
-  $("#btn").click(function(){
-   //id="EMAIL"이 공백일경우
-   if($('#EMAIL').val()==""){
-    //얼럿으로처리
-    alert("회원 아이디를 입력해주세요");
-    //id="EMAIL"인 곳으로 커서를 이동
-    $('#EMAIL').focus();
-    return;
-   }
-   if($('#PASSWORD').val()==""){
-    alert("비밀 번호를 입력해주세요");
-    $('#PASSWORD').focus();
-    return;
-   }
-   if($('#NAME').val()==""){
-	    alert("이름을 입력해주세요");
-	    $('#NAME').focus();
-	    return;
+function validityCheck(){
+
+	//비밀번호 형식 6~12자리의 영문 대소문자와 숫자로만 입력
+	var getPW = RegExp(/^[a-zA-Z0-9]{6,12}$/);
+/*  //아이디 형식 : 이메일 
+	var getID = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/); */
+	//이름형식 
+	var getName= RegExp(/^[가-힝]{2,15}|[a-zA-Z]{2,15}\s[a-zA-Z]{2,15}$/);
+	//폰번호 형식
+	var getPhone = RegExp(/^01[016789]-\d{3,4}-\d{4}$/);
+	//관심분야 check
+	var intLocCheck = false;
+	
+	//아이디를 입력하지 않았을 경우(공백)
+	if($("#ID").val() == ""){
+       alert("아이디를 입력해주세요");
+       $("#ID").focus();
+       return false;
+	}
+/* 	//아이디의 유효성 검사
+	if(!getID.test($("#ID").val())){
+        alert("아이디를 형식에 맞게 입력해주세요");
+        $("#ID").val("");
+        $("#ID").focus();
+        return false;
+      }
+	 */
+	//비밀번호를 입력하지 않았을 경우(공백)
+	if($("#PASSWORD").val() == ""){
+       alert("비밀번호를 입력해주세요");
+       $("#PASSWORD").focus();
+       return false;
+	}
+	if($("#RePASSWORD").val() == ""){
+	       alert("비밀번호 확인을 해주세요");
+	       $("#RePASSWORD").focus();
+	       return false;
+		}
+	//비밀번호의 유효성검사
+	if(!getPW.test($("#PASSWORD").val())) {
+      alert("비밀번호를 형식에 맞게 입력해주세요");
+      $("#PASSWORD").val("");
+      $("#PASSWORD").focus();
+      return false;
+      }
+	if(!getPW.test($("#RePASSWORD").val())) {
+	      alert("비밀번호를 형식에 맞게 입력해주세요");
+	      $("#RePASSWORD").val("");
+	      $("#RePASSWORD").focus();
+	      return false;
+	      }
+
+     //이름 : 공백 확인   
+    if($("#NAME").val() == ""){
+      alert("이름을 입력해주세요");
+      $("#NAME").focus();
+      return false;
     }
-   if($('#PHONE').val()==""){
-	    alert("휴대전화 번호를 입력해주세요");
-	    $('#PHONE').focus();
-	    return;
-	   }
-  //둘다 입력이 되었을경우 버튼 클릭시.
-  });
- });
+     //이름 : 유효성 검사
+    if (!getName.test($("#NAME").val())) {
+      alert("이름을 형식에 맞게 입력해주세요");
+      $("#NAME").val("");
+      $("#NAME").focus();
+      return false;
+    }
+    
+    //폰번호 : 공백 확인   
+    if($("#PHONE").val() == ""){
+      alert("휴대전화 번호를 입력해주세요");
+      $("#PHONE").focus();
+      return false;
+    } 
+    //폰번호 : 유효성 검사
+    if (!getPhone.test($("#PHONE").val())) {
+      alert("휴대전화 번호를 형식에 맞게 입력해주세요");
+      $("#PHONE").val("");
+      $("#PHONE").focus();
+      return false;
+    }
+
+    //관심지역 체크박스
+    var count = 0;
+     for(var i=0;i<$('[name="LOCAL_SEQ"]').length;i++){ 
+   	  if($('input:checkbox[name="LOCAL_SEQ"]').eq(i).is(":checked") == true) {
+		    	count++;
+			if(count>=2){
+				intLocCheck=true;
+        break;}
+        }
+    } 
+    	if(!intLocCheck){
+      alert("관심지역을 하나 이상 체크해 주세요");
+      return false;
+    }
+    
+ /* //관심분야
+   for(var i=0;i<$('[name="hobby[]"]').length;i++){
+     if($('input:checkbox[name="hobby[]"]').eq(i).is(":checked") == true) {
+       hobbyCheck = true;
+       break;
+         }
+       }
+
+       if(!hobbyCheck){
+         alert("하나이상 관심분야를 체크해 주세요");
+         return false;
+       }
+ */
+} 
 </script>
 
-      <!-- Sign Up -->
+<!-- Sign Up -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -156,17 +240,17 @@
                      <div class="card-body">
                         <h3 class="card-title mb-4">SIGN UP</h3>
                         <p><span class="text-danger">*</span>는 필수 입력사항 입니다</p>
-                        <form  method="POST" action="<c:url value='/member/merge'/>">
-                         <input type="hidden" name="forwardView" value="/home/login" /> 
+                        <form  method="POST" action="<c:url value='/member/merge'/>"  onsubmit="return validityCheck()">
+                         <input type="hidden" name="forwardView" value="/login" /> 
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
-                             	 <input id="EMAIL" name="EMAIL" type="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                             	 <input id="EMAIL" name="EMAIL" type="email" id="ID" class="form-control" placeholder="Base form : mulcam@mulcam.com">
 								 <p> </p>
 								 <label><span><input type="button" class="btn btn-warning" value="아이디 중복 확인" onclick="idcheck()"></span></label> 
 				           </div>
                            <div class="form-group">
                               <label>Password <span class="text-danger">*</span></label>
-                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="6~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요">
+                              <input id="PASSWORD" name="PASSWORD" type="password" class="form-control" placeholder="6~12자리의 영문 대소문자와 숫자">
                            </div>
 						   <div class="form-group">
                               <label>Password Reconfirm <span class="text-danger">*</span>  <font name="check" size="2" color="red"></font></label>
@@ -174,17 +258,19 @@
                            </div> 
                            <div class="form-group">
                               <label>Full Name <span class="text-danger">*</span></label>
-                              <input id="NAME" name="NAME" type="text" class="form-control" placeholder="Base form : 박보검">
+                              <input id="NAME" name="NAME" type="text" id="NAME" class="form-control" placeholder="Base form : 박보검">
                            </div>
                            <div class="form-group">
                               <label>Mobile Number <span class="text-danger">*</span></label>
-                              <input id="PHONE" name="PHONE" type="text" class="form-control" placeholder="010-1234-5678">
+                              <input id="PHONE" name="PHONE" type="text" id="PHONE" class="form-control" placeholder="010-1234-5678">
                            </div>
                            <!-- 관심지역 -->
                            <div class="form-group">
                         	<!-- <input type="hidden" name="LOCAL_SEQ" value="dummy_id"> -->
-								<label> INTEREST LOCATION : <span class="text-danger">*</span></label>
+								<label> INTEREST LOCATION : <span class="text-danger">*</span>
+								<p>관심 지역을 1곳 이상 선택하세요</p></label>
 								<div id=localDIV></div>
+							<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc">	
 							</div>
                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
