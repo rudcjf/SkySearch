@@ -54,8 +54,6 @@
 		where EMAIL=#{EMAIL} and ENABLE='Y'
 	</select>
 
-
-
 	<insert id="merge" parameterType="Map">
 		INSERT INTO
 		skysearch.ss_member(
@@ -64,7 +62,6 @@
 		,PASSWORD
 		,NAME
 		,PHONE
-		,ENABLE
 		,REGISTER_SEQ
 		,REGISTRY_DATE
 		,MODIFIER_SEQ
@@ -76,9 +73,7 @@
 		, #{PASSWORD}
 		, #{NAME}
 		, #{PHONE}
-		, #{ENABLE}
-		,
-		#{REGISTER_SEQ}
+		, #{REGISTER_SEQ}
 		, now()
 		, #{MODIFIER_SEQ}
 		, now() )

@@ -24,6 +24,9 @@
 									.each(
 											data,
 											function(i, item) {
+												if(item.LOCAL_SEQ=="dummy_loc"){
+													return true;
+												}
 												formTag += "<label class='checkbox-inline'>";
 												formTag += '<input type=checkbox name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
 														+ item.LOCAL_NAME;
@@ -33,8 +36,10 @@
 						} else {
 							$
 									.each(
-											data,
-											function(i, item) {
+											data,											function(i, item) {
+												if(item.LOCAL_SEQ=="dummy_loc"){
+													return true;
+												}
 												if(checkitem.indexOf(item.LOCAL_SEQ)!=-1){	
 												formTag += "<label class='checkbox-inline'>";
 												formTag += '<input type=checkbox checked="checked" name="LOCAL_SEQ" value="'+item.LOCAL_SEQ+'">'
@@ -87,16 +92,16 @@
 							<div class="form-group">
 								<label>Member ID :</label> <input type="email"
 									class="form-control" name="EMAIL" value="${resultMap.EMAIL}"
-									readonly>
+									>
 							</div>
 							<div class="form-group">
 								<label>Name :</label> <input type="text" class="form-control"
-									name="NAME" value="${resultMap.NAME}" readonly>
+									name="NAME" value="${resultMap.NAME}" >
 							</div>
 							<div class="form-group">
 								<label>PASSWORD :</label> <input type="password"
 									class="form-control" name="PASSWORD"
-									value="${resultMap.PASSWORD}" readonly>
+									value="${resultMap.PASSWORD}" >
 							</div>
 							<div class="form-group">
 								<label>Phone :</label> <input type="text" class="form-control"
@@ -105,7 +110,11 @@
 							<div class="form-group">
 								<label> INTEREST LOCATION : </label>
 								<p>관심 지역을 1곳 이상 선택하세요</p>
-								<div id=localDIV></div>
+								<div id=localDIV>
+								</div>
+								<label class='checkbox-inline'>
+								<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc">
+								</label>
 							</div>
 
 							<br>

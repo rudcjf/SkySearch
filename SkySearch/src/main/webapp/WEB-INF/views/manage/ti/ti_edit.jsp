@@ -22,9 +22,9 @@
 	<script>
 
 /* DisableChange */
-function enable() {
+/* function enable() {
 	$('select').attr('disabled', false);
-	}
+	} */
 
 		/* CitySelectBox */
 		var fn_setCityFormTagSelectbox = function(url, id, params) {
@@ -48,7 +48,7 @@ function enable() {
 													
 												});
 							}else{
-								formTag += "<select class='form-control' name='CITY_SEQ' disabled >";
+								formTag += "<select class='form-control' name='CITY_SEQ'  >";
 								
 								$
 								.each(
@@ -100,7 +100,7 @@ function enable() {
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
 						<li><a href="<c:url value='/manage/main/index'/>">Dashboard</a></li>
-						<li><a href="<c:url value='/manage/ti/ti_list'/>">여행정보</a></li>
+						<li><a href="<c:url value='/manage/ti/ci_list'/>">여행정보</a></li>
 						<li class="active">여행정보 입력</li>
 					</ol>
 				</div>
@@ -119,7 +119,7 @@ function enable() {
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
 								style="float: right;"> <input type="submit"
 								class="btn btn-primary" value=도시입력
-								onClick="location.href='<c:url value="/manage/ti/ti_city"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultMap.TRAVEL_SEQ}"/>'"
 								style="float: right;">
 						</div>
 						<div class="card-body">
@@ -127,7 +127,7 @@ function enable() {
 								<div class="row">
 									<div class="col-lg-12 col-md-12 mx-auto">
 										<form role="form" method="POST"
-											action="<c:url value='/manage/ti/merge' />">
+											action="<c:url value='/manage/ti/merge' />" enctype="multipart/form-data">
 											<input type="hidden" name="forwardView"
 												value="/manage/ti/ti_list" />
 											<div class="card padding-card">
@@ -166,14 +166,13 @@ function enable() {
 													</div>
 													<br>
 													<div class="col-12 col-md-9">
-														<input type="file" id="file-input" name="file-input"
-															class="form-control-file">
+														<input type="file" name="ATTACHEDFILES" />
 													</div>
 												</div>
 											</div>
 											<div align="right">
 												
-												<input type="submit" onclick="enable()"
+												<input type="submit"
 													class="btn btn-success" value="입력" />
 
 											</div>

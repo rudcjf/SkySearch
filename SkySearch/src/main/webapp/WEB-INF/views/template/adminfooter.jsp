@@ -61,7 +61,7 @@
           $('#bootstrap-data-table-export').DataTable();
         } );
     </script>
-    
+  
     <script type="text/javascript">
 
 function add_div(){

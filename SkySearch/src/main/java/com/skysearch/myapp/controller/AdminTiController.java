@@ -59,6 +59,8 @@ public class AdminTiController {
 			service.saveCountry(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
+		} else if ("ti_cilist".equalsIgnoreCase(action)) {
+			resultList = (List<Object>) service.getCiList(paramMap);
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
