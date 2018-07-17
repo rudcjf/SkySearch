@@ -6,6 +6,36 @@
 
 <mapper namespace="travel">
 	
+	<!-- 회원의 관심지역 도시 리스트 가져오기 -->
+	<select id="citylist" resultType="Map" parameterType="Map">
+		SELECT 
+		ci.CITY_NAME, 
+		ci.CITY_ADD,
+		ci.CITY_SEQ, 
+		com.SS_STAR
+		FROM 
+		SS_MEMBER mem, 
+		SS_INT_LOCAL intlo, 
+		SS_LOCAL lo, 
+		SS_COUNTRY co, 
+		SS_CITY ci, 
+		SS_COMMENT com
+		WHERE 
+		mem.MEMBER_SEQ = intlo.MEMBER_SEQ
+		AND 
+		intlo.LOCAL_SEQ = lo.LOCAL_SEQ
+		AND 
+		lo.LOCAL_SEQ = co.LOCAL_SEQ
+		AND 
+		co.COUNTRY_SEQ = ci.COUNTRY_SEQ
+		AND 
+		ci.CITY_SEQ = com.CITY_SEQ
+		AND 
+		ci.CITY_VIEWS
+		AND 
+		mem.EMAIL = #{EMAIL}		
+	</select>
+	
 	<!-- 도시에 대한 조회수를 1증가시킨다. -->
 	<update id="view" parameterType="Map">
 		UPDATE SS_CITY
@@ -16,16 +46,18 @@
 	<!-- 도시에 대한 정보를 처음 가져온다. -->
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT
-		CITY_SEQ, <!-- 도시 시퀀스 --> 
-		CITY_NAME, <!-- 도시 이름 -->
-		CITY_ADD, <!-- 도시 주소 --> 
-		CITY_LATITUDE, <!-- 위도 -->
-		CITY_LONGITUDE, <!-- 경도 -->
-		CITY_VIEWS <!-- 조회수 -->
+			*
 		FROM 
 		SS_CITY
 		WHERE
 		CITY_SEQ = #{CITY_SEQ}
+	</select>
+	
+	<!-- 로그인한 멤버의 시퀀스를 가져온다. -->
+	<select id="member" resultType="Map" parameterType="Map">
+		SELECT MEMBER_SEQ
+		FROM SS_MEMBER
+		WHERE EMAIL = #{EMAIL}
 	</select>
 	
 	<!-- 관광지 정보에 대한 리스트를 가져온다. -->
@@ -67,6 +99,7 @@
 		SELECT 
 		m.NAME AS MEMBER_NAME, 
 		m.MEMBER_SEQ,
+		m.EMAIL AS MEMBER_EMAIL,
 		c.COMMENT_SEQ,
 		c.COMMENT_CON, 
 		c.SS_STAR, 

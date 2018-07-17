@@ -15,6 +15,15 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
+	// read화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기(조회수별 상위6개)
+	public Object getCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.citylist";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
 	// 도시정보 가져오기
 	public Object getObject(Map<String, Object> dataMap) {
 		
@@ -27,6 +36,15 @@ public class TravelService {
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		return resultObject;
 	
+	}
+	
+	// 멤버시퀀스 가져오기
+	public Object getMemberSeq(Map<String, Object> dataMap) {
+		
+		String sqlMapId = "travel.member";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		return resultObject;
+		
 	}
 	
 	// 댓글 리스트 가져오기

@@ -35,6 +35,7 @@ public class TravelController {
 		String viewName = MAPPING + action ;
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+		Map<String, Object> resultMemberMap = new HashMap<String, Object>();
 		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 		List<Object> resultCommentList = new ArrayList<Object>();
@@ -42,6 +43,8 @@ public class TravelController {
 		
 		// 여행정보 메인화면
 		if ("main".equalsIgnoreCase(action)) {
+			
+			resultList = (List<Object>) service.getCityList(paramMap);
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("paramMap", paramMap);
@@ -52,6 +55,7 @@ public class TravelController {
 		} else if ("read".equalsIgnoreCase(action)) {
 			
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap);
 			resultCommentList = (List<Object>) service.getCommentList(paramMap);
 			resultLanmarkList = (List<Object>) service.getLandmarkList(paramMap);
 			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap);
@@ -59,6 +63,7 @@ public class TravelController {
 			modelandView.setViewName(viewName);
 			modelandView.addObject("paramMap", paramMap);
 			modelandView.addObject("resultMap", resultMap);
+			modelandView.addObject("resultMemberMap", resultMemberMap);
 			modelandView.addObject("resultCommentList", resultCommentList);
 			modelandView.addObject("resultLandmarkList", resultLanmarkList);
 			modelandView.addObject("resultPaginationMap", resultPaginationMap);
