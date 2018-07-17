@@ -15,6 +15,7 @@
 		<put-attribute name="layout.footer"
 			value="/WEB-INF/views/template/footer.jsp" />	
    	</definition>
+   	
 	<!-- Admin template -->
 	<definition name="layout.admin" template="/WEB-INF/views/template/layout_admin.jsp">
 		<put-attribute name="layout.adminheader"
@@ -41,14 +42,11 @@
 	<definition name="/*/*" extends="layout.user">
 		<put-attribute name="layout.title" value="{1} > {2}" />
 		<put-attribute name="layout.body" value="/WEB-INF/views/{1}/{2}.jsp" />
-	</definition>
+	</definition>	
 	
-	
-	
-	<!-- <definition name="*/*" template="/WEB-INF/views/template/layout_popup.jsp">
+	<definition name="*/*" template="/WEB-INF/views/template/layout_popup.jsp">
 		<put-attribute name="layout.title" value="{1} > {2}" />
 		<put-attribute name="layout.body" value="/WEB-INF/views/{1}/{2}.jsp" />
-	</definition> -->
-
+	</definition>
 	
 </tiles-definitions>

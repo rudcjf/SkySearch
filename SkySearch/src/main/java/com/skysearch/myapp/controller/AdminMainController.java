@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skysearch.myapp.service.MemberService;
+import com.skysearch.myapp.service.AdminMainService;
 
 
 
@@ -28,7 +28,7 @@ public class AdminMainController {
 	private final static String MAPPING = "/manage/main/";
 	
 	@Autowired
-	private MemberService service;
+	private AdminMainService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
@@ -42,6 +42,7 @@ public class AdminMainController {
 
 		// divided depending on action value
 		if ("index".equalsIgnoreCase(action)) {
+			resultList = (List<Object>) service.getList(paramMap);
 		}
 		
 		if(forwardView != null){

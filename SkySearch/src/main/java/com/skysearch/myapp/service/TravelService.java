@@ -15,6 +15,16 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
+	// read화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기(조회수별 상위6개)
+	public Object getCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.citylist";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 도시정보 가져오기
 	public Object getObject(Map<String, Object> dataMap) {
 		
 		// 클릭시 그 도시의 조회수 증가
@@ -28,26 +38,60 @@ public class TravelService {
 	
 	}
 	
+	// 멤버시퀀스 가져오기
+	public Object getMemberSeq(Map<String, Object> dataMap) {
+		
+		String sqlMapId = "travel.member";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 댓글 리스트 가져오기
 	public Object getCommentList(Object dataMap) {
 		
-		// 댓글 리스트 가져오기
 		String sqlMapId = "travel.comment";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 
 	}
 	
+	// 댓글 쓰기
 	public void setComment(Object dataMap) {
 		
-		// 댓글 쓰기
 		String sqlMapId = "travel.setcomment";
 		dao.insertObject(sqlMapId, dataMap);
 		
 	}
 	
+	// 댓글 가져오기
+	public Object modCommentSet(Object dataMap) {
+
+		String sqlMapId = "travel.modcommentset";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 댓글 수정하기
+	public void modComment(Object dataMap) {
+		
+		String sqlMapId = "travel.modcomment";
+		dao.updateObject(sqlMapId, dataMap);
+		
+	}
+	
+	// 댓글 지우기
+	public void delComment(Object dataMap) {
+		
+		String sqlMapId = "travel.delcomment";
+		dao.deleteObject(sqlMapId, dataMap);
+		
+	}
+	
+	// 관광지 리스트 가져오기
 	public Object getLandmarkList(Object dataMap) {
 		
-		// 관광지 리스트 가져오기
 		String sqlMapId = "travel.landmark";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!-- Navbar -->
-   <header>
+   <header>   
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
            <div class="container">
                <a class="navbar-brand text-success logo" href="<c:url value='/'/>" style="font-size:30px;">
@@ -21,17 +21,16 @@
                      aria-haspopup="true" aria-expanded="false"> <strong>항공권 특가</strong> </a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="<c:url value='/tripInfo/main'/>" id="navbarDropdownPortfolio" 
+                       	  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                           <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <form>
                         <li class="nav-item">
                           <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                            <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
                            </a>
                         </li>
-                        </form>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
@@ -40,12 +39,12 @@
                      </ul>   
                    
                      <div class="my-2 my-lg-0">
-                       <ul class="list-inline main-nav-right" style="margin-top:10px;">
-                            <li class="list-inline-item">
+                       <ul class="list-inline main-nav-right"> <!-- style="margin-top:10px;" -->
+                           <!--  <li class="list-inline-item">
                               <form action="/action_page.php" >
                              	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                               </form>
-                             </li>
+                             </li> -->
                              <li class="list-inline-item">
                                  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                                  <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/signup' : 'principalName'}>
@@ -56,7 +55,7 @@
                                  </c:choose></a>
                               </li>
                              <li class="list-inline-item">
-                                <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                                <c:set var="principalName" value="${pageContext.request.userPrincipal.name}"  /> 
                                 <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/login' : '/SkySearch/j_spring_security_logout' }>
                                 <i class="mdi mdi-login"></i>${principalName == null ? 'Login' : 'Logout' }</a>
                               </li>

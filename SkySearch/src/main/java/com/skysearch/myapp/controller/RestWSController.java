@@ -61,7 +61,7 @@ public class RestWSController {
 		return resultObject;
 	  }
 
-	// 援�媛� �젙蹂� 媛��졇�삤�뒗 硫붿꽌�뱶
+	// 국가 목록 가져오기
 	@RequestMapping(value = "/ws/countyList", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public @ResponseBody Map<String, Object> Country(@RequestParam Map<String, Object> paramMap) {
 		
@@ -74,7 +74,7 @@ public class RestWSController {
 		return resultMap;
 	}
 	
-	// �룄�떆 �젙蹂� 媛��졇�삤�뒗 硫붿꽌�뱶
+	// 도시 목록 가져오기
 	@RequestMapping(value = "/ws/cityList", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public @ResponseBody Map<String, Object> City(@RequestParam Map<String, Object> paramMap) {
 		
@@ -87,7 +87,7 @@ public class RestWSController {
 		return resultMap;
 	}
 	
-	// �뙎湲� �엯�젰�븯�뒗 硫붿꽌�뱶
+	// 댓글 입력하는 메서드
 	@RequestMapping(value = "/ws/commentSet", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public void CommentSet(@RequestParam Map<String, Object> paramMap) {
 		
@@ -95,8 +95,21 @@ public class RestWSController {
 		List<Map> resultList = new ArrayList<>();
 		
 		paramMap.put("COMMENT_SEQ", commonUtil.getUniqueSequence());
-		paramMap.put("MEMBER_SEQ", "SYSUID-SS066"); // �엫�쓽濡� �꽔�뼱�넃�� 硫ㅻ쾭�떆���뒪 媛�
 		travelService.setComment(paramMap);
+	}
+	
+	// 댓글 수정하는 메서드
+	@RequestMapping(value = "/ws/commentMod", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void CommentMod(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.modComment(paramMap);
+	}
+	
+	// 댓글 삭제하는 메서드
+	@RequestMapping(value = "/ws/commentDel", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void CommentDel(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.delComment(paramMap);
 	}
 	
 }
