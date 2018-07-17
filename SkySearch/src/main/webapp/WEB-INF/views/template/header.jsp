@@ -30,22 +30,21 @@
 <%--  <link type="text/css" href="<c:url value='/resources/css/style.css'/>"rel="stylesheet" > --%>  
  
  
-  <!-- JavaScript -->
-   <!-- Bootstrap core JavaScript -->
+      <!-- JavaScript -->
+      <!-- Bootstrap core JavaScript -->
       <script type="text/javascript" src="<c:url value='/resources/vendor/jquery/jquery.min.js' />"></script>
       <script type="text/javascript" src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js' />"></script>
-   <!-- Contact form JavaScript -->
+      <!-- Contact form JavaScript -->
       <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
       <script type="text/javascript" src="<c:url value='/resources/js/jqBootstrapValidation.js' />"></script>
       <script type="text/javascript" src="<c:url value='/resources/js/contact_me.js' />"></script>
-   <!-- select2 Js -->
+      <!-- select2 Js -->
       <script type="text/javascript" src="<c:url value='/resources/vendor/select2/js/select2.min.js' />"></script>
-   <!-- Custom -->
+      <!-- Custom -->
       <script type="text/javascript" src="<c:url value='/resources/js/custom.js' />"></script>
+      <!-- 공통 모달창 -->
+   	  <script type="text/javascript" src="<c:url value='/resources/js/common.js' />"></script>
+   <!-- top/bottom 버튼, made by MC -->
+    <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>"	rel="stylesheet" /> 
       <!-- updown 스크롤 -->
       <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.12.4.min.js' />"></script>
-
-  
-	 
-      
-   

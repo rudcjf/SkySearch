@@ -154,26 +154,24 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<form action="<c:url value='/tripInfo/read'/>" method="POST">
-								<img class="card-img-top"
-									src="<c:url value='/resources/img/blog/tokyo1.jpg'/>"
-									alt="Card image cap">
+							<!-- 도시 시퀀스 값을 가져와서 화면에 뿌려줘야 한다. -->
+							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=CI001">
+							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <small
-										class="text-success">2/5</small>
+									<span class="badge badge-white"> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i>
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<small class="text-success">2/5</small>
 									</span>
 									<h6>
 										<input type="hidden" name="CITY_SEQ" value="CI001">도쿄
 									</h6>
 									<p class="mb-0">일본</p>
 								</div>
-								<button type="submit" class="btn btn-success">정보 보기</button>
-							</form>
+							 </a>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">

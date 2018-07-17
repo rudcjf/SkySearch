@@ -40,11 +40,34 @@
 		CITY_SEQ = #{CITY_SEQ}
 	</select>
 	
+	<!-- 댓글 수정을 위한 값을 가져온다. -->
+	<select id='modcommentset' resultType="Map" parameterType="Map">
+		SELECT 
+		COMMENT_CON,
+		COMMENT_SEQ,
+		SS_STAR
+		FROM 
+		SS_COMMENT
+		WHERE 
+		COMMENT_SEQ = #{COMMENT_SEQ}
+	</select>
+	
+	<update id="modcomment" parameterType="Map">
+		UPDATE 
+		SS_COMMENT
+		SET 
+		COMMENT_CON = #{COMMENT_CON}, 
+		SS_STAR = #{SS_STAR}
+		WHERE 
+		COMMENT_SEQ = #{COMMENT_SEQ}
+	</update>
+	
 	<!-- 댓글에 대한 리스트를 가져온다. -->
 	<select id='comment' resultType="Map" parameterType="Map">
 		SELECT 
 		m.NAME AS MEMBER_NAME, 
 		m.MEMBER_SEQ,
+		c.COMMENT_SEQ,
 		c.COMMENT_CON, 
 		c.SS_STAR, 
 		c.REGISTRY_DATE
@@ -53,26 +76,23 @@
 		WHERE 
 		m.MEMBER_SEQ = c.MEMBER_SEQ
 		AND 
-		c.CITY_SEQ = #{CITY_SEQ}   
+		c.CITY_SEQ = #{CITY_SEQ}
+		ORDER BY c.REGISTRY_DATE DESC 
 	</select>
 	
 	<!-- 페이징 -->
 	<select id="listpagination" resultType="Map" parameterType="Map">
-		select result.*
-		from (
-		select rownum as rn, member.*
-		from ( select * from CIP_MEMBER
-		order by NAME ) member 
-		) result
-		where result.rn between #{pagination.pageBegin} and #{pagination.pageEnd}
+		SELECT *
+		FROM SS_COMMENT
+		LIMIT #{pagination.pageBegin}, #{pagination.pageEnd}
 	</select>
 	
 	<!-- 댓글의 갯수 가져오기 -->
 	<select id="totalcount" resultType="integer" parameterType="Map">
 		SELECT 
-		count(MEMBER_SEQ)
+		count(COMMENT_SEQ)
 		FROM 
-		SS_MEMBER
+		SS_COMMENT
 	</select>
 	<!-- 페이징 끝 -->
 	
@@ -92,8 +112,13 @@
 		#{MEMBER_SEQ},
 		now()
 		)
-		
 	</insert>
+	
+	<!-- 댓글 지우기 -->
+	<delete id="delcomment" parameterType="Map">
+		DELETE FROM SS_COMMENT
+		WHERE COMMENT_SEQ = #{COMMENT_SEQ}
+	</delete>
 	
 	<!-- 셀렉트 박스에서 입력된 대륙에 해당하는 국가를 가져온다. -->
 	<select id="country" resultType="Map" parameterType="Map">

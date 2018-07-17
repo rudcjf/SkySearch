@@ -99,5 +99,19 @@ public class RestWSController {
 		travelService.setComment(paramMap);
 	}
 	
+	// 댓글 수정하는 메서드
+	@RequestMapping(value = "/ws/commentMod", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void CommentMod(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.modComment(paramMap);
+	}
+	
+	// 댓글 삭제하는 메서드
+	@RequestMapping(value = "/ws/commentDel", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void CommentDel(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.delComment(paramMap);
+	}
+	
 }
 
