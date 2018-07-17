@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS SS_COUNTRY;
 DROP TABLE IF EXISTS SS_INT_LOCAL;
 DROP TABLE IF EXISTS SS_LOCAL;
 DROP TABLE IF EXISTS SS_MEMBER;
-DROP TABLE IF EXISTS SS_SALE_INFO;
 
 
 
@@ -32,14 +31,10 @@ CREATE TABLE SS_ATTACHFILE
 	ORGINALFILE_NAME varchar(200) NOT NULL,
 	-- 첨부 파일명
 	PHYSICALFILE_NAME varchar(200) NOT NULL,
-	-- 썸네일 첨부파일명
-	THUMBNAIL_NAME varchar(500),
 	-- 첨부파일 저장경로
 	ATTACHFILE_PATH varchar(500),
 	-- 첨부파일 크기
 	ATTACHFILE_SIZE decimal,
-	ATTACHFILE_HEIGHT decimal,
-	ATTACHFILE_WIDTH decimal,
 	-- 등록자SEQ
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
@@ -47,9 +42,6 @@ CREATE TABLE SS_ATTACHFILE
 	MODIFIER_SEQ varchar(40) NOT NULL,
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
-	SALE_SEQ varchar(80),
-	CITY_SEQ varchar(80),
-	TRAVEL_SEQ varchar(80),
 	PRIMARY KEY (ATTACHFILE_SEQ)
 );
 
@@ -98,7 +90,8 @@ CREATE TABLE SS_CITY
 	-- 경도
 	CITY_LONGITUDE varchar(1000),
 	-- 도시별 여행 정보 조회수
-	CITY_VIEWS int,
+	CITY_VIEWS int DEFAULT 0,
+	CITY_ENAME varchar(1000),
 	PRIMARY KEY (CITY_SEQ)
 );
 
@@ -116,7 +109,7 @@ CREATE TABLE SS_COMMENT
 	COMMENT_CON varchar(1000),
 	-- 사용여부
 	ENABLE varchar(10),
-	SS_STAR varchar(20),
+	SS_STAR int,
 	-- 등록자SEQ
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
@@ -172,17 +165,15 @@ CREATE TABLE SS_MEMBER
 	-- 회원시퀀스
 	MEMBER_SEQ varchar(80) NOT NULL,
 	-- 이메일
-	EMAIL varchar(50),
+	EMAIL varchar(50) NOT NULL,
 	-- 패스워드
-	PASSWORD varchar(30),
+	PASSWORD varchar(30) NOT NULL,
 	-- 이름
-	NAME varchar(20),
+	NAME varchar(20) NOT NULL,
 	-- 핸드폰
-	PHONE varchar(40),
-	-- 관심지역
-	INT_LOCAL varchar(60),
+	PHONE varchar(40) NOT NULL,
 	-- 사용여부
-	ENABLE varchar(10),
+	ENABLE varchar(10) DEFAULT 'Y' NOT NULL,
 	-- 등록자SEQ
 	REGISTER_SEQ varchar(50) NOT NULL,
 	-- 등록일자
@@ -191,39 +182,6 @@ CREATE TABLE SS_MEMBER
 	-- 수정일자
 	MODIFY_DATE varchar(20) NOT NULL,
 	PRIMARY KEY (MEMBER_SEQ)
-);
-
-
--- 특가정보
-CREATE TABLE SS_SALE_INFO
-(
-	-- 특가시퀀스
-	SALE_SEQ varchar(80) NOT NULL,
-	-- 항공사
-	AIRLINE varchar(30),
-	-- 항공사링크
-	AIRLINE_LINK varchar(500),
-	-- 특가시작일
-	START_DATE date,
-	-- 특가종료일
-	END_DATE date,
-	TITLE varchar(100),
-	CONTENTS varchar(1000),
-	CITIES varchar(100),
-	-- 가격
-	PRICE varchar(100),
-	-- 특가정보 조회수
-	VIEWS int,
-	-- 광고유무
-	AD varchar(10),
-	-- 등록자SEQ
-	REGISTER_SEQ varchar(50) NOT NULL,
-	-- 등록일자
-	REGISTRY_DATE varchar(20) NOT NULL,
-	MODIFIER_SEQ varchar(40) NOT NULL,
-	-- 수정일자
-	MODIFY_DATE varchar(20) NOT NULL,
-	PRIMARY KEY (SALE_SEQ)
 );
 
 

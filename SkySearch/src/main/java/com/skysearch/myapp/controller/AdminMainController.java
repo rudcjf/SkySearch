@@ -42,7 +42,7 @@ public class AdminMainController {
 
 		// divided depending on action value
 		if ("index".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.getList(paramMap);
+			/*resultList = (List<Object>) service.getList(paramMap);*/
 		}
 		
 		if(forwardView != null){
