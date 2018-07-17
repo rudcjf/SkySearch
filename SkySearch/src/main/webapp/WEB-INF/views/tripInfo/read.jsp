@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!-- Property Single Slider header -->
@@ -115,18 +114,19 @@
 			<div class="col-lg-12 col-md-12">
 				<div class="card padding-card reviews-card">
 					<div class="card-body">
-					
 						<!-- 댓글 리스트 : 최신이 위로 뜨게 함 -->
+						<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
 						<c:forEach items="${resultCommentList}" var="resultData" varStatus="loop">
 							<div class="media mb-4" id="commentList">
 								<div class="media-body">
 									<h5 class="mt-0">
-									${resultData.MEMBER_NAME} 
+									${resultData.MEMBER_NAME}
+												<c:if test="${resultData.MEMBER_EMAIL==principalName}"> 
 												<span><small>${resultData.REGISTRY_DATE}&nbsp;
 												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="ModComment1(this.value);">수정</button>&nbsp;
 												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="DelComment(this.value);">삭제</button>
-													  </small></span>
-										
+												</small></span>
+												</c:if>
 										<c:choose>
 											<c:when test="${resultData.SS_STAR == 1}">
 												<span class="star-rating float-right"> <i
@@ -212,6 +212,7 @@
 						function SetComment(cityseq) { // 도시시퀀스를 파라미터로 가져오고
  				         	var star = $('#star').val(); // 셀렉트박스의 평점 저장
 				            var comment = $('#comment').val(); // 텍스트에어리어의 내용 저장
+				            var memseq = $('#memseq').val(); // 멤버시퀀스 저장
 				            
 							$.ajax({
 									type : "GET", // 값을 보낼 방식
@@ -219,8 +220,8 @@
 									data : { // 서버에 보낼 데이터 (key, value형식)
 										"SS_STAR" : star,
 										"COMMENT_CON" : comment,
-										"CITY_SEQ" : cityseq
-										/* 멤버 시퀀스도 추가 해야 함 */
+										"CITY_SEQ" : cityseq,
+										"MEMBER_SEQ" : memseq
 									},
 									success : function() { 
 										alert('댓글이 입력되었습니다.');
@@ -268,14 +269,13 @@
 						}
 						</script>
 
-						<hr>		
-							<form id="commentForm" name="commentForm" method="POST">
+						<hr>	
+							<form id="commentForm" name="commentForm" method="GET">
 								<div class="row">
 									<div class="col-lg-12 col-md-12">
 										<div class="row">
 											<div class="col-lg-2 col-md-2">
 												<select class="form-control custom-select" id="star">
-													<option value="0">==별점 선택==</option>
 													<option value="5">★★★★★</option>
 													<option value="4">★★★★☆</option>
 													<option value="3">★★★☆☆</option>
@@ -283,12 +283,12 @@
 													<option value="1">★☆☆☆☆</option>
 												</select>
 											</div>
+												<input type="hidden" id="memseq" value="${resultMemberMap.MEMBER_SEQ}"/>
 											<div class="col-lg-9 col-md-9">
 												<textarea rows="3" cols="50" class="form-control" name="contents" placeholder="댓글을 입력하세요. 불괘감을 주는 욕설과 악플은 삭제될 수 있습니다." id="comment" onkeyup="countContents(this)"></textarea>
 											</div>
 											<div class="col-lg-1 col-md-1">
 												<span><span id="comentCount">0</span>/500</span>
-												<c:set var="cityseq">${resultMap.CITY_SEQ}</c:set>
 												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}">등록</button>
 											</div>
 										</div>
