@@ -24,6 +24,13 @@ public class AdminTiService {
 
 		return resultObject;
 	}
+	public Object getCiList(Object dataMap) {
+		String sqlMapId = "ti.cilist";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+
+		return resultObject;
+	}
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "ti.read";
@@ -33,23 +40,23 @@ public class AdminTiService {
 		return resultObject;
 	}
 
-	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("TRAVEL_SEQ");
+	public Object saveObject(Map<Object, Object> paramMap) {
+		String uniqueSequence = (String) paramMap.get("TRAVEL_SEQ");
 
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
-			dataMap.put("TRAVEL_SEQ", uniqueSequence);
+			paramMap.put("TRAVEL_SEQ", uniqueSequence);
 		}
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		
 		String sqlMapId = "ti.merge";
 
-		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 		System.out.println((int)resultKey);
 		sqlMapId = "ti.list";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Object resultObject = dao.getList(sqlMapId, paramMap);
 
 		return resultObject;
 	}
@@ -69,46 +76,46 @@ public class AdminTiService {
 
 		return resultObject;
 	}
-	public Object saveCity(Map<String, Object> dataMap) {
+	public Object saveCity(Map<Object, Object> paramMap) {
 		
-			String uniqueSequence = (String) dataMap.get("CITY_SEQ");
+			String uniqueSequence = (String) paramMap.get("CITY_SEQ");
 			
 			
 			if ("".equals(uniqueSequence)) {
 				uniqueSequence = commonUtil.getUniqueSequence();
-				dataMap.put("CITY_SEQ", uniqueSequence);
+				paramMap.put("CITY_SEQ", uniqueSequence);
 			}
 			
 			String sqlMapId = "ti.citymerge";
-			Object resultKey = dao.saveObject(sqlMapId, dataMap);
+			Object resultKey = dao.saveObject(sqlMapId, paramMap);
 									
 			
 		
 		System.out.println((int)resultKey);
 		sqlMapId = "ti.read";
 		
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, paramMap);
 		return resultObject;
 		
 
 	}
-	public Object saveCountry(Map<String, Object> dataMap) {
+	public Object saveCountry(Map<Object, Object> paramMap) {
 		
 		
-		String uniqueSequence = (String) dataMap.get("COUNTRY_SEQ");
+		String uniqueSequence = (String) paramMap.get("COUNTRY_SEQ");
 		
 		
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
-			dataMap.put("COUNTRY_SEQ", uniqueSequence);
+			paramMap.put("COUNTRY_SEQ", uniqueSequence);
 		}
 		
 		String sqlMapId = "ti.countrymerge";
-		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 	
 		sqlMapId = "ti.read";
 	
-	Object resultObject = dao.getObject(sqlMapId, dataMap);
+	Object resultObject = dao.getObject(sqlMapId, paramMap);
 	return resultObject;
 	
 

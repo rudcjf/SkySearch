@@ -32,7 +32,7 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/ti/ti_list'/>" > <i class="menu-icon fa fa-th"></i>여행정보 관리</a>
+                        <a href="<c:url value='/manage/ti/ti_cilist'/>" > <i class="menu-icon fa fa-th"></i>여행정보 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>
                     </li>

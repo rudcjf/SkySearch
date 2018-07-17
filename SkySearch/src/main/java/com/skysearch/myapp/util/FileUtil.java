@@ -30,7 +30,7 @@ public class FileUtil {
 			String fileName = multiFileList.next();
 			MultipartFile multiFile = multipartRequest.getFile(fileName);
 			String multiFileName = FileUtil.getNewFileName(multiFile.getOriginalFilename());
-			String attachFileName = "C://Users//student//git//SkySearch//SkySearch//src//main//webapp//resources//uploads//"
+			String attachFileName = "C:\\Users\\student\\Documents\\git\\SkySearch\\SkySearch\\src\\main\\webapp\\resources\\uploads\\"
 					+ multiFileName;
 			String fileSize = multiFile.getSize() + "";// 1KByte -> 1048)
 			String fileContentType = multiFile.getContentType(); // jpg ->images/JPEG
@@ -41,19 +41,20 @@ public class FileUtil {
 				fileMap.put("ATTACHFILE_SEQ", commonUtil.getUniqueSequence()); // 첨부파일 일련번호
 				fileMap.put("SOURCE_UNIQUE_SEQ", commonUtil.getUniqueSequence()); // 첨부파일 일련번호
 				fileMap.put("PHYSICALFILE_NAME", multiFileName); // 원본레코드 UNIQUE SEQ
-				 fileMap.put("ATTACHFILE_TYPE", fileContentType); // 첨부파일 유형
+				fileMap.put("ATTACHFILE_TYPE", fileContentType); // 첨부파일 유형
 				fileMap.put("ORGINALFILE_NAME", multiFile.getOriginalFilename()); // 원본 파일명
 				fileMap.put("PHYSICALFILE_NAME", attachFileName); // 첨부 파일명
 //				 fileMap.put("THUMBNAIL_NAME", value); // 썸네일 첨부파일명
-				fileMap.put("ATTACHFILE_PATH", attachFileName);
-				// 첨부파일 저장경로
-				 fileMap.put("ATTACHFILE_SIZE", fileSize); // 첨부파일 크기
+				fileMap.put("ATTACHFILE_PATH", attachFileName);// 첨부파일 저장경로
+				fileMap.put("ATTACHFILE_SIZE", fileSize); // 첨부파일 크기
+				//fileMap.put("REGISTER_SEQ", value); //등록자SEQ
 				// fileMap.put("ATTACHFILE_HEIGHT", value); // 파일 높이
 				// fileMap.put("ATTACHFILE_WIDTH", value);
 				// 파일 폭
 				/*
-				 * fileMap.put("REGISTER_SEQ", value); //등록자SEQ fileMap.put("REGISTRY_DATE",
-				 * value); //등록일자 fileMap.put("MODIFIER_SEQ", value); //수정자_SEQ
+				 * fileMap.put("REGISTER_SEQ", value); //등록자SEQ 
+				 * fileMap.put("REGISTRY_DATE",value); //등록일자
+				 * fileMap.put("MODIFIER_SEQ", value); //수정자_SEQ
 				 * fileMap.put("MODIFIER_DATE", value); //수정일자
 				 */ fileList.add(fileMap);
 			} catch (Exception e) {

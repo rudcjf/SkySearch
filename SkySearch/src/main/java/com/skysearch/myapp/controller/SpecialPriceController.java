@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skysearch.myapp.service.CrawlService;
 import com.skysearch.myapp.service.MemberService;
 
 
@@ -22,7 +23,7 @@ public class SpecialPriceController {
 	private final static String MAPPING = "/specialPrice/";
 	
 	@Autowired
-	private MemberService service;
+	private CrawlService crawlService;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
@@ -36,7 +37,7 @@ public class SpecialPriceController {
 
 		// divided depending on action value
 		if ("main".equalsIgnoreCase(action)) {
-			//**특가 메인 데이터 가져오기
+			resultList = (List<Object>) crawlService.getListMIT(paramMap);
 			
 		} 
 		else if ("read".equalsIgnoreCase(action)) {

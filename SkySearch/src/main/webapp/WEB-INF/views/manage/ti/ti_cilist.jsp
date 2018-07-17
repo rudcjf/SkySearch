@@ -120,28 +120,29 @@
 									<div class="card-body">
 										<!-- Centered Tabs -->
 										<ul class="nav nav-tabs nav-justified">
-											<li class="nav-item"><a class="nav-link "
-												href="<c:url value='/manage/ti/ti_cilist'/>">국가목록</a></li>
 											<li class="nav-item"><a class="nav-link active"
+												href="<c:url value='/manage/ti/ti_cilist'/>">국가목록</a></li>
+											<li class="nav-item"><a class="nav-link"
 												href="<c:url value='/manage/ti/ti_list'/>">관광지목록</a></li>
 										</ul>
 									</div>
-									<!-- 관광지TAB -->
+									<!-- 도시TAB -->
+
 									<!-- Table -->
 									<div id="bootstrap-data-table_wrapper"
 										class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 										<table class="table table-striped table-bordered table-hover"
 											id="bootstrap-data-table">
 											<thead>
-												<tr>													
-													<th>관광지명</th>
-													<th>도시명</th>
-													<th>설명</th>
-													<th>주소</th>
-													<th>등록자</th>
-													<th>등록날짜</th>
-													<th></th>
+												<tr>
 													
+													<th>도시명</th>
+													<th>국가</th>
+													<th>위도</th>
+													<th>경도</th>
+													<th>주소</th>
+													<th>조회수</th>
+													<th></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -149,30 +150,23 @@
 													varStatus="loop">
 													<tr
 														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-														<td><a
-															href="<c:url value="/manage/ti/ti_edit?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
-																${resultData.LANDMARK_NAME}</a></td>
+														
 														<td><a
 															href="<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
 																${resultData.CITY_NAME}</a></td>
-														<td>${resultData.LANDMARK_EXP}</td>
-														<td>${resultData.LANDMARK_ADDR}</td>
-														<td>${resultData.REGISTER_SEQ}</td>
-														<td><a
-															href="<c:url value="/manage/ti/delete?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}&forwardView=/manage/ti/ti_list" />">
-																${resultData.REGISTRY_DATE}</a></td>
+														<td>${resultData.COUNTRY_NAME}</td>
+														<td>${resultData.CITY_LATITUDE}</td>
+														<td>${resultData.CITY_LONGITUDE}</td>
+														<td>${resultData.CITY_ADD}</td>
+														<td>${resultData.CITY_VIEWS}</td>
 														<td><input type="checkbox" class="checkbox"
 															name="TRAVEL_SEQ" value="${resultData.TRAVEL_SEQ}" /></td>
-
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
 									</div>
-
-
 								</div>
-
 							</div>
 						</div>
 					</div>

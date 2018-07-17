@@ -37,9 +37,9 @@ public class CustomizeMethodArgumentResolver implements HandlerMethodArgumentRes
 			while (enumeration.hasMoreElements()) {
 				String key = (String) enumeration.nextElement();
 				String[] values = request.getParameterValues(key);
-				if (values != null) {
-					requestMap.put(key, (values.length > 1) ? values : values[0]);
-				}
+				 if (values != null) {
+				 requestMap.put(key, (values.length > 1) ? values : values[0]);
+				 }
 			}
 
 			if (request instanceof MultipartHttpServletRequest) {

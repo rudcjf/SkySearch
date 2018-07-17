@@ -23,25 +23,35 @@
 		skysearch.ss_member
 		ORDER BY NAME ASC;
 	</select>
-	
-	<select id="read" resultType="Map" parameterType="String">
-		select * from skysearch.ss_member
-		where EMAIL=#{EMAIL}
-	</select>
-	
-	<!-- <select id="read" resultType="Map" parameterType="String"> select member.MEMBER_SEQ, 
-		member.EMAIL, member.PASSWORD, member.NAME, member.PHONE, local.LOCAL_NAME 
-		FROM skysearch.ss_member member left JOIN skysearch.ss_int_local int_local 
-		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local 
-		local ON int_local.local_SEQ = local.local_SEQ where member.EMAIL=#{EMAIL} 
-		</select> -->
 
-	<select id="check" resultType="Map" parameterType="Map">
+	<select id="read" resultType="Map" parameterType="String">
+		select * from
+		skysearch.ss_member
+		where EMAIL=#{EMAIL};
+	</select>
+
+	<select id="intloc" resultType="Map" parameterType="String"> select
+		group_concat(local.LOCAL_SEQ) as LOCAL_SEQ
+		FROM skysearch.ss_member
+		member left JOIN skysearch.ss_int_local int_local
+		ON member.MEMBER_SEQ = int_local.MEMBER_SEQ left JOIN skysearch.ss_local
+		local ON int_local.local_SEQ = local.local_SEQ where
+		member.EMAIL=#{EMAIL}
+	</select>
+
+	<select id="find" resultType="Map" parameterType="Map">
 		select
 		EMAIL,
 		NAME, PHONE, PASSWORD
 		from SS_MEMBER
 		where NAME = #{name}
+	</select>
+
+	<select id="idDoubleCheck" resultType="Map" parameterType="Map">
+		select
+		EMAIL
+		from SS_MEMBER
+		where EMAIL=#{EMAIL} and ENABLE='Y'
 	</select>
 
 	<insert id="merge" parameterType="Map">
@@ -52,7 +62,6 @@
 		,PASSWORD
 		,NAME
 		,PHONE
-		,ENABLE
 		,REGISTER_SEQ
 		,REGISTRY_DATE
 		,MODIFIER_SEQ
@@ -64,9 +73,7 @@
 		, #{PASSWORD}
 		, #{NAME}
 		, #{PHONE}
-		, #{ENABLE}
-		,
-		#{REGISTER_SEQ}
+		, #{REGISTER_SEQ}
 		, now()
 		, #{MODIFIER_SEQ}
 		, now() )
