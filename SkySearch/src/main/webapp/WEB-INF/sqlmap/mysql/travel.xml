@@ -11,8 +11,7 @@
 		SELECT 
 		ci.CITY_NAME, 
 		ci.CITY_ADD,
-		ci.CITY_SEQ, 
-		com.SS_STAR
+		ci.CITY_SEQ
 		FROM 
 		SS_MEMBER mem, 
 		SS_INT_LOCAL intlo, 
@@ -29,11 +28,9 @@
 		AND 
 		co.COUNTRY_SEQ = ci.COUNTRY_SEQ
 		AND 
-		ci.CITY_SEQ = com.CITY_SEQ
-		AND 
-		ci.CITY_VIEWS
-		AND 
-		mem.EMAIL = #{EMAIL}		
+		mem.EMAIL = #{EMAIL}
+		GROUP BY
+		ci.CITY_NAME		
 	</select>
 	
 	<!-- 도시에 대한 조회수를 1증가시킨다. -->
