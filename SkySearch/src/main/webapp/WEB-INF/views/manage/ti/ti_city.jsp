@@ -259,7 +259,7 @@
 										<div class="card-body">
 											<div align="left">
 												<div class="card-body">
-													<div class="form-group col-sm-4">
+													<div class="form-group col-sm-6">
 														<label> 지역 명 : </label>
 														<div id=localDIV></div>
 													</div>
@@ -273,7 +273,7 @@
 													
 													<c:choose>
 														<c:when test="${resultMap.LOCAL_NAME==null}">
-															<div class="form-group col-sm-4">
+															<div class="form-group col-sm-6">
 																<label>국가 명 :</label> <select
 																	class="form-control select2 no-radius" id="country"
 																	name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
@@ -282,18 +282,23 @@
 															</div>
 														</c:when>
 														<c:otherwise>
-															<div class="form-group col-sm-4">
+															<div class="form-group col-sm-6">
 																<label>국가 명 :</label>
 																<div id=countryDIV name="COUNTRY_NAME"></div>
 															</div>
 														</c:otherwise>
 													</c:choose>
 													<!-- JSTL SelectBox 조건문 END -->
-
-													<div class="form-group col-sm-4">
+													<div class="form-group col-sm-6">
 														<label>도시 명 :</label> <input type="text"
 															class="form-control" name="CITY_NAME"
 															value="${resultMap.CITY_NAME}">
+													</div>
+													
+													<div class="form-group col-sm-6">
+														<label>영문 :</label> <input type="text"
+															class="form-control" name="CITY_ENAME"
+															value="${resultMap.CITY_ENAME}">
 													</div>
 													<div class="form-group col-sm-12">
 														<label>도시 주소:</label> <input type="text"
@@ -308,14 +313,19 @@
 														<label>경도:</label> <input type="text" class="form-control"
 															name="CITY_LONGITUDE" value="${resultMap.CITY_LONGITUDE}">
 													</div>
-													<div class="col col-md-3">
-														<label for="file-input" class=" form-control-label">이미지
-															넣기</label>
+													<div class="col-6 col-md-6">
+														<input type="text" class="form-control"
+															name="ORGINALFILE_NAME" value="${resultMap.ORGINALFILE_NAME}">
+															<input type="text" class="form-control"
+															name="ORGINALFILE_NAME" value="${resultMap.ORGINALFILE_NAME}">
 													</div>
-													<br>
-													<div class="col-12 col-md-9">
+													
+													
+													<div class="col-6 col-md-6">
 														<input type="file" name="ATTACHEDFILES" />
+														<input type="file" name="ATTACHEDFILES2" />
 													</div>
+													
 
 												</div>
 											</div>

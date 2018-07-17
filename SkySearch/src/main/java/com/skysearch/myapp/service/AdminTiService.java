@@ -24,6 +24,7 @@ public class AdminTiService {
 
 		return resultObject;
 	}
+
 	public Object getCiList(Object dataMap) {
 		String sqlMapId = "ti.cilist";
 
@@ -41,19 +42,27 @@ public class AdminTiService {
 	}
 
 	public Object saveObject(Map<Object, Object> paramMap) {
+
+		
+
 		String uniqueSequence = (String) paramMap.get("TRAVEL_SEQ");
 
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			paramMap.put("TRAVEL_SEQ", uniqueSequence);
 		}
+		
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
-		
-		String sqlMapId = "ti.merge";
+
+		String sqlMapId = "file.tiupload";
 
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
-		System.out.println((int)resultKey);
+
+		sqlMapId = "ti.merge";
+
+		resultKey = dao.saveObject(sqlMapId, paramMap);
+		System.out.println((int) resultKey);
 		sqlMapId = "ti.list";
 
 		Object resultObject = dao.getList(sqlMapId, paramMap);
@@ -62,62 +71,64 @@ public class AdminTiService {
 	}
 
 	public Object deleteObject(Object dataMap) {
-		
 
-		// delete Mother record authority
+		// delete
 		String sqlMapId = "ti.delete";
 
 		Object resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
-		// get Member List
+		// get Ti List
 		sqlMapId = "ti.list";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 
 		return resultObject;
 	}
+
 	public Object saveCity(Map<Object, Object> paramMap) {
-		
-			String uniqueSequence = (String) paramMap.get("CITY_SEQ");
-			
-			
-			if ("".equals(uniqueSequence)) {
-				uniqueSequence = commonUtil.getUniqueSequence();
-				paramMap.put("CITY_SEQ", uniqueSequence);
-			}
-			
-			String sqlMapId = "ti.citymerge";
-			Object resultKey = dao.saveObject(sqlMapId, paramMap);
-									
-			
-		
-		System.out.println((int)resultKey);
-		sqlMapId = "ti.read";
-		
-		Object resultObject = dao.getObject(sqlMapId, paramMap);
-		return resultObject;
+
 		
 
+		String uniqueSequence = (String) paramMap.get("CITY_SEQ");
+
+		if ("".equals(uniqueSequence)) {
+			uniqueSequence = commonUtil.getUniqueSequence();
+			paramMap.put("CITY_SEQ", uniqueSequence);
+		}
+		
+		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+
+		String sqlMapId = "file.ciupload";
+		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		sqlMapId = "ti.citymerge";
+		Object resultKey = dao.saveObject(sqlMapId, paramMap);
+
+		System.out.println((int) resultKey);
+		sqlMapId = "ti.read";
+
+		resultObject = dao.getObject(sqlMapId, paramMap);
+		return resultObject;
+
 	}
+
 	public Object saveCountry(Map<Object, Object> paramMap) {
-		
-		
+
 		String uniqueSequence = (String) paramMap.get("COUNTRY_SEQ");
-		
-		
+
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			paramMap.put("COUNTRY_SEQ", uniqueSequence);
 		}
-		
+
 		String sqlMapId = "ti.countrymerge";
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
-	
-		sqlMapId = "ti.read";
-	
-	Object resultObject = dao.getObject(sqlMapId, paramMap);
-	return resultObject;
-	
 
-}
+		sqlMapId = "ti.read";
+
+		Object resultObject = dao.getObject(sqlMapId, paramMap);
+		return resultObject;
+
+	}
 }

@@ -58,6 +58,7 @@
 		select
 		TI.TRAVEL_SEQ AS TRAVEL_SEQ, 
 		CI.CITY_NAME AS CITY_NAME,
+		CI.CITY_ENAME AS CITY_ENAME,
 		CI.CITY_ADD AS CITY_ADD,
 		CI.CITY_SEQ AS CITY_SEQ,
 		CI.CITY_LATITUDE AS CITY_LATITUDE,
@@ -81,16 +82,7 @@
 	</select>
 
 	<insert id="merge" parameterType="Map">
-		<selectKey keyProperty="TRAVEL_SEQ" resultType="String"
-			order="AFTER">	<!-- order="BEFORE" -->
-			SELECT 
-			TRAVEL_SEQ
-			FROM SKYSEARCH.SS_TRAVEL_INFO
-			WHERE TRAVEL_SEQ =
-			#{TRAVEL_SEQ}
-		</selectKey>
-		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
-			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
+		
 		INSERT INTO SKYSEARCH.SS_TRAVEL_INFO(
 		TRAVEL_SEQ	
 		,CITY_SEQ	

@@ -39,16 +39,14 @@ public class FileUtil {
 			try {// DB information
 				multiFile.transferTo(new File(attachFileName));
 				fileMap.put("ATTACHFILE_SEQ", commonUtil.getUniqueSequence()); // 첨부파일 일련번호
-				fileMap.put("SOURCE_UNIQUE_SEQ", commonUtil.getUniqueSequence()); // 첨부파일 일련번호
-				fileMap.put("PHYSICALFILE_NAME", multiFileName); // 원본레코드 UNIQUE SEQ
 				fileMap.put("ATTACHFILE_TYPE", fileContentType); // 첨부파일 유형
 				fileMap.put("ORGINALFILE_NAME", multiFile.getOriginalFilename()); // 원본 파일명
 				fileMap.put("PHYSICALFILE_NAME", attachFileName); // 첨부 파일명
-//				 fileMap.put("THUMBNAIL_NAME", value); // 썸네일 첨부파일명
 				fileMap.put("ATTACHFILE_PATH", attachFileName);// 첨부파일 저장경로
 				fileMap.put("ATTACHFILE_SIZE", fileSize); // 첨부파일 크기
+//				 fileMap.put("THUMBNAIL_NAME", value); // 썸네일 첨부파일명
 				//fileMap.put("REGISTER_SEQ", value); //등록자SEQ
-				// fileMap.put("ATTACHFILE_HEIGHT", value); // 파일 높이
+				// fileMap.put("ATTACHFILE_HEIGHT", height); // 파일 높이
 				// fileMap.put("ATTACHFILE_WIDTH", value);
 				// 파일 폭
 				/*

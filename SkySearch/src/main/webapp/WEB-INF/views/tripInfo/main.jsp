@@ -154,7 +154,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<form action="<c:url value='/tripInfo/read'/>" method="POST">
+						<form action="<c:url value='/tripInfo/read'/>" method="POST">
 								<img class="card-img-top"
 									src="<c:url value='/resources/img/blog/tokyo1.jpg'/>"
 									alt="Card image cap">
@@ -172,7 +172,7 @@
 									</h6>
 									<p class="mb-0">일본</p>
 								</div>
-								<button type="submit" class="btn btn-success">정보 보기</button>
+								<button type="submit" class="btn btn-default">정보 보기</button>
 							</form>
 						</div>
 					</div>
