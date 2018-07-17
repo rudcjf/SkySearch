@@ -1,7 +1,7 @@
 package com.skysearch.myapp.util;
 
 public class Pagination {
-	public static final int PAGE_SCALE = 10; // 페이지당 게시물 수
+	public static final int PAGE_SCALE = 5; // 페이지당 게시물 수
 	public static final int BLOCK_SCALE = 5; // 블록당 페이지수
 
 	private int curPage; // 현재 페이지 번호
@@ -105,7 +105,7 @@ public class Pagination {
 	}
 
 	// 생성자
-	public Pagination(int count, int curPage) {
+	public Pagination(int count, int curPage) { // 댓글의 총 갯수와, 하나의 페이지당 들어갈 컬럼수
 		this.totalCount = count;
 		curBlock = 1; // 현재 페이지 블록을 1로 설정
 		this.curPage = curPage; // 현재 페이지 번호 설정
