@@ -43,14 +43,13 @@
 
 	});
 </script>
+
 <!-- 아이디 중복 체크 -->
 <script type="text/javascript">
 	var count = 0;
 	function idcheck() {
 	 var text = $("#EMAIL").val();
-	 var regexp = /[0-9a-zA-Z]/; // 숫자,영문,특수문자
-	 // var regexp = /[0-9]/; // 숫자만
-	 // var regexp = /[a-zA-Z]/; // 영문만
+	 var regexp = /[0-9a-zA-Z]/; // 숫자,영문
 
 	 for (var i = 0; i < text.length; i++) {
 	 if (text.charAt(i) != " " && regexp.test(text.charAt(i)) == false) {

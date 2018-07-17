@@ -40,12 +40,12 @@
                      </ul>   
                    
                      <div class="my-2 my-lg-0">
-                       <ul class="list-inline main-nav-right" style="margin-top:10px;">
-                            <li class="list-inline-item">
+                       <ul class="list-inline main-nav-right"> <!-- style="margin-top:10px;" -->
+                           <!--  <li class="list-inline-item">
                               <form action="/action_page.php" >
                              	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                               </form>
-                             </li>
+                             </li> -->
                              <li class="list-inline-item">
                                  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                                  <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/signup' : 'principalName'}>
