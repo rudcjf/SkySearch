@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!-- 메인 슬라이드 이미지 -->
@@ -27,7 +27,10 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
-
+	
+	<!-- 로그인 한 멤버 아이디 정의 -->
+	<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" />
+	
 	<script>
 		// 지역을 선택했을 때 국가 가져오기
 		function CountrySelect(value) {
@@ -90,7 +93,7 @@
 		<div class="container">
 			<h1 class="text-center text-white mb-5">여행 정보</h1>
 			<!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함, 최종적으로 도시 시퀀스를 보내서 정보 출력 -->
-			<form action="<c:url value='/tripInfo/read'/>" method="POST">
+			<form action="<c:url value='/tripInfo/read'/>" method="GET">
 				<div class="row no-gutters">
 					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					<div class="col-md-3">
@@ -98,6 +101,7 @@
 							<div class="input-group-addon">
 								<i class="mdi mdi-earth"></i>
 							</div>
+							<input type="hidden" name="EMAIL" value="${pageContext.request.userPrincipal.name}"/>
 							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);">
 								<option value="">여행지역</option>
 								<option value="아시아">아시아</option>
@@ -151,140 +155,28 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
+					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-						<form action="<c:url value='/tripInfo/read'/>" method="POST">
-								<img class="card-img-top"
-									src="<c:url value='/resources/img/blog/tokyo1.jpg'/>"
-									alt="Card image cap">
+							<!-- 도시 시퀀스 값을 가져와서 화면에 뿌려줘야 한다. -->
+							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
+							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <small
-										class="text-success">2/5</small>
+									<span class="badge badge-white"> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i> 
+									<i class="mdi mdi-star text-warning"></i>
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<i class="mdi mdi-star-half text-warning"></i> 
+									<small class="text-success">${resultData.SS_STAR}</small>
 									</span>
-									<h6>
-										<input type="hidden" name="CITY_SEQ" value="CI001">도쿄
-									</h6>
-									<p class="mb-0">일본</p>
+									<h6>${resultData.CITY_NAME}</h6>
+									<span class="mb-0">${resultData.CITY_ADD}</span>
 								</div>
-								<button type="submit" class="btn btn-default">정보 보기</button>
-							</form>
+							 </a>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<form action="<c:url value='/tripInfo/read'/>" method="POST">
-								<img class="card-img-top"
-									src="<c:url value = '/resources/img/blog/beijing1.jpg'/>"
-									alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <small
-										class="text-success">2/5</small>
-									</span>
-									<h6>
-										<input type="hidden" name="CITY_SEQ" value="CI004">베이징
-									</h6>
-									<p class="mb-0">중국</p>
-								</div>
-								<button type="submit" class="btn btn-default">정보 보기</button>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<form action="<c:url value='/tripInfo/read'/>" method="POST">
-								<img class="card-img-top"
-									src="<c:url value = '/resources/img/blog/taibei1.jpg'/>"
-									alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <small
-										class="text-success">2/5</small>
-									</span>
-									<h6>
-										<input type="hidden" name="CITY_SEQ" value="CI007">타이베이
-									</h6>
-									<p class="mb-0">대만</p>
-								</div>
-								<button type="submit" class="btn btn-default">정보 보기</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/4.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/5.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/6.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
