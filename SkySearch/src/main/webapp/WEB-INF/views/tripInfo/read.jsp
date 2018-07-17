@@ -3,6 +3,35 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<script>
+	$(function() {
+		var city = '${resultMap.CITY_ENAME}';
+		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
+		
+		$.ajax({
+			url : apiURI,
+			type : 'get',
+			dataType : 'json',
+			async : 'false',
+			success: function(resp){
+				//console.log(resp);
+				var tag = "<p>현재 온도 : " + (resp.main.temp- 273.15) + "</p>" +
+                "<p>현재습도 : "+ (resp.main.humidity) + "</p>" +
+                "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" +
+                "<p>상세날씨설명 : "+ (resp.weather[0].description) + "</p>" +
+                "<p>날씨 이미지 : "+ resp.weather[0].icon + "</p>" +
+                "<p>바람   : "+ resp.wind.speed + "</p>" +
+                "<p>나라   : "+ resp.sys.country + "</p>" +
+                "<p>도시이름  : "+ resp.name + "</p>" +
+                "<p>구름  : "+ (resp.clouds.all) +"%" + "</p>";
+                
+                $('#temper').html(tag);
+		}
+		})
+	});
+	
+</script>
+
 <!-- Property Single Slider header -->
 <section class="osahan-slider">
 	<div id="osahanslider" class="carousel slide" data-ride="carousel">
@@ -36,8 +65,9 @@
             	<div class="col-lg-1 col-md-1">
                		<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
             	</div>
-           		<div class="col-lg-3 col-md-3">
-                	<img src="<c:url value='/resources/img/special/weather.jpg'/>">
+           		<div class="col-lg-3 col-md-3" id="temper">
+           			
+                	<%-- <img src="<c:url value='/resources/img/special/weather.jpg'/>"> --%>
                 </div>
             	<div class="col-lg-1 col-md-1">
                 	<h5 class="mt-3">오늘 환율</h5><!-- 오늘의 환율정보 가져오기 -->
