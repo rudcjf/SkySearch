@@ -114,6 +114,7 @@
 	</update>
 	
 	<!-- 댓글 페이징 -->
+	<!-- MySQL의 LIMIT명령어는 시작인덱스(0부터시작), 표시할행수로 적용됨 -->
 	<select id="listpagination" resultType="Map" parameterType="Map">
 		SELECT 
 		m.NAME AS MEMBER_NAME, 
