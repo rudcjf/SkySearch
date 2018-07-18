@@ -375,136 +375,13 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 3,
+         		zoom: 15,
          		center: uluru,
-         		styles: [{
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'administrative.locality',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#263c3f'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#6b9a76'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#ABABAB'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#212a37'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#9ca5b3'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#1f2835'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#f3d19c'
-         				}]
-         			},
-         			{
-         				featureType: 'transit',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#2f3948'
-         				}]
-         			},
-         			{
-         				featureType: 'transit.station',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#BCBCBC'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			}
-         		]
+
          	});
          	var contentString = '<div id="content">' +
          		'<div id="bodyContent">' +
-         		'<div class="card card-list"><a href="#"><span class="badge badge-danger">For Sale</span><img class="card-img-top" src="img/list/1.png" alt="Card image cap"><div class="card-body"><h5 class="card-title">House in Kent Street</h5><h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6><h2 class="text-success mb-0 mt-3">$130,000 <small>/month</small></h2></div><div class="card-footer"><span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span><span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span><span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span></div></a> </div>' +
+         		'<div class="card card-list"><a href="#"> </a> </div>' +
          		'</div>' +
          		'</div>';
          
@@ -518,9 +395,9 @@
          		map: map,
          		icon: image
          	});
-         	marker.addListener('click', function() {
+         	/* marker.addListener('click', function() {
          		infowindow.open(map, marker);
-         	});
+         	}); */
          }
       </script>
       
