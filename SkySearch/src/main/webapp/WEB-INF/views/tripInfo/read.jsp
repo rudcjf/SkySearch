@@ -14,15 +14,15 @@
 			async : 'false',
 			success: function(resp){
 				//console.log(resp);
-				var tag = "<p>현재 온도 : " + (resp.main.temp- 273.15) + "</p>" +
-                "<p>현재습도 : "+ (resp.main.humidity) + "</p>" +
-                "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" +
-                "<p>상세날씨설명 : "+ (resp.weather[0].description) + "</p>" +
-                "<p>날씨 이미지 : "+ resp.weather[0].icon + "</p>" +
-                "<p>바람   : "+ resp.wind.speed + "</p>" +
-                "<p>나라   : "+ resp.sys.country + "</p>" +
-                "<p>도시이름  : "+ resp.name + "</p>" +
-                "<p>구름  : "+ (resp.clouds.all) +"%" + "</p>";
+				var tag = "<p>현재 온도 : " + (Math.floor(resp.main.temp- 273.15)) + "℃</p>" +
+                "<p>현재습도 : "+ (resp.main.humidity) + "％</p>" +
+                "<p>날씨설명 : "+ (resp.weather[0].description) + "</p>" +
+            /*  "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" +
+                "<p>날씨 이미지 : "+ resp.weather[0].icon + "</p>" + */
+                "<p>바람   : "+ resp.wind.speed + "m/s</p>" +
+           /*  "<p>나라   : "+ resp.sys.country + "</p>" + 
+                "<p>도시이름  : "+ resp.name + "</p>" +*/
+                "<p>구름  : "+ (resp.clouds.all) +"％</p>";
                 
                 $('#temper').html(tag);
 		}
@@ -57,16 +57,18 @@
     	<div class="container">
         	<div class="row">
            		<div class="col-lg-4 col-md-4">
-                	<h1>${resultMap.CITY_NAME}</h1><!--  도시명  영문도시명 가져오기 -->
+                	<h1>${resultMap.CITY_NAME}</h1>
+                	<h5>&nbsp;&nbsp;${resultMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
                		<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
                		<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
             	</div>
+            	
             	<div class="col-lg-1 col-md-1">
                		<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
             	</div>
+            	
            		<div class="col-lg-3 col-md-3" id="temper">
-           			
-                	<%-- <img src="<c:url value='/resources/img/special/weather.jpg'/>"> --%>
+                	<img src="<c:url value='http://openweathermap.org/img/w/10d.png'/>"> --%>
                 </div>
             	<div class="col-lg-1 col-md-1">
                 	<h5 class="mt-3">오늘 환율</h5><!-- 오늘의 환율정보 가져오기 -->
@@ -103,6 +105,7 @@
    </div>
 </section>
 <!-- End Property Single Slider header -->
+
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
@@ -152,9 +155,9 @@
 									<h5 class="mt-0">
 									${resultData.MEMBER_NAME}
 												<c:if test="${resultData.MEMBER_EMAIL==principalName}"> 
-												<span><small>${resultData.REGISTRY_DATE}&nbsp;
-												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="ModComment1(this.value);">수정</button>&nbsp;
-												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="DelComment(this.value);">삭제</button>
+												<span><small>${resultData.REGISTRY_DATE}&nbsp;&nbsp;
+												<button type="button" class="btn btn-default btn-sm" value="${resultData.COMMENT_SEQ}" onclick="ModComment1(this.value);">수정</button>&nbsp;
+												<button type="button" class="btn btn-default btn-sm" value="${resultData.COMMENT_SEQ}" onclick="DelComment(this.value);">삭제</button>
 												</small></span>
 												</c:if>
 										<c:choose>
