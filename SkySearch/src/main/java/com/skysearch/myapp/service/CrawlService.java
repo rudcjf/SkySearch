@@ -25,7 +25,7 @@ import org.springframework.web.client.RestTemplate;
 public class CrawlService {
 
 	/**
-	 * 프로모션을 가져오는 메인 메소드
+	 * 크롤링하는 메소드 호출
 	 * @param dataMap
 	 * @return
 	 */
@@ -34,7 +34,7 @@ public class CrawlService {
 
 		resultObject.add(getAsiana());
 		resultObject.add(getJejuair());
-		resultObject.add(gettway());
+		resultObject.add(getTway());
 		
 		//resultObject.add(geteastarjet());
 		// resultObject.add(getBusanair());
@@ -43,7 +43,7 @@ public class CrawlService {
 	}
 
 	/**
-	 * asiana crawling
+	 * Asiana crawling
 	 * @return list
 	 */
 	public List getAsiana() {
@@ -86,7 +86,7 @@ public class CrawlService {
 	}
 
 	/**
-	 * jeju air crawling
+	 * Jeju air crawling
 	 * @return
 	 */
 	public List getJejuair() {
@@ -210,6 +210,7 @@ public class CrawlService {
 
 				doc = Jsoup.connect(
 						"https://www.eastarjet.com/newstar/PGWTA00001").get();
+				System.out.println(">>"+doc.html());
 
 				Elements questions = doc.select("ul");
 				//Elements question = questions.select("a");
@@ -259,7 +260,7 @@ public class CrawlService {
 		 * tway crawling
 		 * @return list
 		 */
-		public List gettway() {
+		public List getTway() {
 			
 			List resultList = new ArrayList<>();
 			
@@ -275,7 +276,6 @@ public class CrawlService {
 
 				for (Element e : question) {
 						if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약") || e.text().contains("여행")) {
-							System.out.println(">>"+e.text());
 							resultMap = new HashMap<>();
 							
 							resultMap.put("title", e.select("h4").text());
