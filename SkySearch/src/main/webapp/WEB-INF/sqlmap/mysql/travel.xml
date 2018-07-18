@@ -6,11 +6,12 @@
 
 <mapper namespace="travel">
 	
-	<!-- 회원의 관심지역 도시 리스트 가져오기 -->
+	<!-- 회원의 관심지역 도시 리스트 가져오기(조회수 높은순 상위 6개) -->
 	<select id="citylist" resultType="Map" parameterType="Map">
 		SELECT 
 		ci.CITY_NAME, 
 		ci.CITY_ADD,
+		ci.CITY_VIEWS,
 		ci.CITY_SEQ
 		FROM 
 		SS_MEMBER mem, 
@@ -30,20 +31,40 @@
 		AND 
 		mem.EMAIL = #{EMAIL}
 		GROUP BY
-		ci.CITY_NAME		
+		ci.CITY_NAME
+		ORDER BY
+		ci.CITY_VIEWS DESC
+		LIMIT 6		
+	</select>
+	
+	<!-- 각각의 도시에 대한 유저 평점을 가져온다. -->
+	<select id="avgstar" resultType="Map" parameterType="Map">
+		SELECT 
+		ci.CITY_NAME, 
+		TRUNCATE(AVG(com.SS_STAR),1) AS AVG_STAR
+		FROM 
+		SS_CITY ci, 
+		SS_COMMENT com
+		WHERE 
+		ci.CITY_SEQ = com.CITY_SEQ
+		GROUP BY 
+		ci.CITY_NAME
 	</select>
 	
 	<!-- 도시에 대한 조회수를 1증가시킨다. -->
 	<update id="view" parameterType="Map">
-		UPDATE SS_CITY
-		SET CITY_VIEWS = CITY_VIEWS+1
-		WHERE CITY_SEQ = #{CITY_SEQ}
+		UPDATE 
+		SS_CITY
+		SET
+		CITY_VIEWS = CITY_VIEWS+1
+		WHERE 
+		CITY_SEQ = #{CITY_SEQ}
 	</update>
 	
 	<!-- 도시에 대한 정보를 처음 가져온다. -->
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT
-			*
+		*
 		FROM 
 		SS_CITY
 		WHERE
