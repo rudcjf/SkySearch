@@ -39,7 +39,6 @@ public class TravelController {
 		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 		List<Object> resultAvgStarList = new ArrayList<Object>();
-		List<Object> resultCommentList = new ArrayList<Object>();
 		List<Object> resultLandmarkList = new ArrayList<Object>();
 		
 		// 여행정보 메인화면
@@ -59,7 +58,6 @@ public class TravelController {
 			
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap);
-			resultCommentList = (List<Object>) service.getCommentList(paramMap);
 			resultLandmarkList = (List<Object>) service.getLandmarkList(paramMap);
 			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap);
 			
@@ -67,23 +65,18 @@ public class TravelController {
 			modelandView.addObject("paramMap", paramMap);
 			modelandView.addObject("resultMap", resultMap);
 			modelandView.addObject("resultMemberMap", resultMemberMap);
-			modelandView.addObject("resultCommentList", resultCommentList);
 			modelandView.addObject("resultLandmarkList", resultLandmarkList);
-			modelandView.addObject("resultPaginationMap", resultPaginationMap);
-		
-		// 여행정보 리드화면 페이지네이션
-		} else if ("pagination".equalsIgnoreCase(action)) {
+			modelandView.addObject("resultPaginationMap", resultPaginationMap);	
 			
-			modelandView.addObject("resultPaginationMap", resultPaginationMap);
-		
-		// 여행정보 댓글 수정 팝업
+		// 여행정보 댓글 수정 팝업	
 		} else if ("popup".equalsIgnoreCase(action)) {
 			
 			resultMap = (Map<String, Object>) service.modCommentSet(paramMap);
 			
 			modelandView.addObject("resultMap", resultMap);
 			modelandView.setViewName("tripInfo/popup");
-		}
+			
+		} 
 		
 		return modelandView;
 	}

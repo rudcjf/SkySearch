@@ -56,15 +56,6 @@ public class TravelService {
 		
 	}
 	
-	// 댓글 리스트 가져오기
-	public Object getCommentList(Object dataMap) {
-		
-		String sqlMapId = "travel.comment";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-
-	}
-	
 	// 댓글 쓰기
 	public void setComment(Object dataMap) {
 		
