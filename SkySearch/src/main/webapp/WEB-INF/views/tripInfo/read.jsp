@@ -376,7 +376,7 @@
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
          		zoom: 15,
-         		center: uluru,
+         		center: uluru
 
          	});
          	var contentString = '<div id="content">' +
