@@ -94,9 +94,9 @@
 	<!-- 메인 특가 검색 slider-->
          <div class="slider-form">
             <div class="container">
-               <h1 class="text-center text-white mb-5">언제든 가볍게 지.구.산.책!</h1>
+               <h1 class="text-center text-white mb-5">Fly more, Pay less!</h1>
                <!-- 특가상품 검색: form태그 안에  데이터넣어 컨트롤러 보내야함. 최종적으로 도시시퀀스를 보내서 결과 출력한다 -->
-               <form method="POST" action="<c:url value='/specialPrice/main'/>">
+               <form method="POST" action="<c:url value='/tripInfo/read'/>">
                   <div class="row no-gutters">
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                      <div class="col-md-3">
@@ -142,94 +142,9 @@
  <!-- End Main Slider With Form -->
 
 
-<!-- 이번주 특가상품 List -->
-      <section class="section-padding bg-white">
-         <div class="section-title text-center mb-5">
-            <h2>이번주 항공권 특가</h2>
-            <div class="col-lg-2 col-md-2 sort-by-btn float-right">
-            <!-- tooltip -->
-            	<div class="tooltipmj" >
-               <em>광고</em><i class="mdi mdi-help-circle-outline"></i> 
-               <span class="tooltiptextmj"><!-- tooltip-inner -->
-	              SKY search의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
-                </div>
-            </div>         
-         </div>
-<!--         <div id="openweathermap-widget-12"></div>
-		<script>
-			window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
-			window.myWidgetParam.push({id: 12,cityid: '2643743',appid: '1547b390139831cdc3fc7fbce0d05c33',units: 'metric',containerid: 'openweathermap-widget-12',  });
-			(function() {
-				var script = document.createElement('script');
-				script.async = true;
-				script.charset = "utf-8";
-				script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(script, s);
-				})();
-			</script> -->
-<!-- 이번주 특가상품 3개 -->
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="<c:url value='/specialPrice/read'/>">
-                        <span class="badge badge-danger">HOT</span><!-- 뱃지 ->빨간(danger):조회수 기준 이상(예 100아성),흑색(secondary): 마감, 노란색(warning): 마감임박 -->
-                        <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">제주항공 찜 특가<!-- 이부분은 특가 게시판 제목입니다 --></h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>다낭, 베트남<!-- 이부분은 도시명,국가명입니다 --> </h6>
-                           <h2 class="text-success mb-0 mt-3"> 140,000원 ~ <!-- 이부분은 특가정보 가격입니다 --></h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>제주항공<!--이 부분은 특가정보의 항공사명입니다 --></strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>18.07.24<!-- 이부분은 특가상품의 종료일입니다  --></strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-danger">HOT</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>               
-               
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-danger">HOT</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/london.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-         </div>
-      </section>
-<!-- End 추천 특가 상품 List -->       
+      
 <!-- 추천 특가 상품 List -->
-      <section class="section-padding">
+      <section class="section-padding bg-white">
          <div class="section-title text-center mb-5">
             <h2>추천 항공권 특가</h2>
             <p>빅 프로모션! 놓치지 마세요!</p>
@@ -357,8 +272,8 @@
       </section>
 <!-- End 추천 특가 상품 List --> 
       
-<!-- 추천 여행지 : 조회수/인기순 높은 도시 출력 6개 할것 -->
-      <section class="section-padding bg-white">
+<!-- 추천 여행지 : 조회수 높은 도시 출력 6개 할것 -->
+      <section class="section-padding">
          <div class="section-title text-center mb-5">
             <h2>인기 여행지 정보</h2>
             <p>나만의 여행계획을 세워보세요</p>
