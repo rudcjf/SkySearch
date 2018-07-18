@@ -25,17 +25,25 @@
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <li class="nav-item">
+                         <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About Us </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/aboutus'/>">About Us</a>
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">FAQ</a>
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact Us</a>
+                        </div>
+                     </li>
+                      <li class="nav-item">
                           <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                            <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
                            </a>
-                        </li>
+<%--                         </li>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
-                                                    
-                        </li> 
+                        </li>  --%>
                      </ul>   
                    
                      <div class="my-2 my-lg-0">

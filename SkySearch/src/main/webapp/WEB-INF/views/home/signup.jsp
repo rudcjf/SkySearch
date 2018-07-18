@@ -274,7 +274,7 @@ function validityCheck(){
                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                 <label class="custom-control-label" for="customControlAutosizing">I agree with all <a href="terms.html">Terms & Conditions</a></label>
+                                 <label class="custom-control-label" for="customControlAutosizing">개인정보 제공에 동의합니다</label>
                               </div>
                            </div>
                           <div align="center">

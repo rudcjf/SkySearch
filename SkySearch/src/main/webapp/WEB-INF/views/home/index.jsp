@@ -155,7 +155,19 @@
                 </div>
             </div>         
          </div>
-        
+<!--         <div id="openweathermap-widget-12"></div>
+		<script>
+			window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
+			window.myWidgetParam.push({id: 12,cityid: '2643743',appid: '1547b390139831cdc3fc7fbce0d05c33',units: 'metric',containerid: 'openweathermap-widget-12',  });
+			(function() {
+				var script = document.createElement('script');
+				script.async = true;
+				script.charset = "utf-8";
+				script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(script, s);
+				})();
+			</script> -->
 <!-- 이번주 특가상품 3개 -->
          <div class="container">
             <div class="row">
