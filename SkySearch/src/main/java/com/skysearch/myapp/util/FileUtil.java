@@ -30,8 +30,13 @@ public class FileUtil {
 			String fileName = multiFileList.next();
 			MultipartFile multiFile = multipartRequest.getFile(fileName);
 			String multiFileName = FileUtil.getNewFileName(multiFile.getOriginalFilename());
-			String attachFileName = "C:\\Users\\student\\Documents\\git\\SkySearch\\SkySearch\\src\\main\\webapp\\resources\\uploads\\"
-					+ multiFileName;
+			/*String attachFileName = "C:\\Users\\student\\Documents\\git\\SkySearch\\SkySearch\\src\\main\\webapp\\resources\\uploads\\"
+					+ multiFileName;*/
+			
+			String addRealPath = "//resources//uploads//";
+            String physicalDirectory = multipartRequest.getSession().getServletContext().getRealPath(addRealPath)
+                  + multiFileName;
+            String attachFileName = physicalDirectory;
 			String fileSize = multiFile.getSize() + "";// 1KByte -> 1048)
 			String fileContentType = multiFile.getContentType(); // jpg ->images/JPEG
 			if (multiFileName == null)

@@ -22,9 +22,9 @@
 	<script>
 
 /* DisableChange */
-/* function enable() {
-	$('select').attr('disabled', false);
-	} */
+function success() {
+	alert('정보가 입력되었습니다.');
+	} 
 
 		/* CitySelectBox */
 		var fn_setCityFormTagSelectbox = function(url, id, params) {
@@ -137,12 +137,18 @@
 													<div class="form-group">
 														<input type="hidden" class="form-control"
 															name="TRAVEL_SEQ" value="${resultMap.TRAVEL_SEQ}" />
+														<input type="hidden" class="form-control"
+															name="COUNTRY_SEQ" value="${resultMap.COUNTRY_SEQ}" />
 													</div>
 													
 													<div class="form-group">
 														<label>관광지명 :</label> <input type="text"
 															class="form-control" name="LANDMARK_NAME"
 															value="${resultMap.LANDMARK_NAME}">
+													</div>
+													<div class="form-group">
+														<label>관광지 주소 :</label> 
+														<img src="<c:url value='/resources/uploads/201871861937_new-york_1425364489.JPEG'/>">
 													</div>
 													<div class="form-group">
 														<label>관광지 주소 :</label> <input type="text"
@@ -173,7 +179,7 @@
 											<div align="right">
 												
 												<input type="submit"
-													class="btn btn-success" value="입력" />
+													class="btn btn-success" value="입력" onclick="success()"/>
 
 											</div>
 										</form>

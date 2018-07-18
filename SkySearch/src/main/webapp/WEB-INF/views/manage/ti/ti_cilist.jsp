@@ -20,6 +20,9 @@
 <body>
 
 	<script>
+	function success() {
+		alert('정보가 입력되었습니다.');
+		} 
 		/* LocalSelectBox2 */
 		var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
 			$
@@ -223,7 +226,7 @@
 								</div>
 								<div align="right">
 									<input type="submit" onclick="enable()" class="btn btn-success"
-										value="입력" />
+										value="입력" onclick="success()" />
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>

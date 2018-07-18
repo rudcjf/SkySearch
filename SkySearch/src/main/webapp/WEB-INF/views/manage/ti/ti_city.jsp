@@ -19,10 +19,11 @@
 </head>
 <body>
 	<script>
-		/* DisableChange */
-		/* function enable() {
-			$('select').attr('disabled', false);
-		} */
+	
+	function success() {
+		alert('정보가 입력되었습니다.');
+		} 
+		
 
 		/* CountrySelectBox */
 		var fn_setCountryFormTagSelectbox = function(url, id, params) {
@@ -254,7 +255,7 @@
 								<form role="form" method="POST"
 									action="<c:url value='/manage/ti/citymerge' />" enctype="multipart/form-data">
 									<input type="hidden" name="forwardView"
-										value="/manage/ti/ti_edit" />
+										value="/manage/ti/ti_cilist" />
 									<div class="card padding-card">
 										<div class="card-body">
 											<div align="left">
@@ -332,7 +333,7 @@
 										</div>
 										<div align="right">
 											<input type="submit"
-												class="btn btn-success" value="입력" />
+												class="btn btn-success" value="입력" onclick="success()" />
 										</div>
 									</div>
 								</form>
@@ -365,7 +366,7 @@
 						<form role="form" method="POST"
 							action="<c:url value='/manage/ti/countrymerge' />">
 							<input type="hidden" name="forwardView"
-								value="/manage/ti/ti_city" />
+								value="/manage/ti/ci_list" />
 							<div class="card padding-card">
 								<div class="card-body">
 									<div align="left">
@@ -388,7 +389,7 @@
 								</div>
 								<div align="right">
 									<input type="submit" onclick="enable()" class="btn btn-success"
-										value="입력" />
+										value="입력" onclick="success()"/>
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>
