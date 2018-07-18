@@ -100,7 +100,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/kkc.jpg'/>" alt=""/>
-                        <p class="mb-4">예비군을 다녀와도 1주일만에 끝내버린 김경철 입니다 .</p>
+                        <p class="mb-4">예비군을 다녀와도 1주일만에 끝내버릴 김경철 입니다 .<br> 코딩... 다부순다.</p>
                         <h6 class="mb-0 text-success">김 경철</h6>
                         <small>Manager Main, Chart 담당</small>
                      </div>
