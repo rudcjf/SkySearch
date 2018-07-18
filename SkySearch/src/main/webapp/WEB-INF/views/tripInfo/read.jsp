@@ -2,104 +2,108 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<!-- 도시의 현재 날씨 api -->
 <script>
-	$(function() {
-		var city = '${resultMap.CITY_ENAME}';
-		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
-		
-		$.ajax({
-			url : apiURI,
-			type : 'get',
-			dataType : 'json',
-			async : 'false',
-			success: function(resp){
-				//console.log(resp);
-				var tag = "<p>현재 온도 : " + (Math.floor(resp.main.temp- 273.15)) + "℃</p>" +
+   $(function() {
+      var city = '${resultMap.CITY_ENAME}';
+      var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
+      
+      $.ajax({
+         url : apiURI,
+         type : 'get',
+         dataType : 'json',
+         async : 'false',
+         success: function(resp){
+            //console.log(resp);
+              
+            var tag = "<p>현재 온도 : " + (Math.floor(resp.main.temp- 273.15)) + "℃</p>" +
                 "<p>현재습도 : "+ (resp.main.humidity) + "％</p>" +
-                "<p>날씨설명 : "+ (resp.weather[0].description) + "</p>" +
-            /*  "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" +
-                "<p>날씨 이미지 : "+ resp.weather[0].icon + "</p>" + */
+                "<p>날씨 : "+ (resp.weather[0].description) + "</p>" +
+            /*  "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" + */
                 "<p>바람   : "+ resp.wind.speed + "m/s</p>" +
            /*  "<p>나라   : "+ resp.sys.country + "</p>" + 
                 "<p>도시이름  : "+ resp.name + "</p>" +*/
                 "<p>구름  : "+ (resp.clouds.all) +"％</p>";
                 
                 $('#temper').html(tag);
-		}
-		})
-	});
-	
+                
+                var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png"
+                $('#wicon').attr("src", imgURL)
+      }
+      })
+   });
+   
 </script>
 
 <!-- Property Single Slider header -->
 <section class="osahan-slider">
-	<div id="osahanslider" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#osahanslider" data-slide-to="0" class="active"></li>
-			<li data-target="#osahanslider" data-slide-to="1"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
-			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
-		</div>
-		<a class="carousel-control-prev" href="#osahanslider" role="button"
-			data-slide="prev"> <span class="carousel-control-prev-icon"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#osahanslider" role="button"
-			data-slide="next"> <span class="carousel-control-next-icon"
-			aria-hidden="true"></span> <span class="sr-only">Next</span>
-		</a>
-	</div>
+   <div id="osahanslider" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+         <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
+         <li data-target="#osahanslider" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+         <div class="carousel-item active"
+            style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
+         <div class="carousel-item"
+            style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
+      </div>
+      <a class="carousel-control-prev" href="#osahanslider" role="button"
+         data-slide="prev"> <span class="carousel-control-prev-icon"
+         aria-hidden="true"></span> <span class="sr-only">Previous</span>
+      </a> <a class="carousel-control-next" href="#osahanslider" role="button"
+         data-slide="next"> <span class="carousel-control-next-icon"
+         aria-hidden="true"></span> <span class="sr-only">Next</span>
+      </a>
+   </div>
 
-	<div class="property-single-title property-single-title-gallery">
-    	<div class="container">
-        	<div class="row">
-           		<div class="col-lg-4 col-md-4">
-                	<h1>${resultMap.CITY_NAME}</h1>
-                	<h5>&nbsp;&nbsp;${resultMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
-               		<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
-               		<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
-            	</div>
-            	
-            	<div class="col-lg-1 col-md-1">
-               		<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
-            	</div>
-            	
-           		<div class="col-lg-3 col-md-3" id="temper">
-                	<img src="<c:url value='http://openweathermap.org/img/w/10d.png'/>"> --%>
+   <div class="property-single-title property-single-title-gallery">
+       <div class="container">
+           <div class="row">
+                 <div class="col-lg-4 col-md-4">
+                   <h1>${resultMap.CITY_NAME}</h1>
+                   <h5>&nbsp;&nbsp;${resultMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
+                     <h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
+                     <b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
+               </div>
+               
+               <div class="col-lg-2 col-md-2">
+                   <h5 class="mt-3">날씨</h5><!-- 현지 날씨정보 가져오기 -->
+                       <img id="wicon" width="150" height="150">  
+               </div>
+
+             <!-- 도시의 현재 날씨  -->               
+                 <div class="col-lg-2 col-md-2" id="temper">
                 </div>
-            	<div class="col-lg-1 col-md-1">
-                	<h5 class="mt-3">오늘 환율</h5><!-- 오늘의 환율정보 가져오기 -->
-             	</div>
-            	<div class="col-lg-3 col-md-3">
-            	
-   				<!-- 실시간 환율 정보 -->
-         		<!--Currency Converter widget by FreeCurrencyRates.com -->
-         
-         		<div id='gcw_mainFTK58iLbV' class='gcw_mainFTK58iLbV'></div>
-         		<a id='gcw_siteFTK58iLbV' href='https://freecurrencyrates.com/en/'></a>
-	<script>
-    	function reloadFTK58iLbV(){ 
-        	var sc = document.getElementById('scFTK58iLbV');
-            if (sc) sc.parentNode.removeChild(sc);
-            	sc = document.createElement('script'); 
-                sc.type = 'text/javascript';
-                sc.charset = 'UTF-8';
-                sc.async = true;
-                sc.id='scFTK58iLbV';
-                sc.src = 'https://freecurrencyrates.com/en/widget-vertical?iso=USDEURGBPJPYCNYXUL&df=1&p=FTK58iLbV&v=fits&source=yahoo&width=300&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=-540';
-                var div = document.getElementById('gcw_mainFTK58iLbV');
-                div.parentNode.insertBefore(sc, div);
-                }           
-    	reloadFTK58iLbV(); 
-	</script>
-         <!-- put custom styles here: .gcw_mainFTK58iLbV{}, .gcw_headerFTK58iLbV{}, .gcw_ratesFTK58iLbV{}, .gcw_sourceFTK58iLbV{} -->
-         <!--End of Currency Converter widget by FreeCurrencyRates.com -->  
-  <!-- END 실시간 환율 정보 -->
-      
-            </div>
+                
+             <!-- 현재의 환율정보 -->  
+               <div class="col-lg-1 col-md-1">
+                   <h5 class="mt-3">환율</h5>
+                </div>
+               <div class="col-lg-3 col-md-3">
+    <!--Currency Converter widget by FreeCurrencyRates.com -->
+
+   <div id='gcw_mainF1UzgR6P4' class='gcw_mainF1UzgR6P4'></div>
+   <a id='gcw_siteF1UzgR6P4' href='https://freecurrencyrates.com/en/'></a>
+   <script>
+      function reloadF1UzgR6P4(){ 
+         var sc = document.getElementById('scF1UzgR6P4');
+          if (sc) sc.parentNode.removeChild(sc);
+          sc = document.createElement('script');
+          sc.type = 'text/javascript';
+          sc.charset = 'UTF-8';
+          sc.async = true;
+          sc.id='scF1UzgR6P4';
+          sc.src = 'https://freecurrencyrates.com/en/widget-vertical-editable?iso=USDEURJPYCNYXUL&df=1&p=F1UzgR6P4&v=fits&source=fcr&width=350&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=-540';
+          
+          var div = document.getElementById('gcw_mainF1UzgR6P4');
+          div.parentNode.insertBefore(sc, div);
+          } 
+      reloadF1UzgR6P4(); 
+   </script>
+   <!-- put custom styles here: .gcw_mainF1UzgR6P4{}, .gcw_headerF1UzgR6P4{}, .gcw_ratesF1UzgR6P4{}, .gcw_sourceF1UzgR6P4{} -->
+   <!--End of Currency Converter widget by FreeCurrencyRates.com -->
+           </div>
          </div>
       </div>
    </div>
@@ -149,7 +153,7 @@
 					<div class="card-body">
 						<!-- 댓글 리스트 : 최신이 위로 뜨게 함 -->
 						<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-						<c:forEach items="${resultCommentList}" var="resultData" varStatus="loop">
+						<c:forEach items="${resultPaginationMap.resultList}" var="resultData" varStatus="loop">
 							<div class="media mb-4" id="commentList">
 								<div class="media-body">
 									<h5 class="mt-0">
@@ -212,30 +216,23 @@
 							</div>
 						</c:forEach>
 						<!-- END 댓글 -->
-
+						
 						<!-- 페이징 -->
 						<c:set var="page" value="${resultPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link"
-									href="<c:url value="/tripInfo/pagination?curPage=${page.nextPage}"/>"><i
-										class="mdi mdi-chevron-left"></i></a></li>
-								<c:forEach var="pageNum" begin="${page.blockStart}"
-									end="${page.blockEnd}">
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
 									<c:choose>
 										<c:when test="${pageNum==page.curPage}">
-											<li class="page-item active"><a class="page-link"
-												href="<c:url value="/tripInfo/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item active"><a class="page-link"
-												href="<c:url value="/tripInfo/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<li class="page-item"><a class="page-link"
-									href="<c:url value="/tripInfo/pagination?curPage=${page.nextPage}"/>"><i
-										class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
 							</ul>
 						</nav>
 						<!-- END 페이징 -->

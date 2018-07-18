@@ -92,7 +92,7 @@
 	<div class="slider-form">
 		<div class="container">
 			<h1 class="text-center text-white mb-5">여행 정보</h1>
-			<!-- 여행지 검색바, form태그 안에 데이터 넣어서 컨트롤러로 보내야함, 최종적으로 도시 시퀀스를 보내서 정보 출력 -->
+			<!-- 여행지 검색바 -->
 			<form action="<c:url value='/tripInfo/read'/>" method="GET">
 				<div class="row no-gutters">
 					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

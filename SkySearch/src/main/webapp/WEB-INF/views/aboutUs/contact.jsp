@@ -28,7 +28,7 @@
                   <h6 class="text-dark"><i class="mdi mdi-phone"></i> Phone :</h6>
                   <p>Tel. 02-3429-5114</p>
                   <h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6>
-                  <p>(+20) 220 145 6589, +91 12345-67890</p>
+                  <p>(+20) 010-2650-6850</p>
                   <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
                   <p>multicampus@multi.campus</p>
                   <h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6>
@@ -240,10 +240,13 @@
          	});
          	var contentString = '<div id="content">' +
          		'<div class="pl-3 pr-3 pt-3 pb-3" id="bodyContent">' +
-         		'<h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Address :</h6><p>86 Petersham town, New South wales Waedll Steet, Australia PA 6550</p><h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6><p>(+20) 220 145 6589, +91 12345-67890</p><h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6><p>iamosahan@gmail.com, info@gmail.com</p><h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6><p>www.askbootstrap.com</p><div class="footer-social"><span>Follow : </span><a href="#"><i class="mdi mdi-facebook"></i></a><a href="#"><i class="mdi mdi-twitter"></i></a><a href="#"><i class="mdi mdi-instagram"></i></a><a href="#"><i class="mdi mdi-google"></i></a></div>' +
+         		'<h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Address :</h6><p>MultiCampus, 121, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea</p><h6 class="text-dark"><i class="mdi mdi-phone"></i> Phone :</h6><p>Tel. 02-3429-5114</p><h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6><p>(+20) 010-2650-6850</p><h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6><p>multicampus@multi.campus</p><h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6><p>www.skysearch.com</p>' +
          		'</div>' +
          		'</div>';
-         
+           		
+         		
+         		
+         		
          	var infowindow = new google.maps.InfoWindow({
          		content: contentString,
          		maxWidth: 300
