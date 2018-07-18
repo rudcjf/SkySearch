@@ -19,11 +19,11 @@
                 <div class="col-lg-2 col-md-2">
                   <h6 class="mb-4">SKY Search</h6>
                   <ul>
-                  <li><a href="<c:url value='/home/index'/>">Home</a></li>
+                  <li><a href="<c:url value='/'/>">Home</a></li>
                   <li><a href="<c:url value='/specialPrice/main'/>">항공권 특가</a></li>
                   <li><a href="<c:url value='/tripInfo/main'/>">여행 정보</a></li>
-                  <li><a href="<c:url value='/home/login'/>">Login</a></li>
-                  <li><a href="<c:url value='/home/signup'/>">Sign Up</a></li>
+                  <li><a href="<c:url value='/login'/>">Login</a></li>
+                  <li><a href="<c:url value='/signup'/>">Sign Up</a></li>
                   <ul>
                 </div>
                 <div class="col-lg-2 col-md-2">

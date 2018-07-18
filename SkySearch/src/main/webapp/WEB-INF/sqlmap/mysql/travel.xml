@@ -37,6 +37,17 @@
 		LIMIT 6		
 	</select>
 	
+	<!-- 회원이 아닐 때 모든 도시의 조회수가 높은순으로 가져온다. -->
+	<select id="allcity" resultType="Map" parameterType="Map">
+		SELECT 
+		*
+		FROM 
+		SS_CITY
+		ORDER BY 
+		CITY_VIEWS DESC
+		LIMIT 6
+	</select> 
+	
 	<!-- 각각의 도시에 대한 유저 평점을 가져온다. -->
 	<select id="avgstar" resultType="Map" parameterType="Map">
 		SELECT 
@@ -102,6 +113,7 @@
 		COMMENT_SEQ = #{COMMENT_SEQ}
 	</select>
 	
+	<!-- 댓글을 수정한다. -->
 	<update id="modcomment" parameterType="Map">
 		UPDATE 
 		SS_COMMENT
@@ -112,8 +124,9 @@
 		COMMENT_SEQ = #{COMMENT_SEQ}
 	</update>
 	
-	<!-- 댓글에 대한 리스트를 가져온다. -->
-	<select id='comment' resultType="Map" parameterType="Map">
+	<!-- 댓글 페이징 -->
+	<!-- MySQL의 LIMIT명령어는 시작인덱스(0부터시작), 표시할행수로 적용됨 -->
+	<select id="listpagination" resultType="Map" parameterType="Map">
 		SELECT 
 		m.NAME AS MEMBER_NAME, 
 		m.MEMBER_SEQ,
@@ -124,26 +137,24 @@
 		c.REGISTRY_DATE
 		FROM 
 		SS_MEMBER m, SS_COMMENT c
-		WHERE 
-		m.MEMBER_SEQ = c.MEMBER_SEQ
-		AND 
-		c.CITY_SEQ = #{CITY_SEQ}
-		ORDER BY c.REGISTRY_DATE DESC 
-	</select>
-	
-	<!-- 페이징 -->
-	<select id="listpagination" resultType="Map" parameterType="Map">
-		SELECT *
-		FROM SS_COMMENT
-		LIMIT #{pagination.pageBegin}, #{pagination.pageEnd}
+		WHERE
+        m.MEMBER_SEQ = c.MEMBER_SEQ
+        AND
+		CITY_SEQ = #{CITY_SEQ}
+		ORDER BY 
+		c.REGISTRY_DATE DESC
+		LIMIT
+		#{pagination.pageBegin}, 5
 	</select>
 	
 	<!-- 댓글의 갯수 가져오기 -->
-	<select id="totalcount" resultType="integer" parameterType="Map">
+	<select id="totalcount" resultType="Integer" parameterType="Map">
 		SELECT 
-		count(COMMENT_SEQ)
+		COUNT(COMMENT_SEQ)
 		FROM 
 		SS_COMMENT
+		WHERE
+		CITY_SEQ = #{CITY_SEQ}
 	</select>
 	<!-- 페이징 끝 -->
 	

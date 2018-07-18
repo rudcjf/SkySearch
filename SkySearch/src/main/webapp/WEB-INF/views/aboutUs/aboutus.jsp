@@ -20,17 +20,18 @@
       <!-- About -->
       <section class="section-padding bg-white">
          <div class="container">
-            <div class="row">
-               <div class="pl-4 col-lg-5 col-md-5 pr-4">
-                  <img class="rounded img-fluid" src="<c:url value='/resources/img/europe.png'/>" alt="Card image cap">
+            <div class="row" style="margin-left:17%">
+               <div class="pl-4 col-lg-5 col-md-5 pr-4" >
+                <img class="rounded img-fluid" src="<c:url value='/resources/img/logo3.png'/>" alt="Card image cap">
                </div>
                <div class="col-lg-6 col-md-6 pl-5 pr-5">
-                  <h2 class="mt-5 mb-5">SKY Search</h2>
+               <!--    <h2 class="mt-5 mb-5">SKY Search</h2> -->
                   <h5 class="mt-2">항공권 특가 상품</h5>
                   <p>가장 빠르게 항공권 특가 정보를 제공합니다</p>
                   <h5 class="mt-4">인기 여행지 정보 제공</h5>
                   <p>쉽고 빠르게,나만의 여행 계획을 세워보세요</p>
                </div>
+               
             </div>
          </div>
       </section>
@@ -100,7 +101,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/kkc.jpg'/>" alt=""/>
-                        <p class="mb-4">예비군을 다녀와도 1주일만에 끝내버린 김경철 입니다 .</p>
+                        <p class="mb-4">예비군을 다녀와도 1주일만에 끝내버릴 김경철 입니다 .<br> 코딩... 다부순다.</p>
                         <h6 class="mb-0 text-success">김 경철</h6>
                         <small>Manager Main, Chart 담당</small>
                      </div>
