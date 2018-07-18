@@ -90,8 +90,8 @@
 							<h4 class="card-title mb-4">회원정보 수정</h4>
 							<p>회원 정보를 입력하세요</p>
 							<div class="form-group">
-								<label>Member ID :</label> <input type="email"
-									class="form-control" name="EMAIL" value="${resultMap.EMAIL}"
+								<label>Member ID :</label>
+								 <input type="EMAIL"	class="form-control" name="EMAIL" value="${resultMap.EMAIL}"
 									>
 							</div>
 							<div class="form-group">

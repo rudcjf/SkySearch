@@ -22,7 +22,7 @@
                           <fieldset>
                            <div class="form-group">
                               <label for="username">Member ID <span class="text-danger">*</span></label>
-                              <input type="text" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                              <input type="text" name="email" class="form-control" placeholder="Base form : mulcam@mulcam.com" value="${resultMap.EMAIL}">
                            </div>
                            <div class="form-group">
                               <label for="password">Password <span class="text-danger">*</span></label>

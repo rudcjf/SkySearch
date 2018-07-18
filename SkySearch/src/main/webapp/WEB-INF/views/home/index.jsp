@@ -141,7 +141,6 @@
       </section>
  <!-- End Main Slider With Form -->
 
-
       
 <!-- 추천 특가 상품 List -->
       <section class="section-padding bg-white">
@@ -271,9 +270,83 @@
          </div>
       </section>
 <!-- End 추천 특가 상품 List --> 
+
+<!-- 여행지 : 조회수 높은 도시 출력 6개 할것 -->
+<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+<section class="section-padding">
+	<div class="section-title text-center mb-5">
+		<h2>여행지 맞춤 추천 (조회수 순)</h2>
+	</div>
+	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="row">
+					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
+							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white">
+									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
+									</span>
+									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
+										<c:choose>
+											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
+												<span class="badge badge-white"> 
+												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												</span>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<h6>${resultData.CITY_NAME}</h6>
+									<span class="mb-0">${resultData.CITY_ADD}</span>
+								</div>
+							 </a>
+						</div>
+					</div>
+					</c:forEach>
+					<!-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개를 나타내준다. -->
+					<c:if test="${principalName == null}">
+					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
+					<div class="col-lg-4 col-md-4">
+						<div class="card blog-card">
+							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
+							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<div class="card-body">
+									<span class="badge badge-white">
+									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
+									</span>
+									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
+										<c:choose>
+											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
+												<span class="badge badge-white"> 
+												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												</span>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<h6>${resultData.CITY_NAME}</h6>
+									<span class="mb-0">${resultData.CITY_ADD}</span>
+								</div>
+							 </a>
+						</div>
+					</div>
+					</c:forEach>					
+					</c:if>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
       
 <!-- 추천 여행지 : 조회수 높은 도시 출력 6개 할것 -->
-      <section class="section-padding">
+     <%--  <section class="section-padding">
          <div class="section-title text-center mb-5">
             <h2>인기 여행지 정보</h2>
             <p>나만의 여행계획을 세워보세요</p>
@@ -400,7 +473,7 @@
                </div>
             </div>
          </div>
-      </section>
+      </section> --%>
 <!-- End 추천 여행지 -->
       
       

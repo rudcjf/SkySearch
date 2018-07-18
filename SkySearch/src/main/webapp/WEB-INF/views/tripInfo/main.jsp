@@ -145,6 +145,8 @@
 	</div>
 </section>
 <!-- 메인 슬라이드 이미지 끝 -->
+
+
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
