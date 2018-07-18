@@ -22,7 +22,7 @@
          <div class="container">
             <div class="row" style="margin-left:17%">
                <div class="pl-4 col-lg-5 col-md-5 pr-4" >
-                <img class="rounded img-fluid" src="<c:url value='/resources/img/pic.png'/>" alt="Card image cap">
+                <img class="rounded img-fluid" src="<c:url value='/resources/img/logo3.png'/>" alt="Card image cap">
                </div>
                <div class="col-lg-6 col-md-6 pl-5 pr-5">
                <!--    <h2 class="mt-5 mb-5">SKY Search</h2> -->
