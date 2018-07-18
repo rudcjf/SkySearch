@@ -47,29 +47,29 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
-                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/1.jpg'/>" alt=""/>
-                        <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
-                        <h6 class="mb-0 text-success">- Stave Martin</h6>
-                        <small>Buying Agent</small>
+                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/seungju.jpg'/>" alt=""/>
+                        <p class="mb-4">프로젝트 매니저를 맡고  있는 이승주 입니다. 스카이서치 많이 이용해 주세요!!</p>
+                        <h6 class="mb-0 text-success">- 이 승주</h6>
+                        <small>Project Manager</small>
                      </div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-4">
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
-                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/2.jpg'/>" alt=""/>
-                        <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
-                        <h6 class="mb-0 text-success">- Mark Smith</h6>
-                        <small>Selling Agent</small>
+                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/taegun.jpg'/>" alt=""/>
+                        <p class="mb-4">팀에서 귀여움과 외모를 담당하는 유태근 입니다..</p>
+                        <h6 class="mb-0 text-success">- 유 태근</h6>
+                        <small>Travel Information 총괄</small>
                      </div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-4">
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
-                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/3.jpg'/>" alt=""/>
+                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/minchae.jpg'/>" alt=""/>
                         <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
-                        <h6 class="mb-0 text-success">- Ryan Printz</h6>
+                        <h6 class="mb-0 text-success">- 김 민채</h6>
                         <small>Real Estate Broker</small>
                      </div>
                   </div>
@@ -79,10 +79,10 @@
                <div class="col-lg-4 col-md-4">
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
-                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/4.jpg'/>" alt=""/>
-                        <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
-                        <h6 class="mb-0 text-success">- Stave Martin</h6>
-                        <small>Buying Agent</small>
+                        <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/daseul.jpg'/>" alt=""/>
+                        <p class="mb-4">누군지 모르시겠죠? はじめまして 정 한다슬 です。よろしくお願いいたします。それではこれ。 </p>
+                        <h6 class="mb-0 text-success">- 정 한다슬</h6>
+                        <small>Manager Ti 총괄</small>
                      </div>
                   </div>
                </div>
