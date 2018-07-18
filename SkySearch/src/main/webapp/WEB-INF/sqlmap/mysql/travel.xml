@@ -37,6 +37,17 @@
 		LIMIT 6		
 	</select>
 	
+	<!-- 회원이 아닐 때 모든 도시의 조회수가 높은순으로 가져온다. -->
+	<select id="allcity" resultType="Map" parameterType="Map">
+		SELECT 
+		*
+		FROM 
+		SS_CITY
+		ORDER BY 
+		CITY_VIEWS DESC
+		LIMIT 6
+	</select> 
+	
 	<!-- 각각의 도시에 대한 유저 평점을 가져온다. -->
 	<select id="avgstar" resultType="Map" parameterType="Map">
 		SELECT 
@@ -114,6 +125,7 @@
 	</update>
 	
 	<!-- 댓글 페이징 -->
+	<!-- MySQL의 LIMIT명령어는 시작인덱스(0부터시작), 표시할행수로 적용됨 -->
 	<select id="listpagination" resultType="Map" parameterType="Map">
 		SELECT 
 		m.NAME AS MEMBER_NAME, 

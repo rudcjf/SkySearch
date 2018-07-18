@@ -39,6 +39,7 @@ public class TravelController {
 		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 		List<Object> resultAvgStarList = new ArrayList<Object>();
+		List<Object> resultAllCityList = new ArrayList<Object>();
 		List<Object> resultLandmarkList = new ArrayList<Object>();
 		
 		// 여행정보 메인화면
@@ -46,12 +47,14 @@ public class TravelController {
 			
 			resultList = (List<Object>) service.getCityList(paramMap);
 			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap);
+			resultAllCityList = (List<Object>) service.getCityList2(paramMap);
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("paramMap", paramMap);
 			modelandView.addObject("resultMap", resultMap);
 			modelandView.addObject("resultList", resultList);
 			modelandView.addObject("resultAvgStarList", resultAvgStarList);
+			modelandView.addObject("resultAllCityList", resultAllCityList);
 		
 		// 여행정보 리드화면
 		} else if ("read".equalsIgnoreCase(action)) {

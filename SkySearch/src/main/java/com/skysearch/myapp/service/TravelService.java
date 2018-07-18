@@ -33,6 +33,15 @@ public class TravelService {
 		
 	}
 	
+	// 로그인하지 않은 유저를 위한 모든 도시 조회수의 리스트 가져오기 (조회수별 상위 6개)
+	public Object getCityList2(Object dataMap) {
+		
+		String sqlMapId = "travel.allcity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
 	// 도시정보 가져오기
 	public Object getObject(Map<String, Object> dataMap) {
 		

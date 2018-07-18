@@ -113,7 +113,7 @@
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>${resultMap.CITY_NAME}의추천 관광지</h2>
+		<h2>${resultMap.CITY_NAME}의 추천 관광지</h2>
 		<!-- 도시명 바뀜 -->
 	</div>
 	<!-- 메인 뷰 시작 -->
@@ -145,7 +145,7 @@
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 		<div class="section-title text-center mb-5">
-			<h2>${resultMap.CITY_NAME}커뮤니티</h2>
+			<h2>${resultMap.CITY_NAME} 커뮤니티</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -319,7 +319,7 @@
 											</div>
 											<div class="col-lg-1 col-md-1">
 												<span><span id="comentCount">0</span>/500</span>
-												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}">등록</button>
+												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}" style="height:55px;">등록</button>
 											</div>
 										</div>
 									</div>
