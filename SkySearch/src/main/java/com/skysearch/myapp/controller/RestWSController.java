@@ -54,8 +54,7 @@ public class RestWSController {
 	         
 	         String id=(String) paramMap.get("M_ID");
 	         Object result = memberservice.checkID(paramMap);
-	         return result;
-	       
+	         return result;  
 		}
 		
 		return resultObject;
