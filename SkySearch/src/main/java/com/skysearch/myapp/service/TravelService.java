@@ -15,10 +15,19 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
-	// read화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기(조회수별 상위6개)
+	// main 화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기 (조회수별 상위 6개)
 	public Object getCityList(Object dataMap) {
 		
 		String sqlMapId = "travel.citylist";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 각각의 도시들에 대한 평균 평점 가져오기
+	public Object getAvgStarList(Object dataMap) {
+		
+		String sqlMapId = "travel.avgstar";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
