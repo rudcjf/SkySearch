@@ -34,22 +34,25 @@ public class TravelController {
 
 		String viewName = MAPPING + action ;
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
+		Map<String, Object> resultMap = new HashMap<String, Object>(); 
 		Map<String, Object> resultMemberMap = new HashMap<String, Object>();
 		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
+		List<Object> resultAvgStarList = new ArrayList<Object>();
 		List<Object> resultCommentList = new ArrayList<Object>();
-		List<Object> resultLanmarkList = new ArrayList<Object>();
+		List<Object> resultLandmarkList = new ArrayList<Object>();
 		
 		// 여행정보 메인화면
 		if ("main".equalsIgnoreCase(action)) {
 			
 			resultList = (List<Object>) service.getCityList(paramMap);
+			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap);
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("paramMap", paramMap);
 			modelandView.addObject("resultMap", resultMap);
 			modelandView.addObject("resultList", resultList);
+			modelandView.addObject("resultAvgStarList", resultAvgStarList);
 		
 		// 여행정보 리드화면
 		} else if ("read".equalsIgnoreCase(action)) {
@@ -57,7 +60,7 @@ public class TravelController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap);
 			resultCommentList = (List<Object>) service.getCommentList(paramMap);
-			resultLanmarkList = (List<Object>) service.getLandmarkList(paramMap);
+			resultLandmarkList = (List<Object>) service.getLandmarkList(paramMap);
 			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap);
 			
 			modelandView.setViewName(viewName);
@@ -65,7 +68,7 @@ public class TravelController {
 			modelandView.addObject("resultMap", resultMap);
 			modelandView.addObject("resultMemberMap", resultMemberMap);
 			modelandView.addObject("resultCommentList", resultCommentList);
-			modelandView.addObject("resultLandmarkList", resultLanmarkList);
+			modelandView.addObject("resultLandmarkList", resultLandmarkList);
 			modelandView.addObject("resultPaginationMap", resultPaginationMap);
 		
 		// 여행정보 리드화면 페이지네이션

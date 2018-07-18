@@ -11,11 +11,11 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/3.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/tripmain1.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/4.jpg'/>')">
+				style="background-image: url('<c:url value='/resources/img/slider/tripmain2.jpg'/>')">
 				<div class="overlay"></div>
 			</div>
 		</div>
@@ -148,7 +148,7 @@
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>여행지 맞춤 추천</h2>
+		<h2>여행지 맞춤 추천 (조회수 순)</h2>
 	</div>
 	<!--  회원가입시 관심지역을 기준으로 나타냅니다. -->
 	<div class="container">
@@ -162,14 +162,19 @@
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
 							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> 
-									<i class="mdi mdi-star text-warning"></i> 
-									<i class="mdi mdi-star text-warning"></i> 
-									<i class="mdi mdi-star text-warning"></i>
-									<i class="mdi mdi-star-half text-warning"></i> 
-									<i class="mdi mdi-star-half text-warning"></i> 
-									<small class="text-success">${resultData.SS_STAR}</small>
+									<span class="badge badge-white">
+									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
 									</span>
+									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
+										<c:choose>
+											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
+												<span class="badge badge-white"> 
+												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												</span>
+											</c:when>
+										</c:choose>
+									</c:forEach>
 									<h6>${resultData.CITY_NAME}</h6>
 									<span class="mb-0">${resultData.CITY_ADD}</span>
 								</div>
