@@ -161,14 +161,14 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-								<c:forEach items="${resultFileList}" var="resultData2" varStatus="loop">
-									<c:choose>
-										<c:when test="${resultData.CITY_SEQ==resultData2.SOURCE_UNIQUE_SEQ}">
-							    			<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData2.ORGINALFILE_NAME}'/>" alt="Card image cap">
-							    		</c:when>
-							    	</c:choose>
-							    </c:forEach>
-							    	<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -196,7 +196,14 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/uploads/tokyo_tokyotower_001.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>

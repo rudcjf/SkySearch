@@ -36,7 +36,6 @@ public class TravelController {
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>(); 
 		List<Object> resultList = new ArrayList<Object>();
-		List<Object> resultFileList = new ArrayList<Object>();
 		
 		// 여행정보 메인화면
 		if ("main".equalsIgnoreCase(action)) {
@@ -47,12 +46,10 @@ public class TravelController {
 			resultList = (List<Object>) service.getCityList(paramMap); // 메인에 뿌려줄 도시 리스트를 가져온다.(로그인시)
 			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
 			resultAllCityList = (List<Object>) service.getCityList2(paramMap); // 메인에 뿌려줄 도시 정보를 가져온다.(비로그인시)
-			resultFileList = (List<Object>) service.getFileList(paramMap); // 이미지 파일 가져오기
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("resultAvgStarList", resultAvgStarList);
 			modelandView.addObject("resultAllCityList", resultAllCityList);
-			modelandView.addObject("resultFileList", resultFileList);
 		
 		// 여행정보 리드화면
 		} else if ("read".equalsIgnoreCase(action)) {
@@ -65,13 +62,11 @@ public class TravelController {
 			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap); // 멤버시퀀스를 가져온다.
 			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap); // 댓글을 모두 불러오는데 5개단위로 된 페이지로 불러온다.
 			resultLandmarkList = (List<Object>) service.getLandmarkList(paramMap); // 관광지 리스트를 가져온다.
-			resultFileList = (List<Object>) service.getFileList(paramMap);
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("resultMemberMap", resultMemberMap);
 			modelandView.addObject("resultLandmarkList", resultLandmarkList);
 			modelandView.addObject("resultPaginationMap", resultPaginationMap);	
-			modelandView.addObject("resultFileList", resultFileList);
 			
 		// 여행정보 댓글 수정 팝업	
 		} else if ("popup".equalsIgnoreCase(action)) {

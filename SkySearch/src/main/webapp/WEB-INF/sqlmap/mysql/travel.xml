@@ -12,14 +12,17 @@
 		ci.CITY_NAME, 
 		ci.CITY_ADD,
 		ci.CITY_VIEWS,
-		ci.CITY_SEQ
+		ci.CITY_SEQ,
+        fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
 		FROM 
 		SS_MEMBER mem, 
 		SS_INT_LOCAL intlo, 
 		SS_LOCAL lo, 
-		SS_COUNTRY co, 
-		SS_CITY ci, 
-		SS_COMMENT com
+		SS_COUNTRY co,
+        SS_COMMENT com,
+		SS_CITY ci LEFT OUTER JOIN SS_ATTACHFILE fi
+        ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
 		WHERE 
 		mem.MEMBER_SEQ = intlo.MEMBER_SEQ
 		AND 
@@ -34,26 +37,18 @@
 		ci.CITY_NAME
 		ORDER BY
 		ci.CITY_VIEWS DESC
-		LIMIT 6		
+		LIMIT 6	
 	</select>
-	
-	<!-- 이미지의 모든 정보를 가져온다. -->
-	<select id="file" resultType="Map" parameterType="Map">
-		SELECT
-		SOURCE_UNIQUE_SEQ, 
-		ORGINALFILE_NAME
-		FROM 
-		SS_ATTACHFILE
-		GROUP BY 
-		SOURCE_UNIQUE_SEQ;
-	</select> 
 	
 	<!-- 회원이 아닐 때 모든 도시의 조회수가 높은순으로 가져온다. -->
 	<select id="allcity" resultType="Map" parameterType="Map">
 		SELECT 
-		*
+		ci.*,
+        fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
 		FROM 
-		SS_CITY
+		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
+        ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
 		ORDER BY 
 		CITY_VIEWS DESC
 		LIMIT 6
@@ -86,10 +81,15 @@
 	<!-- 도시에 대한 정보를 처음 가져온다. -->
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT
-		*
+		ci.*,
+        fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
 		FROM 
-		SS_CITY
+		SS_CITY ci, 
+		SS_ATTACHFILE fi
 		WHERE
+        ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
+        AND
 		CITY_SEQ = #{CITY_SEQ}
 	</select>
 	
@@ -103,12 +103,12 @@
 	<!-- 관광지 정보에 대한 리스트를 가져온다. -->
 	<select id='landmark' resultType="Map" parameterType="Map">
 		SELECT 
-		LANDMARK_NAME, 
-		LANDMARK_EXP, 
-		LANDMARK_ADDR,
-		TRAVEL_SEQ
+        tr.*,
+		fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
 		FROM 
-		SS_TRAVEL_INFO
+		SS_TRAVEL_INFO tr LEFT JOIN SS_ATTACHFILE fi
+        ON tr.TRAVEL_SEQ = fi.SOURCE_UNIQUE_SEQ
 		WHERE 
 		CITY_SEQ = #{CITY_SEQ}
 	</select>

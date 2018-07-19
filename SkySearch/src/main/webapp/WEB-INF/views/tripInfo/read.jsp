@@ -43,11 +43,14 @@
          <li data-target="#osahanslider" data-slide-to="1"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-      	<c:forEach items="${resultFileList}" var="resultData" varStatus="loop">
-      		<c:if test="${resultMap.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-         		<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultData.ORGINALFILE_NAME}'/>')"></div>
-         	</c:if>
-		</c:forEach>
+      	<c:choose>
+      		<c:when test="${resultMap.CITY_SEQ==resultMap.SOURCE_UNIQUE_SEQ}">
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultMap.PHYSICALFILE_NAME}'/>')"></div>
+      		</c:when>
+      		<c:otherwise>
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/noimage.jpg'/>')"></div>
+      		</c:otherwise>
+      	</c:choose>
       </div>
       <a class="carousel-control-prev" href="#osahanslider" role="button"
          data-slide="prev"> <span class="carousel-control-prev-icon"
@@ -125,11 +128,14 @@
 					<c:forEach items="${resultLandmarkList}" var="resultData" varStatus="loop">
 						<div class="col-lg-4 col-md-4">
 							<div class="card blog-card">
-								<c:forEach items="${resultFileList}" var="resultData2" varStatus="loop">
-									<c:if test="${resultData.TRAVEL_SEQ==resultData2.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData2.ORGINALFILE_NAME}'/>" alt="Card image cap">
-									</c:if>
-								</c:forEach>
+								<c:choose>
+									<c:when test="${resultData.TRAVEL_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">	
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<h6>${resultData.LANDMARK_NAME}</h6>
 									<!-- 관광지명  -->
@@ -379,7 +385,7 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 15,
+         		zoom: 5,
          		center: uluru
 
          	});
