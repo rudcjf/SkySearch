@@ -43,10 +43,11 @@
          <li data-target="#osahanslider" data-slide-to="1"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-         <div class="carousel-item active"
-            style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
-         <div class="carousel-item"
-            style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
+      	<c:forEach items="${resultFileList}" var="resultData" varStatus="loop">
+      		<c:if test="${resultMap.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+         		<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultData.ORGINALFILE_NAME}'/>')"></div>
+         	</c:if>
+		</c:forEach>
       </div>
       <a class="carousel-control-prev" href="#osahanslider" role="button"
          data-slide="prev"> <span class="carousel-control-prev-icon"
@@ -124,8 +125,11 @@
 					<c:forEach items="${resultLandmarkList}" var="resultData" varStatus="loop">
 						<div class="col-lg-4 col-md-4">
 							<div class="card blog-card">
-								<img class="card-img-top" src="<c:url value = '/resources/img/blog/1.png'/>" alt="Card image cap">
-								<!-- 관광지 이미지 가져오기 -->
+								<c:forEach items="${resultFileList}" var="resultData2" varStatus="loop">
+									<c:if test="${resultData.TRAVEL_SEQ==resultData2.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData2.ORGINALFILE_NAME}'/>" alt="Card image cap">
+									</c:if>
+								</c:forEach>
 								<div class="card-body">
 									<h6>${resultData.LANDMARK_NAME}</h6>
 									<!-- 관광지명  -->
