@@ -68,7 +68,8 @@ public class AdminTiController {
 		} else if ("ti_cilist".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getCiList(paramMap);
 		}else if ("file_disable".equalsIgnoreCase(action)) {
-			service.deleteObject(paramMap);
+			service.disableObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getCiObject(paramMap);
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}

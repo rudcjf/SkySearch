@@ -313,7 +313,20 @@
 														<label>경도:</label> <input type="text" class="form-control"
 															name="CITY_LONGITUDE" value="${resultMap.CITY_LONGITUDE}">
 													</div>
-
+													
+													<!-- 첨부파일 -->
+													<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<c:set var="ATTACHFILE_SEQ" value="${resultData.ATTACHFILE_SEQ}"></c:set>
+															</c:forEach>
+													<c:choose>
+														<c:when test="${ATTACHFILE_SEQ == null}">
+													<div class="col-6 col-md-6">
+														
+														<input type="file" name="ATTACHEDFILES" />
+													</div>
+       													</c:when>
+														<c:otherwise>
 													<div class="form-group">
 
 														<div class="card-body">
@@ -321,16 +334,18 @@
 															<c:forEach items="${resultList}" var="resultData"
 																varStatus="loop">
 																<ul class="list-unstyled">
-																<li><a href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}'/>">${resultData.PHYSICALFILE_NAME}</a></li>
+																	<li><a
+																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																	</a></li>
 																</ul>
 															</c:forEach>
 														</div>
-														<div class="card-body"></div>
 													</div>
-													<div class="col-6 col-md-6">
-														<input type="file" name="ATTACHEDFILES" /> <input
-															type="file" name="ATTACHEDFILES2" />
-													</div>
+														
+      													 </c:otherwise>
+													</c:choose>
+													<!-- 첨부파일 END -->
 												</div>
 											</div>
 										</div>
