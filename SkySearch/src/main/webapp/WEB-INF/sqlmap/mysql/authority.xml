@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="authority">
+
+	<select id="list" resultType="Map" parameterType="Map">
+		SELECT * FROM skysearch.ss_authority
+		ORDER BY AUTHORITY_NAME ASC
+	</select>
+
+	<select id="read" resultType="Map" parameterType="String">
+		SELECT * FROM skysearch.ss_authority
+		where AUTHORITY_NAME=#{AUTHORITY_NAME}
+	</select>
+
+<!-- 	<insert id="merge" parameterType="Map">
+		INSERT INTO
+		skysearch.ss_member(
+		MEMBER_SEQ
+		,EMAIL
+		,PASSWORD
+		,NAME
+		,PHONE
+		,REGISTER_SEQ
+		,REGISTRY_DATE
+		,MODIFIER_SEQ
+		,MODIFY_DATE
+		)
+		VALUES(
+		#{MEMBER_SEQ}
+		, #{EMAIL}
+		, #{PASSWORD}
+		, #{NAME}
+		, #{PHONE}
+		, #{REGISTER_SEQ}
+		, now()
+		,
+		#{MODIFIER_SEQ}
+		, now() )
+		ON DUPLICATE KEY
+		UPDATE
+		EMAIL = #{EMAIL}
+		,
+		PASSWORD = #{PASSWORD}
+		, NAME = #{NAME}
+		, PHONE
+		= #{PHONE}
+		, MODIFIER_SEQ
+		= #{MODIFIER_SEQ}
+		, MODIFY_DATE = now()
+	</insert>  -->
+
+	<delete id="delete" parameterType="Map">
+		DELETE FROM skysearch.ss_authority
+		where AUTHORITY_NAME = #{AUTHORITY_NAME}
+	</delete>
+	
+</mapper>
+    
