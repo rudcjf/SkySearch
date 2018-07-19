@@ -51,10 +51,7 @@ public class MemberService {
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 	//	paramMap.put("CRYPT_PASSWORD", commonUtil.PasswordEncoderGenerator(password));
 		
-		
-		
 		String sqlMapId = "member.merge";
-		
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
 		sqlMapId = "int_local.delete";
@@ -63,6 +60,9 @@ public class MemberService {
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, paramMap);
 
+		sqlMapId = "authorityRmember.insert";
+		dao.saveObject(sqlMapId, paramMap);
+		
 		sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, paramMap);

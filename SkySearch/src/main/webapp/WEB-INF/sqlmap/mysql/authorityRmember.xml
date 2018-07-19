@@ -11,6 +11,25 @@
  	WHERE MEMBER_SEQ = #{MEMBER_SEQ} 
 	</select>
 
+   <insert id="insert" parameterType="Map">
+		INSERT INTO skysearch.ss_aut_mem_rel
+		(
+		MEMBER_SEQ, 
+		AUTHORITY_NAME, 
+		REGISTER_SEQ, 
+		REGISTRY_DATE, 
+		MODIFIER_SEQ, 
+		MODIFY_DATE
+		)VALUES(
+		 #{MEMBER_SEQ},
+		 'ROLE_USER',
+		 'UUID-1111-1111111',
+		 now(),
+		 'UUID-1111-1111111',
+		 now())
+	</insert>
+
+
 
 </mapper>
     
