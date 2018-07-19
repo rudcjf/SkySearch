@@ -132,7 +132,7 @@ public class AdminTiService {
 			paramMap.put("COUNTRY_SEQ", uniqueSequence);
 		}
 
-		String sqlMapId = "ti.countrymerge";
+		String sqlMapId = "ti.countrymerge";	
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
 		sqlMapId = "ti.read";
