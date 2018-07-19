@@ -321,7 +321,7 @@
 															<c:forEach items="${resultList}" var="resultData"
 																varStatus="loop">
 																<ul class="list-unstyled">
-																	<li><a href="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>">${resultData.PHYSICALFILE_NAME}</a></li>
+																<li><a href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}'/>">${resultData.PHYSICALFILE_NAME}</a></li>
 																</ul>
 															</c:forEach>
 														</div>
@@ -331,8 +331,6 @@
 														<input type="file" name="ATTACHEDFILES" /> <input
 															type="file" name="ATTACHEDFILES2" />
 													</div>
-
-
 												</div>
 											</div>
 										</div>

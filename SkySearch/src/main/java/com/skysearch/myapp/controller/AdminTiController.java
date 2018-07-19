@@ -41,19 +41,19 @@ public class AdminTiController {
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
 
-		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		Map<Object, Object> resultMap = new HashMap<Object, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
 		if ("ti_list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("ti_read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("ti_edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 			resultList = (List< Object>) service.getFileList(paramMap);
 		} else if ("ti_city".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getCiObject(paramMap);
+			resultMap = (Map<Object, Object>) service.getCiObject(paramMap);
 			resultList = (List< Object>) service.getFileList(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObject(paramMap);
@@ -67,6 +67,8 @@ public class AdminTiController {
 			resultList = (List<Object>) service.deleteObject(paramMap);
 		} else if ("ti_cilist".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getCiList(paramMap);
+		}else if ("file_disable".equalsIgnoreCase(action)) {
+			service.deleteObject(paramMap);
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
