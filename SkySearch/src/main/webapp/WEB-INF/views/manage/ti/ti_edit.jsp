@@ -119,7 +119,7 @@ function success() {
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
 								style="float: right;"> <input type="submit"
 								class="btn btn-primary" value=도시입력
-								onClick="location.href='<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultMap.TRAVEL_SEQ}"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_city?CITY_SEQ=${resultMap.CITY_SEQ}"/>'"
 								style="float: right;">
 						</div>
 						<div class="card-body">
@@ -160,11 +160,27 @@ function success() {
 														<label>도시명 :</label>
 														<div id=cityDIV name="CITY_NAME"></div>
 													</div>
+													<div class="form-group">
+														<label>파일목록 :</label>
+														<div class="card-body">
+
+															<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<div class="nav flex-column nav-pills" id="v-pills-tab"
+																	role="tablist" aria-orientation="vertical">
+																	<a class="nav-link" id="v-pills-home-tab"
+																		data-toggle="pill" href="#v-pills-home" role="tab"
+																		aria-controls="v-pills-home" aria-selected="false">${resultData.PHYSICALFILE_NAME}</a>
+																</div>
+															</c:forEach>
+														</div>
+													</div>
 
 													<div class="col col-md-3">
 														<label for="file-input" class=" form-control-label">이미지
 															넣기</label>
 													</div>
+													
 													<br>
 													<div class="col-12 col-md-9">
 														<input type="file" name="ATTACHEDFILES" />

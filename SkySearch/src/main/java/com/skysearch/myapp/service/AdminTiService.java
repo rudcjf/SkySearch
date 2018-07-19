@@ -41,14 +41,32 @@ public class AdminTiService {
 
 		return resultObject;
 	}
-
-	public Object getFileList(Object dataMap) {
-		String sqlMapId = "file.read";
+	
+	public Object getCiObject(Object dataMap) {
+		String sqlMapId = "ti.ciread";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
+
+	public Object getFileList(Object dataMap) {
+		String sqlMapId = "file.read";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+
+		return resultObject;
+	}
+	
+	public Object getFileDisable(Map<Object, Object> paramMap) {
+		String sqlMapId = "file.disable";
+
+		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		return resultObject;
+	}
+	
+	
 
 	public Object saveObject(Map<Object, Object> paramMap) {
 

@@ -141,6 +141,7 @@
 													
 													<th>도시명</th>
 													<th>국가</th>
+													<th>국가</th>
 													<th>위도</th>
 													<th>경도</th>
 													<th>주소</th>
@@ -155,9 +156,10 @@
 														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 														
 														<td><a
-															href="<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
+															href="<c:url value="/manage/ti/ti_city?CITY_SEQ=${resultData.CITY_SEQ}" />">
 																${resultData.CITY_NAME}</a></td>
 														<td>${resultData.COUNTRY_NAME}</td>
+														<td>${resultData.CITY_SEQ}</td>
 														<td>${resultData.CITY_LATITUDE}</td>
 														<td>${resultData.CITY_LONGITUDE}</td>
 														<td>${resultData.CITY_ADD}</td>
