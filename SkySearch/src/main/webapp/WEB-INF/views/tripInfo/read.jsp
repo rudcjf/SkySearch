@@ -166,43 +166,43 @@
 												</c:if>
 										<c:choose>
 											<c:when test="${resultData.SS_STAR == 1}">
-												<span class="star-rating float-right"> <i
-													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/1</small>
+												<span class="star-rating float-right"> 
+												<i class="mdi mdi-star text-warning"></i>
+												<small class="text-success">5/1</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 2}">
-												<span class="star-rating float-right"> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/2</small>
+												<span class="star-rating float-right"> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<small class="text-success">5/2</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 3}">
-												<span class="star-rating float-right"> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/3</small>
+												<span class="star-rating float-right"> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<small class="text-success">5/3</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 4}">
-												<span class="star-rating float-right"> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/4</small>
+												<span class="star-rating float-right"> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<small class="text-success">5/4</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 5}">
-												<span class="star-rating float-right"> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <i
-													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/5</small>
+												<span class="star-rating float-right"> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<i class="mdi mdi-star text-warning"></i> 
+												<small class="text-success">5/5</small>
 												</span>
 											</c:when>
 											<c:otherwise>
@@ -258,7 +258,7 @@
 										location.reload();
 									},
 									error : function(jqXHR, textStatus, errorThrown) {
-										alert("오류발생");
+										alert("로그인 후 이용해주세요.");
 										return false;
 									}
 								});
@@ -375,7 +375,7 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 15,
+         		zoom: 5,
          		center: uluru
 
          	});
