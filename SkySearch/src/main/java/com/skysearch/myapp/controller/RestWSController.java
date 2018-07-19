@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skysearch.myapp.service.AdminTiService;
 import com.skysearch.myapp.service.CityService;
 import com.skysearch.myapp.service.LocalService;
 import com.skysearch.myapp.service.MemberService;
@@ -32,6 +33,8 @@ public class RestWSController {
 	private TravelService travelService;
 	@Autowired
 	private MemberService memberservice;
+	@Autowired
+	private AdminTiService AdminTiservice;
 	
 	@RequestMapping(value = "/ws/{action}", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public Object actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action) {
@@ -55,7 +58,10 @@ public class RestWSController {
 	         String id=(String) paramMap.get("M_ID");
 	         Object result = memberservice.checkID(paramMap);
 	         return result;  
+		} else if("fileList".equalsIgnoreCase(action)) {
+			resultObject = (List< Object>) AdminTiservice.getFileList(paramMap);
 		}
+		
 		
 		return resultObject;
 	  }

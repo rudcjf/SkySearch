@@ -119,7 +119,7 @@ function success() {
 								onClick="location.href='<c:url value="/manage/ti/ti_list"/>'"
 								style="float: right;"> <input type="submit"
 								class="btn btn-primary" value=도시입력
-								onClick="location.href='<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultMap.TRAVEL_SEQ}"/>'"
+								onClick="location.href='<c:url value="/manage/ti/ti_city?CITY_SEQ=${resultMap.CITY_SEQ}"/>'"
 								style="float: right;">
 						</div>
 						<div class="card-body">
@@ -140,15 +140,10 @@ function success() {
 														<input type="hidden" class="form-control"
 															name="COUNTRY_SEQ" value="${resultMap.COUNTRY_SEQ}" />
 													</div>
-													
 													<div class="form-group">
 														<label>관광지명 :</label> <input type="text"
 															class="form-control" name="LANDMARK_NAME"
 															value="${resultMap.LANDMARK_NAME}">
-													</div>
-													<div class="form-group">
-														<label>관광지 주소 :</label> 
-														<img src="<c:url value='/resources/uploads/201871861937_new-york_1425364489.JPEG'/>">
 													</div>
 													<div class="form-group">
 														<label>관광지 주소 :</label> <input type="text"
@@ -165,11 +160,44 @@ function success() {
 														<label>도시명 :</label>
 														<div id=cityDIV name="CITY_NAME"></div>
 													</div>
-
 													<div class="col col-md-3">
-														<label for="file-input" class=" form-control-label">이미지
-															넣기</label>
+														
 													</div>
+													
+													<!-- 첨부파일 -->
+													<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<c:set var="ATTACHFILE_SEQ" value="${resultData.ATTACHFILE_SEQ}"></c:set>
+															</c:forEach>
+													<c:choose>
+														<c:when test="${ATTACHFILE_SEQ == null}">
+													<div class="col-6 col-md-6">
+														
+														<input type="file" name="ATTACHEDFILES" />
+													</div>
+       													</c:when>
+														<c:otherwise>
+													<div class="form-group">
+
+														<div class="card-body">
+															<p class="text-muted m-b-15">파일목록 :</p>
+															<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<ul class="list-unstyled">
+																	<li><a
+																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																	</a></li>
+																</ul>
+															</c:forEach>
+														</div>
+													</div>
+														
+      													 </c:otherwise>
+													</c:choose>
+													<!-- 첨부파일 END -->
+
+													
 													<br>
 													<div class="col-12 col-md-9">
 														<input type="file" name="ATTACHEDFILES" />

@@ -35,6 +35,7 @@ public class CrawlService {
 		resultObject.add(getAsiana());
 		resultObject.add(getJejuair());
 		resultObject.add(getTway());
+		//resultObject.add(getSeoulair());
 		
 		//resultObject.add(geteastarjet());
 		// resultObject.add(getBusanair());
@@ -294,5 +295,43 @@ public class CrawlService {
 			}
 			return resultList;
 		}
-		
+
+	public List getSeoulair() {
+
+		List resultList = new ArrayList<>();
+
+		try {
+			Document doc;
+			Map<String, Object> resultMap;
+
+			doc = Jsoup.connect("https://flyairseoul.com/CW/ko/ingEvent.do").get();
+
+			
+			System.out.println(">>>"+ doc.html());
+			Elements questions = doc.select("div.eventList");
+			Elements question = questions.select("a");
+
+			for (Element e : question) {
+				if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약")
+						|| e.text().contains("여행")) {
+					resultMap = new HashMap<>();
+
+					resultMap.put("title", e.select("h4").text());
+					resultMap.put("period", e.select("p.mt5").text());
+					resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
+					resultMap.put("alt", e.getElementsByAttribute("alt").attr("alt"));
+					resultMap.put("flight", "티웨이");
+					resultMap.put("url",
+							"https://www.twayair.com/together/event/" + e.getElementsByAttribute("href").attr("href"));
+
+					resultList.add(resultMap);
+				}
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return resultList;
+	}
+
 }

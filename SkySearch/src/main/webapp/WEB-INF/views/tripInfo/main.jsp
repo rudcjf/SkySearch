@@ -150,7 +150,7 @@
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>여행지 맞춤 추천 (조회수 순)</h2>
+		<h2>여행지 맞춤 추천</h2>
 	</div>
 	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
@@ -161,7 +161,14 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -189,7 +196,14 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -218,7 +232,6 @@
 	</div>
 </section>
 <hr>
-
 <!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
@@ -231,291 +244,65 @@
 				<div class="osahan_top_filter row">
 					<div class="col-lg-12 col-md-12 sort-by-btn float-right">
 						<div class="dropdown float-right">
-							<button class="btn btn-success btn-sm dropdown-toggle"
-								type="button" id="dropdownMenuButton" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								<i class="mdi mdi-filter"></i> Sort by
+							<button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="mdi mdi-filter">정렬 방식</i>
 							</button>
-							<div class="dropdown-menu float-right"
-								aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#"><i
-									class="mdi mdi-chevron-right"></i> 별점순 </a> <a
-									class="dropdown-item" href="#"><i
-									class="mdi mdi-chevron-right"></i> 가나다순 </a>
+							<div class="dropdown-menu float-right" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i>별점순</a> 
+								<a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i>조회수순</a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- END 정렬 선택하는 부분입니다-->
 				<div class="row">
+					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
-								alt="Card image cap">
+							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
+							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
 								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
+									<span class="badge badge-white">
+									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
 									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
+									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
+										<c:choose>
+											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
+												<span class="badge badge-white"> 
+												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												</span>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<h6>${resultData.CITY_NAME}</h6>
+									<span class="mb-0">${resultData.CITY_ADD}</span>
 								</div>
-							</a>
+							 </a>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>"><img
-								class="card-img-top"
-								src="<c:url value='/resources/img/blog/guam1.jpg'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>괌</h6>
-									<p class="mb-0">미국</p>
-								</div> </a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/2.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="card blog-card">
-							<a href="#"> <img class="card-img-top"
-								src="<c:url value = '/resources/img/blog/3.png'/>"
-								alt="Card image cap">
-								<div class="card-body">
-									<span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">5/2</small>
-									</span>
-									<h6>도시이름</h6>
-									<p class="mb-0">국가명</p>
-								</div>
-
-							</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 				<!-- END 이부분은 전체 여행지를 보여주는 부분입니다. -->
 				<!-- 이부분은 페이징 부분입니다 -->
 				<div class="row">
 					<div class="col-lg-4 col-md-4"></div>
 					<div class="col-lg-4 col-md-4">
+						<c:set var="page" value="${resultPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item disabled"><a class="page-link"
-									href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
-								</li>
-								<li class="page-item active"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><a class="page-link" href="#"><i
-										class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
+									<c:choose>
+										<c:when test="${pageNum==page.curPage}">
+											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
 							</ul>
 						</nav>
 					</div>

@@ -143,7 +143,7 @@ public class Pagination {
 		totBlock = (int) Math.ceil(totPage / BLOCK_SCALE);
 	}
 
-	// 현제페이지의 시작번호, 끝번호 계산
+	// 현제 페이지의 시작번호
 	public void setPageRange() {
 		if(curPage == 1) {
 			pageBegin = (curPage - 1) * PAGE_SCALE;
