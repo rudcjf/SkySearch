@@ -41,14 +41,32 @@ public class AdminTiService {
 
 		return resultObject;
 	}
-
-	public Object getFileList(Object dataMap) {
-		String sqlMapId = "file.read";
+	
+	public Object getCiObject(Object dataMap) {
+		String sqlMapId = "ti.ciread";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
+
+	public Object getFileList(Object dataMap) {
+		String sqlMapId = "file.read";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+
+		return resultObject;
+	}
+	
+	public Object disableObject(Map<Object, Object> paramMap) {
+		String sqlMapId = "file.disable";
+
+		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		return resultObject;
+	}
+	
+	
 
 	public Object saveObject(Map<Object, Object> paramMap) {
 
@@ -132,7 +150,7 @@ public class AdminTiService {
 			paramMap.put("COUNTRY_SEQ", uniqueSequence);
 		}
 
-		String sqlMapId = "ti.countrymerge";
+		String sqlMapId = "ti.countrymerge";	
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
 		sqlMapId = "ti.read";

@@ -46,7 +46,7 @@ public class FileUtil {
 				fileMap.put("ATTACHFILE_SEQ", commonUtil.getUniqueSequence()); // 첨부파일 일련번호
 				fileMap.put("ATTACHFILE_TYPE", fileContentType); // 첨부파일 유형
 				fileMap.put("ORGINALFILE_NAME", multiFile.getOriginalFilename()); // 원본 파일명
-				fileMap.put("PHYSICALFILE_NAME", attachFileName); // 첨부 파일명
+				fileMap.put("PHYSICALFILE_NAME", multiFileName); // 첨부 파일명
 				fileMap.put("ATTACHFILE_PATH", attachFileName);// 첨부파일 저장경로
 				fileMap.put("ATTACHFILE_SIZE", fileSize); // 첨부파일 크기
 //				 fileMap.put("THUMBNAIL_NAME", value); // 썸네일 첨부파일명
