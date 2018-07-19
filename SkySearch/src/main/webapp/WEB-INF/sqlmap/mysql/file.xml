@@ -109,7 +109,7 @@
 		
 		FROM
 		SS_ATTACHFILE
-		where FILE_ENABLE='Y' AND SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ}
+		where FILE_ENABLE='Y' AND (SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ})
 	</select>
 	
 	<insert id="disable"  parameterType="Map">

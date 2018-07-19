@@ -160,26 +160,43 @@ function success() {
 														<label>도시명 :</label>
 														<div id=cityDIV name="CITY_NAME"></div>
 													</div>
+													<div class="col col-md-3">
+														
+													</div>
+													
+													<!-- 첨부파일 -->
+													<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<c:set var="ATTACHFILE_SEQ" value="${resultData.ATTACHFILE_SEQ}"></c:set>
+															</c:forEach>
+													<c:choose>
+														<c:when test="${ATTACHFILE_SEQ == null}">
+													<div class="col-6 col-md-6">
+														
+														<input type="file" name="ATTACHEDFILES" />
+													</div>
+       													</c:when>
+														<c:otherwise>
 													<div class="form-group">
-														<label>파일목록 :</label>
-														<div class="card-body">
 
+														<div class="card-body">
+															<p class="text-muted m-b-15">파일목록 :</p>
 															<c:forEach items="${resultList}" var="resultData"
 																varStatus="loop">
-																<div class="nav flex-column nav-pills" id="v-pills-tab"
-																	role="tablist" aria-orientation="vertical">
-																	<a class="nav-link" id="v-pills-home-tab"
-																		data-toggle="pill" href="#v-pills-home" role="tab"
-																		aria-controls="v-pills-home" aria-selected="false">${resultData.PHYSICALFILE_NAME}</a>
-																</div>
+																<ul class="list-unstyled">
+																	<li><a
+																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																	</a></li>
+																</ul>
 															</c:forEach>
 														</div>
 													</div>
+														
+      													 </c:otherwise>
+													</c:choose>
+													<!-- 첨부파일 END -->
 
-													<div class="col col-md-3">
-														<label for="file-input" class=" form-control-label">이미지
-															넣기</label>
-													</div>
 													
 													<br>
 													<div class="col-12 col-md-9">

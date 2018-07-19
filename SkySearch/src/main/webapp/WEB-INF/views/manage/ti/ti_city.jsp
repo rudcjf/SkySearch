@@ -322,6 +322,7 @@
 													<c:choose>
 														<c:when test="${ATTACHFILE_SEQ == null}">
 													<div class="col-6 col-md-6">
+														
 														<input type="file" name="ATTACHEDFILES" />
 													</div>
        													</c:when>
