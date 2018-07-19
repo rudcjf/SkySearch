@@ -314,23 +314,33 @@
 															name="CITY_LONGITUDE" value="${resultMap.CITY_LONGITUDE}">
 													</div>
 
-													<div class="form-group">
 
-														<div class="card-body">
-															<p class="text-muted m-b-15">파일목록 :</p>
-															<c:forEach items="${resultList}" var="resultData"
-																varStatus="loop">
-																<ul class="list-unstyled">
-																<li><a href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}'/>">${resultData.PHYSICALFILE_NAME}</a></li>
-																</ul>
-															</c:forEach>
-														</div>
-														<div class="card-body"></div>
-													</div>
-													<div class="col-6 col-md-6">
-														<input type="file" name="ATTACHEDFILES" /> <input
-															type="file" name="ATTACHEDFILES2" />
-													</div>
+
+
+													<c:choose>
+														<c:when test="${resultData.ATTACHFILE_SEQ == null}">
+															<div class="col-6 col-md-6">
+																<input type="file" name="ATTACHEDFILES" />
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="form-group">
+
+																<div class="card-body">
+																	<p class="text-muted m-b-15">파일목록 :</p>
+																	<c:forEach items="${resultList}" var="resultData"
+																		varStatus="loop">
+																		<ul class="list-unstyled">
+																			<li><a
+																				href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																			</a></li>
+																		</ul>
+																	</c:forEach>
+																</div>
+															</div>
+														</c:otherwise>
+													</c:choose>
 												</div>
 											</div>
 										</div>

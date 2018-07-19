@@ -58,7 +58,7 @@ public class AdminTiService {
 		return resultObject;
 	}
 	
-	public Object getFileDisable(Map<Object, Object> paramMap) {
+	public Object disableObject(Map<Object, Object> paramMap) {
 		String sqlMapId = "file.disable";
 
 		Object resultObject = dao.saveObject(sqlMapId, paramMap);

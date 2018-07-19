@@ -115,7 +115,7 @@
 	<insert id="disable"  parameterType="Map">
 		
 		UPDATE 
-		skysearch.ss_attchfile
+		skysearch.ss_attachfile
 		SET FILE_ENABLE='N'
 		where ATTACHFILE_SEQ = #{ATTACHFILE_SEQ}
 	</insert>
