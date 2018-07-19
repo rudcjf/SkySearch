@@ -315,7 +315,6 @@
 													</div>
 
 													<div class="form-group">
-														<label>파일목록 :</label>
 
 														<div class="card-body">
 															<p class="text-muted m-b-15">파일목록 :</p>
@@ -323,13 +322,11 @@
 																varStatus="loop">
 																<ul class="list-unstyled">
 																	<li><a href="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>">${resultData.PHYSICALFILE_NAME}</a></li>
-																	
 																</ul>
 															</c:forEach>
 														</div>
 														<div class="card-body"></div>
 													</div>
-
 													<div class="col-6 col-md-6">
 														<input type="file" name="ATTACHEDFILES" /> <input
 															type="file" name="ATTACHEDFILES2" />
