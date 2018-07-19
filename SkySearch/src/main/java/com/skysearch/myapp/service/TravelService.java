@@ -42,6 +42,15 @@ public class TravelService {
 		
 	}
 	
+	// 도시와 관광지의 사진을 모두 가져오기
+	public Object getFileList(Object dataMap) {
+
+		String sqlMapId = "travel.file";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
 	// 도시정보 가져오기
 	public Object getObject(Map<String, Object> dataMap) {
 		
