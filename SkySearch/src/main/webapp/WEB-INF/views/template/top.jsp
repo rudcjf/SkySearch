@@ -25,17 +25,25 @@
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
-                        <li class="nav-item">
+                         <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About Us </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/aboutus'/>">About Us</a>
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/faq'/>">FAQ</a>
+                           <a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact Us</a>
+                        </div>
+                     </li>
+                      <li class="nav-item">
                           <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                            <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
                            </a>
-                        </li>
+<%--                         </li>
                           <li class="nav-item">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
-                                                    
-                        </li> 
+                        </li>  --%>
                      </ul>   
                    
                      <div class="my-2 my-lg-0">
@@ -45,15 +53,20 @@
                              	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                               </form>
                              </li> -->
+  <%--                             <sec:authentication property="principal" var="principalBean"/> 
+                               <sec:authorize access="isAuthenticated()">${principalBean.memberName}</sec:authorize> --%>
+                                 
                              <li class="list-inline-item">
-                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-                                 <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/signup' : 'principalName'}>
-                                 <i class="mdi mdi-account-settings"></i>
+                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" />
                                  <c:choose>
-                                  <c:when test='${principalName == null}'>SignUp</c:when>
-                                  <c:otherwise>${principalName}</c:otherwise>
-                                 </c:choose></a>
-                              </li>
+                                 	<c:when test="${principalName == null}">
+                                 		<a class="btn btn-success btn-sm" href='/SkySearch/signup'><i class="mdi mdi-account-settings"></i>SignUp</a>
+                                 	</c:when>
+                                 	<c:otherwise>
+                                 		<a class="btn btn-success btn-sm" href="#"><i class="mdi mdi-account-settings"></i>${principalName}</a>
+                                 	</c:otherwise>
+                                 </c:choose> 
+                             </li>
                              <li class="list-inline-item">
                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}"  /> 
                                 <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/login' : '/SkySearch/j_spring_security_logout' }>

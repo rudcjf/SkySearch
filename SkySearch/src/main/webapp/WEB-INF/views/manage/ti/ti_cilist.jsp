@@ -20,6 +20,9 @@
 <body>
 
 	<script>
+	function success() {
+		alert('정보가 입력되었습니다.');
+		} 
 		/* LocalSelectBox2 */
 		var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
 			$
@@ -109,7 +112,7 @@
 								style="float: right;">
 							<button type="button" class="btn btn-secondary mb-1"
 								data-toggle="modal" data-target="#mediumModal"
-								style="float: right;">국가추가</button>
+								style="float: right;">국가입력</button>
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -138,6 +141,7 @@
 													
 													<th>도시명</th>
 													<th>국가</th>
+													<th>국가</th>
 													<th>위도</th>
 													<th>경도</th>
 													<th>주소</th>
@@ -152,9 +156,10 @@
 														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 														
 														<td><a
-															href="<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
+															href="<c:url value="/manage/ti/ti_city?CITY_SEQ=${resultData.CITY_SEQ}" />">
 																${resultData.CITY_NAME}</a></td>
 														<td>${resultData.COUNTRY_NAME}</td>
+														<td>${resultData.CITY_SEQ}</td>
 														<td>${resultData.CITY_LATITUDE}</td>
 														<td>${resultData.CITY_LONGITUDE}</td>
 														<td>${resultData.CITY_ADD}</td>
@@ -188,7 +193,7 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+					<h5 class="modal-title" id="mediumModalLabel">국가입력</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -223,7 +228,7 @@
 								</div>
 								<div align="right">
 									<input type="submit" onclick="enable()" class="btn btn-success"
-										value="입력" />
+										value="입력" onclick="success()" />
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>

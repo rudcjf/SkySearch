@@ -19,10 +19,9 @@
 </head>
 <body>
 	<script>
-		/* DisableChange */
-		/* function enable() {
-			$('select').attr('disabled', false);
-		} */
+		function success() {
+			alert('정보가 입력되었습니다.');
+		}
 
 		/* CountrySelectBox */
 		var fn_setCountryFormTagSelectbox = function(url, id, params) {
@@ -34,21 +33,21 @@
 						cache : false,
 						success : function(data) {
 							var formTag = "";
-							
-								formTag += "<select class='form-control' name='COUNTRY_SEQ' >";
-								$
-										.each(
-												data,
-												function(i, item) {
-													if ("${resultMap.COUNTRY_NAME}" == item.COUNTRY_NAME) {
-														formTag += '<option selected="selected" value="'+item.COUNTRY_SEQ+'" >'
-																+ item.COUNTRY_NAME;
-													} else {
-														formTag += '<option value="'+item.COUNTRY_SEQ+'" >'
-																+ item.COUNTRY_NAME;
-													}
-												});
-							
+
+							formTag += "<select class='form-control' name='COUNTRY_SEQ' >";
+							$
+									.each(
+											data,
+											function(i, item) {
+												if ("${resultMap.COUNTRY_NAME}" == item.COUNTRY_NAME) {
+													formTag += '<option selected="selected" value="'+item.COUNTRY_SEQ+'" >'
+															+ item.COUNTRY_NAME;
+												} else {
+													formTag += '<option value="'+item.COUNTRY_SEQ+'" >'
+															+ item.COUNTRY_NAME;
+												}
+											});
+
 							formTag += '</select> ';
 							$('#' + id).html(formTag);
 						},
@@ -76,9 +75,9 @@
 										.each(
 												data,
 												function(i, item) {
-												if (item.LOCAL_SEQ == "dummy_loc") {
-													return true;
-												}
+													if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
+													}
 													formTag += '<option value="'+item.LOCAL_NAME+'" >'
 															+ item.LOCAL_NAME;
 
@@ -92,7 +91,7 @@
 													if ("${resultMap.LOCAL_NAME}" == item.LOCAL_NAME) {
 														formTag += '<option selected="selected" value="'+item.LOCAL_SEQ+'" >'
 																+ item.LOCAL_NAME;
-														
+
 													} else if (item.LOCAL_SEQ == "dummy_loc") {
 														return true;
 													} else {
@@ -138,7 +137,7 @@
 							} else {
 								formTag += "<select class='form-control' name='LOCAL_SEQ' >";
 								$
-										
+
 										.each(
 												data,
 												function(i, item) {
@@ -252,9 +251,10 @@
 							<!-- 도시입력 -->
 							<div class="col-sm-12">
 								<form role="form" method="POST"
-									action="<c:url value='/manage/ti/citymerge' />" enctype="multipart/form-data">
+									action="<c:url value='/manage/ti/citymerge' />"
+									enctype="multipart/form-data">
 									<input type="hidden" name="forwardView"
-										value="/manage/ti/ti_edit" />
+										value="/manage/ti/ti_cilist" />
 									<div class="card padding-card">
 										<div class="card-body">
 											<div align="left">
@@ -270,7 +270,7 @@
 
 													<!-- JSTL SelectBox 조건문 -->
 
-													
+
 													<c:choose>
 														<c:when test="${resultMap.LOCAL_NAME==null}">
 															<div class="form-group col-sm-6">
@@ -294,7 +294,7 @@
 															class="form-control" name="CITY_NAME"
 															value="${resultMap.CITY_NAME}">
 													</div>
-													
+
 													<div class="form-group col-sm-6">
 														<label>영문 :</label> <input type="text"
 															class="form-control" name="CITY_ENAME"
@@ -313,26 +313,45 @@
 														<label>경도:</label> <input type="text" class="form-control"
 															name="CITY_LONGITUDE" value="${resultMap.CITY_LONGITUDE}">
 													</div>
-													<div class="col-6 col-md-6">
-														<input type="text" class="form-control"
-															name="ORGINALFILE_NAME" value="${resultMap.ORGINALFILE_NAME}">
-															<input type="text" class="form-control"
-															name="ORGINALFILE_NAME" value="${resultMap.ORGINALFILE_NAME}">
-													</div>
 													
-													
+													<!-- 첨부파일 -->
+													<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<c:set var="ATTACHFILE_SEQ" value="${resultData.ATTACHFILE_SEQ}"></c:set>
+															</c:forEach>
+													<c:choose>
+														<c:when test="${ATTACHFILE_SEQ == null}">
 													<div class="col-6 col-md-6">
+														
 														<input type="file" name="ATTACHEDFILES" />
-														<input type="file" name="ATTACHEDFILES2" />
 													</div>
-													
+       													</c:when>
+														<c:otherwise>
+													<div class="form-group">
 
+														<div class="card-body">
+															<p class="text-muted m-b-15">파일목록 :</p>
+															<c:forEach items="${resultList}" var="resultData"
+																varStatus="loop">
+																<ul class="list-unstyled">
+																	<li><a
+																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																	</a></li>
+																</ul>
+															</c:forEach>
+														</div>
+													</div>
+														
+      													 </c:otherwise>
+													</c:choose>
+													<!-- 첨부파일 END -->
 												</div>
 											</div>
 										</div>
 										<div align="right">
-											<input type="submit"
-												class="btn btn-success" value="입력" />
+											<input type="submit" class="btn btn-success" value="입력"
+												onclick="success()" />
 										</div>
 									</div>
 								</form>
@@ -365,7 +384,7 @@
 						<form role="form" method="POST"
 							action="<c:url value='/manage/ti/countrymerge' />">
 							<input type="hidden" name="forwardView"
-								value="/manage/ti/ti_city" />
+								value="/manage/ti/ci_list" />
 							<div class="card padding-card">
 								<div class="card-body">
 									<div align="left">
@@ -388,7 +407,7 @@
 								</div>
 								<div align="right">
 									<input type="submit" onclick="enable()" class="btn btn-success"
-										value="입력" />
+										value="입력" onclick="success()" />
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancel</button>
 								</div>

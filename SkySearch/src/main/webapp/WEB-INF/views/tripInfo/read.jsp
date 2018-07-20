@@ -2,111 +2,122 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<!-- 도시의 현재 날씨 api -->
 <script>
-	$(function() {
-		var city = '${resultMap.CITY_ENAME}';
-		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
-		
-		$.ajax({
-			url : apiURI,
-			type : 'get',
-			dataType : 'json',
-			async : 'false',
-			success: function(resp){
-				//console.log(resp);
-				var tag = "<p>현재 온도 : " + (resp.main.temp- 273.15) + "</p>" +
-                "<p>현재습도 : "+ (resp.main.humidity) + "</p>" +
-                "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" +
-                "<p>상세날씨설명 : "+ (resp.weather[0].description) + "</p>" +
-                "<p>날씨 이미지 : "+ resp.weather[0].icon + "</p>" +
-                "<p>바람   : "+ resp.wind.speed + "</p>" +
-                "<p>나라   : "+ resp.sys.country + "</p>" +
-                "<p>도시이름  : "+ resp.name + "</p>" +
-                "<p>구름  : "+ (resp.clouds.all) +"%" + "</p>";
+   $(function() {
+      var city = '${resultMap.CITY_ENAME}';
+      var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
+      
+      $.ajax({
+         url : apiURI,
+         type : 'get',
+         dataType : 'json',
+         async : 'false',
+         success: function(resp){
+            //console.log(resp);
+              
+            var tag = "<p>현재 온도 : " + (Math.floor(resp.main.temp- 273.15)) + "℃</p>" +
+                "<p>현재습도 : "+ (resp.main.humidity) + "％</p>" +
+                "<p>날씨 : "+ (resp.weather[0].description) + "</p>" +
+            /*  "<p>날씨 : "+ (resp.weather[0].main ) + "</p>" + */
+                "<p>바람   : "+ resp.wind.speed + "m/s</p>" +
+           /*  "<p>나라   : "+ resp.sys.country + "</p>" + 
+                "<p>도시이름  : "+ resp.name + "</p>" +*/
+                "<p>구름  : "+ (resp.clouds.all) +"％</p>";
                 
                 $('#temper').html(tag);
-		}
-		})
-	});
-	
+                
+                var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png"
+                $('#wicon').attr("src", imgURL)
+      }
+      })
+   });
+   
 </script>
 
 <!-- Property Single Slider header -->
 <section class="osahan-slider">
-	<div id="osahanslider" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#osahanslider" data-slide-to="0" class="active"></li>
-			<li data-target="#osahanslider" data-slide-to="1"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo2.jpg'/>')"></div>
-			<div class="carousel-item"
-				style="background-image: url('<c:url value='/resources/img/slider/tokyo3.jpg'/>')"></div>
-		</div>
-		<a class="carousel-control-prev" href="#osahanslider" role="button"
-			data-slide="prev"> <span class="carousel-control-prev-icon"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#osahanslider" role="button"
-			data-slide="next"> <span class="carousel-control-next-icon"
-			aria-hidden="true"></span> <span class="sr-only">Next</span>
-		</a>
-	</div>
+   <div id="osahanslider" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+         <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
+         <li data-target="#osahanslider" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+      	<c:choose>
+      		<c:when test="${resultMap.CITY_SEQ==resultMap.SOURCE_UNIQUE_SEQ}">
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultMap.PHYSICALFILE_NAME}'/>')"></div>
+      		</c:when>
+      		<c:otherwise>
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/noimage2.jpg'/>')"></div>
+      		</c:otherwise>
+      	</c:choose>
+      </div>
+      <a class="carousel-control-prev" href="#osahanslider" role="button"
+         data-slide="prev"> <span class="carousel-control-prev-icon"
+         aria-hidden="true"></span> <span class="sr-only">Previous</span>
+      </a> <a class="carousel-control-next" href="#osahanslider" role="button"
+         data-slide="next"> <span class="carousel-control-next-icon"
+         aria-hidden="true"></span> <span class="sr-only">Next</span>
+      </a>
+   </div>
 
-	<div class="property-single-title property-single-title-gallery">
-    	<div class="container">
-        	<div class="row">
-           		<div class="col-lg-4 col-md-4">
-                	<h1>${resultMap.CITY_NAME}</h1><!--  도시명  영문도시명 가져오기 -->
-               		<h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
-               		<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
-            	</div>
-            	<div class="col-lg-1 col-md-1">
-               		<h5 class="mt-3">현지 날씨</h5><!-- 현지 날씨정보 가져오기 -->
-            	</div>
-           		<div class="col-lg-3 col-md-3" id="temper">
-           			
-                	<%-- <img src="<c:url value='/resources/img/special/weather.jpg'/>"> --%>
+   <div class="property-single-title property-single-title-gallery">
+       <div class="container">
+           <div class="row">
+                 <div class="col-lg-4 col-md-4">
+                   <h1>${resultMap.CITY_NAME}</h1>
+                   <h5>&nbsp;&nbsp;${resultMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
+                     <h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
+                     <b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
+               </div>
+               
+               <div class="col-lg-2 col-md-2">
+                   <h5 class="mt-3">날씨</h5><!-- 현지 날씨정보 가져오기 -->
+                       <img id="wicon" width="150" height="150">  
+               </div>
+
+             <!-- 도시의 현재 날씨  -->               
+                 <div class="col-lg-2 col-md-2" id="temper">
                 </div>
-            	<div class="col-lg-1 col-md-1">
-                	<h5 class="mt-3">오늘 환율</h5><!-- 오늘의 환율정보 가져오기 -->
-             	</div>
-            	<div class="col-lg-3 col-md-3">
-            	
-   				<!-- 실시간 환율 정보 -->
-         		<!--Currency Converter widget by FreeCurrencyRates.com -->
-         
-         		<div id='gcw_mainFTK58iLbV' class='gcw_mainFTK58iLbV'></div>
-         		<a id='gcw_siteFTK58iLbV' href='https://freecurrencyrates.com/en/'></a>
-	<script>
-    	function reloadFTK58iLbV(){ 
-        	var sc = document.getElementById('scFTK58iLbV');
-            if (sc) sc.parentNode.removeChild(sc);
-            	sc = document.createElement('script'); 
-                sc.type = 'text/javascript';
-                sc.charset = 'UTF-8';
-                sc.async = true;
-                sc.id='scFTK58iLbV';
-                sc.src = 'https://freecurrencyrates.com/en/widget-vertical?iso=USDEURGBPJPYCNYXUL&df=1&p=FTK58iLbV&v=fits&source=yahoo&width=300&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=-540';
-                var div = document.getElementById('gcw_mainFTK58iLbV');
-                div.parentNode.insertBefore(sc, div);
-                }           
-    	reloadFTK58iLbV(); 
-	</script>
-         <!-- put custom styles here: .gcw_mainFTK58iLbV{}, .gcw_headerFTK58iLbV{}, .gcw_ratesFTK58iLbV{}, .gcw_sourceFTK58iLbV{} -->
-         <!--End of Currency Converter widget by FreeCurrencyRates.com -->  
-  <!-- END 실시간 환율 정보 -->
-      
-            </div>
+                
+             <!-- 현재의 환율정보 -->  
+               <div class="col-lg-1 col-md-1">
+                   <h5 class="mt-3">환율</h5>
+                </div>
+               <div class="col-lg-3 col-md-3">
+    <!--Currency Converter widget by FreeCurrencyRates.com -->
+
+   <div id='gcw_mainF1UzgR6P4' class='gcw_mainF1UzgR6P4'></div>
+   <a id='gcw_siteF1UzgR6P4' href='https://freecurrencyrates.com/en/'></a>
+   <script>
+      function reloadF1UzgR6P4(){ 
+         var sc = document.getElementById('scF1UzgR6P4');
+          if (sc) sc.parentNode.removeChild(sc);
+          sc = document.createElement('script');
+          sc.type = 'text/javascript';
+          sc.charset = 'UTF-8';
+          sc.async = true;
+          sc.id='scF1UzgR6P4';
+          sc.src = 'https://freecurrencyrates.com/en/widget-vertical-editable?iso=USDEURJPYCNYXUL&df=1&p=F1UzgR6P4&v=fits&source=fcr&width=350&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=-540';
+          
+          var div = document.getElementById('gcw_mainF1UzgR6P4');
+          div.parentNode.insertBefore(sc, div);
+          } 
+      reloadF1UzgR6P4(); 
+   </script>
+   <!-- put custom styles here: .gcw_mainF1UzgR6P4{}, .gcw_headerF1UzgR6P4{}, .gcw_ratesF1UzgR6P4{}, .gcw_sourceF1UzgR6P4{} -->
+   <!--End of Currency Converter widget by FreeCurrencyRates.com -->
+           </div>
          </div>
       </div>
    </div>
 </section>
 <!-- End Property Single Slider header -->
+
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>${resultMap.CITY_NAME}의추천 관광지</h2>
+		<h2>${resultMap.CITY_NAME}의 추천 관광지</h2>
 		<!-- 도시명 바뀜 -->
 	</div>
 	<!-- 메인 뷰 시작 -->
@@ -117,8 +128,14 @@
 					<c:forEach items="${resultLandmarkList}" var="resultData" varStatus="loop">
 						<div class="col-lg-4 col-md-4">
 							<div class="card blog-card">
-								<img class="card-img-top" src="<c:url value = '/resources/img/blog/1.png'/>" alt="Card image cap">
-								<!-- 관광지 이미지 가져오기 -->
+								<c:choose>
+									<c:when test="${resultData.TRAVEL_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">	
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<h6>${resultData.LANDMARK_NAME}</h6>
 									<!-- 관광지명  -->
@@ -138,7 +155,7 @@
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 		<div class="section-title text-center mb-5">
-			<h2>${resultMap.CITY_NAME}커뮤니티</h2>
+			<h2>${resultMap.CITY_NAME} 커뮤니티</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -146,15 +163,15 @@
 					<div class="card-body">
 						<!-- 댓글 리스트 : 최신이 위로 뜨게 함 -->
 						<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-						<c:forEach items="${resultCommentList}" var="resultData" varStatus="loop">
+						<c:forEach items="${resultPaginationMap.resultList}" var="resultData" varStatus="loop">
 							<div class="media mb-4" id="commentList">
 								<div class="media-body">
 									<h5 class="mt-0">
 									${resultData.MEMBER_NAME}
 												<c:if test="${resultData.MEMBER_EMAIL==principalName}"> 
-												<span><small>${resultData.REGISTRY_DATE}&nbsp;
-												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="ModComment1(this.value);">수정</button>&nbsp;
-												<button type="button" value="${resultData.COMMENT_SEQ}" onclick="DelComment(this.value);">삭제</button>
+												<span><small>${resultData.REGISTRY_DATE}&nbsp;&nbsp;
+												<button type="button" class="btn btn-default btn-sm" value="${resultData.COMMENT_SEQ}" onclick="ModComment1(this.value);">수정</button>&nbsp;
+												<button type="button" class="btn btn-default btn-sm" value="${resultData.COMMENT_SEQ}" onclick="DelComment(this.value);">삭제</button>
 												</small></span>
 												</c:if>
 										<c:choose>
@@ -209,30 +226,23 @@
 							</div>
 						</c:forEach>
 						<!-- END 댓글 -->
-
+						
 						<!-- 페이징 -->
 						<c:set var="page" value="${resultPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link"
-									href="<c:url value="/tripInfo/pagination?curPage=${page.nextPage}"/>"><i
-										class="mdi mdi-chevron-left"></i></a></li>
-								<c:forEach var="pageNum" begin="${page.blockStart}"
-									end="${page.blockEnd}">
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
 									<c:choose>
 										<c:when test="${pageNum==page.curPage}">
-											<li class="page-item active"><a class="page-link"
-												href="<c:url value="/tripInfo/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item active"><a class="page-link"
-												href="<c:url value="/tripInfo/pagination?curPage=${pageNum}" />">${pageNum}</a></li>
+											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<li class="page-item"><a class="page-link"
-									href="<c:url value="/tripInfo/pagination?curPage=${page.nextPage}"/>"><i
-										class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
 							</ul>
 						</nav>
 						<!-- END 페이징 -->
@@ -258,7 +268,7 @@
 										location.reload();
 									},
 									error : function(jqXHR, textStatus, errorThrown) {
-										alert("오류발생");
+										alert("로그인 후 이용해주세요.");
 										return false;
 									}
 								});
@@ -319,7 +329,7 @@
 											</div>
 											<div class="col-lg-1 col-md-1">
 												<span><span id="comentCount">0</span>/500</span>
-												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}">등록</button>
+												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}" style="height:55px;">등록</button>
 											</div>
 										</div>
 									</div>
@@ -375,136 +385,13 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 3,
-         		center: uluru,
-         		styles: [{
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'administrative.locality',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#263c3f'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#6b9a76'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#ABABAB'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#212a37'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#9ca5b3'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#1f2835'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#f3d19c'
-         				}]
-         			},
-         			{
-         				featureType: 'transit',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#2f3948'
-         				}]
-         			},
-         			{
-         				featureType: 'transit.station',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#BCBCBC'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			}
-         		]
+         		zoom: 5,
+         		center: uluru
+
          	});
          	var contentString = '<div id="content">' +
          		'<div id="bodyContent">' +
-         		'<div class="card card-list"><a href="#"><span class="badge badge-danger">For Sale</span><img class="card-img-top" src="img/list/1.png" alt="Card image cap"><div class="card-body"><h5 class="card-title">House in Kent Street</h5><h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent Sreet, Sydny, NEW 2000</h6><h2 class="text-success mb-0 mt-3">$130,000 <small>/month</small></h2></div><div class="card-footer"><span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span><span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span><span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span></div></a> </div>' +
+         		'<div class="card card-list"><a href="#"> </a> </div>' +
          		'</div>' +
          		'</div>';
          
@@ -518,9 +405,9 @@
          		map: map,
          		icon: image
          	});
-         	marker.addListener('click', function() {
+         	/* marker.addListener('click', function() {
          		infowindow.open(map, marker);
-         	});
+         	}); */
          }
       </script>
       

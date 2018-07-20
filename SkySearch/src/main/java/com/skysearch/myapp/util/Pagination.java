@@ -64,6 +64,7 @@ public class Pagination {
 		this.totBlock = totBlock;
 	}
 
+	
 	public int getPageBegin() {
 		return pageBegin;
 	}
@@ -105,7 +106,7 @@ public class Pagination {
 	}
 
 	// 생성자
-	public Pagination(int count, int curPage) { // 댓글의 총 갯수와, 하나의 페이지당 들어갈 컬럼수
+	public Pagination(int count, int curPage) { // 댓글의 총 갯수와 현재 페이지
 		this.totalCount = count;
 		curBlock = 1; // 현재 페이지 블록을 1로 설정
 		this.curPage = curPage; // 현재 페이지 번호 설정
@@ -142,9 +143,12 @@ public class Pagination {
 		totBlock = (int) Math.ceil(totPage / BLOCK_SCALE);
 	}
 
-	// 현제페이지의 시작번호, 끝번호 계산
+	// 현제 페이지의 시작번호
 	public void setPageRange() {
-		pageBegin = (curPage - 1) * PAGE_SCALE + 1;
-		pageEnd = pageBegin + PAGE_SCALE - 1;
+		if(curPage == 1) {
+			pageBegin = (curPage - 1) * PAGE_SCALE;
+		} else {
+			pageBegin = (curPage - 1) * PAGE_SCALE + 1;		
+		}
 	}
 }

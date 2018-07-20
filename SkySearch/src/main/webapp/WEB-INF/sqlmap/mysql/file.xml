@@ -105,12 +105,19 @@
 		REGISTER_SEQ,
 		REGISTRY_DATE,
 		MODIFIER_SEQ,
-		MODIFY_DATE,
-		CITY_SEQ,
-		TRAVEL_SEQ
+		MODIFY_DATE
+		
 		FROM
 		SS_ATTACHFILE
-		where SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ}
+		where FILE_ENABLE='Y' AND (SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ})
 	</select>
+	
+	<insert id="disable"  parameterType="Map">
+		
+		UPDATE 
+		skysearch.ss_attachfile
+		SET FILE_ENABLE='N'
+		where ATTACHFILE_SEQ = #{ATTACHFILE_SEQ}
+	</insert>
 
 </mapper> 

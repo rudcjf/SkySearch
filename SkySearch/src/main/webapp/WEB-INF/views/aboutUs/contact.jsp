@@ -28,7 +28,7 @@
                   <h6 class="text-dark"><i class="mdi mdi-phone"></i> Phone :</h6>
                   <p>Tel. 02-3429-5114</p>
                   <h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6>
-                  <p>(+20) 220 145 6589, +91 12345-67890</p>
+                  <p>(+20) 010-2650-6850</p>
                   <h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6>
                   <p>multicampus@multi.campus</p>
                   <h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6>
@@ -111,139 +111,19 @@
          	
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 3,
-         		center: uluru,
-         		styles: [{
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#64DDBA'
-         				}]
-         			},
-         			{
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'administrative.locality',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#263c3f'
-         				}]
-         			},
-         			{
-         				featureType: 'poi.park',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#6b9a76'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#ABABAB'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#212a37'
-         				}]
-         			},
-         			{
-         				featureType: 'road',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#9ca5b3'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#34495E'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'geometry.stroke',
-         				stylers: [{
-         					color: '#1f2835'
-         				}]
-         			},
-         			{
-         				featureType: 'road.highway',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#f3d19c'
-         				}]
-         			},
-         			{
-         				featureType: 'transit',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#2f3948'
-         				}]
-         			},
-         			{
-         				featureType: 'transit.station',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#8A8A8A'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'geometry',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.fill',
-         				stylers: [{
-         					color: '#BCBCBC'
-         				}]
-         			},
-         			{
-         				featureType: 'water',
-         				elementType: 'labels.text.stroke',
-         				stylers: [{
-         					color: '#F2F6FF'
-         				}]
-         			}
-         		]
+         		zoom: 15,
+         		center: uluru
+         		
          	});
          	var contentString = '<div id="content">' +
          		'<div class="pl-3 pr-3 pt-3 pb-3" id="bodyContent">' +
-         		'<h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Address :</h6><p>86 Petersham town, New South wales Waedll Steet, Australia PA 6550</p><h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6><p>(+20) 220 145 6589, +91 12345-67890</p><h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6><p>iamosahan@gmail.com, info@gmail.com</p><h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6><p>www.askbootstrap.com</p><div class="footer-social"><span>Follow : </span><a href="#"><i class="mdi mdi-facebook"></i></a><a href="#"><i class="mdi mdi-twitter"></i></a><a href="#"><i class="mdi mdi-instagram"></i></a><a href="#"><i class="mdi mdi-google"></i></a></div>' +
+         		'<h6 class="text-dark"><i class="mdi mdi-home-map-marker"></i> Address :</h6><p>MultiCampus, 121, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea</p><h6 class="text-dark"><i class="mdi mdi-phone"></i> Phone :</h6><p>Tel. 02-3429-5114</p><h6 class="text-dark"><i class="mdi mdi-deskphone"></i> Mobile :</h6><p>(+20) 010-2650-6850</p><h6 class="text-dark"><i class="mdi mdi-email"></i> Email :</h6><p>multicampus@multi.campus</p><h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6><p>www.skysearch.com</p>' +
          		'</div>' +
          		'</div>';
-         
+           		
+         		
+         		
+         		
          	var infowindow = new google.maps.InfoWindow({
          		content: contentString,
          		maxWidth: 300

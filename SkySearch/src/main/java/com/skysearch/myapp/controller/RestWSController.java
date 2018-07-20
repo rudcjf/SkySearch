@@ -58,8 +58,9 @@ public class RestWSController {
 	         
 	         String id=(String) paramMap.get("M_ID");
 	         Object result = memberservice.checkID(paramMap);
-	         return result;
-	       
+	         return result;  
+		} else if("fileList".equalsIgnoreCase(action)) {
+			resultObject = (List< Object>) AdminTiservice.getFileList(paramMap);
 		} else if("memberChartM".equalsIgnoreCase(action)) {
 			resultListC =  adminMainService.getListhh(paramMap,1);
 			return resultListC;
@@ -70,6 +71,7 @@ public class RestWSController {
 			resultListC =  adminMainService.getListhh(paramMap,3);
 			return resultListC;
 		}
+		
 		
 		return resultObject;
 	  }

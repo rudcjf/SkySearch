@@ -34,53 +34,52 @@ public class TravelController {
 
 		String viewName = MAPPING + action ;
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		Map<String, Object> resultMemberMap = new HashMap<String, Object>();
-		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
+		Map<String, Object> resultMap = new HashMap<String, Object>(); 
 		List<Object> resultList = new ArrayList<Object>();
-		List<Object> resultCommentList = new ArrayList<Object>();
-		List<Object> resultLanmarkList = new ArrayList<Object>();
 		
 		// 여행정보 메인화면
 		if ("main".equalsIgnoreCase(action)) {
 			
-			resultList = (List<Object>) service.getCityList(paramMap);
+			List<Object> resultAvgStarList = new ArrayList<Object>();
+			List<Object> resultAllCityList = new ArrayList<Object>();
+			
+			resultList = (List<Object>) service.getCityList(paramMap); // 메인에 뿌려줄 도시 리스트를 가져온다.(로그인시)
+			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
+			resultAllCityList = (List<Object>) service.getCityList2(paramMap); // 메인에 뿌려줄 도시 정보를 가져온다.(비로그인시)
 			
 			modelandView.setViewName(viewName);
-			modelandView.addObject("paramMap", paramMap);
-			modelandView.addObject("resultMap", resultMap);
-			modelandView.addObject("resultList", resultList);
+			modelandView.addObject("resultAvgStarList", resultAvgStarList);
+			modelandView.addObject("resultAllCityList", resultAllCityList);
 		
 		// 여행정보 리드화면
 		} else if ("read".equalsIgnoreCase(action)) {
 			
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap);
-			resultCommentList = (List<Object>) service.getCommentList(paramMap);
-			resultLanmarkList = (List<Object>) service.getLandmarkList(paramMap);
-			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap);
+			Map<String, Object> resultMemberMap = new HashMap<String, Object>();
+			Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
+			List<Object> resultLandmarkList = new ArrayList<Object>();
+			
+			resultMap = (Map<String, Object>) service.getObject(paramMap); // 도시 상세 정보를 뿌려줄 정보를 가져온다.
+			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap); // 멤버시퀀스를 가져온다.
+			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap); // 댓글을 모두 불러오는데 5개단위로 된 페이지로 불러온다.
+			resultLandmarkList = (List<Object>) service.getLandmarkList(paramMap); // 관광지 리스트를 가져온다.
 			
 			modelandView.setViewName(viewName);
-			modelandView.addObject("paramMap", paramMap);
-			modelandView.addObject("resultMap", resultMap);
 			modelandView.addObject("resultMemberMap", resultMemberMap);
-			modelandView.addObject("resultCommentList", resultCommentList);
-			modelandView.addObject("resultLandmarkList", resultLanmarkList);
-			modelandView.addObject("resultPaginationMap", resultPaginationMap);
-		
-		// 여행정보 리드화면 페이지네이션
-		} else if ("pagination".equalsIgnoreCase(action)) {
+			modelandView.addObject("resultLandmarkList", resultLandmarkList);
+			modelandView.addObject("resultPaginationMap", resultPaginationMap);	
 			
-			modelandView.addObject("resultPaginationMap", resultPaginationMap);
-		
-		// 여행정보 댓글 수정 팝업
+		// 여행정보 댓글 수정 팝업	
 		} else if ("popup".equalsIgnoreCase(action)) {
 			
-			resultMap = (Map<String, Object>) service.modCommentSet(paramMap);
+			resultMap = (Map<String, Object>) service.modCommentSet(paramMap); // 수정버튼을 클릭했을 때 기존 댓글을 모달창으로 가져온다.
 			
-			modelandView.addObject("resultMap", resultMap);
 			modelandView.setViewName("tripInfo/popup");
-		}
+			
+		} 
+		
+		modelandView.addObject("paramMap", paramMap);
+		modelandView.addObject("resultMap", resultMap);
+		modelandView.addObject("resultList", resultList);
 		
 		return modelandView;
 	}

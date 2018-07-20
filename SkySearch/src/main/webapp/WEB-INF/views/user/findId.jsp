@@ -5,14 +5,29 @@
 
 <script>
 
-/* function idMasking(${resultMap.EMAIL}) {
-	 
-	   var len = ${resultMap.EMAIL}.split('@')[0].length-3 ;  //  AB***@gamil.com
+
+
+/* function idMasking(email) {
+
+	   var len = email.split('@')[0].length-3; // AB***@gamil.com
 	   return email.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');
 	 
 	} */
 
 
+/*  $(document).ready(function() {
+	 
+	  var len = ${resultMap.EMAIL}.split('@')[0].length-3 ;  //  AB***@gamil.com
+	   var result = ${resultMap.EMAIL}.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');  
+
+	 
+         $('#idMasking').val('result');
+     }); */
+
+ 
+ 
+ 
+ 
 </script>
        <!-- 아이디 찾기 결과 -->
       <section class="section-padding">
@@ -25,7 +40,7 @@
                         <br>
                            <div class="form-group">
                               <label>Member ID : </label>
-                              <h5>${resultMap.EMAIL}</h5>
+                              <h5 id="idMasking" >${resultMap.EMAIL}</h5>
                           <br>
 						   </div>
 						   <div align="center">

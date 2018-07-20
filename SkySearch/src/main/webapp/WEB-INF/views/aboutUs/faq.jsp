@@ -28,55 +28,41 @@
                               <div class="faq-card-header mb-2" role="tab" id="headingOne">
                                  <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <i class="mdi mdi-arrow-right-bold-box"></i>   Where can I get access to Capital IQ? 
+                                    <i class="mdi mdi-arrow-right-bold-box"></i>   비밀번호를 잊어버렸습니다. 어떻게 찾을 수 있나요? 
                                     </a>
                                  </h5>
                               </div>
                               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                 <p>- 로그인 화면에서 'Forget your ID or Password?'를 클릭하고 가입시 기입한 ID, 이름을 입력한 후 이메일 주소를 적어주세요. 해당 이메일로 비밀번호를 발송해 드립니다.
                                  </p>
                               </div>
                            </div>
+                           <p> </p>
                            <div class="faq-card mb-3">
                               <div class="faq-card-header mb-2" role="tab" id="headingTwo">
                                  <h5 class="mb-0">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="mdi mdi-arrow-right-bold-box"></i> Where can I find market research reports? 
+                                    <i class="mdi mdi-arrow-right-bold-box"></i> 회원을 탈퇴하려면 어떻게 하나요? 
                                     </a>
                                  </h5>
                               </div>
                               <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                 <p>- 로그인 후, 마이페이지의 '회원 탈퇴'에서 탈퇴를 신청하시면 됩니다. <br>- 탈퇴 시에는 귀하의 정보와 댓글 내용이 삭제되며 사이트 이용에 제한이 있습니다. 신중히 고려하시기 바랍니다.
                                  </p>
                               </div>
                            </div>
+                           <p> </p>
                            <div class="faq-card mb-3">
                               <div class="faq-card-header mb-2" role="tab" id="headingThree">
                                  <h5 class="mb-0">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="mdi mdi-arrow-right-bold-box"></i> How do I get access to case studies? 
+                                    <i class="mdi mdi-arrow-right-bold-box"></i> 회원 정보를 어떻게 수정하나요? 
                                     </a>
                                  </h5>
                               </div>
                               <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                 </p>
-                              </div>
-                           </div>
-                           <div class="faq-card">
-                              <div class="faq-card-header mb-2" role="tab" id="headingThree">
-                                 <h5 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="mdi mdi-arrow-right-bold-box"></i>  How much should I capitalize?  
-                                    </a>
-                                 </h5>
-                              </div>
-                              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                 <p>- 로그인 후, 마이페이지에서 회원 정보를 수정하실 수 있습니다. '회원정보 수정'에서 비밀번호 변경, 휴대전화 번호, 관심 지역을  수정하실 수 있습니다. 
+                                                      <br>- 회원 아이디 변경을 원하실 경우에는 multicampus@multi.campus 로 문의해 주시기 바랍니다.  
                                  </p>
                               </div>
                            </div>

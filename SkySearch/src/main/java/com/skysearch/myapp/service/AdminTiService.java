@@ -1,5 +1,6 @@
 package com.skysearch.myapp.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,34 @@ public class AdminTiService {
 
 		return resultObject;
 	}
+	
+	public Object getCiObject(Object dataMap) {
+		String sqlMapId = "ti.ciread";
+
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+
+		return resultObject;
+	}
+
+	public Object getFileList(Object dataMap) {
+		String sqlMapId = "file.read";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+
+		return resultObject;
+	}
+	
+	public Object disableObject(Map<Object, Object> paramMap) {
+		String sqlMapId = "file.disable";
+
+		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		return resultObject;
+	}
+	
+	
 
 	public Object saveObject(Map<Object, Object> paramMap) {
-
-		
 
 		String uniqueSequence = (String) paramMap.get("TRAVEL_SEQ");
 
@@ -51,23 +76,25 @@ public class AdminTiService {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			paramMap.put("TRAVEL_SEQ", uniqueSequence);
 		}
-		
+
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 
-		String sqlMapId = "file.tiupload";
+		if (((List<Object>) paramMap.get("attachFileList")).size() > 0 || paramMap.get("attachFileList") != null) {
 
+			String sqlMapId = "file.tiupload";
+			Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		}
+		String sqlMapId = "ti.merge";
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
-		sqlMapId = "ti.merge";
-
-		resultKey = dao.saveObject(sqlMapId, paramMap);
-		System.out.println((int) resultKey);
 		sqlMapId = "ti.list";
 
 		Object resultObject = dao.getList(sqlMapId, paramMap);
 
 		return resultObject;
+
 	}
 
 	public Object deleteObject(Object dataMap) {
@@ -87,28 +114,29 @@ public class AdminTiService {
 
 	public Object saveCity(Map<Object, Object> paramMap) {
 
-		
-
 		String uniqueSequence = (String) paramMap.get("CITY_SEQ");
 
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			paramMap.put("CITY_SEQ", uniqueSequence);
 		}
-		
+
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 
-		String sqlMapId = "file.ciupload";
-		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+		if (((List<Object>) paramMap.get("attachFileList")).size() > 0 || paramMap.get("attachFileList") != null) {
 
-		sqlMapId = "ti.citymerge";
+			String sqlMapId = "file.ciupload";
+			Object resultObject = dao.saveObject(sqlMapId, paramMap);
+
+		}
+		String sqlMapId = "ti.citymerge";
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
-		System.out.println((int) resultKey);
-		sqlMapId = "ti.read";
+		sqlMapId = "ti.cilist";
 
-		resultObject = dao.getObject(sqlMapId, paramMap);
+		Object resultObject = dao.getList(sqlMapId, paramMap);
+
 		return resultObject;
 
 	}
@@ -122,7 +150,7 @@ public class AdminTiService {
 			paramMap.put("COUNTRY_SEQ", uniqueSequence);
 		}
 
-		String sqlMapId = "ti.countrymerge";
+		String sqlMapId = "ti.countrymerge";	
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
 		sqlMapId = "ti.read";

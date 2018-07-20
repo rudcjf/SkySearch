@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2015-12-10 13:31:41</creation_date>
-			<updated_date>2018-07-17 17:42:55</updated_date>
+			<updated_date>2018-07-18 10:24:13</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -1702,7 +1702,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>18</word_id>
+					<word_id>17</word_id>
 					<id>23</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2686,7 +2686,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>18</word_id>
 					<id>45</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

@@ -147,7 +147,7 @@ Version: 1.0
 }
  .btn {
      font-size: 13px;
-     padding: 15px 10px; /* 원래값 10 39*/
+     padding: 10px 10px; /* 원래값 10 39*/
      font-weight: bold;
 }
  b, strong {

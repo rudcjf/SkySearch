@@ -26,18 +26,6 @@ public class MemberService {
 		return resultObject;
 	}
 
-	public Object getPepList(Object dataMap) {
-		String sqlMapId = "member.read";
-
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
-
-		sqlMapId = "member.intloc";
-
-		((Map<String, Object>) resultObject).put("LOCAL_SEQ", dao.getObject(sqlMapId, dataMap));
-
-		return resultObject;
-	}
-
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "member.read";
 
@@ -53,6 +41,7 @@ public class MemberService {
 	public Object saveObject(Map<Object, Object> paramMap) {
 		String uniqueSequence = new String();
 		uniqueSequence = (String) paramMap.get("MEMBER_SEQ");
+	//	String password=(String)paramMap.get("PASSWORD");
 
 		if (uniqueSequence == null) {
 			uniqueSequence = commonUtil.getUniqueSequence();
@@ -60,9 +49,9 @@ public class MemberService {
 		}
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
-
+	//	paramMap.put("CRYPT_PASSWORD", commonUtil.PasswordEncoderGenerator(password));
+		
 		String sqlMapId = "member.merge";
-
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
 		sqlMapId = "int_local.delete";
@@ -71,6 +60,9 @@ public class MemberService {
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, paramMap);
 
+		sqlMapId = "authorityRmember.insert";
+		dao.saveObject(sqlMapId, paramMap);
+		
 		sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, paramMap);

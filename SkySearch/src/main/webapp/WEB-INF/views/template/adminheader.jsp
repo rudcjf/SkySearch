@@ -18,7 +18,7 @@
     <link type='text/css'  href="<c:url value='/resources/assets/css/normalize.css'/>"rel="stylesheet"/>
     <link type='text/css'  href="<c:url value='/resources/assets/css/bootstrap.min.css'/>"rel="stylesheet"/>
     <link type='text/css' href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
-    <link  type='text/css'  href="<c:url value='/resources/assets/scss/style.css'/>"rel="stylesheet"/>
+    <link  type='text/css'  href="<c:url value='/resources/uploads${resultMap.PHYSICALFILE_NAME}'/>"rel="stylesheet"/>
     <link  type='text/css'  href="<c:url value='/resources/assets/css/cs-skin-elastic.css'/>"rel="stylesheet"/>
     
     <!-- JavaScript -->

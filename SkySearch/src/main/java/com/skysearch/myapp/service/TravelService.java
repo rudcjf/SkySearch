@@ -15,10 +15,37 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
-	// read화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기(조회수별 상위6개)
+	// main 화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기 (조회수별 상위 6개)
 	public Object getCityList(Object dataMap) {
 		
-		String sqlMapId = "travel.citylist";
+		String sqlMapId = "travel.usercity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 각각의 도시들에 대한 평균 평점 가져오기
+	public Object getAvgStarList(Object dataMap) {
+		
+		String sqlMapId = "travel.avgstar";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 로그인하지 않은 유저를 위한 모든 도시 조회수의 리스트 가져오기 (조회수별 상위 6개)
+	public Object getCityList2(Object dataMap) {
+		
+		String sqlMapId = "travel.nousercity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
+	// 도시와 관광지의 사진을 모두 가져오기
+	public Object getFileList(Object dataMap) {
+
+		String sqlMapId = "travel.file";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
@@ -45,15 +72,6 @@ public class TravelService {
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		return resultObject;
 		
-	}
-	
-	// 댓글 리스트 가져오기
-	public Object getCommentList(Object dataMap) {
-		
-		String sqlMapId = "travel.comment";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-
 	}
 	
 	// 댓글 쓰기

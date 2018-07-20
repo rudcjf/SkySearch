@@ -27,7 +27,7 @@
 	<select id="read" resultType="Map" parameterType="String">
 		select * from
 		skysearch.ss_member
-		where EMAIL=#{EMAIL};
+		where EMAIL=#{EMAIL}
 	</select>
 
 	<select id="intloc" resultType="Map" parameterType="String"> select
