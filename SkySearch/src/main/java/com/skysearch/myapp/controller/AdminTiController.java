@@ -42,6 +42,7 @@ public class AdminTiController {
 		String forwardView = (String) paramMap.get("forwardView") ;
 
 		Map<Object, Object> resultMap = new HashMap<Object, Object>() ;
+		Map<Object, Object> resultMap2 = new HashMap<Object, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
@@ -67,9 +68,14 @@ public class AdminTiController {
 			resultList = (List<Object>) service.deleteObject(paramMap);
 		} else if ("ti_cilist".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getCiList(paramMap);
-		}else if ("file_disable".equalsIgnoreCase(action)) {
-			service.disableObject(paramMap);
+		}else if ("file_delete".equalsIgnoreCase(action)) {
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+			resultList = (List<Object>) service.filedeleteObject(paramMap);
+		}else if ("file_cidelete".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getCiObject(paramMap);
+			resultList = (List<Object>) service.filedeleteObject(paramMap);
+		}else if ("sample".equalsIgnoreCase(action)) {
+			
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}

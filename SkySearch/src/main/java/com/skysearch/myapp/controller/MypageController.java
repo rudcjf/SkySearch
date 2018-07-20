@@ -46,7 +46,7 @@ public class MypageController {
 		} else if ("withdrawal".equalsIgnoreCase(action)) {
 			
 		} else if ("disable".equalsIgnoreCase(action)) {
-			String id=(String)paramMap.get("email");//ÀÔ·ÂÇÑ ÀÌ¸ÞÀÏ°ú ºñ¹Ð¹øÈ£
+			String id=(String)paramMap.get("email");//ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ð¹ï¿½È£
 			String pw=(String)paramMap.get("password");
      
 			resultMap = (Map<Object, Object>) service.Find(paramMap);
@@ -54,12 +54,14 @@ public class MypageController {
 			String email = (String)resultMap.get("EMAIL");
 			String pass = (String)resultMap.get("PASSWORD");
 			
-			if(id.equals(email)&&pw.equals(pass)) {//ÀÌ¸ÞÀÏ°ú ºñ¹øÀÌ ÀÏÄ¡ÇÏ¸é 
+			if(id.equals(email)&&pw.equals(pass)) {//ï¿½Ì¸ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï¸ï¿½ 
 				service.deleteObject(paramMap);
 				/*viewName = "/home/index";*/
 			}else {
 				viewName = "/mypage/withdrawalfail";
 			}
+		} else if("contact".equalsIgnoreCase(action)) {
+			service.sendObject(paramMap);
 		}
 		if (forwardView != null) {
 			viewName = forwardView;
