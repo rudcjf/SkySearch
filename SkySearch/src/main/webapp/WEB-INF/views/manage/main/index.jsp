@@ -89,6 +89,34 @@
 
                     </div>
                     
+                      <div class="col-sm-12">
+				      <table class="table table-striped table-bordered table-hover"
+				         id="bootstrap-data-table">
+				         <thead>
+				            <tr>
+				               <th>NAME</th>
+				               <th>PHONE</th>
+				               <th>EMAIL</th>
+				               <th>ENABLE</th>
+				               <th>DISABLE</th>
+				            </tr>
+				         </thead>
+				         <tbody>
+				            <c:forEach items="${resultList}" var="resultData" varStatus="loop">
+				               <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+				                  <td>${resultData.NAME}</td>
+				                  <td>${resultData.PHONE}</td>
+				                  <td><a
+				                     href="<c:url value="/manage/contact/edit?EMAIL=${resultData.CONTACTUS_SEQ}" />">${resultData.EMAIL}</a></td>
+				                  <td>${resultData.ENABLE}</td>
+				                  <td><a
+				                     href="<c:url value="/manage/member/disable?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">disable</a></td>
+				               </tr>
+				            </c:forEach>
+				         </tbody>
+				      </table>
+				   </div>
+                    
                 </div>
             </div>
 
