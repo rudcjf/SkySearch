@@ -261,7 +261,14 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/img/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/img/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
