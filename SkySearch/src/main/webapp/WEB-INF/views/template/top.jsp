@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+
 <!-- Navbar -->
    <header>   
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,7 +23,7 @@
                      aria-haspopup="true" aria-expanded="false"> <strong>항공권 특가</strong> </a>
                        </li>
                        <li class="nav-item">
-                       	  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                       	  
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
@@ -35,29 +37,37 @@
                         </div>
                      </li>
                       <li class="nav-item">
-                          <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                         <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM,'ROLE_USER)">
                            <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>My page</strong>
-                           </a>
-<%--                         </li>
-                          <li class="nav-item">
+                           aria-haspopup="true" aria-expanded="false"> <strong>My page</strong></a>
+                           </sec:authorize>
+                       </li>
+                           <li class="nav-item">
+                          <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM)">
                            <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>Manage</strong> </a>
-                        </li>  --%>
+                           aria-haspopup="true" aria-expanded="false"> <strong>Manage </strong> </a>
+                           </sec:authorize>
+                        </li>  
+                        
+                        
+                         <li class="nav-item">
+                        <sec:authentication property="principal" var="principalBean"/>
+                  			<sec:authorize access="isAuthenticated()">
+                  			${principalBean.authority}
+                  			</sec:authorize> 
+                    </li>
                      </ul>   
-                   
+                  
                      <div class="my-2 my-lg-0">
-                       <ul class="list-inline main-nav-right"> <!-- style="margin-top:10px;" -->
-                           <!--  <li class="list-inline-item">
+                       <ul class="list-inline main-nav-right">                        
+                           <!-- 국가명, 도시명 검색바
+                             <li class="list-inline-item">
                               <form action="/action_page.php" >
                              	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
                               </form>
                              </li> -->
-  <%--                             <sec:authentication property="principal" var="principalBean"/> 
-                               <sec:authorize access="isAuthenticated()">${principalBean.memberName}</sec:authorize> --%>
-                                 
+                                  
                              <li class="list-inline-item">
-                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" />
                                  <c:choose>
                                  	<c:when test="${principalName == null}">
                                  		<a class="btn btn-success btn-sm" href='/SkySearch/signup'><i class="mdi mdi-account-settings"></i>SignUp</a>
