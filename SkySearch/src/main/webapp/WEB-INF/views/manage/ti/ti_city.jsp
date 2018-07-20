@@ -313,37 +313,53 @@
 														<label>경도:</label> <input type="text" class="form-control"
 															name="CITY_LONGITUDE" value="${resultMap.CITY_LONGITUDE}">
 													</div>
-													
+
+
+
+
+													<div class="form-group col-sm-12">
+														<div id="floating-panel">
+															<input id="address" type="textbox" value="${resultMap.CITY_ADD}"> <input class="btn btn-success"
+																 type="button" onclick="window.open('http://www.iegate.net/maps/geogoogle.php')" value="검색">
+															<p>위도, 경도</p>
+															<p id="location_code">(${resultMap.CITY_LATITUDE}, ${resultMap.CITY_LONGITUDE})</p>
+														</div>
+
+														<div id="map" style="height: 500px;"></div>
+													</div>
+
+
 													<!-- 첨부파일 -->
 													<c:forEach items="${resultList}" var="resultData"
-																varStatus="loop">
-																<c:set var="ATTACHFILE_SEQ" value="${resultData.ATTACHFILE_SEQ}"></c:set>
-															</c:forEach>
+														varStatus="loop">
+														<c:set var="ATTACHFILE_SEQ"
+															value="${resultData.ATTACHFILE_SEQ}"></c:set>
+													</c:forEach>
 													<c:choose>
 														<c:when test="${ATTACHFILE_SEQ == null}">
-													<div class="col-6 col-md-6">
-														
-														<input type="file" name="ATTACHEDFILES" />
-													</div>
-       													</c:when>
-														<c:otherwise>
-													<div class="form-group">
+															<div class="col-6 col-md-6">
 
-														<div class="card-body">
-															<p class="text-muted m-b-15">파일목록 :</p>
-															<c:forEach items="${resultList}" var="resultData"
-																varStatus="loop">
-																<ul class="list-unstyled">
-																	<li><a
-																		href="<c:url value='/manage/ti/file_cidelete?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																<input type="file" name="ATTACHEDFILES" />
+															</div>
+														</c:when>
+														<c:otherwise>
+															<div class="form-group">
+
+																<div class="card-body">
+																	<p class="text-muted m-b-15">파일목록 :</p>
+																	<c:forEach items="${resultList}" var="resultData"
+																		varStatus="loop">
+																		<ul class="list-unstyled">
+																			<li><a
+																				href="<c:url value='/manage/ti/file_cidelete?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
 																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
-																	</a></li>
-																</ul>
-															</c:forEach>
-														</div>
-													</div>
-														
-      													 </c:otherwise>
+																			</a></li>
+																		</ul>
+																	</c:forEach>
+																</div>
+															</div>
+
+														</c:otherwise>
 													</c:choose>
 													<!-- 첨부파일 END -->
 												</div>
@@ -436,6 +452,55 @@
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
+
+	<!-- Gmaps -->
+	<script>
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom : 16,
+				center : {
+					lat : 37.566535,
+					lng : 126.97796919999996
+				}
+			});
+			var geocoder = new google.maps.Geocoder();
+
+			document.getElementById('submit').addEventListener('click',
+					function() {
+						geocodeAddress(geocoder, map);
+					});
+		}
+
+		function geocodeAddress(geocoder, resultsMap) {
+			var address = document.getElementById('address').value;
+			geocoder
+					.geocode(
+							{
+								'address' : address
+							},
+							function(results, status) {
+								if (status === google.maps.GeocoderStatus.OK) {
+									resultsMap
+											.setCenter(results[0].geometry.location);
+									var marker = new google.maps.Marker({
+										map : resultsMap,
+										position : results[0].geometry.location
+									});
+
+									document.getElementById('location_code').innerHTML = results[0].geometry.location;
+								} else {
+									alert('Geocode was not successful for the following reason: '
+											+ status);
+								}
+							});
+		}
+	</script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key='AIzaSyBlqnfaXNqm15QpBNxlQ0Jr2xDev88zmBM&callback=initMap'&signed_in=true&callback=initMap"
+		async defer></script>
+
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>
 
 
 </body>

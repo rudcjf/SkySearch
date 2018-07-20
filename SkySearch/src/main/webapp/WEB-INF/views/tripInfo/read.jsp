@@ -364,6 +364,9 @@
 </section>
 <!-- End Property Single Slider -->
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b5175cdcb0ffdc9"></script>
+
 <!-- Bootstrap core JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
