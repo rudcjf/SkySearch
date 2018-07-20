@@ -23,6 +23,22 @@ public class TravelService {
 		return resultObject;
 	}
 	
+	// 도시 리스트 조회수 별로 가져오기
+	public Object getViewCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.allcity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+	}
+	
+	// 도시 리스트 평점순 별로 가져오기
+	public Object getStarCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.allcity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+	}
+	
 	// 로그인 한 유저의 관심지역의 리스트 가져오기 (조회수별 상위 6개)
 	public Object getUserCityList(Object dataMap) {
 		
@@ -142,11 +158,11 @@ public class TravelService {
 		
 	}
 	
-	// 페이징 적용하기
-	public Object getListPagination(Object dataMap) {
+	// 코멘트 페이징 적용하기
+	public Object getCommentListPagination(Object dataMap) {
 
 		Map<String, Object> resultMap = new HashMap<String, Object>() ;
-		String sqlMapId = "travel.totalcount";
+		String sqlMapId = "travel.commentcount";
 		int totalCount = (int) dao.getObject(sqlMapId, dataMap);
 		int currentPage = 1;
 		if(((Map<String,Object>) dataMap).get("curPage") != null) {
@@ -154,7 +170,27 @@ public class TravelService {
 		}
 		Pagination pagination = new Pagination(totalCount, currentPage); // 댓글의 총 갯수와, 하나의 페이지당 들어갈 컬럼수
 		resultMap.put("pagination", pagination);
-		sqlMapId = "travel.listpagination";
+		sqlMapId = "travel.commentlistpagination";
+		((Map<String, Object>) dataMap).put("pagination", pagination);
+		Object resultList = dao.getList(sqlMapId, dataMap);
+		resultMap.put("resultList", resultList);
+		return resultMap;
+		
+	}
+	
+	// 도시 페이징 적용하기
+	public Object getCityListPagination(Object dataMap) {
+
+		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		String sqlMapId = "travel.citycount";
+		int totalCount = (int) dao.getObject(sqlMapId, dataMap);
+		int currentPage = 1;
+		if(((Map<String,Object>) dataMap).get("curPage") != null) {
+			currentPage = Integer.valueOf(((Map<String, String>) dataMap).get("curPage"));
+		}
+		Pagination pagination = new Pagination(totalCount, currentPage); 
+		resultMap.put("pagination", pagination);
+		sqlMapId = "travel.citylistpagination";
 		((Map<String, Object>) dataMap).put("pagination", pagination);
 		Object resultList = dao.getList(sqlMapId, dataMap);
 		resultMap.put("resultList", resultList);

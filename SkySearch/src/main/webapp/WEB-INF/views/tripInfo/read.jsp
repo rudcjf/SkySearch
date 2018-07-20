@@ -163,7 +163,7 @@
 					<div class="card-body">
 						<!-- 댓글 리스트 : 최신이 위로 뜨게 함 -->
 						<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-						<c:forEach items="${resultPaginationMap.resultList}" var="resultData" varStatus="loop">
+						<c:forEach items="${resultCommentPaginationMap.resultList}" var="resultData" varStatus="loop">
 							<div class="media mb-4" id="commentList">
 								<div class="media-body">
 									<h5 class="mt-0">
@@ -228,7 +228,7 @@
 						<!-- END 댓글 -->
 						
 						<!-- 페이징 -->
-						<c:set var="page" value="${resultPaginationMap.pagination}" />
+						<c:set var="page" value="${resultCommentPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
 								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultCityMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>

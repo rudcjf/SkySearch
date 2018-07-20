@@ -41,35 +41,38 @@ public class TravelController {
 			List<Object> resultUserCityList = new ArrayList<Object>();
 			List<Object> resultNoUserCityList = new ArrayList<Object>();
 			List<Object> resultAvgStarList = new ArrayList<Object>();
+			Map<String, Object> resultCityPaginationMap = new HashMap<String, Object>();
 			
 			resultAllCityList = (List<Object>) service.getAllCityList(paramMap); // 도시 전체 리스트를 가져온다.
 			resultUserCityList = (List<Object>) service.getUserCityList(paramMap); // 도시 리스트를 가져온다.(로그인시)
 			resultNoUserCityList = (List<Object>) service.getNoUserCityList(paramMap); // 도시 리스트를 가져온다.(비로그인시)
-			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다
+			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
+			resultCityPaginationMap = (Map<String, Object>) service.getCityListPagination(paramMap); // 전체 도시 리스트를 페이지네이션 한다.
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("resultAllCityList", resultAllCityList);
 			modelandView.addObject("resultUserCityList", resultUserCityList);
 			modelandView.addObject("resultNoUserCityList", resultNoUserCityList);
 			modelandView.addObject("resultAvgStarList", resultAvgStarList);
+			modelandView.addObject("resultCityPaginationMap", resultCityPaginationMap);
 		
 		// 여행정보 리드화면
 		} else if ("read".equalsIgnoreCase(action)) {
 			
 			Map<String, Object> resultCityMap = new HashMap<String, Object>();
 			Map<String, Object> resultMemberMap = new HashMap<String, Object>();
-			Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
+			Map<String, Object> resultCommentPaginationMap = new HashMap<String, Object>();
 			List<Object> resultLandmarkList = new ArrayList<Object>();
 			
 			resultCityMap = (Map<String, Object>) service.getCityInfo(paramMap); // 도시 상세 정보를 뿌려줄 정보를 가져온다.
 			resultMemberMap = (Map<String, Object>) service.getMemberSeq(paramMap); // 멤버시퀀스를 가져온다.
-			resultPaginationMap = (Map<String, Object>) service.getListPagination(paramMap); // 댓글을 모두 불러오는데 5개단위로 된 페이지로 불러온다.
+			resultCommentPaginationMap = (Map<String, Object>) service.getCommentListPagination(paramMap); // 댓글을 모두 불러오는데 5개단위로 된 페이지로 불러온다.
 			resultLandmarkList = (List<Object>) service.getLandmarkList(paramMap); // 관광지 리스트를 가져온다.
 			
 			modelandView.setViewName(viewName);
 			modelandView.addObject("resultCityMap", resultCityMap);
 			modelandView.addObject("resultMemberMap", resultMemberMap);
-			modelandView.addObject("resultPaginationMap", resultPaginationMap);	
+			modelandView.addObject("resultCommentPaginationMap", resultCommentPaginationMap);	
 			modelandView.addObject("resultLandmarkList", resultLandmarkList);
 			
 		// 여행정보 댓글 수정 팝업	
