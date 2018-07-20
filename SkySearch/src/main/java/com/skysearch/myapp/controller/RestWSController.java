@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skysearch.myapp.service.AdminMainService;
 import com.skysearch.myapp.service.CityService;
 import com.skysearch.myapp.service.LocalService;
 import com.skysearch.myapp.service.MemberService;
@@ -32,6 +33,8 @@ public class RestWSController {
 	private TravelService travelService;
 	@Autowired
 	private MemberService memberservice;
+	@Autowired
+	private AdminMainService adminMainService;
 	
 	@RequestMapping(value = "/ws/{action}", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
 	public Object actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action) {
@@ -39,6 +42,7 @@ public class RestWSController {
 		Object resultObject = new Object();
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
+		List<String> resultListC = new ArrayList<String>();
 		
 		if("localList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getList(paramMap);
@@ -56,6 +60,15 @@ public class RestWSController {
 	         Object result = memberservice.checkID(paramMap);
 	         return result;
 	       
+		} else if("memberChartM".equalsIgnoreCase(action)) {
+			resultListC =  adminMainService.getListhh(paramMap,1);
+			return resultListC;
+		}else if("memberChartD".equalsIgnoreCase(action)) {
+			resultListC =  adminMainService.getListhh(paramMap,2);
+			return resultListC;
+		}else if("memberChartY".equalsIgnoreCase(action)) {
+			resultListC =  adminMainService.getListhh(paramMap,3);
+			return resultListC;
 		}
 		
 		return resultObject;
