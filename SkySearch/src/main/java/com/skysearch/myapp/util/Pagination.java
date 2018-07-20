@@ -1,7 +1,7 @@
 package com.skysearch.myapp.util;
 
 public class Pagination {
-	public static final int PAGE_SCALE = 5; // 페이지당 게시물 수
+	public static final int PAGE_SCALE = 6; // 페이지당 게시물 수
 	public static final int BLOCK_SCALE = 5; // 블록당 페이지수
 
 	private int curPage; // 현재 페이지 번호

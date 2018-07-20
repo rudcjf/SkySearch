@@ -74,6 +74,14 @@ public class RestWSController {
 		}else if("memberChartY".equalsIgnoreCase(action)) {
 			resultListC =  adminMainService.getListhh(paramMap,3);
 			return resultListC;
+		}else if("memberChartV".equalsIgnoreCase(action)) {
+			String sqlMapId = "chart.CityView";
+			resultList =  (List<Object>) adminMainService.getList(paramMap,sqlMapId);
+			return resultList;
+		}else if("memberChartS".equalsIgnoreCase(action)) {
+			String sqlMapId = "chart.CityStars";
+			resultList =  (List<Object>) adminMainService.getList(paramMap,sqlMapId);
+			return resultList;
 		}
 		
 		
@@ -129,6 +137,20 @@ public class RestWSController {
 	public void CommentDel(@RequestParam Map<String, Object> paramMap) {
 		
 		travelService.delComment(paramMap);
+	}
+	
+	// 댓글 수정하는 메서드
+	@RequestMapping(value = "/ws/viewSet", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void SetView(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.getViewCityList(paramMap);
+	}
+	
+	// 댓글 수정하는 메서드
+	@RequestMapping(value = "/ws/starSet", method = { RequestMethod.GET, RequestMethod.POST }, produces = "application/json")
+	public void SetStar(@RequestParam Map<String, Object> paramMap) {
+		
+		travelService.getStarCityList(paramMap);
 	}
 	
 }
