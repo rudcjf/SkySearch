@@ -110,6 +110,7 @@
 								<option value="북아메리카">북아메리카</option>
 								<option value="남아메리카">남아메리카</option>
 								<option value="오세아니아">오세아니아</option>
+								<option value="아프리카">아프리카</option>
 							</select>
 						</div>
 					</div>

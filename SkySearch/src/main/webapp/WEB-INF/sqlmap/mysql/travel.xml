@@ -82,14 +82,12 @@
 	<select id="read" resultType="Map" parameterType="Map">
 		SELECT
 		ci.*,
-        fi.SOURCE_UNIQUE_SEQ,
-        fi.PHYSICALFILE_NAME
+		fi.SOURCE_UNIQUE_SEQ,
+		fi.PHYSICALFILE_NAME
 		FROM 
-		SS_CITY ci, 
-		SS_ATTACHFILE fi
+		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
+		ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
 		WHERE
-        ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
-        AND
 		CITY_SEQ = #{CITY_SEQ}
 	</select>
 	
