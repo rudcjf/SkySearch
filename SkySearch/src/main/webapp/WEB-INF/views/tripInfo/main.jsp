@@ -263,10 +263,10 @@
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
 								<c:choose>
 									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value='/resources/img/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value='/resources/img/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
