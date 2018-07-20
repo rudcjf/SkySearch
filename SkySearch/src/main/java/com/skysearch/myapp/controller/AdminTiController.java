@@ -74,6 +74,8 @@ public class AdminTiController {
 		}else if ("file_cidelete".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getCiObject(paramMap);
 			resultList = (List<Object>) service.filedeleteObject(paramMap);
+		}else if ("sample".equalsIgnoreCase(action)) {
+			
 		}
 			/*else if ("update".equalsIgnoreCase(action)) {
 		}
