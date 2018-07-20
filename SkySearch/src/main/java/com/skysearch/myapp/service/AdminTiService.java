@@ -58,11 +58,25 @@ public class AdminTiService {
 		return resultObject;
 	}
 	
-	public Object disableObject(Map<Object, Object> paramMap) {
-		String sqlMapId = "file.disable";
+	public Object filedeleteObject(Object dataMap) {
+		String sqlMapId = "file.delete";
 
-		Object resultObject = dao.saveObject(sqlMapId, paramMap);
+		Object resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+		
+		sqlMapId = "ti.read";
 
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		
+		sqlMapId = "ti.ciread";
+
+		resultObject = dao.getObject(sqlMapId, dataMap);
+
+		sqlMapId = "file.read";
+				
+
+		 resultObject = dao.getList(sqlMapId, dataMap);
+		
+		
 		return resultObject;
 	}
 	

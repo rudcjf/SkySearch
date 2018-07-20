@@ -160,9 +160,6 @@ function success() {
 														<label>도시명 :</label>
 														<div id=cityDIV name="CITY_NAME"></div>
 													</div>
-													<div class="col col-md-3">
-														
-													</div>
 													
 													<!-- 첨부파일 -->
 													<c:forEach items="${resultList}" var="resultData"
@@ -185,8 +182,8 @@ function success() {
 																varStatus="loop">
 																<ul class="list-unstyled">
 																	<li><a
-																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
-																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
+																		href="<c:url value='/manage/ti/file_delete?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																&forwardView=/manage/ti/ti_edit&TRAVEL_SEQ=${resultMap.TRAVEL_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
 																	</a></li>
 																</ul>
 															</c:forEach>
@@ -198,10 +195,6 @@ function success() {
 													<!-- 첨부파일 END -->
 
 													
-													<br>
-													<div class="col-12 col-md-9">
-														<input type="file" name="ATTACHEDFILES" />
-													</div>
 												</div>
 											</div>
 											<div align="right">
