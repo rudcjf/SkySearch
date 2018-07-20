@@ -26,6 +26,7 @@ public class CrawlService {
 
 	/**
 	 * 크롤링하는 메소드 호출
+	 * 
 	 * @param dataMap
 	 * @return
 	 */
@@ -35,22 +36,24 @@ public class CrawlService {
 		resultObject.add(getAsiana());
 		resultObject.add(getJejuair());
 		resultObject.add(getTway());
-		//resultObject.add(getSeoulair());
-		
+
+		// resultObject.add(getSeoulair());
 		//resultObject.add(geteastarjet());
 		// resultObject.add(getBusanair());
+		 resultObject.add(getjinair());
 
 		return resultObject;
 	}
 
 	/**
 	 * Asiana crawling
+	 * 
 	 * @return list
 	 */
 	public List getAsiana() {
-		
+
 		List resultList = new ArrayList<>();
-		
+
 		try {
 			Document doc;
 			Map<String, Object> resultMap;
@@ -62,13 +65,13 @@ public class CrawlService {
 
 			for (Element e : question) {
 				resultMap = new HashMap<String, Object>();
-				
+
 				if (e.attr("class").contains("inner_box")) {
 					if (e.text().contains("특가")) {
 						StringBuffer sb = new StringBuffer();
 						sb.append("https://flyasiana.com/C/KR/KO/event");
 						sb.append(e.getElementsByAttribute("href").attr("href").substring(1));
-						
+
 						resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
 						resultMap.put("title", e.select("em").text());
 						resultMap.put("period", e.select("span.date").text());
@@ -88,12 +91,13 @@ public class CrawlService {
 
 	/**
 	 * Jeju air crawling
+	 * 
 	 * @return
 	 */
 	public List getJejuair() {
-		
+
 		List resultList = new ArrayList<>();
-		
+
 		try {
 			Document doc;
 			Map<String, Object> resultMap;
@@ -108,7 +112,7 @@ public class CrawlService {
 			for (Element e : question) {
 				if (e.attr("class").contains("item")) {
 					if (e.text().contains("프로모션") || e.text().contains("특가")) {
-						
+
 						resultMap = new HashMap<>();
 						resultMap.put("title", e.select("span.subject").text());
 						resultMap.put("period", e.select("span.date").text());
@@ -121,7 +125,7 @@ public class CrawlService {
 
 						int[] array = new int[2];
 						int a = 0;
-						
+
 						while (tok.hasMoreTokens()) {
 							array[a] = Integer.parseInt(tok.nextToken());
 							a++;
@@ -135,7 +139,7 @@ public class CrawlService {
 						sb.append(array[1]);
 						sb.append("&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
 						resultMap.put("url", sb);
-						
+
 						resultList.add(resultMap);
 					}
 				}
@@ -145,7 +149,7 @@ public class CrawlService {
 		}
 		return resultList;
 	}
-	
+
 	// 부산항공 사이트 크롤링 >>json방식 >>미완
 	public List getBusanair() {
 		List resultList = new ArrayList<>();
@@ -201,102 +205,62 @@ public class CrawlService {
 		}
 		return resultList;
 	}
-	
+
 	// 이스타 사이트 크롤링 >>js방식 >>미완
-		public List geteastarjet() {
-			List resultList = new ArrayList<>();
-			try {
-				Document doc;
-				Map<String, Object> resultMap;
+	public List geteastarjet() {
+		List resultList = new ArrayList<>();
+		try {
+			Document doc;
+			Map<String, Object> resultMap;
 
-				doc = Jsoup.connect(
-						"https://www.eastarjet.com/newstar/PGWTA00001").get();
-				System.out.println(">>"+doc.html());
+			doc = Jsoup.connect("https://www.eastarjet.com/newstar/PGWTA00001?searchIndex=undefined").get();
+			System.out.println("결과값");
+			System.out.println(">>" + doc.html());
 
-				Elements questions = doc.select("ul");
-				//Elements question = questions.select("a");
+			//Elements questions = doc.select("ul");
+			// Elements question = questions.select("a");
 
-				for (Element e : questions) {
-					if (e.attr("class").contains("event")) {
-						if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약")) {
-							resultMap = new HashMap<>();
-							
-							resultMap.put("title", e.select("strong").text());
-							//resultMap.put("period", e.select("span.date").text());
-							resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
-							resultMap.put("alt", e.getElementsByAttribute("alt").attr("alt"));
-							resultMap.put("flight", "이스타항공");
+			/*
+			 * for (Element e : questions) { if (e.attr("class").contains("event")) { if
+			 * (e.text().contains("프로모션") || e.text().contains("특가") ||
+			 * e.text().contains("예약")) { resultMap = new HashMap<>();
+			 * 
+			 * resultMap.put("title", e.select("strong").text()); //resultMap.put("period",
+			 * e.select("span.date").text()); resultMap.put("img",
+			 * e.getElementsByAttribute("src").attr("src")); resultMap.put("alt",
+			 * e.getElementsByAttribute("alt").attr("alt")); resultMap.put("flight",
+			 * "이스타항공");
+			 * 
+			 * StringTokenizer tok = new
+			 * StringTokenizer(e.getElementsByAttribute("href").attr("href"),
+			 * "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(' ):,;");
+			 * 
+			 * int[] array = new int[2]; int a = 0; while (tok.hasMoreTokens()) { array[a] =
+			 * Integer.parseInt(tok.nextToken()); a++;
+			 * 
+			 * }
+			 * 
+			 * StringBuffer sb = new StringBuffer(); sb.append(
+			 * "https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_detail.do?page="
+			 * ); sb.append(array[0]); sb.append("&event_id="); sb.append(array[1]);
+			 * sb.append(
+			 * "&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
+			 * 
+			 * resultMap.put("url", sb); resultList.add(resultMap); } } }
+			 */
 
-							/*StringTokenizer tok = new StringTokenizer(e.getElementsByAttribute("href").attr("href"),
-									"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(' ):,;");
-
-							int[] array = new int[2];
-							int a = 0;
-							while (tok.hasMoreTokens()) {
-								array[a] = Integer.parseInt(tok.nextToken());
-								a++;
-
-							}
-
-							StringBuffer sb = new StringBuffer();
-							sb.append("https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_detail.do?page=");
-							sb.append(array[0]);
-							sb.append("&event_id=");
-							sb.append(array[1]);
-							sb.append("&nSearch=%ED%8A%B9%EA%B0%80&condition=mix&search=%ED%8A%B9%EA%B0%80");
-
-							resultMap.put("url", sb);*/
-							resultList.add(resultMap);
-						}
-					}
-				}
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return resultList;
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		/**
-		 * tway crawling
-		 * @return list
-		 */
-		public List getTway() {
-			
-			List resultList = new ArrayList<>();
-			
-			try {
-				Document doc;
-				Map<String, Object> resultMap;
+		return resultList;
+	}
 
-				doc = Jsoup.connect(
-						"https://www.twayair.com/together/event/listEventsInProgress.do").get();
-
-				Elements questions = doc.select("div.eventList");
-				Elements question = questions.select("a");
-
-				for (Element e : question) {
-						if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약") || e.text().contains("여행")) {
-							resultMap = new HashMap<>();
-							
-							resultMap.put("title", e.select("h4").text());
-							resultMap.put("period", e.select("p.mt5").text());
-							resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
-							resultMap.put("alt", e.getElementsByAttribute("alt").attr("alt"));
-							resultMap.put("flight", "티웨이");
-							resultMap.put("url", "https://www.twayair.com/together/event/"+e.getElementsByAttribute("href").attr("href"));
-							
-							resultList.add(resultMap);
-						}
-					}
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return resultList;
-		}
-
-	public List getSeoulair() {
+	/**
+	 * tway crawling
+	 * 
+	 * @return list
+	 */
+	public List getTway() {
 
 		List resultList = new ArrayList<>();
 
@@ -304,10 +268,8 @@ public class CrawlService {
 			Document doc;
 			Map<String, Object> resultMap;
 
-			doc = Jsoup.connect("https://flyairseoul.com/CW/ko/ingEvent.do").get();
+			doc = Jsoup.connect("https://www.twayair.com/together/event/listEventsInProgress.do").get();
 
-			
-			System.out.println(">>>"+ doc.html());
 			Elements questions = doc.select("div.eventList");
 			Elements question = questions.select("a");
 
@@ -327,6 +289,88 @@ public class CrawlService {
 					resultList.add(resultMap);
 				}
 			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return resultList;
+	}
+
+	/**
+	 * 에어서울
+	 * @return
+	 */
+	public List getSeoulair() {
+
+		List resultList = new ArrayList<>();
+
+		try {
+			Document doc;
+			Map<String, Object> resultMap;
+
+			doc = Jsoup.connect("https://flyairseoul.com/CW/ko/ingEvent.do").get();
+
+			System.out.println(">>>" + doc.html());
+			Elements questions = doc.select("div.eventList");
+			Elements question = questions.select("a");
+
+			for (Element e : question) {
+				if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약")
+						|| e.text().contains("여행")) {
+					resultMap = new HashMap<>();
+
+					resultMap.put("title", e.select("h4").text());
+					resultMap.put("period", e.select("p.mt5").text());
+					resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
+					resultMap.put("alt", e.getElementsByAttribute("alt").attr("alt"));
+					resultMap.put("flight", "티웨이");
+					resultMap.put("url",
+							"https://www.twayair.com/together/event/" + e.getElementsByAttribute("href").attr("href"));
+
+					resultList.add(resultMap);
+				}
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return resultList;
+	}
+	
+	/**
+	 * 진에어
+	 * @return
+	 */
+	public List getjinair() {
+
+		List resultList = new ArrayList<>();
+
+		try {
+			Document doc;
+			Map<String, Object> resultMap;
+
+			doc = Jsoup.connect("https://www.jinair.com/promotion/eventList").get();
+
+			System.out.println(">>>" + doc.html());
+			/*Elements questions = doc.select("div.eventList");
+			Elements question = questions.select("a");
+
+			for (Element e : question) {
+				if (e.text().contains("프로모션") || e.text().contains("특가") || e.text().contains("예약")
+						|| e.text().contains("여행")) {
+					resultMap = new HashMap<>();
+
+					resultMap.put("title", e.select("h4").text());
+					resultMap.put("period", e.select("p.mt5").text());
+					resultMap.put("img", e.getElementsByAttribute("src").attr("src"));
+					resultMap.put("alt", e.getElementsByAttribute("alt").attr("alt"));
+					resultMap.put("flight", "티웨이");
+					resultMap.put("url",
+							"https://www.twayair.com/together/event/" + e.getElementsByAttribute("href").attr("href"));
+
+					resultList.add(resultMap);
+				}
+			}*/
 
 		} catch (IOException e) {
 			e.printStackTrace();

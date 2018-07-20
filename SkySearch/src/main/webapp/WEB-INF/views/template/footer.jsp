@@ -27,11 +27,11 @@
                   <ul>
                 </div>
                 <div class="col-lg-2 col-md-2">
-                  <h6 class="mb-4">Manage</h6>
+                  <h6 class="mb-4">About Us</h6>
                   <ul>
-                  <li><a href="<c:url value='/manage/main/index'/>">Main</a></li>
-                  <li><a href="<c:url value='/manage/member/list'/>">Member</a></li>
-                  <li><a href="<c:url value='/manage/ti/ti_list'/>">Trip Info</a></li>
+                  <li><a href="<c:url value='/aboutUs/aboutus'/>">About Us</a></li>
+                  <li><a href="<c:url value='/aboutUs/faq'/>">FAQ</a></li>
+                  <li><a href="<c:url value='/aboutUs/contact'/>">Contact Us</a></li>
                   <ul>
                 </div>
 

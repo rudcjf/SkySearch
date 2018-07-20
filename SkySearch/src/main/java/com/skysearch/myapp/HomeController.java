@@ -47,20 +47,24 @@ public class HomeController {
 
 		String formattedDate = dateFormat.format(date);
 
-		Map<String, Object> resultCityMap = new HashMap<String, Object>();
+		
+		List<Object> resultUserCityList = new ArrayList<Object>();
+		List<Object> resultNoUserCityList = new ArrayList<Object>();
+		List<Object> resultAvgStarList = new ArrayList<Object>();
+		resultUserCityList = (List<Object>) service.getUserCityList(paramMap); // 도시 리스트를 가져온다.(로그인시)
+		resultNoUserCityList = (List<Object>) service.getNoUserCityList(paramMap); // 도시 리스트를 가져온다.(비로그인시)
+		resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
+		
+		
+		/*Map<String, Object> resultCityMap = new HashMap<String, Object>();
 		Map<String, Object> resultMemberMap = new HashMap<String, Object>();
 		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
 		List<Object> resultUserCityList = new ArrayList<Object>();
 		List<Object> resultAvgStarList = new ArrayList<Object>();
 		List<Object> resultNoUserCityList = new ArrayList<Object>();
-		List<Object> resultLandmarkList = new ArrayList<Object>();
+		List<Object> resultLandmarkList = new ArrayList<Object>();*/
 		
-		resultUserCityList = (List<Object>) service.getUserCityList(paramMap);
-		resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap);
-		resultNoUserCityList = (List<Object>) service.getNoUserCityList(paramMap);
-
 		modelandView.setViewName(viewName);
-		modelandView.addObject("resultCityMap", resultCityMap);
 		modelandView.addObject("resultUserCityList", resultUserCityList);
 		modelandView.addObject("resultAvgStarList", resultAvgStarList);
 		modelandView.addObject("resultNoUserCityList", resultNoUserCityList);

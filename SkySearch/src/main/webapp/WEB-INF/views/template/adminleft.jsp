@@ -27,11 +27,6 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="<c:url value='/manage/sp/sp_list'/>"  > <i class="menu-icon fa fa-table"></i>특가 관리</a>
-                        <ul class="sub-menu children dropdown-menu">
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
                         <a href="<c:url value='/manage/ti/ti_cilist'/>" > <i class="menu-icon fa fa-th"></i>여행정보 관리</a>
                         <ul class="sub-menu children dropdown-menu">
                         </ul>

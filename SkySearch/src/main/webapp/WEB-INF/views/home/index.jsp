@@ -274,20 +274,28 @@
 
 <!-- 여행지 : 조회수 높은 도시 출력 6개 할것 -->
 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+<!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>여행지 맞춤 추천 (조회수 순)</h2>
+		<h2>여행지 맞춤 추천</h2>
 	</div>
 	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
-					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -311,11 +319,18 @@
 					</c:forEach>
 					<!-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개를 나타내준다. -->
 					<c:if test="${principalName == null}">
-					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultNoUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -345,137 +360,4 @@
 </section>
 
 
-      
-<!-- 추천 여행지 : 조회수 높은 도시 출력 6개 할것 -->
-     <%--  <section class="section-padding">
-         <div class="section-title text-center mb-5">
-            <h2>인기 여행지 정보</h2>
-            <p>나만의 여행계획을 세워보세요</p>
-         </div>
-         <!--  회원가입시 관심지역을 기준으로 나타냅니다. -->
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark card-overlay">
-                     <a href="<c:url value='/tripInfo/read'/>?CITY_NAME=<%='괌'%>">
-                        <img class="card-img" src="<c:url value='/resources/img/blog/tripinfo1.jpg'/>" alt="Card image">
-                      <div class="card-img-overlay">
-                           <h3 class="card-title text-white">괌<!-- 도시명 --></h3>
-                           <p class="card-text text-white">미국<!-- 국가명 --> </p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                      </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/newyork01.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">New York</h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/la.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Los Angeles</h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/chicago.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Chicago</h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                     </a>
-                     .    
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Philadelphia</h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card bg-dark text-white card-overlay">
-                     <a href="#">
-                        <img class="card-img" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image"/>
-                        <div class="card-img-overlay">
-                           <h3 class="card-title text-white">Philadelphia</h3>
-                           <p class="card-text text-white">USA<!--국가명  --></p>
-                           <span class="badge badge-white"> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i> <i
-										class="mdi mdi-star-half text-warning"></i><small
-										class="text-success">2/5</small>
-									</span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section> --%>
-<!-- End 추천 여행지 -->
-      
-      
 
