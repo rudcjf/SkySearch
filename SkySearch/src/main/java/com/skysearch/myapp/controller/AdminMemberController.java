@@ -43,10 +43,8 @@ public class AdminMemberController {
 		// divided depending on action value
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
+		}  else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
-		} else if ("edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getPepList(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObjectAdmin(paramMap);
 			resultList = (List<Object>) service.getList(paramMap);

@@ -1,5 +1,0 @@
---INSERT INTO SS_SALE_INFO 
---(SALE_SEQ, AIRLINE, AIRLINE_LINK, START_DATE, END_DATE, TITLE, CONTENTS, VIEWS, 
---CITIES, PRICE, AD, REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE) 
---VALUES('SA00011','티웨이','https://www.twayair.com/together/event/getEventInProgress.do?eventSeq=595',
---'2018-07-06','2018.07.22', '사방팔방 규슈 여행' ,'');
