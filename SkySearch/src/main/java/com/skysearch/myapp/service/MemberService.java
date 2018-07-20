@@ -138,7 +138,7 @@ public class MemberService {
 	}
 	
 	
-	//contactus 메서드
+	//contactus insert 메서드
 	public void sendObject(Map<Object, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("CONTACTUS_SEQ");
 
@@ -146,7 +146,7 @@ public class MemberService {
 			uniqueSequence = commonUtil.getUniqueSequence();
 			dataMap.put("CONTACTUS_SEQ", uniqueSequence);
 		}
-		String sqlMapId = "member.contact";
+		String sqlMapId = "contact.insert";
 		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		dao.getObject(sqlMapId, dataMap);
