@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-
    <!-- Footer -->
       <section class="section-padding footer bg-white">
          <div class="container">
@@ -27,27 +26,13 @@
                   <ul>
                 </div>
                 <div class="col-lg-2 col-md-2">
-                  <h6 class="mb-4">Manage</h6>
+                  <h6 class="mb-4">About Us</h6>
                   <ul>
-                  <li><a href="<c:url value='/manage/main/index'/>">Main</a></li>
-                  <li><a href="<c:url value='/manage/member/list'/>">Member</a></li>
-                  <li><a href="<c:url value='/manage/ti/ti_list'/>">Trip Info</a></li>
+                  <li><a href="<c:url value='/aboutUs/aboutus'/>">About Us</a></li>
+                  <li><a href="<c:url value='/aboutUs/faq'/>">FAQ</a></li>
+                  <li><a href="<c:url value='/aboutUs/contact'/>">Contact</a></li>
                   <ul>
                 </div>
-
-<!--       <div class="col-lg-4 col-md-4">
-                 <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
-                  <div class="footer-social">
-                     <a href="https://ko-kr.facebook.com/"><i class="mdi mdi-facebook"></i></a>
-                     <a href="https://twitter.com/?lang=ko"><i class="mdi mdi-twitter"></i></a>
-                     <a href="https://www.instagram.com/?hl=ko"><i class="mdi mdi-instagram"></i></a>
-                     <a href="https://www.google.com/"><i class="mdi mdi-google"></i></a>
-                  </div>
-               </div>  -->
-            </div>
-         </div>
-      </section>
-      <!-- End Footer -->
 
       <!-- Copyright -->
       <section class="pt-4 pb-4 text-center">
