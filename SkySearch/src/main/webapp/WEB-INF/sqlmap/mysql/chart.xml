@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="CityStars" resultType="Map" parameterType="Map">
-	SELECT 	c.CITY_NAME as CITY_NAME, m.avgS as avgS
+	SELECT 	c.CITY_NAME as CITY_NAME, m.avgS as CITY_VIEWS
 	FROM	skysearch.ss_city c 
 	INNER JOIN (SELECT CITY_SEQ, ROUND(AVG(SS_STAR),2) as avgS
 			FROM skysearch.ss_comment

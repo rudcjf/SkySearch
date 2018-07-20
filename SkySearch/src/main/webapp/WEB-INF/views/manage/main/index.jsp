@@ -46,10 +46,10 @@
                 <div class="card-header">
 							<strong class="card-title">여행정보</strong> <input type="submit"
 								class="btn btn-primary" value=도시조회수
-								onClick=""
+								onclick="selecta('view')"
 								style="float: right;">
 							<button type="button" class="btn btn-secondary mb-1"
-								data-toggle="modal" data-target="#mediumModal"
+								data-toggle="modal" data-target="#mediumModal" onclick="selecta('star')"
 								style="float: right;">도시 별점</button>
 						</div>
                     <div class="card-body">
@@ -100,6 +100,7 @@
     var totalmember =[0];
     var destoryCnt = false;
     var ctx;
+    var max=0;
     
  // const brandPrimary = '#20a8d8'
     const brandSuccess = '#4dbd74'
@@ -128,8 +129,15 @@
     });
     
     function addData(ctx, data, datasetIndex, labelSet) {
+    	if(datasetIndex !=5){
     	   ctx.data.datasets[datasetIndex].data = data.data.datasets[datasetIndex].data;
     	   ctx.data.datasets[datasetIndex+1].data = data.data.datasets[datasetIndex+1].data;
+    	   ctx.options.scales.yAxes[0].ticks.max=totalmember[1]+40;
+    	}else{
+    		ctx.data.datasets[0].data = data.data.datasets[0].data;
+    		ctx.data.datasets[1].data = null;
+    		ctx.options.scales.yAxes[0].ticks.max = max+5;
+    	}
     	   ctx.data.labels = labelSet;
     	   ctx.update();
     	}
@@ -140,8 +148,95 @@
     		 GetChartData("<c:url value='/ws/memberChartM' />");
     	}else if(period=='year'){
     		 GetChartData("<c:url value='/ws/memberChartY' />");
+    	}else if(period=='view'){
+    		GetCiChartData("<c:url value='/ws/memberChartV' />");
+    	}else if(period=='star'){
+    		GetCiChartData("<c:url value='/ws/memberChartS' />");
     	}
     }
+    
+    var GetCiChartData = function (url,params) {
+        $.ajax({
+            url : url,
+            type: 'POST',
+            data : params,
+            success: function(data) {
+            	 labelSet =[];
+            	 dataSet = [];
+            	 totalmember =[0];
+	           	 if ("${resultMap}" != "") {//index 첫화면 멤버
+	                    $.each(
+	                       data,
+	                       function(i, item) {
+	                     	   labelSet.push(item.CITY_NAME);
+	                           dataSet.push(item.CITY_VIEWS);
+	                       });
+	                 }
+	           	 max= 0;
+	           	 for(var i = 0; i < dataSet.length; i++){
+	           		 if(dataSet[i]>max)max=dataSet[i]; 
+	           	 }
+	           	chartData = {
+            	        type: 'bar',
+            	        data: {
+            	            labels: labelSet,
+            	            datasets: [
+            	            {
+            	              label: '',
+            	              backgroundColor: convertHex(brandInfo, 10),
+            	              borderColor: brandInfo,
+            	              pointHoverBackgroundColor: '#fff',
+            	              borderWidth: 2,
+            	              data: dataSet	
+            	          }
+            	          ]
+            	        },
+            	        options: {
+            	           /*  maintainAspectRatio: true,
+            	            legend: {
+            	                display: false
+            	            }, */
+            	            responsive: true,
+            	            scales: {
+            	                xAxes: [{
+            	                  gridLines: {
+            	                    drawOnChartArea: false
+            	                  }
+            	                }],
+            	                yAxes: [ {
+            	                      ticks: {
+            	                        beginAtZero: true,
+            	                        maxTicksLimit: 5,
+            	                        stepSize: Math.ceil(250 / 5),
+            	                        max: max+5
+            	                      },
+            	                      gridLines: {
+            	                        display: true
+            	                      }
+            	                } ]
+            	            } /*  ,
+            	            elements: {
+            	                point: {
+            	                  radius: 0,
+            	                  hitRadius: 5,
+            	                  hoverRadius: 4,
+            	                  hoverBorderWidth: 3
+            	              }
+            	          }   */
+
+
+            	        }
+            	    };
+            	addData(ctx, chartData, 5, labelSet);
+            	
+            },
+             error : function(xhr, status, exception) {
+                alert("Failure \n (" + status + ")");
+                return false;
+             }
+        });
+    };
+    
     
     var GetChartData = function (url,params) {
         $.ajax({
@@ -231,7 +326,7 @@
             	                        display: true
             	                      }
             	                } ]
-            	            } ,
+            	            } /* ,
             	            elements: {
             	                point: {
             	                  radius: 0,
@@ -239,7 +334,7 @@
             	                  hoverRadius: 4,
             	                  hoverBorderWidth: 3
             	              }
-            	          } 
+            	          }  */
 
 
             	        }
