@@ -15,10 +15,27 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
-	// main 화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기 (조회수별 상위 6개)
-	public Object getCityList(Object dataMap) {
+	// 모든 도시 리스트 가져오기
+	public Object getAllCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.allcity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+	}
+	
+	// 로그인 한 유저의 관심지역의 리스트 가져오기 (조회수별 상위 6개)
+	public Object getUserCityList(Object dataMap) {
 		
 		String sqlMapId = "travel.usercity";
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+
+	// 로그인하지 않은 유저를 위한 모든 도시 조회수의 리스트 가져오기 (조회수별 상위 6개)
+	public Object getNoUserCityList(Object dataMap) {
+		
+		String sqlMapId = "travel.nousercity";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
@@ -28,15 +45,6 @@ public class TravelService {
 	public Object getAvgStarList(Object dataMap) {
 		
 		String sqlMapId = "travel.avgstar";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-		
-	}
-	
-	// 로그인하지 않은 유저를 위한 모든 도시 조회수의 리스트 가져오기 (조회수별 상위 6개)
-	public Object getCityList2(Object dataMap) {
-		
-		String sqlMapId = "travel.nousercity";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
@@ -52,7 +60,7 @@ public class TravelService {
 	}
 	
 	// 도시정보 가져오기
-	public Object getObject(Map<String, Object> dataMap) {
+	public Object getCityInfo(Map<String, Object> dataMap) {
 		
 		// 클릭시 그 도시의 조회수 증가
 		String sqlMapId = "travel.view";

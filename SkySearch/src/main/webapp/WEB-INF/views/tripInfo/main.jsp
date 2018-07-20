@@ -158,7 +158,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
-					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
@@ -193,7 +193,7 @@
 					</c:forEach>
 					<!-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개를 나타내준다. -->
 					<c:if test="${principalName == null}">
-					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultNoUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
