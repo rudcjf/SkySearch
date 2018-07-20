@@ -41,7 +41,8 @@ public class AdminContactController {
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		}  else if ("disable".equalsIgnoreCase(action)) {
-
+			resultList = (List<Object>)service.deleteObject(paramMap);
+			viewName="/manage/main/index";
 		} else if ("send".equalsIgnoreCase(action)) {
 			service.sendObject(paramMap);
 		}

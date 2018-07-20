@@ -22,6 +22,7 @@
 			<div class="col-lg-6 col-md-6 mx-auto">
 				<form role="form" method="POST"
 					action="<c:url value='/manage/main/index' />">
+					<input type="hidden" name="CONTACTUS_SEQ" value={$resultMap.CONTACTUS_SEQ}>
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">Contact Us</h4>

@@ -40,9 +40,9 @@ public class ContactService {
 		Integer resultKey = (Integer) dao.updateObject(sqlMapId, dataMap);
 
 		// get Member List
-		sqlMapId = "member.read";
-
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		sqlMapId = "contact.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
 
 		return resultObject;
 	}

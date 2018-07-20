@@ -51,10 +51,11 @@
 		)
 	</insert>
 	<update id="complete" parameterType="Map">
-		update skysearch.ss_member
+		update skysearch.ss_contactus
 		set
 		ENABLE='N'
-		where EMAIL = #{email} and PASSWORD = #{password}
+		WHERE
+		CONTACTUS_SEQ = #{CONTACTUS_SEQ}
 	</update>
 
 	

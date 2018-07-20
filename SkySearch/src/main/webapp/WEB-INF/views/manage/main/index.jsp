@@ -110,7 +110,7 @@
 				                     href="<c:url value="/manage/contact/read?CONTACTUS_SEQ=${resultData.CONTACTUS_SEQ}" />">${resultData.EMAIL}</a></td>
 				                  <td>${resultData.ENABLE}</td>
 				                  <td><a
-				                     href="<c:url value="/manage/contact/disable?=CONTACTUS_SEQ${resultData.CONTACTUS_SEQ}" />">disable</a></td>
+				                     href="<c:url value="/manage/contact/disable?CONTACTUS_SEQ=${resultData.CONTACTUS_SEQ}" />">disable</a></td>
 				               </tr>
 				            </c:forEach>
 				         </tbody>

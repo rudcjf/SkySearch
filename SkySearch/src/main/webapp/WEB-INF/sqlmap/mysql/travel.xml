@@ -54,17 +54,6 @@
 		LIMIT 6
 	</select>
 	
-	<!-- 모든 도시 리스트 가져오기 -->
-	<select id="allcity" resultType="Map" parameterType="Map">
-		SELECT 
-		ci.*,
-        fi.SOURCE_UNIQUE_SEQ,
-        fi.PHYSICALFILE_NAME
-		FROM 
-		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
-        ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
-	</select>
-	
 	<!-- 각각의 도시에 대한 유저 평점을 가져온다. -->
 	<select id="avgstar" resultType="Map" parameterType="Map">
 		SELECT 
@@ -179,14 +168,25 @@
 	</select>
 	
 	<select id="citylistpagination" resultType="Map" parameterType="Map">
-		SELECT 
-		ci.*,
-        fi.SOURCE_UNIQUE_SEQ,
-        fi.PHYSICALFILE_NAME
-		FROM 
-		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
+ 	  SELECT two.*, com.AVGS
+        FROM 
+        (SELECT CITY_SEQ, AVG(SS_STAR) AS AVGS
+        FROM SS_COMMENT
+        GROUP BY CITY_SEQ) com RIGHT OUTER JOIN
+        (SELECT ci.*, fi.SOURCE_UNIQUE_SEQ,  fi.PHYSICALFILE_NAME
+      FROM  SS_CITY ci LEFT OUTER JOIN SS_ATTACHFILE fi
         ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
-		LIMIT
+        ) two
+        ON com.CITY_SEQ = two.CITY_SEQ  
+			<choose>
+			    <when test="SORT_VALUE=='CITY_VIEWS'"> 
+			        ORDER BY CITY_VIEWS DESC
+			    </when>
+			    <otherwise>
+			        ORDER BY AVGS DESC
+			    </otherwise>
+			</choose>
+        LIMIT
 		#{pagination.pageBegin}, 6
 	</select>
 	

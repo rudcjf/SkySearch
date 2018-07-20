@@ -233,35 +233,6 @@
 	</div>
 </section>
 <hr>
-<script>
-	function SetView() { 
-		$.ajax({
-			type : "GET",
-			url : "<c:url value='/ws/viewSet'/>",
-			success : function() { 
-				location.reload();
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				alert("오류발생");
-				return false;
-			}
-		});
-	}
-	
-	function SetStar() { 
-		$.ajax({
-			type : "GET",
-			url : "<c:url value='/ws/starSet'/>",
-			success : function() { 
-				location.reload();
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				alert("오류발생");
-				return false;
-			}
-		});
-	}
-</script>
 <!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
@@ -279,8 +250,11 @@
 								<i class="mdi mdi-filter">정렬 방식</i>
 							</button>
 							<div class="dropdown-menu float-right" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#" onclick="SetView()"><i class="mdi mdi-chevron-right"></i>별점순</a> 
-								<a class="dropdown-item" href="#" onclick="SetStar()"><i class="mdi mdi-chevron-right"></i>조회수순</a>
+							<c:set var="SORT_VIEW" value="CITY_VIEWS"/>
+							<c:set var="SORT_STAR" value="SS_STAR"/>
+							<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" />
+								<a class="dropdown-item" href="<c:url value='/tripInfo/main'/>?SORT_VALUE=${SORT_VIEW}&EMAIL=${principalName}"><i class="mdi mdi-chevron-right"></i>조회수순</a>
+								<a class="dropdown-item" href="<c:url value='/tripInfo/main'/>?SORT_VALUE=${SORT_STAR}&EMAIL=${principalName}"><i class="mdi mdi-chevron-right"></i>별점순</a>
 							</div>
 						</div>
 					</div>
@@ -351,3 +325,6 @@
 		</div>
 	</div>
 </section>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b5175cdcb0ffdc9"></script>
