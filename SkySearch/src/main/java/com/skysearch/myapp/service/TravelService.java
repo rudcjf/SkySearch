@@ -15,30 +15,6 @@ public class TravelService {
 	@Autowired
 	private ShareDao dao;
 	
-	// 모든 도시 리스트 가져오기
-	public Object getAllCityList(Object dataMap) {
-		
-		String sqlMapId = "travel.allcity";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-	}
-	
-	// 도시 리스트 조회수 별로 가져오기
-	public Object getViewCityList(Object dataMap) {
-		
-		String sqlMapId = "travel.allcity";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-	}
-	
-	// 도시 리스트 평점순 별로 가져오기
-	public Object getStarCityList(Object dataMap) {
-		
-		String sqlMapId = "travel.allcity";
-		Object resultObject = dao.getList(sqlMapId, dataMap);
-		return resultObject;
-	}
-	
 	// 로그인 한 유저의 관심지역의 리스트 가져오기 (조회수별 상위 6개)
 	public Object getUserCityList(Object dataMap) {
 		

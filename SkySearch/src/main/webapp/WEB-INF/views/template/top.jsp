@@ -24,7 +24,7 @@
                        </li>
                        <li class="nav-item">
                        	  
-                           <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}" id="navbarDropdownPortfolio" 
+                           <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}&SORT_VALUE=CITY_VIEWS" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
                          <li class="nav-item dropdown">

@@ -37,20 +37,17 @@ public class TravelController {
 		// 여행정보 메인화면
 		if ("main".equalsIgnoreCase(action)) {
 			
-			List<Object> resultAllCityList = new ArrayList<Object>();
 			List<Object> resultUserCityList = new ArrayList<Object>();
 			List<Object> resultNoUserCityList = new ArrayList<Object>();
 			List<Object> resultAvgStarList = new ArrayList<Object>();
 			Map<String, Object> resultCityPaginationMap = new HashMap<String, Object>();
 			
-			resultAllCityList = (List<Object>) service.getAllCityList(paramMap); // 도시 전체 리스트를 가져온다.
 			resultUserCityList = (List<Object>) service.getUserCityList(paramMap); // 도시 리스트를 가져온다.(로그인시)
 			resultNoUserCityList = (List<Object>) service.getNoUserCityList(paramMap); // 도시 리스트를 가져온다.(비로그인시)
 			resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
 			resultCityPaginationMap = (Map<String, Object>) service.getCityListPagination(paramMap); // 전체 도시 리스트를 페이지네이션 한다.
 			
 			modelandView.setViewName(viewName);
-			modelandView.addObject("resultAllCityList", resultAllCityList);
 			modelandView.addObject("resultUserCityList", resultUserCityList);
 			modelandView.addObject("resultNoUserCityList", resultNoUserCityList);
 			modelandView.addObject("resultAvgStarList", resultAvgStarList);
