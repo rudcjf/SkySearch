@@ -335,7 +335,7 @@
 																varStatus="loop">
 																<ul class="list-unstyled">
 																	<li><a
-																		href="<c:url value='/manage/ti/file_disable?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
+																		href="<c:url value='/manage/ti/file_cidelete?ATTACHFILE_SEQ=${resultData.ATTACHFILE_SEQ}
 																&forwardView=/manage/ti/ti_city&CITY_SEQ=${resultMap.CITY_SEQ}'/>">${resultData.PHYSICALFILE_NAME}
 																	</a></li>
 																</ul>

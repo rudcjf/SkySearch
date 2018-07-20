@@ -16,10 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skysearch.myapp.service.AdminMainService;
+import com.skysearch.myapp.component.MapParamCollector;
+import com.skysearch.myapp.service.MemberService;
 
 
 
@@ -28,12 +28,15 @@ public class AdminMainController {
 	private final static String MAPPING = "/manage/main/";
 	
 	@Autowired
-	private AdminMainService service;
+	private MemberService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
+		
+		Map<Object, Object> paramMap = paramMethodMap.getMap();
+		
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
 
@@ -42,7 +45,7 @@ public class AdminMainController {
 
 		// divided depending on action value
 		if ("index".equalsIgnoreCase(action)) {
-			/*resultList = (List<Object>) service.getList(paramMap);*/
+			resultList = (List<Object>) service.getList(paramMap);
 		}
 		
 		if(forwardView != null){

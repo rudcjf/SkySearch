@@ -158,7 +158,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
-					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
@@ -193,7 +193,7 @@
 					</c:forEach>
 					<!-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개를 나타내준다. -->
 					<c:if test="${principalName == null}">
-					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultNoUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
@@ -233,6 +233,35 @@
 	</div>
 </section>
 <hr>
+<script>
+	function SetView() { 
+		$.ajax({
+			type : "GET",
+			url : "<c:url value='/ws/viewSet'/>",
+			success : function() { 
+				location.reload();
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert("오류발생");
+				return false;
+			}
+		});
+	}
+	
+	function SetStar() { 
+		$.ajax({
+			type : "GET",
+			url : "<c:url value='/ws/starSet'/>",
+			success : function() { 
+				location.reload();
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert("오류발생");
+				return false;
+			}
+		});
+	}
+</script>
 <!-- 이하 부분은 전체 여행지를 보여주는 부분입니다. -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
@@ -241,6 +270,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
+			
 				<!-- 정렬 선택하는 부분입니다-->
 				<div class="osahan_top_filter row">
 					<div class="col-lg-12 col-md-12 sort-by-btn float-right">
@@ -249,19 +279,27 @@
 								<i class="mdi mdi-filter">정렬 방식</i>
 							</button>
 							<div class="dropdown-menu float-right" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i>별점순</a> 
-								<a class="dropdown-item" href="#"><i class="mdi mdi-chevron-right"></i>조회수순</a>
+								<a class="dropdown-item" href="#" onclick="SetView()"><i class="mdi mdi-chevron-right"></i>별점순</a> 
+								<a class="dropdown-item" href="#" onclick="SetStar()"><i class="mdi mdi-chevron-right"></i>조회수순</a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- END 정렬 선택하는 부분입니다-->
+				
 				<div class="row">
-					<c:forEach items="${resultAllCityList}" var="resultData" varStatus="loop">
+					<c:forEach items="${resultCityPaginationMap.resultList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
-							    <img class="card-img-top" src="<c:url value='/resources/img/blog/tokyo1.jpg'/>" alt="Card image cap">
+								<c:choose>
+									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+									</c:when>
+									<c:otherwise>
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+									</c:otherwise>
+								</c:choose>
 								<div class="card-body">
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
@@ -289,21 +327,21 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4"></div>
 					<div class="col-lg-4 col-md-4">
-						<c:set var="page" value="${resultPaginationMap.pagination}" />
+						<c:set var="page" value="${resultCityPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/main?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
 								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
 									<c:choose>
 										<c:when test="${pageNum==page.curPage}">
-											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/main?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/main?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/main?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
 							</ul>
 						</nav>
 					</div>

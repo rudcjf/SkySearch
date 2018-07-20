@@ -55,6 +55,15 @@
 	</select>
 	
 	<!-- 모든 도시 리스트 가져오기 -->
+	<select id="allcity" resultType="Map" parameterType="Map">
+		SELECT 
+		ci.*,
+        fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
+		FROM 
+		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
+        ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
+	</select>
 	
 	<!-- 각각의 도시에 대한 유저 평점을 가져온다. -->
 	<select id="avgstar" resultType="Map" parameterType="Map">
@@ -138,7 +147,7 @@
 	
 	<!-- 댓글 페이징 -->
 	<!-- MySQL의 LIMIT명령어는 시작인덱스(0부터시작), 표시할행수로 적용됨 -->
-	<select id="listpagination" resultType="Map" parameterType="Map">
+	<select id="commentlistpagination" resultType="Map" parameterType="Map">
 		SELECT 
 		m.NAME AS MEMBER_NAME, 
 		m.MEMBER_SEQ,
@@ -156,17 +165,35 @@
 		ORDER BY 
 		c.REGISTRY_DATE DESC
 		LIMIT
-		#{pagination.pageBegin}, 5
+		#{pagination.pageBegin}, 6
 	</select>
 	
 	<!-- 댓글의 갯수 가져오기 -->
-	<select id="totalcount" resultType="Integer" parameterType="Map">
+	<select id="commentcount" resultType="Integer" parameterType="Map">
 		SELECT 
 		COUNT(COMMENT_SEQ)
 		FROM 
 		SS_COMMENT
 		WHERE
 		CITY_SEQ = #{CITY_SEQ}
+	</select>
+	
+	<select id="citylistpagination" resultType="Map" parameterType="Map">
+		SELECT 
+		ci.*,
+        fi.SOURCE_UNIQUE_SEQ,
+        fi.PHYSICALFILE_NAME
+		FROM 
+		SS_CITY ci LEFT JOIN SS_ATTACHFILE fi
+        ON ci.CITY_SEQ = fi.SOURCE_UNIQUE_SEQ
+		LIMIT
+		#{pagination.pageBegin}, 6
+	</select>
+	
+	<!-- 도시의 갯수 가져오기 -->
+	<select id="citycount" resultType="Integer" parameterType="Map">
+		SELECT COUNT(CITY_SEQ)
+		FROM SS_CITY
 	</select>
 	<!-- 페이징 끝 -->
 	
