@@ -144,132 +144,122 @@
 
       
 <!-- 추천 특가 상품 List -->
-      <section class="section-padding bg-white">
-         <div class="section-title text-center mb-5">
-            <h2>추천 항공권 특가</h2>
-            <p>빅 프로모션! 놓치지 마세요!</p>
-            <div class="col-lg-2 col-md-2 sort-by-btn float-right">
-             <!-- tooltip -->
-            	<div class="tooltipmj" >
-            	<em>광고</em><i class="mdi mdi-help-circle-outline"></i>
-            	 <span class="tooltiptextmj"><!-- tooltip-inner -->
-	              SKY search의 광고상품을 구입한 특가가 보여지는 영역입니다.</span>
-                </div>
-            </div>         
-         </div>
-   
-         
-<!-- 조회순 또는 최신순 6개/ 로그인 할 경우 회원의 관심 지역에 해당하는 상품들 중 랜덤으로 추천할 것 -->
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="<c:url value='/specialPrice/read'/>">
-                        <span class="badge badge-danger">HOT</span><!-- 뱃지 ->빨간(danger):조회수 기준 이상(예 100아성),흑색(secondary): 마감, 노란색(warning): 마감임박 -->
-                        <img class="card-img-top" src="<c:url value='/resources/img/special/thumb_1.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">제주항공 찜 특가<!-- 이부분은 특가 게시판 제목입니다 --></h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>다낭, 베트남<!-- 이부분은 도시명,국가명입니다 --> </h6>
-                           <h2 class="text-success mb-0 mt-3"> 140,000원 ~ <!-- 이부분은 특가정보 가격입니다 --></h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>제주항공<!--이 부분은 특가정보의 항공사명입니다 --></strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>18.07.24<!-- 이부분은 특가상품의 종료일입니다  --></strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-danger">HOT</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/philadelphia.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>               
-               
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-danger">HOT</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/london.png'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-warning">마감임박</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/paris.jpg'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-warning">마감임박</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/swiss.jpg'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="card card-list">
-                     <a href="#">
-                        <span class="badge badge-secondary">마감</span>
-                        <img class="card-img-top" src="<c:url value='/resources/img/overlay/newyork02.jpg'/>" alt="Card image cap"/>
-                        <div class="card-body">
-                           <h5 class="card-title">특가상품의 제목</h5>
-                           <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i>도시명,국가명</h6>
-                           <h2 class="text-success mb-0 mt-3">특가상품 가격</h2>
-                        </div>
-                        <div class="card-footer">
-                           <span><i class="mdi mdi-airplane"></i> 항공사 : <strong>항공사명</strong></span>
-                           <span><i class="mdi mdi-checkbox-marked-outline"></i> 특가 종료일 : <strong>특가상품의 종료일</strong></span>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+<section class="section-padding bg-white">
+	<div class="section-title text-center mb-5">
+		<h2>항공사별 특가</h2>
+		<p>빅 프로모션! 놓치지 마세요!</p>
+		<div class="col-lg-2 col-md-2 sort-by-btn float-right">
+			<!-- tooltip -->
+			<div class="tooltipmj">
+				<em>광고</em><i class="mdi mdi-help-circle-outline"></i> <span
+					class="tooltiptextmj">
+					<!-- tooltip-inner --> SKY search의 광고상품을 구입한 특가가 보여지는 영역입니다.
+				</span>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 조회순 또는 최신순 6개/ 로그인 할 경우 회원의 관심 지역에 해당하는 상품들 중 랜덤으로 추천할 것 -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a href="https://www.jinair.com/promotion/index" target="_blank">
+						<img class="card-img-top"
+						src="<c:url value='/resources/img/special/jinair.jpg' />" alt="">
+						<div class="card-body">
+							<h5 class="card-title">지금 이순간 최저가를 한눈에!</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>진에어</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a
+						href="https://www.eastarjet.com/newstar/PGWTA00001?searchIndex=undefined"
+						target="_blank"> <img class="card-img-top"
+						src="<c:url value='/resources/img/special/EASTARJET.jpg' />"
+						alt="">
+						<div class="card-body">
+							<h5 class="card-title">EASTAR JET EVENT</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>이스타</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a
+						href="https://www.twayair.com/together/event/listEventsInProgress.do"
+						target="_blank"> <img class="card-img-top"
+						src="<c:url value='/resources/img/special/TWAY.jpg' />" alt="">
+						<div class="card-body">
+							<h5 class="card-title">진행중인 이벤트</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>티웨이</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a
+						href="https://www.airbusan.com/content/common/flynjoy/flyNEvent/"
+						target="_blank"> <img class="card-img-top"
+						src="<c:url value='/resources/img/special/airbusan.jpg' />" alt="">
+						<div class="card-body">
+							<h5 class="card-title">Fly & EVENT</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>에어부산</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a
+						href="https://kr.koreanair.com/korea/ko/detailDiscountTicket.html#step1"
+						target="_blank"> <img class="card-img-top"
+						src="<c:url value='/resources/img/special/koreanair.png' />"
+						alt="">
+						<div class="card-body">
+							<h5 class="card-title">특가 항공권</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>대한항공</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="card card-list">
+					<a
+						href="https://www.jejuair.net/jejuair/kr/com/jeju/ibe/news/event/event_list.do?page=1+&event_id=&condition=mix&nSearch=%ED%8A%B9%EA%B0%80"
+						target="_blank"> <img class="card-img-top"
+						src="<c:url value='/resources/img/special/jeju.jpg' />" alt="">
+						<div class="card-body">
+							<h5 class="card-title">진행중인 이벤트</h5>
+						</div>
+						<div class="card-footer">
+							<span> <strong>제주항공</strong></span>
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
 <!-- End 추천 특가 상품 List --> 
 
 <!-- 여행지 : 조회수 높은 도시 출력 6개 할것 -->
