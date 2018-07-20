@@ -5,7 +5,7 @@
 <!-- 도시의 현재 날씨 api -->
 <script>
    $(function() {
-      var city = '${resultMap.CITY_ENAME}';
+      var city = '${resultCityMap.CITY_ENAME}';
       var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a91687f156153cd9318bcb65d0a2298e";
       
       $.ajax({
@@ -44,11 +44,11 @@
       </ol>
       <div class="carousel-inner" role="listbox">
       	<c:choose>
-      		<c:when test="${resultMap.CITY_SEQ==resultMap.SOURCE_UNIQUE_SEQ}">
-      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultMap.PHYSICALFILE_NAME}'/>')"></div>
+      		<c:when test="${resultCityMap.CITY_SEQ==resultCityMap.SOURCE_UNIQUE_SEQ}">
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultCityMap.PHYSICALFILE_NAME}'/>')"></div>
       		</c:when>
       		<c:otherwise>
-      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/noimage2.jpg'/>')"></div>
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/mainnoimage.jpg'/>')"></div>
       		</c:otherwise>
       	</c:choose>
       </div>
@@ -65,10 +65,10 @@
        <div class="container">
            <div class="row">
                  <div class="col-lg-4 col-md-4">
-                   <h1>${resultMap.CITY_NAME}</h1>
-                   <h5>&nbsp;&nbsp;${resultMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
-                     <h6><i class="mdi mdi-home">&nbsp;</i>${resultMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
-                     <b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultMap.CITY_VIEWS}</b>
+                   <h1>${resultCityMap.CITY_NAME}</h1>
+                   <h5>&nbsp;&nbsp;${resultCityMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
+                     <h6><i class="mdi mdi-home">&nbsp;</i>${resultCityMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
+                     <b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultCityMap.CITY_VIEWS}</b>
                </div>
                
                <div class="col-lg-2 col-md-2">
@@ -117,7 +117,7 @@
 <!-- Property Single Slider -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>${resultMap.CITY_NAME}의 추천 관광지</h2>
+		<h2>${resultCityMap.CITY_NAME}의 추천 관광지</h2>
 		<!-- 도시명 바뀜 -->
 	</div>
 	<!-- 메인 뷰 시작 -->
@@ -155,7 +155,7 @@
 		<!-- 회원들이 쓴 글이 나타나는 공간 -->
 		<!-- for문, pagenation을 이용(5개단위), 회원들이 올린 글이 실시간으로 리로드 되어야 함 -->
 		<div class="section-title text-center mb-5">
-			<h2>${resultMap.CITY_NAME} 커뮤니티</h2>
+			<h2>${resultCityMap.CITY_NAME} 커뮤니티</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -231,18 +231,18 @@
 						<c:set var="page" value="${resultPaginationMap.pagination}" />
 						<nav class="mt-5">
 							<ul class="pagination justify-content-center">
-								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.prevPage}&CITY_SEQ=${resultCityMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-left"></i></a></li>
 								<c:forEach var="pageNum" begin="${page.blockStart}" end="${page.blockEnd}">
 									<c:choose>
 										<c:when test="${pageNum==page.curPage}">
-											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+											<li class="page-item active"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultCityMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
+											<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${pageNum}&CITY_SEQ=${resultCityMap.CITY_SEQ}&EMAIL=${principalName}" />">${pageNum}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
+								<li class="page-item"><a class="page-link" href="<c:url value="/tripInfo/read?curPage=${page.nextPage}&CITY_SEQ=${resultCityMap.CITY_SEQ}&EMAIL=${principalName}"/>"><i class="mdi mdi-chevron-right"></i></a></li>
 							</ul>
 						</nav>
 						<!-- END 페이징 -->
@@ -329,7 +329,7 @@
 											</div>
 											<div class="col-lg-1 col-md-1">
 												<span><span id="comentCount">0</span>/500</span>
-												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultMap.CITY_SEQ}" style="height:55px;">등록</button>
+												<button type="button" class="btn btn-success btn-block" onclick="SetComment(this.value)" value="${resultCityMap.CITY_SEQ}" style="height:55px;">등록</button>
 											</div>
 										</div>
 									</div>
@@ -375,8 +375,8 @@
 <script src="<c:url value='/resources/vendor/select2/js/select2.min.js'/>"></script>
 <!-- Custom -->
 <script src="<c:url value='/resources/js/custom.js'/>"></script>
-<c:set var="lat">${resultMap.CITY_LATITUDE}</c:set><!-- 위도값 받아오기 -->
-<c:set var="lng">${resultMap.CITY_LONGITUDE}</c:set><!-- 경도값 받아오기 -->
+<c:set var="lat">${resultCityMap.CITY_LATITUDE}</c:set><!-- 위도값 받아오기 -->
+<c:set var="lng">${resultCityMap.CITY_LONGITUDE}</c:set><!-- 경도값 받아오기 -->
 <!-- Google Map Api -->
 <script>
          function initMap() {
