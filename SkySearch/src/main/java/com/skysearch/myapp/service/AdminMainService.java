@@ -13,8 +13,8 @@ public class AdminMainService {
 	@Autowired
 	private ShareDao dao;
 
-	public Object getList(Object dataMap) {
-		String sqlMapId = "chart.memberY";
+	public Object getList(Object dataMap, String sqlMapId) {
+		//String sqlMapId = "chart.memberY";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 

@@ -74,6 +74,14 @@ public class RestWSController {
 		}else if("memberChartY".equalsIgnoreCase(action)) {
 			resultListC =  adminMainService.getListhh(paramMap,3);
 			return resultListC;
+		}else if("memberChartV".equalsIgnoreCase(action)) {
+			String sqlMapId = "chart.CityView";
+			resultList =  (List<Object>) adminMainService.getList(paramMap,sqlMapId);
+			return resultList;
+		}else if("memberChartS".equalsIgnoreCase(action)) {
+			String sqlMapId = "chart.CityStars";
+			resultList =  (List<Object>) adminMainService.getList(paramMap,sqlMapId);
+			return resultList;
 		}
 		
 		
