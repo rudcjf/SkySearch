@@ -109,15 +109,15 @@
 		
 		FROM
 		SS_ATTACHFILE
-		where FILE_ENABLE='Y' AND (SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ})
+		where SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ} OR SOURCE_UNIQUE_SEQ = #{CITY_SEQ}
 	</select>
 	
-	<insert id="disable"  parameterType="Map">
+	<delete id="delete"  parameterType="Map">
 		
-		UPDATE 
+		DELETE 
+		FROM
 		skysearch.ss_attachfile
-		SET FILE_ENABLE='N'
 		where ATTACHFILE_SEQ = #{ATTACHFILE_SEQ}
-	</insert>
+	</delete>
 
 </mapper> 

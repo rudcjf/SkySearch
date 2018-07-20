@@ -87,7 +87,31 @@
 		, MODIFIER_SEQ = #{MODIFIER_SEQ}
 		, MODIFY_DATE = now()
 	</insert>
-
+	<insert id="contact">
+		INSERT INTO
+		skysearch.ss_contactus(
+		CONTACTUS_SEQ
+		,NAME
+		,PHONE
+		,EMAIL
+		,CONTACT_TEXT
+		,REGISTER_SEQ
+		,REGISTRY_DATE
+		,MODIFIER_SEQ
+		,MODIFY_DATE
+		)
+		VALUES(
+		#{CONTACTUS_SEQ}
+		,#{NAME}
+		,#{PHONE}
+		,#{EMAIL}
+		,#{CONTACT_TEXT}
+		, #{REGISTER_SEQ}
+		, now()
+		, #{MODIFIER_SEQ}
+		, now() 
+		)
+	</insert>
 	<update id="delete" parameterType="Map">
 		update skysearch.ss_member
 		set

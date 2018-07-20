@@ -23,7 +23,7 @@
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/country/jquery.vmap.world.js'/>"></script>
     
     <!-- data-table -->
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables.min.js?ver=1'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.bootstrap.min.js?ver=1'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/dataTables.buttons.min.js?ver=1'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/buttons.bootstrap.min.js?ver=1'/>"></script>
@@ -36,25 +36,7 @@
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/data-table/datatables-init.js'/>"></script>
   
   
-    <script>
-        ( function ( $ ) {
-            "use strict";
-
-            jQuery( '#vmap' ).vectorMap( {
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: [ '#1de9b6', '#03a9f5' ],
-                normalizeFunction: 'polynomial'
-            } );
-        } )( jQuery );
-    </script>
-      
+ 
 
    <script type="text/javascript">
         $(document).ready(function() {
