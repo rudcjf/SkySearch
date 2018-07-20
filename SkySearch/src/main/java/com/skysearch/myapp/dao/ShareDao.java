@@ -28,8 +28,9 @@ public class ShareDao{
 		return result;
 	}
 	
-	public void updateObject(String sqlMapId, Object dataMap) {
-		sqlSession.update(sqlMapId, dataMap);
+	public Object updateObject(String sqlMapId, Object dataMap) {
+		Integer result = sqlSession.update(sqlMapId, dataMap);
+		return result;
 	}
 	
 	public Object deleteObject(String sqlMapId, Object dataMap) {

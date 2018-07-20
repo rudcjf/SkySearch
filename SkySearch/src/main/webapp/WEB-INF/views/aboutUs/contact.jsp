@@ -63,7 +63,7 @@
                   <h2>Contact Us</h2>
                   <p>문의 사항이 있다면 연락주세요</p>
                </div>
-               <form class="col-lg-12 col-md-12" method="post" action="<c:url value='/mypage/contact'/>" name="sentMessage" id="contactForm" novalidate>
+               <form class="col-lg-12 col-md-12" method="post" action="<c:url value='/manage/contact/send'/>" name="sentMessage" id="contactForm" novalidate>
                      	<input type="hidden" name="forwardView" value="/aboutUs/contact" />
                      <div class="control-group form-group" >
                         <div class="control-group form-group col-md-6">

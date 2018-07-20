@@ -1,9 +1,3 @@
-/**
- * It's Designed For incubation Center
- * @author ohsanghun
- * @version     %I%, %G%
- * @since       1.0
- */
 package com.skysearch.myapp.controller;
 
 import java.util.ArrayList;
@@ -22,8 +16,8 @@ import com.skysearch.myapp.component.MapParamCollector;
 import com.skysearch.myapp.service.ContactService;
 
 @Controller
-public class AdminMainController {
-	private final static String MAPPING = "/manage/main/";
+public class AdminContactController {
+	private final static String MAPPING = "/manage/contact/";
 
 	@Autowired
 	private ContactService service;
@@ -33,18 +27,24 @@ public class AdminMainController {
 			ModelAndView modelandView) {
 
 		Map<Object, Object> paramMap = paramMethodMap.getMap();
-
 		String viewName = MAPPING + action;
 		String forwardView = (String) paramMap.get("forwardView");
 
-		Map<String, Object> resultMap = new HashMap<String, Object>();
+		Map<Object, Object> resultMap = new HashMap<Object, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
-		if ("index".equalsIgnoreCase(action)) {
+		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		}
+		} else if ("read".equalsIgnoreCase(action)) {
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+		} else if ("edit".equalsIgnoreCase(action)) {
+			resultMap = (Map<Object, Object>) service.getObject(paramMap);
+		}  else if ("disable".equalsIgnoreCase(action)) {
 
+		} else if ("send".equalsIgnoreCase(action)) {
+			service.sendObject(paramMap);
+		}
 		if (forwardView != null) {
 			viewName = forwardView;
 		}
@@ -54,6 +54,7 @@ public class AdminMainController {
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);
+
 		return modelandView;
 	}
 }
