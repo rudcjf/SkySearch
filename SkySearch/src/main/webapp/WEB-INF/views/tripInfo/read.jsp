@@ -48,7 +48,7 @@
       			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/${resultMap.PHYSICALFILE_NAME}'/>')"></div>
       		</c:when>
       		<c:otherwise>
-      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/noimage.jpg'/>')"></div>
+      			<div class="carousel-item active" style="background-image: url('<c:url value='/resources/uploads/noimage2.jpg'/>')"></div>
       		</c:otherwise>
       	</c:choose>
       </div>
