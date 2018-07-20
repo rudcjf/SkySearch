@@ -18,7 +18,7 @@ public class TravelService {
 	// main 화면 - 로그인 한 유저의 관심지역의 모든 도시리스트 가져오기 (조회수별 상위 6개)
 	public Object getCityList(Object dataMap) {
 		
-		String sqlMapId = "travel.citylist";
+		String sqlMapId = "travel.usercity";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
@@ -36,7 +36,7 @@ public class TravelService {
 	// 로그인하지 않은 유저를 위한 모든 도시 조회수의 리스트 가져오기 (조회수별 상위 6개)
 	public Object getCityList2(Object dataMap) {
 		
-		String sqlMapId = "travel.allcity";
+		String sqlMapId = "travel.nousercity";
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		return resultObject;
 		
