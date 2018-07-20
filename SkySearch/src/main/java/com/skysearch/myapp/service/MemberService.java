@@ -136,5 +136,20 @@ public class MemberService {
 		Map resultObject = (Map) dao.getObject(sqlMapId, dataMap);
 		return resultObject;
 	}
+	
+	
+	//contactus 메서드
+	public void sendObject(Map<Object, Object> dataMap) {
+		String uniqueSequence = (String) dataMap.get("CONTACTUS_SEQ");
+
+		if (uniqueSequence==null) {
+			uniqueSequence = commonUtil.getUniqueSequence();
+			dataMap.put("CONTACTUS_SEQ", uniqueSequence);
+		}
+		String sqlMapId = "member.contact";
+		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		dao.getObject(sqlMapId, dataMap);
+	}
 
 }
