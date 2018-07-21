@@ -25,13 +25,14 @@
       
       <!-- top/bottom 버튼, mypage section CSS-->
       <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" />
+      
       <!-- tooltip CSS-->
       <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
       
 <%--  <link type="text/css" href="<c:url value='/resources/css/style.css'/>"rel="stylesheet" > --%>  
  
- 
-      <!-- JavaScript -->
+
+<!-- JavaScript -->
       <!-- Bootstrap core JavaScript -->
       <script type="text/javascript" src="<c:url value='/resources/vendor/jquery/jquery.min.js' />"></script>
       <script type="text/javascript" src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js' />"></script>
@@ -45,7 +46,7 @@
       <script type="text/javascript" src="<c:url value='/resources/js/custom.js' />"></script>
       <!-- 공통 모달창 -->
    	  <script type="text/javascript" src="<c:url value='/resources/js/common.js' />"></script>
-   <!-- top/bottom 버튼, made by MC -->
-    <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>"	rel="stylesheet" /> 
-      <!-- updown 스크롤 -->
+     <!-- top버튼 -->
       <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.12.4.min.js' />"></script>
+      
+      

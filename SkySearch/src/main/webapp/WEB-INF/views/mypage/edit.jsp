@@ -4,8 +4,8 @@
 
 <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"	rel="stylesheet" />
 
-<!-- 회원정보의 member 테이블 update와, int_local 테이블 update가 함께 되야 한다 -->
-<!-- 관심지역 다중 클릭 체크박스/ 회원의 관심지역으로 체크박스가 체크되어야함. -->
+
+<!-- 관심지역 다중 클릭 체크박스/ 회원의 관심지역으로 체크박스가 체크됨. -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -93,18 +93,15 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav justify-content-center">
-					<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+				<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/read'/>">내 정보</a>
+                       <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link active text-success" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
-					<%-- <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
-                     </li> --%>
                      <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
+                       <a class="nav-link" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
 				</ul>
 			</div>
@@ -114,7 +111,7 @@
 <!--  END mypage tab -->
 
 <!-- 회원정보수정 -->
-<!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 (read)에서 수정(edit), 회원번호, 아이디, 이름, 비밀번호는 변경 안된다 -->
+<!-- DB로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 수정(edit), 회원번호, 아이디, 이름 변경 불가-->
 <section class="section-padding">
 	<div class="container">
 		<div class="row">
@@ -152,7 +149,6 @@
 						       <div align="center">
 								<button type="submit" class="btn btn-success col-3">EDIT</button>
 								<button type="reset" class="btn btn-default col-3">Cancel</button>
-
 						   </div>
 						</div>
 					</div>

@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<%-- <link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>" rel="stylesheet" /> --%>
 <!-- 회원시퀀스에 해당하는 정보 read 에서 관심지역 가져오기  -->
 <script type="text/javascript">
 var fn_setLocalID = function(url, id, params) {
@@ -57,16 +56,13 @@ $(document).ready(function() {
             <div class="row">
                <div class="col-lg-12">
                   <ul class="nav justify-content-center">
-                   <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                     <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                      <li class="nav-item">
-                        <a class="nav-link active text-success" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
+                       <a class="nav-link active text-success" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>">내 정보</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
-                     <%-- <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
-                     </li> --%>
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
@@ -78,13 +74,15 @@ $(document).ready(function() {
  <!-- END mypage tab -->   
      
       <!-- member Profile -->
-      <!-- 회원 리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 read 나타낸다 -->
+      <!-- DB로부터 회원 시퀀스에 해당하는 회원의 정보를 나타낸다 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
                  <div class="card padding-card"> 
 	                 <form role="form" method="POST" action="<c:url value='/member/read' />">
+	                  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                      <input type="hidden" name="MEMBER_SEQ" value="${principalName}">
 	                  <div class="card-body">
 		                  <h3 class="mb-0 mt-4">Member ID : </h3>
 		                  <p> </p>
@@ -94,20 +92,12 @@ $(document).ready(function() {
 		                     <div class="col-lg-6 col-md-6">
 		                        <p><strong class="text-dark">NAME :</strong> ${resultMap.NAME}</p>
 		                        <p><strong class="text-dark">PASSWORD :</strong> ${resultMap.PASSWORD}</p>
-		                     <%--   <p><strong class="text-dark">GRADE :</strong>  ${resultMap.GRADE} ></p>--%>
 		                        <p><strong class="text-dark">PHONE :</strong> ${resultMap.PHONE}</p>
 		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <div id="IntlocalDIV"></div></p>
 		                     </div>
 		                  </div>
                   	  </div>
                  	</form> 
-                 	
-                 	
-           	<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-            <input type="hidden" name="MEMBER_SEQ" value="${principalName}">
-                 	
-                 	
-                 	 
                  </div>
                </div>
             </div>

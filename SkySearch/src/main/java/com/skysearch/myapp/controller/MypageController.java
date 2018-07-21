@@ -44,21 +44,16 @@ public class MypageController {
 		} else if ("merge".equalsIgnoreCase(action)) {
 			service.saveObject(paramMap);
 		} else if ("withdrawal".equalsIgnoreCase(action)) {
-			
 		} else if ("disable".equalsIgnoreCase(action)) {
-			String id=(String)paramMap.get("email");//�Է��� �̸��ϰ� ��й�ȣ
+			String id=(String)paramMap.get("email");//입력된 아이디와 비밀번호
 			String pw=(String)paramMap.get("password");
-     
-			resultMap = (Map<Object, Object>) service.Find(paramMap);
+ 			resultMap = (Map<Object, Object>) service.Find(paramMap);
 			
-			String email = (String)resultMap.get("EMAIL");
+			String email = (String)resultMap.get("EMAIL");//DB의 아이디와 비밀번호
 			String pass = (String)resultMap.get("PASSWORD");
-			
-			if(id.equals(email)&&pw.equals(pass)) {//�̸��ϰ� ����� ��ġ�ϸ� 
+
+			if(id.equals(email)&&pw.equals(pass)) {//일치여부 확인 
 				service.deleteObject(paramMap);
-				/*viewName = "/home/index";*/
-			}else {
-				viewName = "/mypage/withdrawalfail";
 			}
 		} else if("contact".equalsIgnoreCase(action)) {
 			service.sendObject(paramMap);

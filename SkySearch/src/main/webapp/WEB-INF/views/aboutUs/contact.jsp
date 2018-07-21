@@ -34,7 +34,6 @@
                   <h6 class="text-dark"><i class="mdi mdi-link"></i> Website :</h6>
                   <p>www.skysearch.com</p>
                   
-                 
                   <div class="footer-social"><span>Follow : </span>
                      <a href="https://ko-kr.facebook.com/"><i class="mdi mdi-facebook"></i></a>
                      <a href="https://twitter.com/?lang=ko"><i class="mdi mdi-twitter"></i></a>
@@ -54,15 +53,16 @@
       </section>
       <hr>
       <!-- End Contact Us -->
+      
       <!-- send 버튼 누르면 관리자에게 문의사항 전송됨 -->
        <!-- Contact Me -->
-      <section class="section-padding bg white">
+      <section class="section-padding">
          <div class="container">
             <div class="row">
-               <div class="col-lg-12 col-md-12 section-title text-left mb-4">
+            
+ <%--                  <div class="col-lg-12 col-md-12 section-title text-left mb-4">
                   <h2>Contact Us</h2>
                   <p>문의 사항이 있다면 연락주세요</p>
-               </div>
                <form class="col-lg-12 col-md-12" method="post" action="<c:url value='/manage/contact/send'/>" name="sentMessage" id="contactForm" novalidate>
                      	<input type="hidden" name="forwardView" value="/aboutUs/contact" />
                      <div class="control-group form-group" >
@@ -95,10 +95,42 @@
                         </div>
                      </div>
                      </div>
-                     <!-- For success/fail messages -->
                      <button type="submit" class="btn btn-success">Send Message</button>
                </form>
-            </div>
+               </div> --%>
+               
+              
+               <div class="col-lg-6 col-md-6 mx-auto">
+				<form class="col-lg-12 col-md-12" method="post" action="<c:url value='/manage/contact/send'/>" name="sentMessage" id="contactForm" novalidate>
+                   <input type="hidden" name="forwardView" value="/aboutUs/contact" />
+					<div class="card padding-card">
+						<div class="card-body">
+							<h4 class="card-title mb-4">Contact Us</h4>
+							<p>문의 사항이 있다면 연락주세요</p>
+							<div class="form-group">
+								<label>Full Name <span class="text-danger">*</span></label>
+								<input type="text" placeholder="Full Name" class="form-control" id="name" name="NAME" required data-validation-required-message="Please enter your name.">
+							</div>
+							<div class="form-group">
+							 	<label>Phone Number <span class="text-danger">*</span></label>
+                          	    <input type="tel" placeholder="Phone Number" class="form-control" id="phone" name="PHONE" required data-validation-required-message="Please enter your phone number.">
+							</div>
+							<div class="form-group">
+								<label>Email Address <span class="text-danger">*</span></label>
+                                <input type="email" placeholder="Email Address"  class="form-control" id="email" name="EMAIL" required data-validation-required-message="Please enter your email address.">
+                     		</div>
+							<div class="form-group">
+						    	 <label>Message <span class="text-danger">*</span></label>
+                    	         <textarea rows="5" cols="100" placeholder="Message"  class="form-control" id="message" name="CONTACT_TEXT" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+        					</div>
+							<div align="center">
+						      <button type="submit" class="btn btn-success col-5">Send Message</button>
+						    </div>
+						</div>
+					</div>
+				</form>
+			</div>
+           </div>
          </div>
       </section>
       <!-- End Contact Me -->

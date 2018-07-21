@@ -5,28 +5,18 @@
 
 <script>
 
-
-
 /* function idMasking(email) {
-
 	   var len = email.split('@')[0].length-3; // AB***@gamil.com
 	   return email.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');
 	 
 	} */
 
-
+	
 /*  $(document).ready(function() {
-	 
 	  var len = ${resultMap.EMAIL}.split('@')[0].length-3 ;  //  AB***@gamil.com
-	   var result = ${resultMap.EMAIL}.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');  
-
-	 
-         $('#idMasking').val('result');
+	  var result = ${resultMap.EMAIL}.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');  
+        $('#idMasking').val('result');
      }); */
-
- 
- 
- 
  
 </script>
        <!-- 아이디 찾기 결과 -->
@@ -39,7 +29,7 @@
                         <h5 class="card-title mb-4">아이디 찾기 결과</h5>
                         <br>
                            <div class="form-group">
-                              <label>Member ID : </label>
+                              <p><label>Member ID : </label></p>
                               <h5 id="idMasking" >${resultMap.EMAIL}</h5>
                           <br>
 						   </div>

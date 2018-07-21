@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+
 
 <!-- Navbar -->
    <header>   
@@ -23,7 +23,7 @@
                      aria-haspopup="true" aria-expanded="false"> <strong>항공권 특가</strong> </a>
                        </li>
                        <li class="nav-item">
-                       	  
+                       	  <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
                            <a class="nav-link" href="<c:url value='/tripInfo/main'/>?EMAIL=${principalName}&SORT_VALUE=CITY_VIEWS" id="navbarDropdownPortfolio" 
                            aria-haspopup="true" aria-expanded="false"> <strong>여행 정보</strong> </a> 
                         </li>
@@ -42,22 +42,25 @@
                            aria-haspopup="true" aria-expanded="false"> <strong>My page</strong></a>
                            </sec:authorize>
                        </li>
-                           <li class="nav-item">
-                          <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM)">
-                           <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>Manage </strong> </a>
-                           </sec:authorize>
-                        </li>  
-                        
-                        
-                         <li class="nav-item">
-                        <sec:authentication property="principal" var="principalBean"/>
-                  			<sec:authorize access="isAuthenticated()">
-                  			${principalBean.authority}
-                  			</sec:authorize> 
-                    </li>
+                          <li class="nav-item">
+                          <!-- system과 admin의 경우에만 관리자페이지탭 생성 -->
+                         <c:set var="pName" value="${pageContext.request.userPrincipal.name}" />   
+                         <c:choose>
+	                         <c:when test="${pName =='system@skysearch.com'}">
+	                     	     <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
+			                           aria-haspopup="true" aria-expanded="false" style="visibility:visible" > <strong>Manage </strong> </a>
+	                         </c:when>
+	                         <c:when test="${pName =='admin@skysearch.com'}">
+	                             <a class="nav-link" href="<c:url value='/manage/main/index'/>" id="navbarDropdownPortfolio" 
+			                           aria-haspopup="true" aria-expanded="false"  style="visibility:visible"> <strong>Manage </strong> </a>
+	                         </c:when>
+	                         <c:otherwise>   
+	 	                         <a class="nav-link" href="<c:url value='#'/>" id="navbarDropdownPortfolio" 
+			                           aria-haspopup="true" aria-expanded="false"  style="visibility:hidden"> <strong>Manage </strong> </a>  
+	                         </c:otherwise> 
+                         </c:choose>
+                        </li> 
                      </ul>   
-                  
                      <div class="my-2 my-lg-0">
                        <ul class="list-inline main-nav-right">                        
                            <!-- 국가명, 도시명 검색바

@@ -13,7 +13,7 @@
                        <i class="mdi mdi-airplane-takeoff"></i><strong> SKY Search</strong></a></h4>
                     <p>MultiCampus, 121, Teheran-ro, Gangnam-gu, <br> Seoul, Republic of Korea</p>
                   <p class="mb-0"><a class="text-dark" href="#">Tel. 02-3429-5114</a></p>
-                  <p class="mb-0"><a class="text-success" href="#">multicampus@multi.campus</a></p>
+                  <p class="mb-0"><a class="text-success" href="#">skysearch2018@gmail.com</a></p>
                   <p class="mb-0"><a class="text-info" href="#">www.skysearch.com</a></p>
                 </div>
                 <div class="col-lg-2 col-md-2">

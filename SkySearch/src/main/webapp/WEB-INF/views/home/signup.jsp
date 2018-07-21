@@ -120,7 +120,6 @@
 <!-- 유효성검사 -->
 <script>
 function validityCheck(){
-
 	//비밀번호 형식 6~12자리의 영문 대소문자와 숫자로만 입력
 	var getPW = RegExp(/^[a-zA-Z0-9]{6,12}$/);
 /*  //아이디 형식 : 이메일 
@@ -138,14 +137,6 @@ function validityCheck(){
        $("#ID").focus();
        return false;
 	}
-/* 	//아이디의 유효성 검사
-	if(!getID.test($("#ID").val())){
-        alert("아이디를 형식에 맞게 입력해주세요");
-        $("#ID").val("");
-        $("#ID").focus();
-        return false;
-      }
-	 */
 	//비밀번호를 입력하지 않았을 경우(공백)
 	if($("#PASSWORD").val() == ""){
        alert("비밀번호를 입력해주세요");
@@ -213,20 +204,7 @@ function validityCheck(){
       alert("관심지역을 하나 이상 체크해 주세요");
       return false;
     }
-    
- /* //관심분야
-   for(var i=0;i<$('[name="hobby[]"]').length;i++){
-     if($('input:checkbox[name="hobby[]"]').eq(i).is(":checked") == true) {
-       hobbyCheck = true;
-       break;
-         }
-       }
-
-       if(!hobbyCheck){
-         alert("하나이상 관심분야를 체크해 주세요");
-         return false;
-       }
- */
+ 
 } 
 </script>
 
@@ -274,18 +252,20 @@ function validityCheck(){
                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                 <label class="custom-control-label" for="customControlAutosizing">개인정보 제공에 동의합니다</label>
+                                 <label class="custom-control-label" for="customControlAutosizing">개인 정보 제공에 동의합니다</label>
                               </div>
                            </div>
+                           <br>
                           <div align="center">
-	                           <button type="submit" id="btn" class="btn btn-success col-5 ">Sign Up</button>
-	                           <button type="reset" class="btn btn-default col-5">Cancel</button>
+	                           <button type="submit" id="btn" class="btn btn-success col-3">Sign Up</button>
+	                           <button type="reset" class="btn btn-default col-3">Reset</button>
+                                <a class="btn btn-default col-3" role="button" href="<c:url value='/' />">Cancel</a>
                       </div>
-                        <div class="mt-4 text-center login-with-social">
+                        <!-- <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
-                        </div>
+                        </div> -->
                         </form>
                      </div>
                   </div>

@@ -13,7 +13,7 @@
                         <h5 class="card-title mb-4">Find Password</h5>
                        <form role="form" action="<c:url value='/user/pwFind'/>" method="POST">
                            <div class="form-group">
-                             <p><font color="red">비밀번호 찾기 실패! 회원님의 아이디와 이름,<br>인증번호를 받을 이메일 주소를 입력하십시오</font></p>
+                             <p><font color="red">비밀번호 찾기 실패! 다시 입력하세요</font></p>
                               <label>Member ID<span class="text-danger">*</span></label>
                               	<input type="email" name="email" class="form-control" placeholder="Enter your Member ID">
                               <label>Name<span class="text-danger">*</span></label>
@@ -22,13 +22,12 @@
                               <label>Email Address<span class="text-danger">*</span></label>
                               	<input type="email" class="form-control" placeholder="Enter your Email Address">
                               <p> </p>  
-                                <input type="button" class="btn btn-warning btn-block" value="인증번호 받기" onclick="idcheck()">
+                                <!-- <input type="button" class="btn btn-warning btn-block" value="인증번호 받기" onclick="idcheck()"> -->
                            </div>
                            <div class="form-group">
-  	                       		<input type="text" class="form-control" placeholder="인증번호 4자리를 입력하세요">
-						   		<input type="button" class="btn btn-danger btn-block" value="카운트 3분!!">
-                           		<input type="button" class="btn btn-success btn-block" value="비밀번호 찾기" onclick="idcheck()">
-                                 <button type="submit" class="btn btn-success btn-block">비밀번호 찾기</button>
+  	                       		<!-- <input type="text" class="form-control" placeholder="인증번호 4자리를 입력하세요">
+						   		<input type="button" class="btn btn-danger btn-block" value="카운트 3분!!"> -->
+                                <button type="submit" class="btn btn-success btn-block">비밀번호 찾기</button>
                           </div>
                       </form>
                      </div>

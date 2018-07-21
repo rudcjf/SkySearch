@@ -103,7 +103,7 @@ public class MemberService {
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
-		// get Member List
+		// get Member read
 		sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);

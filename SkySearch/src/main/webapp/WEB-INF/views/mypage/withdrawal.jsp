@@ -51,9 +51,6 @@
                      <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/mypage/edit?EMAIL=${principalName}'/>">회원정보 수정</a>
                      </li>
-                    <%--  <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/member/pwedit?EMAIL=${principalName}'/>">비밀번호 변경</a>
-                     </li> --%>
                      <li class="nav-item">
                         <a class="nav-link active text-success" href="<c:url value='/mypage/withdrawal?EMAIL=${principalName}'/>">회원 탈퇴</a>
                      </li>
@@ -65,7 +62,7 @@
  <!-- END mypage tab -->     
              
       <!-- 회원탈퇴 -->
-            <!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원의 정보를 delete(하지만 db에는 남는다?)-->
+            <!-- DB에서 회원 시퀀스에 해당하는 회원의 정보를 delete(실제론 update, enable을 Y->N으로 바꿈)-->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -77,27 +74,24 @@
 					</c:if>
                 </fieldset> 
                  <form role="form" method="POST" action="<c:url value='/mypage/disable'/>">
-                <input type="hidden" name="forwardView" value="/mypage/withdrawalC" />
+                 <input type="hidden" name="forwardView" value="/mypage/withdrawalC" />
                  	<div class="card padding-card">
                     	<div class="card-body">
                         	<h4 class="card-title mb-4">회원 탈퇴</h4>
-                        	<p>회원 탈퇴를 원하신다면 <br> 회원 아이디와 비밀번호를 입력해주세요</p>
+                        	<p>회원 아이디와 비밀번호를 입력하세요</p>
                            	<div class="form-group">
                             	<label>Member ID <span class="text-danger">*</span></label>
-                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Member ID">
-                            	<br>
-                            	<label>Name <span class="text-danger">*</span></label>
-                            	<input id="NAME" type="text" name="name" class="form-control" placeholder="name">
+                            	<input id="EMAIL" type="email" name="email" class="form-control" placeholder="Enter your Member ID">
                             	<br>
                             	<label>Password <span class="text-danger">*</span></label>
-                            	<input id="PASSWORD1" type="password" name="PASSWORD" class="form-control" placeholder="Password" >
+                            	<input id="PASSWORD1" type="password" name="PASSWORD" class="form-control" placeholder="Enter your Password" >
                             	<br>
-                            	<label>Password <span class="text-danger">*</span><font name="check" size="2" color="red"></font></label>
-                            	<input id="PASSWORD2" type="password" name="password" class="form-control" placeholder="Password">
+                            	<label>Password Confirm<span class="text-danger">*</span><font name="check" size="2" color="red"></font></label>
+                            	<input id="PASSWORD2" type="password" name="password" class="form-control" placeholder="Enter your Password again">
                            	</div>
                            	<br>
                            	<div align="center">	
-				            	<button type="submit" class="btn btn-success col-4" id="Btn">회원 탈퇴</button>
+				            	<button type="submit" class="btn btn-success col-4">회원 탈퇴</button>
 				                <button type="reset" class="btn btn-default col-4">RESET</button>
 				            </div>
 					 	</div> 
