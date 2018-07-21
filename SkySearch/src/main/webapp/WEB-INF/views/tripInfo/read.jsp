@@ -66,19 +66,19 @@
            <div class="row">
                  <div class="col-lg-4 col-md-4">
                    <h1>${resultCityMap.CITY_NAME}</h1>
-                   <h5>&nbsp;&nbsp;${resultCityMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
+                   <h5>&nbsp;${resultCityMap.CITY_ENAME}</h5><!--  도시명  영문도시명 가져오기 -->
                      <h6><i class="mdi mdi-home">&nbsp;</i>${resultCityMap.CITY_ADD}</h6><!-- 국가명 > 도시명 가져오기 -->
                      <b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultCityMap.CITY_VIEWS}</b>
                </div>
                
                <div class="col-lg-2 col-md-2">
-                   <h5 class="mt-3">날씨</h5><!-- 현지 날씨정보 가져오기 -->
-                       <img id="wicon" width="150" height="150">  
+                   <h5 class="mt-3" style="display:inline;">날씨</h5><!-- 현지 날씨정보 가져오기 -->
+                   <img id="wicon" width="80" height="80">  
                </div>
 
              <!-- 도시의 현재 날씨  -->               
-                 <div class="col-lg-2 col-md-2" id="temper">
-                </div>
+               <div class="col-lg-2 col-md-2" id="temper">
+               </div>
                 
              <!-- 현재의 환율정보 -->  
                <div class="col-lg-1 col-md-1">

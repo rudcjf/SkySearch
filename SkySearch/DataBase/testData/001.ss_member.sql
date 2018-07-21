@@ -42,7 +42,7 @@ VALUES
 ('SYSUID-SS037','richard@skysearch.com','richard123','richard','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS038','catevlanchett@skysearch.com','catevlanchett123','catevlanchett','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS039','orlando@skysearch.com','orlando123','orlando','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
-('SYSUID-SS040','evanlilly@skysearch.com','lilly121','lilly','0803691234''Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
+('SYSUID-SS040','evanlilly@skysearch.com','lilly121','lilly','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS041','lukeevans@skysearch.com','lukeevans29','lukeevans','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS042','aidanturner@skysearch.com','aidanturner06','aidanturner','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
 ('SYSUID-SS043','leepace@skysearch.com','leepace924','leepace','0803691234','Y','UUID-1111-1111111',now(),'UUID-1111-1111111',now()),
