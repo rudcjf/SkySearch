@@ -48,22 +48,27 @@
             <div class="col-xl-12">
                 <div class="card">
                 <div class="card-header">
-							<strong class="card-title">여행정보</strong> <input type="submit"
-								class="btn btn-primary" value=도시조회수
-								onclick="selecta('view')"
+               				<strong class="card-title" >manageChart</strong>
+							<input type="submit"
+								class="btn btn-primary" value='도시별 조회 수'
+								onclick="selecta('view');hide_periodButton(true);"
 								style="float: right;">
-							<button type="button" class="btn btn-secondary mb-1"
-								data-toggle="modal" data-target="#mediumModal" onclick="selecta('star')"
-								style="float: right;">도시 별점</button>
+               				<button type="button" class="btn btn-secondary mb-1"
+								data-toggle="modal" data-target="#mediumModal" onclick="selecta('star');hide_periodButton(false);"
+								style="float: right;">도시별 평균 별점</button>
+               				<input type="submit"
+								class="btn btn-primary" value='가입자 수'
+								onclick="selecta('month');show_periodButton();"
+								style="float: right;">
 						</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4">
-                                <h4 class="card-title mb-0">manageChart	</h4>
-                                <div class="small text-muted">통계</div>
+                                <h4 class="card-title mb-0" id="chartTitle">가입자 수</h4>
                             </div>
+                            <br>
                             <!--/.col-->
-                            <div class="col-sm-8 hidden-sm-down">
+                            <div class="col-sm-8 hidden-sm-down" id="afafaf">
                                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
                                         <label class="btn btn-outline-secondary"  onclick="selecta('day')">
@@ -89,7 +94,10 @@
 
                     </div>
                     
-                      <div class="col-sm-12">
+                     
+                    
+                </div>
+                 <div class="col-sm-12">
 				      <table class="table table-striped table-bordered table-hover"
 				         id="bootstrap-data-table">
 				         <thead>
@@ -116,8 +124,6 @@
 				         </tbody>
 				      </table>
 				   </div>
-                    
-                </div>
             </div>
 
 
@@ -147,9 +153,20 @@
       return result
     }
 
-    function random (min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min)
-    }
+ 	function hide_periodButton(a){
+ 		$("#afafaf").hide();
+ 		if(a){
+ 			$("#chartTitle").text("도시별 조회 수");
+ 		}else{
+ 			$("#chartTitle").text("도시별 별점  평균");
+ 		}
+ 		
+ 	}
+ 	function show_periodButton(){
+ 		$("#afafaf").show();
+ 		$("#option2").click();
+ 		$("#chartTitle").text("가입자수 ");
+ 	}
     
     function respondCanvas(data) {
     	ctx = new Chart(document.getElementById("trafficChart").getContext("2d"),data);
