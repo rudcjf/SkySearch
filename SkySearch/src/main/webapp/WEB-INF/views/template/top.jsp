@@ -76,10 +76,11 @@
                                  		<a class="btn btn-success btn-sm" href='/SkySearch/signup'><i class="mdi mdi-account-settings"></i>SignUp</a>
                                  	</c:when>
                                  	<c:otherwise>
-                                 		<a class="btn btn-success btn-sm" href="#"><i class="mdi mdi-account-settings"></i>${principalName}</a>
+                                 		<a href="#"><i class="mdi mdi-account-settings"></i>${principalName}</a>
                                  	</c:otherwise>
                                  </c:choose> 
                              </li>
+                             &nbsp;
                              <li class="list-inline-item">
                                 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}"  /> 
                                 <a class="btn btn-success btn-sm" href=${principalName == null ? '/SkySearch/login' : '/SkySearch/j_spring_security_logout' }>

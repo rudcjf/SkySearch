@@ -31,9 +31,9 @@
                            </div>
                            <div class="form-group">
                               <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                 <input type="checkbox" name="remember-me" class="custom-control-input" id="customControlAutosizing" value="true">
                                  <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
-                              </div>
+  </div>
                            </div>
                            <div align="center">
                            <button type="submit" class="btn btn-success col-5">LOGIN</button>
