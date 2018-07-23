@@ -117,7 +117,7 @@
 		DELETE 
 		FROM
 		skysearch.ss_attachfile
-		where ATTACHFILE_SEQ = #{ATTACHFILE_SEQ}
+		where SOURCE_UNIQUE_SEQ = #{CITY_SEQ} OR SOURCE_UNIQUE_SEQ = #{TRAVEL_SEQ}
 	</delete>
 
 </mapper> 
