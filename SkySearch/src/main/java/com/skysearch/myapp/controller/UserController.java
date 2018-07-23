@@ -32,45 +32,21 @@ public class UserController {
 		Map<Object, Object> resultMap = new HashMap<Object, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
-		//·Î±×ÀÎÈ­¸é¿¡¼­ ¾ÆÀÌµğ ºñ¹Ğ¹øÈ£ Ã£±â
+	//ì•„ì´ë””,ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° í˜ì´ì§€
 		if ("forgetIdPw".equalsIgnoreCase(action)) {
-			//¾ÆÀÌµğ Ã£±â ½ÇÆĞ½Ã
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì‹¤íŒ¨ì‹œ
 		} else if ("forgetId".equalsIgnoreCase(action)) {
-			//ºñ¹Ğ¹øÈ£ Ã£±â ½ÇÆĞ½Ã
+	//ì•„ì´ë”” ì°¾ê¸° ì‹¤íŒ¨ì‹œ
 		} else if ("forgetPw".equalsIgnoreCase(action)) {
-			//¾ÆÀÌµğ Ã£±â
+	//ì•„ì´ë”” ì°¾ê¸°
 		}else if("idFind".equalsIgnoreCase(action)) {
-	        resultMap = (Map<Object, Object>) service.Find(paramMap);
-	        
-	        String NAME = (String)resultMap.get("NAME");
-	        String PHONE = (String)resultMap.get("PHONE");
-	        
-			String name=(String)paramMap.get("name");//ÀÔ·ÂÇÑ ÀÌ¸§, Æù¹øÈ£
-			String phone=(String)paramMap.get("phone");	         
-	         
-	        if(NAME.equals(name)&&PHONE.equals(phone)) {//ÀÌ¸§, Æù¹øÈ£  ÀÏÄ¡ÇÏ¸é ¾ÆÀÌµğ Ã£À½
-	             viewName = "/user/findId";
-	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
-	        }else {//ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é,
-	               viewName = "/user/forgetId";
-	         }
-	     //ºñ¹Ğ¹øÈ£ Ã£±â
+	        resultMap = (Map<Object, Object>) service.FindId(paramMap);
+	        forwardView=(String) resultMap.get("forwardView");
+	 //ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
 		}else if("pwFind".equalsIgnoreCase(action)) {
-	         resultMap = (Map<Object, Object>) service.Find(paramMap);
-	         
-	         String EMAIL = (String)resultMap.get("EMAIL");
-		     String NAME = (String)resultMap.get("NAME");
-		         
-				String email=(String)paramMap.get("email");//ÀÔ·ÂÇÑ ÀÌ¸§, ¾ÆÀÌµğ
-				String name=(String)paramMap.get("name");	         
-		         
-		        if(NAME.equals(name)&&EMAIL.equals(email)) {//ÀÌ¸§,¾ÆÀÌµğ  ÀÏÄ¡ÇÏ¸é ºñ¹Ğ¹øÈ£ Ã£À½
-		        	 viewName = "/user/findPw";
-		             resultMap.put("PASSWORD",(String)resultMap.get("PASSWORD"));
-		            }else {//ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é,
-		             viewName = "/user/forgetPw";
-		            }
-	      }
+	         resultMap = (Map<Object, Object>) service.FindPw(paramMap);
+	         forwardView=(String) resultMap.get("forwardView");
+	    }
 		if (forwardView != null) {
 			viewName = forwardView;
 		}

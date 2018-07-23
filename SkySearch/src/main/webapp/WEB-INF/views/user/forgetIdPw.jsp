@@ -47,10 +47,7 @@ function idMasking() {
                               	<input type="email" name="email" class="form-control" placeholder="Enter your Member ID">
                               <label>Name<span class="text-danger">*</span></label>
                               	<input type="text" name="name"class="form-control" placeholder="Enter your NAME">
-                              <br>
-                              <label>Email Address<span class="text-danger">*</span></label>
-                              	<input type="email" class="form-control" placeholder="Enter your Email Address">
-                              <p> </p>  
+                               <p> </p>  
                                <!--  <input type="button" class="btn btn-warning btn-block" value="인증번호 받기" onclick="idcheck()"> -->
                            </div>
                            <div class="form-group">
