@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skysearch.myapp.service.CrawlService;
 
 @Controller
-public class SpecialPriceController {
+public class SpecialEventController {
 	private final static String MAPPING = "/specialPrice/";
 
 	@Autowired
