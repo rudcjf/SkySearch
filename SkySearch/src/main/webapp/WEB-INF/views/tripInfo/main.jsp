@@ -12,11 +12,9 @@
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active"
 				style="background-image: url('<c:url value='/resources/img/slider/tripmain1.jpg'/>')">
-				<div class="overlay"></div>
 			</div>
 			<div class="carousel-item"
 				style="background-image: url('<c:url value='/resources/img/slider/tripmain2.jpg'/>')">
-				<div class="overlay"></div>
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#osahanslider" role="button"
@@ -88,6 +86,12 @@
 				});
 			}
 	</script>
+	<!-- 도시 이름 눌렀을 때 마우스 호버를 위해 적용 -->
+	<style>
+	a:hover {
+		background-color: #dcdcdc;
+	}
+	</style>
 
 	<div class="slider-form">
 		<div class="container">
@@ -147,11 +151,11 @@
 </section>
 <!-- 메인 슬라이드 이미지 끝 -->
 
-
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
 		<h2>추천 여행지</h2>
+		<p>회원들이 선호하는 여행지는 어디일까요?</p>
 	</div>
 	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
@@ -164,10 +168,10 @@
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
 								<c:choose>
 									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap" style="height:30%;">
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap" style="height:30%;">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
@@ -199,10 +203,10 @@
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
 								<c:choose>
 									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap" style="height:30%;">
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap" style="height:30%;">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
@@ -237,6 +241,7 @@
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
 		<h2>전체 여행지</h2>
+		<p>각 도시의 관광지를 확인해보세요!</p>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -268,10 +273,10 @@
 							<a href="<c:url value='/tripInfo/read'/>?CITY_SEQ=${resultData.CITY_SEQ}&EMAIL=${principalName}">
 								<c:choose>
 									<c:when test="${resultData.CITY_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap" style="height:30%;">
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value='/resources/uploads/noimage.jpg'/>" alt="Card image cap" style="height:30%;">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
@@ -283,7 +288,7 @@
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
 												<span class="badge badge-white"> 
-												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												<b class="mdi mdi-star">&nbsp;회원 평점 : ${resultData2.AVG_STAR}</b>
 												</span>
 											</c:when>
 										</c:choose>

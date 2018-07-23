@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
- <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
 <!-- 500 Page -->

@@ -19,7 +19,7 @@
                            aria-expanded="false"> <strong>HOME</strong> </a>
                         </li>
                         <li class="nav-item">
-                     <a class="nav-link" href="<c:url value='/specialPrice/main'/>" id="navbarDropdownPortfolio" 
+                     <a class="nav-link" href="<c:url value='/specialEvent/main'/>" id="navbarDropdownPortfolio" 
                      aria-haspopup="true" aria-expanded="false"> <strong>항공권 특가</strong> </a>
                        </li>
                        <li class="nav-item">
