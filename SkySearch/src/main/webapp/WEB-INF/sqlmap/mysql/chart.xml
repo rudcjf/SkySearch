@@ -41,7 +41,7 @@
 	INNER JOIN (SELECT CITY_SEQ, ROUND(AVG(SS_STAR),2) as avgS
 			FROM skysearch.ss_comment
 			GROUP by CITY_SEQ
-			ORDER BY avgS
+			ORDER BY avgS DESC
 			LIMIT 30) m
 	ON c.CITY_SEQ = m.CITY_SEQ;
 	</select>
