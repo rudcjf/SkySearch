@@ -17,7 +17,7 @@ import com.skysearch.myapp.service.CrawlService;
 
 @Controller
 public class SpecialEventController {
-	private final static String MAPPING = "/specialPrice/";
+	private final static String MAPPING = "/specialEvent/";
 
 	@Autowired
 	private CrawlService crawlService;
