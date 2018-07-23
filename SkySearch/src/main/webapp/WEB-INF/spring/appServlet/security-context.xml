@@ -41,6 +41,9 @@
 		<!-- 로그인:remember me -->	
 		<remember-me token-validity-seconds="1209600" remember-me-parameter="remember-me"/>
 		
+		<!-- access denied url 
+		<access-denied-handler	error-page="/exception/403" /> -->
+		
 		<!-- 페이지 해킹을 방지하기 위함 -->
 		<csrf disabled="true" />
 

@@ -1,6 +1,6 @@
 package com.skysearch.myapp.service;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,22 +123,75 @@ public class MemberService {
 
 		return resultObject;
 	}
-
-	// �쉶�뜝�룞�삕�뜝�룞�삕�뜝�떛�벝�삕, �쉶�뜝�룞�삕 �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕
+	//회원 탈퇴시, 아이디 비번 확인
 	public Object Find(Object dataMap) {
 		String sqlMapId = "member.find";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
-		return resultObject;
+	    return resultObject;
 	}
+	// 아이디 찾기
+	public Object FindId(Map<String, Object> dataMap) {
+		String sqlMapId = "member.find";
+		Map<Object, Object> resultMap = (Map<Object, Object>) dao.getObject(sqlMapId, dataMap);
+		
+		if(resultMap==null) {
+			Map<Object, Object> resultMaps = new HashMap<Object, Object>();
+			resultMaps.put("forwardView", "/user/forgetId");
+			return resultMaps;
+		}
+		
+		 String NAME = (String)resultMap.get("NAME");
+	     String PHONE = (String)resultMap.get("PHONE");
+	        
+			String name=(String)dataMap.get("name");//입력한 이름과 폰번호
+			String phone=(String)dataMap.get("phone");	         
+	         
+	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호 일치여부 확인
+	             resultMap.put("forwardView", "/user/findId");
+	             resultMap.put("EMAIL",(String)resultMap.get("EMAIL"));
+	        }else {
+	        	resultMap.put("forwardView", "/user/forgetId"); 
+	         }
 
+		return resultMap;
+	}
+	//비밀번호 찾기
+	public Object FindPw(Map<String, Object> dataMap) {
+		String sqlMapId = "member.find";
+		Map<Object, Object> resultMap = (Map<Object, Object>) dao.getObject(sqlMapId, dataMap);
+		
+		if(resultMap==null) {
+			Map<Object, Object> resultMaps = new HashMap<Object, Object>();
+			resultMaps.put("forwardView", "/user/forgetPw");
+			return resultMaps;
+		}
+		
+		 String NAME = (String)resultMap.get("NAME");
+	     String EMAIL = (String)resultMap.get("EMAIL");
+	        
+			String name=(String)dataMap.get("name");//입력한 이름과 아이디
+			String email=(String)dataMap.get("email");	         
+	         
+	        if(NAME.equals(name)&&EMAIL.equals(email)) {//아이디, 이름 일치여부 확인
+	             resultMap.put("forwardView", "/user/findPw");
+	             resultMap.put("PASSWORD",(String)resultMap.get("PASSWORD"));
+	        }else {
+	        	resultMap.put("forwardView", "/user/forgetPw"); 
+	         }
+		return resultMap;
+	}
+	
 	public Object checkID(Object dataMap) {
 		String sqlMapId = "member.idDoubleCheck";
 		Map resultObject = (Map) dao.getObject(sqlMapId, dataMap);
+		
+		
+		
+		
 		return resultObject;
 	}
 	
-	
-	//contactus insert 메서드
+	//contact us insert 메서드
 	public void sendObject(Map<Object, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("CONTACTUS_SEQ");
 

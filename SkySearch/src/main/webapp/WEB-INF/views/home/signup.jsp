@@ -132,9 +132,9 @@ function validityCheck(){
 	var intLocCheck = false;
 	
 	//아이디를 입력하지 않았을 경우(공백)
-	if($("#ID").val() == ""){
+	if($("#EMAIL").val() == ""){
        alert("아이디를 입력해주세요");
-       $("#ID").focus();
+       $("#EMAIL").focus();
        return false;
 	}
 	//비밀번호를 입력하지 않았을 경우(공백)
@@ -221,7 +221,7 @@ function validityCheck(){
                          <input type="hidden" name="forwardView" value="/home/login" /> 
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
-                             	 <input id="EMAIL" name="EMAIL" type="email" id="ID" class="form-control" placeholder="Base form : mulcam@mulcam.com">
+                             	 <input id="EMAIL" name="EMAIL" type="email" id="EMAIL" class="form-control" placeholder="Base form : mulcam@mulcam.com">
 								 <p> </p>
 								 <label><span><input type="button" class="btn btn-warning" value="아이디 중복 확인" onclick="idcheck()"></span></label> 
 				           </div>

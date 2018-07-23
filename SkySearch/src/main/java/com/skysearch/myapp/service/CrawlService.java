@@ -120,7 +120,7 @@ public class CrawlService {
 				//element class명이 item이면
 				if (e.attr("class").contains("item")) {
 					//element가 프로모션, 특가를 포함하면
-					if (e.text().contains("프로모션") || e.text().contains("특가")) {
+					if (e.text().contains("프로모션") || e.text().contains("특가") ||e.text().contains("여행")) {
 
 						resultMap = new HashMap<>();
 						resultMap.put("title", e.select("span.subject").text());

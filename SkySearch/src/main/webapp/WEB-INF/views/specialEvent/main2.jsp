@@ -3,9 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<link type="text/css"
-	href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>"
-	rel="stylesheet" />
 
 <!-- SLIDER -->
 <section class="osahan-slider">
@@ -50,7 +47,7 @@
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 						<div class="col-lg-12 col-md-12">
 							<div class="card card-list card-list-view">
-								<a href="${resultData.url}">
+								<a href="${resultData.url}" target="_blank">
 									<div class="row no-gutters">
 										<div class="col-lg-3 col-md-3">
 											<img class="card-img-top" src="${resultData.img}"
@@ -172,7 +169,7 @@
 							<div class="row no-gutters">
 								<div class="col-lg-3 col-md-3">
 									<img class="card-img-top"
-										src="<c:url value='/resources/img/special/jinair.jpg' />"
+										src="<c:url value='/resources/img/special/jin.jpg' />"
 										alt="JinAir image">
 								</div>
 								<div class="col-lg-9 col-md-9">
@@ -219,7 +216,7 @@
 							<div class="row no-gutters">
 								<div class="col-lg-3 col-md-3">
 									<img class="card-img-top"
-										src="<c:url value='/resources/img/special/airbusan.jpg' />"
+										src="<c:url value='/resources/img/special/busan.jpg' />"
 										alt="">
 								</div>
 								<div class="col-lg-9 col-md-9">
