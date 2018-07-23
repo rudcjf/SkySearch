@@ -93,7 +93,7 @@ public class AdminTiService {
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 
-		if (((List<Object>) paramMap.get("attachFileList")).size() > 0 || paramMap.get("attachFileList") != null) {
+		if (((List<Object>) paramMap.get("attachFileList")).size() > 0) {
 
 			String sqlMapId = "file.tiupload";
 			Object resultObject = dao.saveObject(sqlMapId, paramMap);

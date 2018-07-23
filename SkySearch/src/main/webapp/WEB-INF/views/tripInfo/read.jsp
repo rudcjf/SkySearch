@@ -130,10 +130,10 @@
 							<div class="card blog-card">
 								<c:choose>
 									<c:when test="${resultData.TRAVEL_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">	
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap" style="height:30%;">	
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap" style="height:30%;">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
@@ -388,7 +388,7 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 5,
+         		zoom: 7,
          		center: uluru
 
          	});
@@ -405,8 +405,7 @@
          	var image = '<c:url value='/resources/img/marker.png'/>';
          	var marker = new google.maps.Marker({
          		position: uluru,
-         		map: map,
-         		icon: image
+         		map: map
          	});
          	/* marker.addListener('click', function() {
          		infowindow.open(map, marker);

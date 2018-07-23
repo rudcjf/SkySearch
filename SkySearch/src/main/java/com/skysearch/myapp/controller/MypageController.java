@@ -45,13 +45,14 @@ public class MypageController {
 			service.saveObject(paramMap);
 		} else if ("withdrawal".equalsIgnoreCase(action)) {
 		} else if ("disable".equalsIgnoreCase(action)) {
-			String id=(String)paramMap.get("email");//입력된 아이디와 비밀번호
-			String pw=(String)paramMap.get("password");
  			resultMap = (Map<Object, Object>) service.Find(paramMap);
-			
-			String email = (String)resultMap.get("EMAIL");//DB의 아이디와 비밀번호
+
+ 			String email = (String)resultMap.get("EMAIL");//DB의 아이디와 비밀번호
 			String pass = (String)resultMap.get("PASSWORD");
 
+			String id=(String)paramMap.get("email");//입력된 아이디와 비밀번호
+			String pw=(String)paramMap.get("password");
+			
 			if(id.equals(email)&&pw.equals(pass)) {//일치여부 확인 
 				service.deleteObject(paramMap);
 			}
