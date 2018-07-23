@@ -469,9 +469,7 @@
          	});
 		var geocoder = new google.maps.Geocoder();
 
-		document.getElementById('submit').addEventListener('click', function() {
-			geocodeAddress(geocoder, map);
-		});
+		
 	}
 
 	function geocodeAddress(geocoder, resultsMap) {
@@ -498,9 +496,7 @@
 						});
 	}
 </script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key='AIzaSyBlqnfaXNqm15QpBNxlQ0Jr2xDev88zmBM&callback=initMap'&signed_in=true&callback=initMap"
-	async defer></script>
+
 
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUsOUkZbTEwLxeUN5Qfag6Vr5BjngCGMY&callback=initMap"></script>

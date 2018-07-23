@@ -120,7 +120,7 @@
 										<!-- Centered Tabs -->
 										<ul class="nav nav-tabs nav-justified">
 											<li class="nav-item"><a class="nav-link active"
-												href="<c:url value='/manage/ti/ti_cilist'/>">국가목록</a></li>
+												href="<c:url value='/manage/ti/ti_cilist'/>">도시목록</a></li>
 											<li class="nav-item"><a class="nav-link"
 												href="<c:url value='/manage/ti/ti_list'/>">관광지목록</a></li>
 										</ul>

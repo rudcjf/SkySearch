@@ -111,11 +111,14 @@ public class AdminTiService {
 	}
 
 	public Object deleteObject(Object dataMap) {
-
-		// delete
-		String sqlMapId = "ti.delete";
+		String sqlMapId = "file.delete";
 
 		Object resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+
+		// delete
+		 sqlMapId = "ti.delete";
+
+		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Ti List
 		sqlMapId = "ti.list";
@@ -137,7 +140,8 @@ public class AdminTiService {
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 
-		if (((List<Object>) paramMap.get("attachFileList")).size() > 0 || paramMap.get("attachFileList") != null) {
+		System.out.println(((List<Object>) paramMap.get("attachFileList")).size());
+		if (((List<Object>) paramMap.get("attachFileList")).size() > 0) {
 
 			String sqlMapId = "file.ciupload";
 			Object resultObject = dao.saveObject(sqlMapId, paramMap);

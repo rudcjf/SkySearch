@@ -60,7 +60,7 @@ public class RestWSController {
 			resultObject = (List<Object>) localService.getCheckLocal(paramMap);
 		} else if("idcheck".equalsIgnoreCase(action)) {
 	         
-	         String id=(String) paramMap.get("M_ID");
+	         String id=(String) paramMap.get("EMAIL");
 	         Object result = memberservice.checkID(paramMap);
 	         return result;  
 		} else if("fileList".equalsIgnoreCase(action)) {
