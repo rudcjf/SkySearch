@@ -81,7 +81,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/daseul.jpg'/>" alt=""/>
-                        <p class="mb-4">누군지 모르시겠죠? <br> はじめまして 정 한다슬 です。よろしくお願いいたします。それではこれ。 </p>
+                        <p class="mb-4">はじめまして 정 한다슬 です。 <br> よろしくお願いいたします。それでは。 </p>
                         <h6 class="mb-0 text-success">정 한다슬</h6>
                         <small>Manager Ti 총괄</small>
                      </div>
