@@ -4,6 +4,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/skysearch/myapp/service/ContactService.java=UTF-8
 encoding//src/main/java/com/skysearch/myapp/service/MemberService.java=UTF-8
+<<<<<<< HEAD
+encoding//src/main/webapp/WEB-INF/views/error/500errorPage.jsp=UTF-8
+=======
 encoding//src/main/webapp/WEB-INF/views/transport/flight.jsp=UTF-8
+>>>>>>> branch 'developer' of https://github.com/rudcjf/SkySearch.git
 encoding//src/main/webapp/WEB-INF/views/tripInfo/read.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/forgetIdPw.jsp=UTF-8

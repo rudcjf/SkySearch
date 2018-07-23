@@ -17,7 +17,7 @@ import com.skysearch.myapp.service.CrawlService;
 
 @Controller
 public class SpecialEventController {
-	private final static String MAPPING = "/specialPrice/";
+	private final static String MAPPING = "/specialEvent/";
 
 	@Autowired
 	private CrawlService crawlService;
@@ -33,7 +33,7 @@ public class SpecialEventController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		if ("main".equalsIgnoreCase(action)) {
-			viewName= "/specialPrice/main2";
+			viewName= "/specialEvent/main2";
 			resultList = (List<Object>) crawlService.getListMIT(paramMap);
 
 		} 
