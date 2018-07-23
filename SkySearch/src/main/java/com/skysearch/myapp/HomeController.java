@@ -114,5 +114,18 @@ public class HomeController {
 
 		return "/not-found";
 	}
+	@RequestMapping(value = "/error500", method = { RequestMethod.GET, RequestMethod.POST })
+	public String error500(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate);
+		
+		return "/500errorPage";
+	}
 
 }

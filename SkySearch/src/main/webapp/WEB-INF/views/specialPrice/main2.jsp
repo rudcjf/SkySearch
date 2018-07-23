@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="section-title text-center mb-5">
 				<h4>진행중인 특가</h4>
-			</div><a href="<c:url value='/error404' />">fdafds</a>
+			</div>
 			<div class="col-lg-12 col-md-12" id="eventList">
 				<c:forEach items="${resultList}" var="resultList" varStatus="loop">
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
