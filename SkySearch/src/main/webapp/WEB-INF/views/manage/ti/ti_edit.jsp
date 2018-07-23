@@ -9,15 +9,6 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Sufee Admin - HTML5 Admin Template</title>
-<meta name="description" content="Sufee Admin - HTML5 Admin Template">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
-<body>
 
 	<script>
 		/* DisableChange */
@@ -99,7 +90,7 @@
 				<div class="page-title">
 					<ol class="breadcrumb text-right">
 						<li><a href="<c:url value='/manage/main/index'/>">Dashboard</a></li>
-						<li><a href="<c:url value='/manage/ti/ci_list'/>">여행정보</a></li>
+						<li><a href="<c:url value='/manage/ti/ti_list'/>">여행정보</a></li>
 						<li class="active">여행정보 입력</li>
 					</ol>
 				</div>
@@ -230,8 +221,7 @@
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
-</body>
-</html>
+
 
 
 
