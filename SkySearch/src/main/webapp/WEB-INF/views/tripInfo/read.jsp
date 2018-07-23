@@ -388,7 +388,7 @@
          		lng: ${lng}
          	};
          	var map = new google.maps.Map(document.getElementById('map'), {
-         		zoom: 5,
+         		zoom: 7,
          		center: uluru
 
          	});
@@ -405,8 +405,7 @@
          	var image = '<c:url value='/resources/img/marker.png'/>';
          	var marker = new google.maps.Marker({
          		position: uluru,
-         		map: map,
-         		icon: image
+         		map: map
          	});
          	/* marker.addListener('click', function() {
          		infowindow.open(map, marker);
