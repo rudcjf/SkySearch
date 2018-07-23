@@ -16,8 +16,8 @@
 						href="<c:url value='/specialPrice/main'/>" style="float: left;">
 						<strong>특가 상품</strong>
 					</a> <a class="nav-link" href="<c:url value='/tripInfo/main'/>"  style="float:left;"> <strong>여행 정보</strong> </a> 
-                         
-                           <a class="nav-link" href="<c:url value='/mypage/main'/>"  style="float:left;"> <strong>My page</strong> </a>
+                         <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
+                           <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>"  style="float:left;"> <strong>My page</strong> </a>
                     </div>
                 </div>
 
