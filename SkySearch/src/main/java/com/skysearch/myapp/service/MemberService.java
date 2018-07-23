@@ -143,8 +143,8 @@ public class MemberService {
 		 String NAME = (String)resultMap.get("NAME");
 	     String PHONE = (String)resultMap.get("PHONE");
 	        
-			String name=(String)dataMap.get("name");//입력한 이름과 폰번호
-			String phone=(String)dataMap.get("phone");	         
+		 String name=(String)dataMap.get("name");//입력한 이름과 폰번호
+		 String phone=(String)dataMap.get("phone");	         
 	         
 	        if(NAME.equals(name)&&PHONE.equals(phone)) {//이름, 폰번호 일치여부 확인
 	             resultMap.put("forwardView", "/user/findId");
@@ -169,8 +169,8 @@ public class MemberService {
 		 String NAME = (String)resultMap.get("NAME");
 	     String EMAIL = (String)resultMap.get("EMAIL");
 	        
-			String name=(String)dataMap.get("name");//입력한 이름과 아이디
-			String email=(String)dataMap.get("email");	         
+		 String name=(String)dataMap.get("name");//입력한 이름과 아이디
+		 String email=(String)dataMap.get("email");	         
 	         
 	        if(NAME.equals(name)&&EMAIL.equals(email)) {//아이디, 이름 일치여부 확인
 	             resultMap.put("forwardView", "/user/findPw");
@@ -185,10 +185,7 @@ public class MemberService {
 		String sqlMapId = "member.idDoubleCheck";
 		Map resultObject = (Map) dao.getObject(sqlMapId, dataMap);
 		
-		
-		
-		
-		return resultObject;
+    	return resultObject;
 	}
 	
 	//contact us insert 메서드
