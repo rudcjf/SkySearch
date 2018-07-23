@@ -91,14 +91,14 @@
 	<update id="delete" parameterType="Map">
 		update skysearch.ss_member
 		set
-		ENABLE='N'
+		ENABLE='N', EMAIL=''
 		where EMAIL = #{email} and PASSWORD = #{password}
 	</update>
 
 	<update id="deleteAdmin" parameterType="Map">
 		update
 		skysearch.ss_member
-		set ENABLE='N'
+		set ENABLE='N', EMAIL=''
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</update>
 </mapper>
