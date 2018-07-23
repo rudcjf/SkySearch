@@ -72,8 +72,7 @@ public class AdminTiService {
 		resultObject = dao.getObject(sqlMapId, dataMap);
 
 		sqlMapId = "file.read";
-				
-
+		
 		 resultObject = dao.getList(sqlMapId, dataMap);
 		
 		
