@@ -130,10 +130,10 @@
 							<div class="card blog-card">
 								<c:choose>
 									<c:when test="${resultData.TRAVEL_SEQ==resultData.SOURCE_UNIQUE_SEQ}">
-										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap">	
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/${resultData.PHYSICALFILE_NAME}'/>" alt="Card image cap" style="height:30%;">	
 									</c:when>
 									<c:otherwise>
-										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap">
+										<img class="card-img-top" src="<c:url value = '/resources/uploads/noimage.jpg'/>" alt="Card image cap" style="height:30%;">
 									</c:otherwise>
 								</c:choose>
 								<div class="card-body">
