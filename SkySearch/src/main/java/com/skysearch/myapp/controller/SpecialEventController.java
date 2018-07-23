@@ -33,7 +33,7 @@ public class SpecialEventController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		if ("main".equalsIgnoreCase(action)) {
-			viewName= "/specialPrice/main2";
+			viewName= "/specialEvent/main2";
 			resultList = (List<Object>) crawlService.getListMIT(paramMap);
 
 		} 
