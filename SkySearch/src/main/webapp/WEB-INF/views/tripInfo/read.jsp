@@ -38,10 +38,6 @@
 <!-- Property Single Slider header -->
 <section class="osahan-slider">
    <div id="osahanslider" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
-         <li data-target="#osahanslider" data-slide-to="1"></li>
-      </ol>
       <div class="carousel-inner" role="listbox">
       	<c:choose>
       		<c:when test="${resultCityMap.CITY_SEQ==resultCityMap.SOURCE_UNIQUE_SEQ}">
@@ -52,13 +48,6 @@
       		</c:otherwise>
       	</c:choose>
       </div>
-      <a class="carousel-control-prev" href="#osahanslider" role="button"
-         data-slide="prev"> <span class="carousel-control-prev-icon"
-         aria-hidden="true"></span> <span class="sr-only">Previous</span>
-      </a> <a class="carousel-control-next" href="#osahanslider" role="button"
-         data-slide="next"> <span class="carousel-control-next-icon"
-         aria-hidden="true"></span> <span class="sr-only">Next</span>
-      </a>
    </div>
 
    <div class="property-single-title property-single-title-gallery">
