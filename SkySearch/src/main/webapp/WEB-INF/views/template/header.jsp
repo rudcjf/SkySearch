@@ -8,9 +8,12 @@
 <meta name="author" content="Askbootstrap">
       
 <title>Sky Search - 특가의 모든 것</title>
-      
-  <!-- Favicon Icon -->
-  <!--<link rel="icon" type="image/png" href="images/favicon.png'/>">-->
+<!-- Favicon Icon -->
+<link rel="icon" type="image/png" href="<c:url value='/resources/img/air.JPG'/>">
+
+<!-- CSS -->
+<link rel="apple-touch-icon" href="<c:url value='/resources/img/air.JPG'/>">
+<link rel="shortcut icon" href="<c:url value='/resources/img/air.JPG'/>">
  
  <!-- CSS --> 
   <!-- Bootstrap core CSS -->

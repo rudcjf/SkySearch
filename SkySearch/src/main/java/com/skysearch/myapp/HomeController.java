@@ -112,7 +112,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "/not-found";
+		return "/error/not-found";
 	}
 	@RequestMapping(value = "/error500", method = { RequestMethod.GET, RequestMethod.POST })
 	public String error500(Locale locale, Model model) {
@@ -125,7 +125,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate);
 		
-		return "/500errorPage";
+		return "/error/500errorPage";
 	}
 
 }

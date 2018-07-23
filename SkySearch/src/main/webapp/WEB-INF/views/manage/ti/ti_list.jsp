@@ -9,15 +9,6 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Sufee Admin - HTML5 Admin Template</title>
-<meta name="description" content="Sufee Admin - HTML5 Admin Template">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
-<body>
 
 	<script>
 		/* LocalSelectBox2 */
@@ -37,6 +28,9 @@
 										.each(
 												data,
 												function(i, item) {
+													if (item.LOCAL_SEQ == "dummy_loc") {
+														return true;
+													}
 													formTag += '<option value="'+item.LOCAL_SEQ+'" >'
 															+ item.LOCAL_NAME;
 
@@ -252,5 +246,4 @@
 
 	<!-- Right Panel -->
 
-</body>
-</html>
+
