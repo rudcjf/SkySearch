@@ -439,15 +439,34 @@
 <!-- Right Panel -->
 
 <!-- Gmaps -->
+<c:set var="lat">${resultMap.CITY_LATITUDE}</c:set><!-- 위도값 받아오기 -->
+<c:set var="lng">${resultMap.CITY_LONGITUDE}</c:set><!-- 경도값 받아오기 -->
 <script>
 	function initMap() {
-		var map = new google.maps.Map(document.getElementById('map'), {
-			zoom : 16,
-			center : {
-				lat : 37.566535,
-				lng : 126.97796919999996
-			}
-		});
+		var uluru = {
+         		lat: ${lat},
+         		lng: ${lng}
+         	};
+         	var map = new google.maps.Map(document.getElementById('map'), {
+         		zoom: 7,
+         		center: uluru
+
+         	});
+         	var contentString = '<div id="content">' +
+         		'<div id="bodyContent">' +
+         		'<div class="card card-list"><a href="#"> </a> </div>' +
+         		'</div>' +
+         		'</div>';
+         
+         	var infowindow = new google.maps.InfoWindow({
+         		content: contentString,
+         		maxWidth: 300
+         	});
+         	var image = '<c:url value='/resources/img/marker.png'/>';
+         	var marker = new google.maps.Marker({
+         		position: uluru,
+         		map: map
+         	});
 		var geocoder = new google.maps.Geocoder();
 
 		document.getElementById('submit').addEventListener('click', function() {
