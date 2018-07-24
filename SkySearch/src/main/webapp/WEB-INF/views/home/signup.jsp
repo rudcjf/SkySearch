@@ -250,18 +250,17 @@ function validityCheck(){
 								<div id=localDIV></div>
 							<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc">	
 							</div>
-                          <div class="form-group">
+<!--                           <div class="form-group">
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                  <label class="custom-control-label" for="customControlAutosizing">개인 정보 제공에 동의합니다</label>
                               </div>
-                           </div>
-                           <br>
+                           </div> 
+                           <br>-->
                           <div align="center">
 	                           <button type="submit" id="btn" class="btn btn-success col-3">Sign Up</button>
 	                           <button type="reset" class="btn btn-default col-3">Reset</button>
-                                <a class="btn btn-default col-3" role="button" href="<c:url value='/' />">Cancel</a>
-                      </div>
+                                                     </div>
                         <!-- <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>

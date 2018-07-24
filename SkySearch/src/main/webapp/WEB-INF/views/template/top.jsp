@@ -37,10 +37,18 @@
                         </div>
                      </li>
                       <li class="nav-item">
-                         <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM,'ROLE_USER)">
-                           <a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
-                           aria-haspopup="true" aria-expanded="false"> <strong>My page</strong></a>
-                           </sec:authorize>
+                         <c:set var="memberID" value="${pageContext.request.userPrincipal.name}" /> 
+                         <c:choose>
+                             	<c:when test="${memberID == null}">
+	       						  <a class="nav-link" href="#" id="navbarDropdownPortfolio" aria-haspopup="true" 
+								  aria-expanded="false" style="visibility:hidden">My page</a>
+                                  	</c:when>
+                                 	<c:otherwise>
+                                 		<a class="nav-link" href="<c:url value='/mypage/read?EMAIL=${principalName}'/>" id="navbarDropdownPortfolio" 
+                                       aria-haspopup="true" aria-expanded="false"> <strong>My page</strong></a>
+                                 	</c:otherwise>
+                                 </c:choose> 
+                       
                        </li>
                           <li class="nav-item">
                           <!-- system과 admin의 경우에만 관리자페이지탭 생성 -->
@@ -71,6 +79,7 @@
                              </li> -->
                                   
                              <li class="list-inline-item">
+                             <c:set var="principalName" value="${pageContext.request.userPrincipal.name}"  /> 
                                  <c:choose>
                                  	<c:when test="${principalName == null}">
                                  		<a class="btn btn-success btn-sm" href='/SkySearch/signup'><i class="mdi mdi-account-settings"></i>SignUp</a>
