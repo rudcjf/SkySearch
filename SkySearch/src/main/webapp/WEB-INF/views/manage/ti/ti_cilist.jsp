@@ -142,7 +142,6 @@
 													<th>경도</th>
 													<th>주소</th>
 													<th>조회수</th>
-													<th></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -160,8 +159,6 @@
 														<td>${resultData.CITY_LONGITUDE}</td>
 														<td>${resultData.CITY_ADD}</td>
 														<td>${resultData.CITY_VIEWS}</td>
-														<td><input type="checkbox" class="checkbox"
-															name="TRAVEL_SEQ" value="${resultData.TRAVEL_SEQ}" /></td>
 													</tr>
 												</c:forEach>
 											</tbody>
