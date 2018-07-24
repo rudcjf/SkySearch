@@ -27,10 +27,15 @@ public class MemberService {
 	}
 
 	public Object getObject(Object dataMap) {
+		
+		//회원리드 
 		String sqlMapId = "member.read";
+		
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
+		
+		//관심 지역 가져옴
 		sqlMapId = "member.intloc";
 
 		((Map<String, Object>) resultObject).put("LOCAL_SEQ", dao.getObject(sqlMapId, dataMap));
@@ -54,18 +59,21 @@ public class MemberService {
 		String sqlMapId = "member.merge";
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
 
+		
+		
+		//해당 회원의 관심지역 청소
 		sqlMapId = "int_local.delete";
 		dao.deleteObject(sqlMapId, paramMap);
-
+		//해당회원의 관심지역 재입력
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, paramMap);
-
+		//가입할 땐 권한 부여를 위한 if 문
 		if(paramMap.get("signup").equals("true")) {
 			
 			sqlMapId = "authorityRmember.insert";
 			dao.saveObject(sqlMapId, paramMap);
 		}
-	
+		//수정한 회원 읽어오기
 		sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, paramMap);
@@ -73,6 +81,8 @@ public class MemberService {
 		return resultObject;
 	}
 
+	
+	//위 메서드와 동일함
 	public Object saveObjectAdmin(Map<Object, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
 
@@ -101,6 +111,7 @@ public class MemberService {
 		return resultObject;
 	}
 
+	//비활성화 이후 회원 정보 가져오기
 	public Object deleteObject(Object dataMap) {
 		String sqlMapId = "member.delete";
 
@@ -114,6 +125,7 @@ public class MemberService {
 		return resultObject;
 	}
 
+	//비활성화 이후 회원 목록 가져오기
 	public Object deleteObjectAdmin(Object dataMap) {
 		String sqlMapId = "member.deleteAdmin";
 

@@ -47,7 +47,7 @@
 
             <div class="col-xl-12">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header"><%--별점/ 평점/ 가입자수 버튼  --%>
                				<strong class="card-title" >manageChart</strong>
 							<input type="submit"
 								class="btn btn-primary" value='도시별 조회 수'
@@ -67,7 +67,7 @@
                                 <h4 class="card-title mb-0" id="chartTitle">가입자 수</h4>
                             </div>
                             <br>
-                            <!--/.col-->
+                            <%--차트 day/ month/ year 선택 버튼  --%>
                             <div class="col-sm-8 hidden-sm-down" id="afafaf">
                                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
@@ -87,7 +87,7 @@
 
                         </div><!--/.row-->
                         <div class="col-sm-12" >
-                        <div class="chart-wrapper mt-12" >
+                        <div class="chart-wrapper mt-12" ><%--chart 만들어지는곳  --%>
                             <canvas id="trafficChart" style="height:200px; width:400px" height="200" width="400"></canvas>
                         </div>
                         </div>
@@ -97,7 +97,11 @@
                      
                     
                 </div>
+
+                
+                <%-- 문의사항 리스트 불러오기 --%>
                  <div class="col-sm-12">
+
 				      <table class="table table-striped table-bordered table-hover"
 				         id="bootstrap-data-table">
 				         <thead>
@@ -128,7 +132,7 @@
 
 
     
-    <!-- chart js set -->
+    <%-- chart js set --%>
     <script>
     var chartData = {};
     var labelSet =[0];
@@ -138,12 +142,11 @@
     var ctx;
     var max=0;
     
- // const brandPrimary = '#20a8d8'
     const brandSuccess = '#4dbd74'
     const brandInfo = '#63c2de'
     const brandDanger = '#f86c6b'
 
-    function convertHex (hex, opacity) {
+    function convertHex (hex, opacity) { // hex to rgb
       hex = hex.replace('#', '')
       const r = parseInt(hex.substring(0, 2), 16)
       const g = parseInt(hex.substring(2, 4), 16)
@@ -153,7 +156,7 @@
       return result
     }
 
- 	function hide_periodButton(a){
+ 	function hide_periodButton(a){// day month year 버튼 숨김
  		$("#afafaf").hide();
  		if(a){
  			$("#chartTitle").text("도시별 조회 수");
@@ -162,20 +165,20 @@
  		}
  		
  	}
- 	function show_periodButton(){
+ 	function show_periodButton(){ // day month year 버튼 보이게
  		$("#afafaf").show();
  		$("#option2").click();
  		$("#chartTitle").text("가입자수 ");
  	}
     
-    function respondCanvas(data) {
+    function respondCanvas(data) { //처음 차트 생성
     	ctx = new Chart(document.getElementById("trafficChart").getContext("2d"),data);
     }
-    $(document).ready(function() {
+    $(document).ready(function() {// 화면 시작시 데이터 ajax로 가져와서 dataset 생성
         GetChartData("<c:url value='/ws/memberChartM' />");
     });
     
-    function addData(ctx, data, datasetIndex, labelSet) {
+    function addData(ctx, data, datasetIndex, labelSet) {// 각 버튼클릭시 차트 데이터를 받아 업데이트
     	if(datasetIndex !=5){
     	   ctx.data.datasets[datasetIndex].data = data.data.datasets[datasetIndex].data;
     	   ctx.data.datasets[datasetIndex+1].data = data.data.datasets[datasetIndex+1].data;
@@ -188,7 +191,7 @@
     	   ctx.data.labels = labelSet;
     	   ctx.update();
     	}
-    function selecta(period){
+    function selecta(period){// 각각의 버튼마다 차트 데이터를 따로 가져옴
     	if(period=='day'){
     		 GetChartData("<c:url value='/ws/memberChartD' />");
     	}else if(period=='month'){
@@ -202,7 +205,7 @@
     	}
     }
     
-    var GetCiChartData = function (url,params) {
+    var GetCiChartData = function (url,params) { // 별점 평점 차트 데이터 셋 생성
         $.ajax({
             url : url,
             type: 'POST',
@@ -261,17 +264,7 @@
             	                        display: true
             	                      }
             	                } ]
-            	            } /*  ,
-            	            elements: {
-            	                point: {
-            	                  radius: 0,
-            	                  hitRadius: 5,
-            	                  hoverRadius: 4,
-            	                  hoverBorderWidth: 3
-            	              }
-            	          }   */
-
-
+            	            }
             	        }
             	    };
             	addData(ctx, chartData, 5, labelSet);
@@ -285,7 +278,7 @@
     };
     
     
-    var GetChartData = function (url,params) {
+    var GetChartData = function (url,params) {// 가입자수 차트 데이터 셋 생성
         $.ajax({
             url : url,
             type: 'POST',
@@ -335,22 +328,6 @@
             	          ]
             	        },
             	        options: {
-            	            //   maintainAspectRatio: true,
-            	            //   legend: {
-            	            //     display: false
-            	            // },
-            	            // scales: {
-            	            //     xAxes: [{
-            	            //       display: false,
-            	            //       categoryPercentage: 1,
-            	            //       barPercentage: 0.5
-            	            //     }],
-            	            //     yAxes: [ {
-            	            //         display: false
-            	            //     } ]
-            	            // }
-
-
             	            maintainAspectRatio: true,
             	            legend: {
             	                display: false
@@ -373,17 +350,7 @@
             	                        display: true
             	                      }
             	                } ]
-            	            } /* ,
-            	            elements: {
-            	                point: {
-            	                  radius: 0,
-            	                  hitRadius: 5,
-            	                  hoverRadius: 4,
-            	                  hoverBorderWidth: 3
-            	              }
-            	          }  */
-
-
+            	            }
             	        }
             	    };
             	if(!destoryCnt){

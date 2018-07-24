@@ -18,6 +18,8 @@ public class ContactService {
 	@Autowired
 	private CommonUtil commonUtil;
 
+	
+	//CONTACTUS 리스트 불러오기
 	public Object getList(Object dataMap) {
 		String sqlMapId = "contact.list";
 
@@ -26,6 +28,8 @@ public class ContactService {
 		return resultObject;
 	}
 
+	
+	//CONTACT US 한곳의 상세 내용
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "contact.read";
 
@@ -34,6 +38,8 @@ public class ContactService {
 		return resultObject;
 	}
 
+	
+	//답변완료
 	public Object deleteObject(Object dataMap) {
 		String sqlMapId = "contact.complete";
 

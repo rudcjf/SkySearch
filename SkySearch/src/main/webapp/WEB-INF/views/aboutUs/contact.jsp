@@ -59,50 +59,10 @@
       <section class="section-padding">
          <div class="container">
             <div class="row">
-            
- <%--                  <div class="col-lg-12 col-md-12 section-title text-left mb-4">
-                  <h2>Contact Us</h2>
-                  <p>문의 사항이 있다면 연락주세요</p>
-               <form class="col-lg-12 col-md-12" method="post" action="<c:url value='/manage/contact/send'/>" name="sentMessage" id="contactForm" novalidate>
-                     	<input type="hidden" name="forwardView" value="/aboutUs/contact" />
-                     <div class="control-group form-group" >
-                        <div class="control-group form-group col-md-6">
-						   <label>Full Name <span class="text-danger">*</span></label>
-						    <div class="controls">
-                           	<input type="text" placeholder="Full Name" class="form-control" id="name" name="NAME" required data-validation-required-message="Please enter your name.">
-                           	<p class="help-block"></p>
-                          	</div>
-                     	</div>
-                    
-                        <div class="control-group form-group col-md-6">
-						   <label>Phone Number <span class="text-danger">*</span></label>
-                           <div class="controls">
-                              <input type="tel" placeholder="Phone Number" class="form-control" id="phone" name="PHONE" required data-validation-required-message="Please enter your phone number.">
-                           </div>
-                        </div>
-                        
-                        <div class="control-group form-group col-md-6">
-                           <div class="controls">
-						      <label>Email Address <span class="text-danger">*</span></label>
-                              <input type="email" placeholder="Email Address"  class="form-control" id="email" name="EMAIL" required data-validation-required-message="Please enter your email address.">
-                           </div>
-                        </div>
-                  
-                     <div class="control-group form-group col-md-6">
-                        <div class="controls">
-						   <label>Message <span class="text-danger">*</span></label>
-                           <textarea rows="5" cols="100" placeholder="Message"  class="form-control" id="message" name="CONTACT_TEXT" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
-                        </div>
-                     </div>
-                     </div>
-                     <button type="submit" class="btn btn-success">Send Message</button>
-               </form>
-               </div> --%>
-               
               
                <div class="col-lg-6 col-md-6 mx-auto">
 				<form class="col-lg-12 col-md-12" method="post" action="<c:url value='/aboutUs/sendmsg'/>" name="sentMessage" id="contactForm" novalidate>
-                   <input type="hidden" name="forwardView" value="/aboutUs/contact" />
+                   <input type="hidden" name="forwardView" value="/aboutUs/contact" /> <%--보이는 곳과 가는곳이 다름--%>
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">Contact Us</h4>

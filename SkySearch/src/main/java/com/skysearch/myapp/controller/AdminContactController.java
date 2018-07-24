@@ -34,18 +34,17 @@ public class AdminContactController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		// divided depending on action value
+		//리스트 불러오기
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
+		} else if ("read".equalsIgnoreCase(action)) { //의문사항 리드
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("edit".equalsIgnoreCase(action)) {
+		} else if ("edit".equalsIgnoreCase(action)) {//수정
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		}  else if ("disable".equalsIgnoreCase(action)) {
+		}  else if ("disable".equalsIgnoreCase(action)) {// 비활성화 ( 답변 완료 )
 			resultList = (List<Object>)service.deleteObject(paramMap);
-			viewName="/manage/main/index";
-		} else if ("send".equalsIgnoreCase(action)) {
-			service.sendObject(paramMap);
-		}
+			viewName="/manage/main/index";//뷰네임 지정
+		} 
 		if (forwardView != null) {
 			viewName = forwardView;
 		}
