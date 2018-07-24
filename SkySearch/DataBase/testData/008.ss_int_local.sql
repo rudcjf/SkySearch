@@ -7,5 +7,4 @@ VALUES
 ('SYSUID-SS003','LO0005'),
 ('SYSUID-SS003','LO0006'),
 ('SYSUID-SS003','LO0007'),
-('','dummy_loc')
 
