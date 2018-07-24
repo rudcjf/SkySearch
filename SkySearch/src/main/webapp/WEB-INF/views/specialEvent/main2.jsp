@@ -9,25 +9,25 @@
 	<div id="osahanslider" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#osahanslider" data-slide-to="0" class="active"></li>
-			 <li data-target="#osahanslider" data-slide-to="1"></li> 
-			<li data-target="#osahanslider" data-slide-to="2"></li>  
-			<li data-target="#osahanslider" data-slide-to="3"></li>  
+			<!--  <li data-target="#osahanslider" data-slide-to="1"></li>  -->
+			<!-- <li data-target="#osahanslider" data-slide-to="2"></li>  
+			<li data-target="#osahanslider" data-slide-to="3"></li>   -->
 		</ol>
 		<div class="carousel-inner" role="listbox">
 
 		
 			<div class="carousel-item active"
-				style="background-image: url('<c:url value='/resources/img/slider/main.png'/>')">
-			</div>
-			<div class="carousel-item "
 				style="background-image: url('<c:url value='/resources/img/slider/main1.png'/>')">
 			</div>
-			 <div class="carousel-item "
+			<%-- <div class="carousel-item "
+				style="background-image: url('<c:url value='/resources/img/slider/Beach3.jpg'/>')">
+			</div> --%>
+			<%--  <div class="carousel-item "
 				style="background-image: url('<c:url value='/resources/img/slider/Beach2.jpg'/>')">
 			</div>
 			<div class="carousel-item "
 				style="background-image: url('<c:url value='/resources/img/slider/Beach3.jpg'/>')">
-			</div> 
+			</div>  --%>
 		</div>
 		<a class="carousel-control-prev" href="#osahanslider" role="button"
 			data-slide="prev"> <span class="carousel-control-prev-icon"
