@@ -14,13 +14,13 @@
                <li data-target="#osahanslider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-               <div class="carousel-item active" style="background-image: url('<c:url value='resources/img/slider/paris01.jpg'/>')">
+               <div class="carousel-item active" style="background-image: url('<c:url value='resources/img/slider/tokyo2.jpg'/>')">
               <!--     <div class="overlay"></div> -->
                </div>
                <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/newyork01.jpg'/>')">
             <!--       <div class="overlay"></div> -->
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/tokyo2.jpg'/>')">
+               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris01.jpg'/>')">
                <!--    <div class="overlay"></div> -->
                </div>
             </div>
