@@ -167,14 +167,14 @@
 											<c:when test="${resultData.SS_STAR == 1}">
 												<span class="star-rating float-right"> <i
 													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/1</small>
+													class="text-success">1/5</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 2}">
 												<span class="star-rating float-right"> <i
 													class="mdi mdi-star text-warning"></i> <i
 													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/2</small>
+													class="text-success">2/5</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 3}">
@@ -182,7 +182,7 @@
 													class="mdi mdi-star text-warning"></i> <i
 													class="mdi mdi-star text-warning"></i> <i
 													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/3</small>
+													class="text-success">3/5</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 4}">
@@ -191,7 +191,7 @@
 													class="mdi mdi-star text-warning"></i> <i
 													class="mdi mdi-star text-warning"></i> <i
 													class="mdi mdi-star text-warning"></i> <small
-													class="text-success">5/4</small>
+													class="text-success">4/5</small>
 												</span>
 											</c:when>
 											<c:when test="${resultData.SS_STAR == 5}">
