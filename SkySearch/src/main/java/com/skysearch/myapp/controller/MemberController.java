@@ -48,23 +48,14 @@ public class MemberController {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("merge".equalsIgnoreCase(action)) {
+		} else if ("merge".equalsIgnoreCase(action)) {//회원가입
 			resultMap = (Map<Object, Object>)	service.saveObject(paramMap);
 			
 		} else if ("disable".equalsIgnoreCase(action)) {
 			service.deleteObject(paramMap);
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		}
-		/*
-		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
-		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
-		 * if ("merge".equalsIgnoreCase(action)) { resultMap = (Map<String, Object>)
-		 * service.saveObject(paramMap); } else if ("read".equalsIgnoreCase(action)) {
-		 * resultMap = (Map<String, Object>) service.getObject(paramMap); } else if
-		 * ("list".equalsIgnoreCase(action)) { resultList = (List<Object>)
-		 * service.getList(paramMap); } else if ("delete".equalsIgnoreCase(action)) {
-		 * resultList = (List<Object>) service.deleteObject(paramMap); }
-		 */
+
 		if (forwardView != null) {
 			viewName = forwardView;
 		}

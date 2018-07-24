@@ -33,7 +33,7 @@
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" name="remember-me" class="custom-control-input" id="customControlAutosizing" value="true">
                                  <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
-  </div>
+ 						 </div>
                            </div>
                            <div align="center">
                            <button type="submit" class="btn btn-success col-5">LOGIN</button>
@@ -44,11 +44,11 @@
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         </form>
                         <hr>
-                        <!-- <div class="mt-4 text-center login-with-social">
+                        <%-- <div class="mt-4 text-center login-with-social">
                           <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
-                        </div> -->
+                        </div> --%>
                         <div class="mt-4 text-center">
                            <a href="<c:url value='/user/forgetIdPw'/>">Forget your ID or Password?</a>
                         </div>

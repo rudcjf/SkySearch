@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-    <!-- Login -->
+    <!-- 비밀번호 찾기 실패시 -->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -33,5 +33,5 @@
             </div>
          </div>
       </section>
-      <!-- End Login -->
+      <!-- End 비밀번호 찾기 실패시 -->
   

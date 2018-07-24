@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<link type="text/css" href="<c:url value='/resources/css/mainmc.css'/>"	rel="stylesheet" />
+<!-- 관심지역 다중 클릭 체크박스 -->
+<%-- int_loc 테이블로부터 회원 seq에 해당하는 local_seq의 정보를 가져와서 체크박스에 체크됨(표시는 local_name으로)
+     만약 local_seq가 dummy_loc(관심지역선택x)라면 continue   --%>
 
-
-<!-- 관심지역 다중 클릭 체크박스/ 회원의 관심지역으로 체크박스가 체크됨. -->
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$

@@ -28,6 +28,4 @@
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
 
-
-
 </mapper>
