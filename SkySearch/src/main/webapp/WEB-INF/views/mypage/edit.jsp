@@ -118,6 +118,7 @@
 			<div class="col-lg-6 col-md-6 mx-auto">
 				<form role="form" method="POST" action="<c:url value='/member/merge' />">
 					<input type="hidden" name="forwardView" value="/mypage/read" /> 
+					<input type="hidden" name="signup" value="false" /> 
 					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">

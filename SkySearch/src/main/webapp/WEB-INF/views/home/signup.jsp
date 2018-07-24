@@ -219,6 +219,7 @@ function validityCheck(){
                         <p><span class="text-danger">*</span>는 필수 입력사항 입니다</p>
                         <form  method="POST" action="<c:url value='/member/merge'/>"  onsubmit="return validityCheck()">
                          <input type="hidden" name="forwardView" value="/home/login" /> 
+                         <input type="hidden" name="signup" value="true" /> 
                            <div class="form-group">
                               <label>Member ID <span class="text-danger">*</span></label>
                              	 <input id="EMAIL" name="EMAIL" type="email" id="EMAIL" class="form-control" placeholder="Base form : mulcam@mulcam.com">
