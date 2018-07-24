@@ -134,7 +134,6 @@
 													<th>주소</th>
 													<th>등록자</th>
 													<th>등록날짜</th>
-													<th></th>
 													
 												</tr>
 											</thead>
@@ -155,8 +154,6 @@
 														<td><a
 															href="<c:url value="/manage/ti/delete?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}&forwardView=/manage/ti/ti_list" />">
 																${resultData.REGISTRY_DATE}</a></td>
-														<td><input type="checkbox" class="checkbox"
-															name="TRAVEL_SEQ" value="${resultData.TRAVEL_SEQ}" /></td>
 
 													</tr>
 												</c:forEach>
