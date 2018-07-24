@@ -101,7 +101,7 @@
                
               
                <div class="col-lg-6 col-md-6 mx-auto">
-				<form class="col-lg-12 col-md-12" method="post" action="<c:url value='/manage/contact/send'/>" name="sentMessage" id="contactForm" novalidate>
+				<form class="col-lg-12 col-md-12" method="post" action="<c:url value='/aboutUs/sendmsg'/>" name="sentMessage" id="contactForm" novalidate>
                    <input type="hidden" name="forwardView" value="/aboutUs/contact" />
 					<div class="card padding-card">
 						<div class="card-body">
@@ -165,7 +165,6 @@
          	var marker = new google.maps.Marker({
          		position: uluru,
          		map: map,
-         		icon: image
          	});
          	marker.addListener('click', function() {
          		infowindow.open(map, marker);
