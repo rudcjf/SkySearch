@@ -33,7 +33,7 @@
                                  </h5>
                               </div>
                               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                 <p>- 로그인 화면에서 'Forget your ID or Password?'를 클릭하고 가입시 기입한 ID, 이름을 입력한 후 이메일 주소를 적어주세요. 해당 이메일로 비밀번호를 발송해 드립니다.
+                                 <p>- 로그인 화면에서 'Forget your ID or Password?'를 클릭하세요. 가입시 기입한 회원 ID, 이름을 입력하면 비밀번호를 알려드립니다.
                                  </p>
                               </div>
                            </div>
@@ -62,7 +62,7 @@
                               </div>
                               <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                                  <p>- 로그인 후, 마이페이지에서 회원 정보를 수정하실 수 있습니다. '회원정보 수정'에서 비밀번호 변경, 휴대전화 번호, 관심 지역을  수정하실 수 있습니다. 
-                                                      <br>- 회원 아이디 변경을 원하실 경우에는 multicampus@multi.campus 로 문의해 주시기 바랍니다.  
+                                                      <br>- 회원 아이디 변경을 원하실 경우에는 skysearch2018@gmail.com 로 문의해 주시기 바랍니다.  
                                  </p>
                               </div>
                            </div>

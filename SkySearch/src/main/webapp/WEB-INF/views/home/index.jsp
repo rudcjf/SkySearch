@@ -20,7 +20,7 @@
                <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/newyork01.jpg'/>')">
             <!--       <div class="overlay"></div> -->
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris01.jpg'/>')">
+               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris.jpg'/>')">
                <!--    <div class="overlay"></div> -->
                </div>
             </div>
@@ -295,7 +295,7 @@
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
 												<span class="badge badge-white"> 
-												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												<b class="mdi mdi-star">&nbsp;회원 평점 : ${resultData2.AVG_STAR}</b>
 												</span>
 											</c:when>
 										</c:choose>
@@ -330,7 +330,7 @@
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
 												<span class="badge badge-white"> 
-												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												<b class="mdi mdi-star">&nbsp;회원 평점 : ${resultData2.AVG_STAR}</b>
 												</span>
 											</c:when>
 										</c:choose>
