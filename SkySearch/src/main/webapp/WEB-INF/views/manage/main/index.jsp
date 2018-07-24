@@ -97,6 +97,8 @@
                      
                     
                 </div>
+                
+                <%-- 문의사항 리스트 불러오기 --%>
                  <div class="col-sm-12">
 				      <table class="table table-striped table-bordered table-hover"
 				         id="bootstrap-data-table">
