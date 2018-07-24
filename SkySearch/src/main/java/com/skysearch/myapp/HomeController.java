@@ -114,6 +114,7 @@ public class HomeController {
 
 		return "/error/not-found";
 	}
+	
 	@RequestMapping(value = "/error500", method = { RequestMethod.GET, RequestMethod.POST })
 	public String error500(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -126,6 +127,20 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 		
 		return "/error/500errorPage";
+	}
+	
+	@RequestMapping(value = "/forbidden403", method = { RequestMethod.GET, RequestMethod.POST })
+	public String error403(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate);
+		
+		return "/error/403forbiddenPage";
 	}
 
 }

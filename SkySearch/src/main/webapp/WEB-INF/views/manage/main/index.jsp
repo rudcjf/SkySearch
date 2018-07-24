@@ -316,7 +316,7 @@
             	            labels: labelSet,
             	            datasets: [
             	            {
-            	              label: '가입자수',
+            	              label: '',
             	              backgroundColor: convertHex(brandInfo, 10),
             	              borderColor: brandInfo,
             	              pointHoverBackgroundColor: '#fff',

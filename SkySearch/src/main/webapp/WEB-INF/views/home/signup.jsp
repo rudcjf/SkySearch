@@ -80,7 +80,8 @@
 			success : function(data) {
 				if (data == "") {
 					count = 1;
-					alert("사용 가능한 아이디입니다.")
+					alert("사용 가능한 아이디입니다.");
+					document.getElementById('EMAIL').disabled = true;
 				} else {
 					alert("아이디가 중복이 됩니다. 다시 입력 해주세요");
 					return false;
@@ -259,14 +260,14 @@ function validityCheck(){
                            <br>-->
                           <div align="center">
 	                           <button type="submit" id="btn" class="btn btn-success col-3">Sign Up</button>
-	                           <button type="reset" class="btn btn-default col-3">Reset</button>
+                        </form>
+	                           <button class="btn btn-default col-3" onclick="location.reload();">Reset</button>
                                                      </div>
                         <!-- <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
                         </div> -->
-                        </form>
                      </div>
                   </div>
                </div>
