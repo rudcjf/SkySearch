@@ -103,7 +103,7 @@
 					<div class="col-md-3">
 						<div class="input-group">
 							<div class="input-group-addon">
-								<i class="mdi mdi-earth"></i>
+								<i class="mdi mdi-airplane"></i>
 							</div>
 							<input type="hidden" name="EMAIL" value="${pageContext.request.userPrincipal.name}"/>
 							<select class="form-control select2 no-radius" id="local" name="LOCAL_NAME" onchange="CountrySelect(this.value);">
@@ -122,7 +122,7 @@
 					<div class="col-md-3">
 						<div class="input-group">
 							<div class="input-group-addon">
-								<i class="mdi mdi-airplane"></i>
+								<i class="mdi mdi-earth"></i>
 							</div>
 							<select class="form-control select2 no-radius" id="country" name="COUNTRY_SEQ" onchange="CitySelect(this.value);">
 								<option value="">국가명</option>
@@ -133,7 +133,7 @@
 					<div class="col-md-3">
 						<div class="input-group">
 							<div class="input-group-addon">
-								<i class="mdi mdi-map-marker-outline"></i>
+								<i class="mdi mdi-city"></i>
 							</div>
 							<select class="form-control select2 no-radius" id="city" name="CITY_SEQ">
 								<option value="">도시명</option>
