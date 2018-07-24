@@ -47,7 +47,7 @@
 
             <div class="col-xl-12">
                 <div class="card">
-                <div class="card-header"><!--별점/ 평점/ 가입자수 버튼  -->
+                <div class="card-header"><%--별점/ 평점/ 가입자수 버튼  --%>
                				<strong class="card-title" >manageChart</strong>
 							<input type="submit"
 								class="btn btn-primary" value='도시별 조회 수'
@@ -67,7 +67,7 @@
                                 <h4 class="card-title mb-0" id="chartTitle">가입자 수</h4>
                             </div>
                             <br>
-                            <!--차트 day/ month/ year 선택 버튼  -->
+                            <%--차트 day/ month/ year 선택 버튼  --%>
                             <div class="col-sm-8 hidden-sm-down" id="afafaf">
                                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
@@ -87,7 +87,7 @@
 
                         </div><!--/.row-->
                         <div class="col-sm-12" >
-                        <div class="chart-wrapper mt-12" ><!--chart 만들어지는곳  -->
+                        <div class="chart-wrapper mt-12" ><%--chart 만들어지는곳  --%>
                             <canvas id="trafficChart" style="height:200px; width:400px" height="200" width="400"></canvas>
                         </div>
                         </div>
@@ -97,7 +97,7 @@
                      
                     
                 </div>
-                 <div class="col-sm-12"> <!--contactus 테이블  -->
+                 <div class="col-sm-12"> <%--contactus 테이블  --%>
 				      <table class="table table-striped table-bordered table-hover"
 				         id="bootstrap-data-table">
 				         <thead>
@@ -128,7 +128,7 @@
 
 
     
-    <!-- chart js set -->
+    <%-- chart js set --%>
     <script>
     var chartData = {};
     var labelSet =[0];
