@@ -91,7 +91,7 @@ $(document).ready(function() {
 		                  <div class="row mt-5">
 		                     <div class="col-lg-6 col-md-6">
 		                        <p><strong class="text-dark">NAME :</strong> ${resultMap.NAME}</p>
-		                        <p><strong class="text-dark">PASSWORD :</strong> ${resultMap.PASSWORD}</p>
+		                       <%--  <p><strong class="text-dark">PASSWORD :</strong> ${resultMap.PASSWORD}</p> --%>
 		                        <p><strong class="text-dark">PHONE :</strong> ${resultMap.PHONE}</p>
 		                        <p><strong class="text-dark">INTEREST LOCATION :</strong> <div id="IntlocalDIV"></div></p>
 		                     </div>
