@@ -291,8 +291,8 @@
             type: 'POST',
             data : params,
             success: function(data) {
-            	 labelSet =[0];
-            	 dataSet = [0];
+            	 labelSet =[];
+            	 dataSet = [];
             	 totalmember =[0];
 	           	 if ("${resultMap}" != "") {//index 첫화면 멤버
 	                    $.each(
@@ -307,7 +307,7 @@
 	                       });
 	                 }
 	           	 for(var i = 0; i< labelSet.length; i++){
-	           		totalmember.push(totalmember[1]);
+	           		totalmember[i]=totalmember[1];
 	           	 }
 	           	 
 	           	chartData = {
@@ -324,7 +324,7 @@
             	              data: dataSet	
             	          },
             	          {
-            	              label: 'totalmember',
+            	              label: '총 가입자수',
             	              backgroundColor: 'transparent',
             	              borderColor: brandDanger,
             	              pointHoverBackgroundColor: '#fff',
