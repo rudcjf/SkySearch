@@ -60,9 +60,12 @@ public class MemberService {
 		sqlMapId = "int_local.insert";
 		dao.saveObject(sqlMapId, paramMap);
 
-		sqlMapId = "authorityRmember.insert";
-		dao.saveObject(sqlMapId, paramMap);
-		
+		if(paramMap.get("signup").equals("true")) {
+			
+			sqlMapId = "authorityRmember.insert";
+			dao.saveObject(sqlMapId, paramMap);
+		}
+	
 		sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, paramMap);

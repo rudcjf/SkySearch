@@ -84,6 +84,7 @@
 					action="<c:url value='/manage/member/merge' />">
 					<input type="hidden" name="forwardView" value="/manage/member/list" />
 					<input type="hidden" name="MEMBER_SEQ"
+					<input type="hidden" name="signup" value="false" />
 						value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">

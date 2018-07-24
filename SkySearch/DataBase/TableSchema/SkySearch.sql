@@ -165,11 +165,11 @@ CREATE TABLE SS_COUNTRY
 -- 관심지역
 CREATE TABLE SS_INT_LOCAL
 (
+	-- 회원시퀀스
+	MEMBER_SEQ varchar(80) NOT NULL,
 	-- 지역시퀀스
 	-- 
-	LOCAL_SEQ varchar(80) NOT NULL,
-	-- 회원시퀀스
-	MEMBER_SEQ varchar(80) NOT NULL
+	LOCAL_SEQ varchar(80) NOT NULL
 );
 
 
