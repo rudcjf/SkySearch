@@ -34,6 +34,7 @@ public class SpecialEventController {
 
 		if ("main".equalsIgnoreCase(action)) {
 			viewName= "/specialEvent/main2";
+			//항공사 이벤트 크롤링
 			resultList = (List<Object>) crawlService.getListMIT(paramMap);
 
 		} 

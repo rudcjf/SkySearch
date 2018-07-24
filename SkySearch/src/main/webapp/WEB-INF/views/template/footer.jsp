@@ -20,7 +20,7 @@
                   <h6 class="mb-4">SKY Search</h6>
                   <ul>
                   <li><a href="<c:url value='/'/>">Home</a></li>
-                  <li><a href="<c:url value='/specialPrice/main'/>">항공권 특가</a></li>
+                  <li><a href="<c:url value='/specialEvent/main'/>">항공권 특가</a></li>
                   <li><a href="<c:url value='/tripInfo/main'/>">여행 정보</a></li>
                   <li><a href="<c:url value='/login'/>">Login</a></li>
                   <li><a href="<c:url value='/signup'/>">Sign Up</a></li>

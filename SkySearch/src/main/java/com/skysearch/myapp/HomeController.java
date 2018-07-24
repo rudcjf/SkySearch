@@ -100,7 +100,7 @@ public class HomeController {
 
 		return "/home/signup";
 	}
-	
+	//--이하 에러페이지 매핑
 	@RequestMapping(value = "/error404", method = { RequestMethod.GET, RequestMethod.POST })
 	public String error404(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);

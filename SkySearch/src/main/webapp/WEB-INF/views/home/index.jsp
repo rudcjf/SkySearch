@@ -20,7 +20,7 @@
                <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/newyork01.jpg'/>')">
             <!--       <div class="overlay"></div> -->
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris01.jpg'/>')">
+               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris.jpg'/>')">
                <!--    <div class="overlay"></div> -->
                </div>
             </div>
@@ -267,7 +267,7 @@
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>여행지 맞춤 추천</h2>
+		<h2>추천 여행지</h2>
 	</div>
 	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
@@ -295,7 +295,7 @@
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
 												<span class="badge badge-white"> 
-												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												<b class="mdi mdi-star">&nbsp;회원 평점 : ${resultData2.AVG_STAR}</b>
 												</span>
 											</c:when>
 										</c:choose>
@@ -330,7 +330,7 @@
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
 												<span class="badge badge-white"> 
-												<b class="mdi mdi-star">&nbsp;유저 평점 : ${resultData2.AVG_STAR}</b>
+												<b class="mdi mdi-star">&nbsp;회원 평점 : ${resultData2.AVG_STAR}</b>
 												</span>
 											</c:when>
 										</c:choose>
