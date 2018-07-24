@@ -20,7 +20,7 @@
                <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/newyork01.jpg'/>')">
             <!--       <div class="overlay"></div> -->
                </div>
-               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris01.jpg'/>')">
+               <div class="carousel-item" style="background-image: url('<c:url value='resources/img/slider/paris.jpg'/>')">
                <!--    <div class="overlay"></div> -->
                </div>
             </div>
