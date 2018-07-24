@@ -17,7 +17,7 @@ var fn_setLocalID = function(url, id, params) {
                 var formTag = "";
                 formTag += "<p class='form-control-static' name='LOCAL_NAME'>";
                 $.each(data, function(i, item) {
-                	if(item.LOCAL_SEQ=="dummy_loc"){
+                	if(item.LOCAL_SEQ=="dummy_loc"){ <%-- 더미를 가져 왔을 때 넘어가기 위한 IF 문 --%>
 						return true;
 					}
                    formTag += item.LOCAL_NAME + "<br>";

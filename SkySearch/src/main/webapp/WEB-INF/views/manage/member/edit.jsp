@@ -9,6 +9,7 @@
 
 <!-- 관심지역 다중 클릭 체크박스 -->
 <script>
+<%--관심지역 다중 클릭 체크 박스를 위한 부분--%>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
 				.ajax({
@@ -37,8 +38,9 @@
 							$
 									.each(
 											data,											function(i, item) {
+												<%-- 더미를 가져 왔을 때 넘어가기 위한 IF 문 --%>
 												if(item.LOCAL_SEQ=="dummy_loc"){
-													return true;
+													return true;<%--CONTINUE 와 동일한 기능을 수행--%> 
 												}
 												if(checkitem.indexOf(item.LOCAL_SEQ)!=-1){	
 												formTag += "<label class='checkbox-inline'>";
@@ -75,16 +77,16 @@
 <!--  END mypage tab -->
 
 <!-- 회원정보수정 -->
-<!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 (read)에서 수정(edit), 회원번호, 아이디, 이름, 비밀번호는 변경 안된다 -->
+<!-- DB로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 수정(edit), 회원번호, 아이디, 이름 변경 불가-->
 <section class="section-padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 mx-auto">
 				<form role="form" method="POST"
-					action="<c:url value='/manage/member/merge' />">
-					<input type="hidden" name="forwardView" value="/manage/member/list" />
-					<input type="hidden" name="MEMBER_SEQ"
-					<input type="hidden" name="signup" value="false" />
+					action="<c:url value='/manage/member/merge' />"> <%--컨트롤러로 가기위한 정보를 담아 감--%>
+					<input type="hidden" name="forwardView" value="/manage/member/list" /> <%--앞으로 보여주는 페이지--%>
+					<input type="hidden" name="MEMBER_SEQ"/> <%--멤버 시퀀스 정보를 보내기 위한 INPUT--%>
+					<input type="hidden" name="signup" value="false" /> <%--가입은 매니저에서 안하기에--%>
 						value="${resultMap.MEMBER_SEQ }" />
 					<div class="card padding-card">
 						<div class="card-body">
@@ -114,7 +116,7 @@
 								<div id=localDIV>
 								</div>
 								<label class='checkbox-inline'>
-								<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc">
+								<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc"> <%--관심지역을 할 떈 항상 복수를 사용하기 위해서 더미를 넣음--%>
 								</label>
 							</div>
 

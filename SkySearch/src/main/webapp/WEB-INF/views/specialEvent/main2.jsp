@@ -3,19 +3,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-
 <!-- SLIDER -->
 <section class="osahan-slider">
 	<div id="osahanslider" class="carousel slide" data-ride="carousel">
+		<!-- 슬라이더 갯수 지정 -->
 		<ol class="carousel-indicators">
 			<li data-target="#osahanslider" data-slide-to="0" class="active"></li>
-			<!--  <li data-target="#osahanslider" data-slide-to="1"></li>  -->
-			<!-- <li data-target="#osahanslider" data-slide-to="2"></li>  
-			<li data-target="#osahanslider" data-slide-to="3"></li>   -->
+			 <%--   <li data-target="#osahanslider" data-slide-to="1"></li> 
+			 <li data-target="#osahanslider" data-slide-to="2"></li>  
+			<li data-target="#osahanslider" data-slide-to="3"></li>  --%>  
 		</ol>
 		<div class="carousel-inner" role="listbox">
-
-		
+			<!-- 슬라이더 이미지  지정-->
 			<div class="carousel-item active"
 				style="background-image: url('<c:url value='/resources/img/slider/main1.png'/>')">
 			</div>
@@ -47,22 +46,28 @@
 				<h4>진행중인 특가</h4>
 			</div>
 			<div class="col-lg-12 col-md-12" id="eventList">
+				<%-- 크롤링 해온  list 뿌려주기 --%>
 				<c:forEach items="${resultList}" var="resultList" varStatus="loop">
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 						<div class="col-lg-12 col-md-12">
 							<div class="card card-list card-list-view">
+								<%-- url --%>
 								<a href="${resultData.url}" target="_blank">
 									<div class="row no-gutters">
 										<div class="col-lg-3 col-md-3">
+											<%-- image --%>
 											<img class="card-img-top" src="${resultData.img}"
 												alt="${resultData.alt}">
 										</div>
 										<div class="col-lg-9 col-md-9">
 											<div class="card-body">
+												<%-- event title --%>
 												<h5 class="card-title">${resultData.title}</h5>
+												<%-- period of event --%>
 												<h6 class="card-subtitle mb-2 text-muted">${resultData.period}</h6>
 											</div>
 											<div class="card-footer">
+												<%-- 항공사명 --%>
 												<span><strong>${resultData.flight} </strong></span>
 											</div>
 										</div>
@@ -72,7 +77,7 @@
 						</div>
 					</c:forEach>
 				</c:forEach>
-
+				<%-- 이하 하드코딩 --%>
 				<div class="col-lg-12 col-md-12">
 					<div class="card card-list card-list-view">
 						<a

@@ -40,30 +40,19 @@ public class AdminMemberController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
-		// divided depending on action value
-		if ("list".equalsIgnoreCase(action)) {
+		if ("list".equalsIgnoreCase(action)) { // 회원 리스트 불러오기
 			resultList = (List<Object>) service.getList(paramMap);
-		}  else if ("edit".equalsIgnoreCase(action)) {
+		}  else if ("edit".equalsIgnoreCase(action)) { //회원정보 가져오기
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			service.saveObjectAdmin(paramMap);
+			service.saveObjectAdmin(paramMap); //회원 수정
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("disable".equalsIgnoreCase(action)) {
-			service.deleteObjectAdmin(paramMap);
+			service.deleteObjectAdmin(paramMap); //회원 비활성화
 			resultList = (List<Object>) service.getList(paramMap);
 			viewName = "/manage/member/list";
 		}
-		/*
-		 * else if ("update".equalsIgnoreCase(action)) { } resultMap = (Map<String,
-		 * Object>) service.getObject(paramMap); paramMap.put("action", action); } else
-		 * if ("merge".equalsIgnoreCase(action)) { resultMap = (Map<String, Object>)
-		 * service.saveObject(paramMap); } else if ("read".equalsIgnoreCase(action)) {
-		 * resultMap = (Map<String, Object>) service.getObject(paramMap); } else if
-		 * ("list".equalsIgnoreCase(action)) { resultList = (List<Object>)
-		 * service.getList(paramMap); } else if ("delete".equalsIgnoreCase(action)) {
-		 * resultList = (List<Object>) service.deleteObject(paramMap); }
-		 */
-
+	
 		if (forwardView != null) {
 			viewName = forwardView;
 		}

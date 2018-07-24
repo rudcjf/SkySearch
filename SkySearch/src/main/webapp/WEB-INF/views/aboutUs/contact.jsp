@@ -61,7 +61,7 @@
             <div class="row">
                <div class="col-lg-6 col-md-6 mx-auto">
 				<form class="col-lg-12 col-md-12" method="post" action="<c:url value='/aboutUs/sendmsg'/>" name="sentMessage" id="contactForm" novalidate>
-                   <input type="hidden" name="forwardView" value="/aboutUs/contact" />
+                   <input type="hidden" name="forwardView" value="/aboutUs/contact" /> <%--보이는 곳과 가는곳이 다름--%>
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">Contact Us</h4>

@@ -51,14 +51,13 @@
 						<div class="card-body">
 							<div id="bootstrap-data-table_wrapper"
 								class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-
+								<!-- 리스트 테이블  -->
 								<div class="row">
 										<div class="col-sm-12">
 											<table class="table table-striped table-bordered table-hover"
 												id="bootstrap-data-table">
 												<thead>
 													<tr>
-														<th><input type="checkbox" id="selecctall" /></th>
 														<th>EMAIL</th>
 														<th>NAME</th>
 														<th>PHONE</th>
@@ -66,13 +65,11 @@
 														<th>DISABLE</th>
 													</tr>
 												</thead>
-												<tbody>
+												<tbody><%--멤버 리스트 테이블--%>
 													<c:forEach items="${resultList}" var="resultData"
 														varStatus="loop">
 														<tr
 															class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-															<td><input type="checkbox" class="checkbox"
-																name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
 															<td><a href="<c:url value="/manage/member/edit?EMAIL=${resultData.EMAIL}" />">${resultData.EMAIL}</a></td>
 															<td>${resultData.NAME}</td>
 															<td>${resultData.PHONE}</td>
@@ -82,7 +79,6 @@
 													</c:forEach>
 												</tbody>
 											</table>
-											<input type="hidden" name="MEMBER_SEQ" value="dummy_id">
 										</div>
 								</div>
 							</div>

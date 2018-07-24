@@ -3,8 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!-- 관심지역 다중 클릭 체크박스 -->
-<%-- int_loc 테이블로부터 회원 seq에 해당하는 local_seq의 정보를 가져와서 체크박스에 체크됨(표시는 local_name으로)
-     만약 local_seq가 dummy_loc(관심지역선택x)라면 continue   --%>
+<%-- int_loc 테이블로부터 회원 seq에 해당하는 local_seq의 정보를 가져와서 체크박스에 체크됨(표시는 local_name으로)  --%>
 
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
@@ -23,7 +22,7 @@
 									.each(
 											data,
 											function(i, item) {
-												if(item.LOCAL_SEQ=="dummy_loc"){
+												if(item.LOCAL_SEQ=="dummy_loc"){ <%-- 더미를 가져 왔을 때 넘어가기 위한 IF 문 --%>
 													return true;
 												}
 												formTag += "<label class='checkbox-inline'>";
@@ -116,10 +115,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 mx-auto">
-				<form role="form" method="POST" action="<c:url value='/member/merge' />">
-					<input type="hidden" name="forwardView" value="/mypage/read" /> 
-					<input type="hidden" name="signup" value="false" /> 
-					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" />
+				<form role="form" method="POST" action="<c:url value='/member/merge' />"> <%--컨트롤러로 가기위한 정보를 담아 감--%>
+					<input type="hidden" name="forwardView" value="/mypage/read" /> <%--앞으로 보여주는 페이지--%>
+					<input type="hidden" name="signup" value="false" /> <%--가입은 회원의 경우에는 해당안되게 하기--%>
+					<input type="hidden" name="MEMBER_SEQ"	value="${resultMap.MEMBER_SEQ }" /><%--회원seq 보내주기위함--%>
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">회원정보 수정</h4>
