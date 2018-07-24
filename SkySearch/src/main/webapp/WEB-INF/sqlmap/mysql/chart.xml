@@ -18,10 +18,11 @@
 	  ORDER BY ym;
 	</select>
 	<select id="memberD" resultType="Map" parameterType="Map">
-	SELECT CONCAT(MONTH(REGISTRY_DATE), '-', DAY(REGISTRY_DATE)) as ym, COUNT(*) as counts
+	SELECT CONCAT(YEAR(REGISTRY_DATE), '-',MONTH(REGISTRY_DATE), '-', DAY(REGISTRY_DATE)) as ym, COUNT(*) as counts
 	  FROM skysearch.ss_member
 	  GROUP BY ym
-	  ORDER BY ym;
+	  ORDER BY ym desc
+	  LIMIT 20;
 	</select>
 	<select id="memberT" resultType="Map" parameterType="Map">
 	SELECT COUNT(*) as countT
