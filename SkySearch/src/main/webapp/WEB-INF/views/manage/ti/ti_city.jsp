@@ -3,12 +3,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
+<%--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]--%>
+<%--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]--%>
+<%--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]--%>
+<%--[if gt IE 8]><%--%>
 <html class="no-js" lang="">
-<!--<![endif]-->
+<%--<![endif]--%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Sufee Admin - HTML5 Admin Template</title>
@@ -21,7 +21,7 @@
 		alert('정보가 입력되었습니다.');
 	}
 
-	/* CountrySelectBox */
+	<%-- CountrySelectBox --%>
 	var fn_setCountryFormTagSelectbox = function(url, id, params) {
 		$
 				.ajax({
@@ -37,6 +37,7 @@
 								.each(
 										data,
 										function(i, item) {
+											<%-- 파라미터에 COUNTRY_NAME이 있다면 선택 --%>
 											if ("${resultMap.COUNTRY_NAME}" == item.COUNTRY_NAME) {
 												formTag += '<option selected="selected" value="'+item.COUNTRY_SEQ+'" >'
 														+ item.COUNTRY_NAME;
@@ -56,7 +57,7 @@
 				});
 
 	}
-	/* LocalSelectBox */
+	<%-- LocalSelectBox --%>
 	var fn_setLocalFormTagSelectbox = function(url, id, params) {
 		$
 				.ajax({
@@ -66,8 +67,8 @@
 					cache : false,
 					success : function(data) {
 						var formTag = "";
+						<%-- 파라미터에 넘어오는 값이 없는 경우 동적바인딩 실행 --%>
 						if ("${resultMap.LOCAL_NAME}" == "") {
-
 							formTag += "<select class='form-control' name='LOCAL_SEQ' onchange='CountrySelect(this.value);'>";
 							$
 									.each(
@@ -108,7 +109,7 @@
 				});
 
 	}
-	/* LocalSelectBox2 - MODAL */
+	<%-- LocalSelectBox2 - MODAL --%>
 	var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
 		$
 				.ajax({
@@ -160,20 +161,20 @@
 				});
 
 	}
-	// 지역을 선택했을 때 국가 가져오기
+	 <%-- 지역을 선택했을 때 국가 가져오기 --%>
 	function CountrySelect(value) {
 		$.ajax({
-			type : "GET", // 값을 보낼 방식
-			url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
-			data : { // 서버에 보낼 데이터 (key, value형식)
+			type : "GET",  <%-- 값을 보낼 방식 --%>
+			url : "<c:url value='/ws/countyList'/>", <%--  보낼 컨트롤러 --%>
+			data : {  <%-- 서버에 보낼 데이터 (key, value형식) --%>
 				"LOCAL_NAME" : value
 			},
-			success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
-				var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+			success : function(result) {  <%-- result -> 컨트롤러에서 날라온 resultMap의 값 --%>
+				var list = result.addList;  <%-- 자바 스크립트 내에서 쓸 수 있는 변수로 변환 --%>
 
 				var category = "<option value='' selected>국가명</option>";
 
-				$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+				$.each(list, function(i) {  <%-- select박스의 option값에 순차적으로 넣기 --%>
 					category += "<option value='" + (list[i])['COUNTRY_SEQ']
 							+ "'>" + (list[i])['COUNTRY_NAME'] + "</option>";
 				});
@@ -243,7 +244,7 @@
 					<div class="card-body">
 
 
-						<!-- 도시입력 -->
+						<%-- 도시입력 --%>
 						<div class="col-sm-12">
 							<form role="form" method="POST"
 								action="<c:url value='/manage/ti/citymerge' />"
@@ -263,7 +264,7 @@
 													class="form-control" name="COUNTRY_NAME"
 													value="${resultMap.COUNTRY_SEQ}">
 
-												<!-- JSTL SelectBox 조건문 -->
+												<%-- JSTL SelectBox 조건문 --%>
 												<c:choose>
 													<c:when test="${resultMap.LOCAL_NAME==null}">
 														<div class="form-group col-sm-6">
@@ -281,7 +282,7 @@
 														</div>
 													</c:otherwise>
 												</c:choose>
-												<!-- JSTL SelectBox 조건문 END -->
+												<%-- JSTL SelectBox 조건문 END --%>
 
 												<div class="form-group col-sm-6">
 													<label>도시 명 :</label> <input type="text"
@@ -312,16 +313,25 @@
 															class="btn btn-success" type="button"
 															onclick="window.open('http://www.iegate.net/maps/geogoogle.php')"
 															value="검색">
-														<p>위도, 경도</p>
-														<p id="location_code">(${resultMap.CITY_LATITUDE},
-															${resultMap.CITY_LONGITUDE})</p>
+
 													</div>
 
-													<div id="map" style="height: 500px;"></div>
+													<%-- Map disable --%>
+													<c:set var="CITY_SEQ" value="${resultMap.CITY_SEQ}"></c:set>
+													<c:choose>
+														<c:when test="${CITY_SEQ == null}">
+															<div class="col-6 col-md-6"></div>
+														</c:when>
+														<c:otherwise>
+															<div id="map" style="height: 500px;"></div>
+
+														</c:otherwise>
+													</c:choose>
+													<%-- Map disable END --%>
 												</div>
 
 
-												<!-- 첨부파일 -->
+												<%-- 첨부파일 --%>
 												<c:forEach items="${resultList}" var="resultData"
 													varStatus="loop">
 													<c:set var="ATTACHFILE_SEQ"
@@ -353,7 +363,7 @@
 
 													</c:otherwise>
 												</c:choose>
-												<!-- 첨부파일 END -->
+												<%-- 첨부파일 END --%>
 
 											</div>
 										</div>
@@ -365,7 +375,7 @@
 								</div>
 							</form>
 						</div>
-						<!-- 도시입력 END -->
+						<%-- 도시입력 END --%>
 
 					</div>
 				</div>
@@ -374,7 +384,7 @@
 		</div>
 	</div>
 </div>
-<!-- Modal -->
+<%-- Modal --%>
 <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
 	aria-labelledby="mediumModalLabel" aria-hidden="true"
 	style="display: none;">
@@ -388,7 +398,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<!-- 국가입력 -->
+				<%-- 국가입력 --%>
 				<div class="col-sm-12">
 					<form role="form" method="POST"
 						action="<c:url value='/manage/ti/countrymerge' />">
@@ -422,25 +432,27 @@
 					</form>
 
 				</div>
-				<!-- 국가입력 END -->
+				<%-- 국가입력 END --%>
 			</div>
 
 		</div>
 	</div>
 </div>
 </div>
-<!-- .animated -->
+<%-- .animated --%>
 </div>
 
 
 </div>
-<!-- /#right-panel -->
+<%-- /#right-panel --%>
 
-<!-- Right Panel -->
+<%-- Right Panel --%>
 
-<!-- Gmaps -->
-<c:set var="lat">${resultMap.CITY_LATITUDE}</c:set><!-- 위도값 받아오기 -->
-<c:set var="lng">${resultMap.CITY_LONGITUDE}</c:set><!-- 경도값 받아오기 -->
+<%-- Gmaps --%>
+<c:set var="lat" value="${resultMap.CITY_LATITUDE}" />
+<%-- 위도값 받아오기 --%>
+<c:set var="lng" value="${resultMap.CITY_LONGITUDE}" />
+<%-- 경도값 받아오기 --%>
 <script>
 	function initMap() {
 		var uluru = {
