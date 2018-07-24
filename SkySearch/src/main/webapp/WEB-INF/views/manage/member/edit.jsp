@@ -77,7 +77,7 @@
 <!--  END mypage tab -->
 
 <!-- 회원정보수정 -->
-<!-- 회원리스트로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 (read)에서 수정(edit), 회원번호, 아이디, 이름, 비밀번호는 변경 안된다 -->
+<!-- DB로부터 회원 시퀀스에 해당하는 회원 정보를 가져와서 수정(edit), 회원번호, 아이디, 이름 변경 불가-->
 <section class="section-padding">
 	<div class="container">
 		<div class="row">

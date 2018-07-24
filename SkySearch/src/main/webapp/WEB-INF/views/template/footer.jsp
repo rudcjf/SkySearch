@@ -34,16 +34,6 @@
                   <li><a href="<c:url value='/aboutUs/contact'/>">Contact Us</a></li>
                   <ul>
                 </div>
-
-<!--       <div class="col-lg-4 col-md-4">
-                 <h6 class="mb-4 mt-5">GET IN TOUCH</h6>
-                  <div class="footer-social">
-                     <a href="https://ko-kr.facebook.com/"><i class="mdi mdi-facebook"></i></a>
-                     <a href="https://twitter.com/?lang=ko"><i class="mdi mdi-twitter"></i></a>
-                     <a href="https://www.instagram.com/?hl=ko"><i class="mdi mdi-instagram"></i></a>
-                     <a href="https://www.google.com/"><i class="mdi mdi-google"></i></a>
-                  </div>
-               </div>  -->
             </div>
          </div>
       </section>

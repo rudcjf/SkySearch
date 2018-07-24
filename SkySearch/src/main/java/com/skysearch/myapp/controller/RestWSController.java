@@ -48,9 +48,9 @@ public class RestWSController {
 		List<Object> resultList = new ArrayList<Object>();
 		List<String> resultListC = new ArrayList<String>();
 		
-		if("localList".equalsIgnoreCase(action)) {
+		if("localList".equalsIgnoreCase(action)) {//지역리스트 가져오기
 			resultObject = (List<Object>) localService.getList(paramMap);
-		} else if("memberList".equalsIgnoreCase(action)) {
+		} else if("memberList".equalsIgnoreCase(action)) {//마이페이지,회원정보 수정시 관심지역리스트 가져오기
 			resultObject = (List<Object>) localService.getLocalList(paramMap);
 		} else if("ciList".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) cityService.getCiList(paramMap);
@@ -58,8 +58,7 @@ public class RestWSController {
 			resultObject = (List<Object>) cityService.getCoList(paramMap);
 		} else if("checkLocal".equalsIgnoreCase(action)) {
 			resultObject = (List<Object>) localService.getCheckLocal(paramMap);
-		} else if("idcheck".equalsIgnoreCase(action)) {
-	         
+		} else if("idcheck".equalsIgnoreCase(action)) {//아이디 중복체크
 	         String id=(String) paramMap.get("EMAIL");
 	         Object result = memberservice.checkID(paramMap);
 	         return result;  

@@ -1,10 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<%-- <link type="text/css" href="<c:url value='/resources/vendor/bootstrap/css/specialmj.css'/>" rel="stylesheet" />
- --%>
 <!-- Main Slider With Form -->
       <section class="osahan-slider">
          <div id="osahanslider" class="carousel slide" data-ride="carousel">
@@ -34,20 +31,20 @@
             </a>
          </div>
          
-         <script>
-		// 지역을 선택했을 때 국가 가져오기
-		function CountrySelect(value) {
+    <%--동적 binding select box : 지역선택->국가선택->도시선택--%>       
+   <script>
+ 		function CountrySelect(value) {<%--지역을 선택했을 때 국가 가져오기--%>
 			$.ajax({
-					type : "GET", // 값을 보낼 방식
-					url : "<c:url value='/ws/countyList'/>", // 보낼 컨트롤러
-					data : { // 서버에 보낼 데이터 (key, value형식)
+					type : "GET", <%--값을 보낼 방식--%>
+					url : "<c:url value='/ws/countyList'/>", <%-- 보낼 컨트롤러--%>
+					data : { <%-- 서버에 보낼 데이터 (key, value형식)--%>
 						"LOCAL_NAME" : value
 					},
-					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
-						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+					success : function(result) { <%-- result -> 컨트롤러에서 날라온 resultMap의 값--%>
+						var list = result.addList; <%-- 자바 스크립트 내에서 쓸 수 있는 변수로 변환--%>
 						var category = "<option value='' selected>국가명</option>";
 
-						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+						$.each(list, function(i) { <%-- select박스의 option값에 순차적으로 넣기--%>
 							category += "<option value='"
 								+ (list[i])['COUNTRY_SEQ'] + "'>"
 								+ (list[i])['COUNTRY_NAME']
@@ -63,19 +60,18 @@
 				});
 			}
 		
-		// 국가를 선택했을 때 도시 가져오기
-		function CitySelect(value) {
+		function CitySelect(value) {<%-- 국가를 선택했을 때 도시 가져오기--%>
 			$.ajax({
-					type : "GET", // 값을 보낼 방식
-					url : "<c:url value='/ws/cityList'/>", // 보낼 컨트롤러
-					data : { // 서버에 보낼 데이터 (key, value형식)
+					type : "GET", 
+					url : "<c:url value='/ws/cityList'/>", 
+					data : {
 						"COUNTRY_SEQ" : value
 					},
-					success : function(result) { // result -> 컨트롤러에서 날라온 resultMap의 값
-						var list = result.addList; // 자바 스크립트 내에서 쓸 수 있는 변수로 변환
+					success : function(result) { 
+						var list = result.addList; 
 						var category = "<option value='' selected>도시명</option>";
 
-						$.each(list, function(i) { // select박스의 option값에 순차적으로 넣기
+						$.each(list, function(i) { 
 							category += "<option value='"
 								+ (list[i])['CITY_SEQ'] + "'>"
 								+ (list[i])['CITY_NAME']
@@ -92,11 +88,10 @@
 			}
 	</script>
         
-	<!-- 메인 특가 검색 slider-->
+	<!-- 메인 여행지 검색 slider-->
          <div class="slider-form">
             <div class="container">
                <h1 class="text-center text-white mb-5">Fly more, Pay less!</h1>
-               <!-- 특가상품 검색: form태그 안에  데이터넣어 컨트롤러 보내야함. 최종적으로 도시시퀀스를 보내서 결과 출력한다 -->
                <form method="POST" action="<c:url value='/tripInfo/read'/>">
                   <div class="row no-gutters">
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -140,10 +135,10 @@
             </div>
          </div>
       </section>
- <!-- End Main Slider With Form -->
+ <!-- End 메인 여행지 검색 slider -->
 
       
-<!-- 추천 특가 상품 List -->
+<!-- 추천 항공사별 특가 List -->
 <section class="section-padding bg-white">
 	<div class="section-title text-center mb-5">
 		<h2>항공사별 특가</h2>
@@ -160,7 +155,7 @@
 	</div>
 
 
-	<!-- 조회순 또는 최신순 6개/ 로그인 할 경우 회원의 관심 지역에 해당하는 상품들 중 랜덤으로 추천할 것 -->
+	<%-- 클릭하면 항공사의 특가이벤트 페이지로 이동 --%>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-4">
@@ -260,20 +255,20 @@
 		</div>
 	</div>
 </section>
-<!-- End 추천 특가 상품 List --> 
+<!-- END 추천 항공사별 특가 List -->
 
-<!-- 여행지 : 조회수 높은 도시 출력 6개 할것 -->
+
+<!-- 추천 여행지 List : 조회수 높은 도시 출력 -->
 <c:set var="principalName" value="${pageContext.request.userPrincipal.name}" /> 
-<!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
 		<h2>추천 여행지</h2>
 	</div>
-	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
+				<%--로그인한 경우, 회원의 관심지역에 따른 정보를 출력--%>
 					<c:forEach items="${resultUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
 						<div class="card blog-card">
@@ -290,7 +285,7 @@
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
 									</span>
-									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<%-- 유저 평점을 뿌려주기 위한 forEach문 --%> 
 									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
@@ -307,7 +302,8 @@
 						</div>
 					</div>
 					</c:forEach>
-					<!-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개를 나타내준다. -->
+					
+					<%-- 로그인 되지 않은 유저일 경우 조회수 많은 순으로 6개 출력 --%>
 					<c:if test="${principalName == null}">
 					<c:forEach items="${resultNoUserCityList}" var="resultData" varStatus="loop">
 					<div class="col-lg-4 col-md-4">
@@ -325,7 +321,7 @@
 									<span class="badge badge-white">
 									<b class="mdi mdi-trending-up">&nbsp;조회수 : ${resultData.CITY_VIEWS}</b>
 									</span>
-									<!-- 유저 평점을 뿌려주기 위한 forEach문 --> 
+									<%-- 유저 평점을 뿌려주기 위한 forEach문 --%> 
 									<c:forEach items="${resultAvgStarList}" var="resultData2" varStatus="loop">
 										<c:choose>
 											<c:when test="${resultData.CITY_NAME == resultData2.CITY_NAME}">
@@ -349,5 +345,5 @@
 	</div>
 </section>
 
-
+<!-- END 추천 여행지 List  -->
 

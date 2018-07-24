@@ -29,8 +29,6 @@ public class AboutUsController{
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
-		
-		
 
 		Map<Object, Object> paramMap = paramMethodMap.getMap();
 

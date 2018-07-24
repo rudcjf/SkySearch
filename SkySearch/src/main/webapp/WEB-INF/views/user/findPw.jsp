@@ -26,5 +26,5 @@
             </div>
          </div>
       </section>
-      <!-- End Login -->
+      <!-- End 비밀번호찾기 결과 -->
   

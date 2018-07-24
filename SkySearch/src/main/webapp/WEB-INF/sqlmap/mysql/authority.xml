@@ -16,43 +16,6 @@
 		where AUTHORITY_NAME=#{AUTHORITY_NAME}
 	</select>
 
-<!-- 	<insert id="merge" parameterType="Map">
-		INSERT INTO
-		skysearch.ss_member(
-		MEMBER_SEQ
-		,EMAIL
-		,PASSWORD
-		,NAME
-		,PHONE
-		,REGISTER_SEQ
-		,REGISTRY_DATE
-		,MODIFIER_SEQ
-		,MODIFY_DATE
-		)
-		VALUES(
-		#{MEMBER_SEQ}
-		, #{EMAIL}
-		, #{PASSWORD}
-		, #{NAME}
-		, #{PHONE}
-		, #{REGISTER_SEQ}
-		, now()
-		,
-		#{MODIFIER_SEQ}
-		, now() )
-		ON DUPLICATE KEY
-		UPDATE
-		EMAIL = #{EMAIL}
-		,
-		PASSWORD = #{PASSWORD}
-		, NAME = #{NAME}
-		, PHONE
-		= #{PHONE}
-		, MODIFIER_SEQ
-		= #{MODIFIER_SEQ}
-		, MODIFY_DATE = now()
-	</insert>  -->
-
 	<delete id="delete" parameterType="Map">
 		DELETE FROM skysearch.ss_authority
 		where AUTHORITY_NAME = #{AUTHORITY_NAME}

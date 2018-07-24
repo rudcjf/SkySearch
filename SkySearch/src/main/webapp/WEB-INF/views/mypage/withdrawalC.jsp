@@ -41,8 +41,7 @@
  <!-- END mypage tab -->     
              
       <!-- 회원탈퇴 완료 -->
-          <!-- DB에서 회원 시퀀스에 해당하는 회원의 정보를 delete(실제론 update, enable을 Y->N으로 바꿈)-->
- <section class="section-padding">
+    <section class="section-padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-4 mx-auto">
