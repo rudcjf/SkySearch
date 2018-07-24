@@ -267,7 +267,7 @@
 <!-- 여행정보 리스트(상위 6개) -->
 <section class="section-padding">
 	<div class="section-title text-center mb-5">
-		<h2>여행지 맞춤 추천</h2>
+		<h2>추천 여행지</h2>
 	</div>
 	<!--  로그인시 관심지역을 기준으로 조회수 많은순으로 6개를 나타낸다. -->
 	<div class="container">
