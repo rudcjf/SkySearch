@@ -3,15 +3,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
+<%--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]--%>
+<%--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]--%>
+<%--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]--%>
+<%--[if gt IE 8]><%--%>
 <html class="no-js" lang="">
-<!--<![endif]-->
+<%--<![endif]--%>
 
 	<script>
-		/* LocalSelectBox2 */
+		<%-- LocalSelectBox2 --%>
 		var fn_setLocalFormTagSelectbox2 = function(url, id, params) {
 			$
 					.ajax({
@@ -101,6 +101,10 @@
 								class="btn btn-primary" value=관광지입력
 								onClick="location.href='<c:url value="/manage/ti/ti_edit"/>'"
 								style="float: right;">
+								<input type="submit"
+								class="btn btn-primary" value=도시입력
+								onClick="location.href='<c:url value="/manage/ti/ti_city"/>'"
+								style="float: right;">
 							<button type="button" class="btn btn-secondary mb-1"
 								data-toggle="modal" data-target="#mediumModal"
 								style="float: right;">국가입력</button>
@@ -110,9 +114,9 @@
 								<div class="col-sm-12">
 
 
-									<!-- TAB -->
+									<%-- TAB --%>
 									<div class="card-body">
-										<!-- Centered Tabs -->
+										<%-- Centered Tabs --%>
 										<ul class="nav nav-tabs nav-justified">
 											<li class="nav-item"><a class="nav-link "
 												href="<c:url value='/manage/ti/ti_cilist'/>">도시목록</a></li>
@@ -120,8 +124,8 @@
 												href="<c:url value='/manage/ti/ti_list'/>">관광지목록</a></li>
 										</ul>
 									</div>
-									<!-- 관광지TAB -->
-									<!-- Table -->
+									<%-- 관광지TAB --%>
+									<%-- Table --%>
 									<div id="bootstrap-data-table_wrapper"
 										class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
 										<table class="table table-striped table-bordered table-hover"
@@ -138,19 +142,23 @@
 												</tr>
 											</thead>
 											<tbody>
+											<%-- 테이블 데이터 --%>
 												<c:forEach items="${resultList}" var="resultData"
 													varStatus="loop">
 													<tr
 														class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+														<%-- 관광지 수정부분입니다 --%>
 														<td><a
 															href="<c:url value="/manage/ti/ti_edit?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
 																${resultData.LANDMARK_NAME}</a></td>
+														<%-- 도시 수정부분입니다 --%>
 														<td><a
 															href="<c:url value="/manage/ti/ti_city?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}" />">
 																${resultData.CITY_NAME}</a></td>
 														<td>${resultData.LANDMARK_EXP}</td>
 														<td>${resultData.LANDMARK_ADDR}</td>
 														<td>${resultData.REGISTER_SEQ}</td>
+														<%-- 관광지 삭제부분입니다 --%>
 														<td><a
 															href="<c:url value="/manage/ti/delete?TRAVEL_SEQ=${resultData.TRAVEL_SEQ}&forwardView=/manage/ti/ti_list" />">
 																${resultData.REGISTRY_DATE}</a></td>
@@ -175,10 +183,10 @@
 	</div>
 
 	</div>
-	<!-- .animated -->
+	<%-- .animated --%>
 
 	</div>
-	<!-- Modal -->
+	<%-- Modal --%>
 	<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
 		aria-labelledby="mediumModalLabel" aria-hidden="true"
 		style="display: none;">
@@ -192,7 +200,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<!-- 국가입력 -->
+					<%-- 국가입력 --%>
 					<div class="col-sm-12">
 						<form role="form" method="POST"
 							action="<c:url value='/manage/ti/countrymerge' />">
@@ -228,7 +236,7 @@
 						</form>
 
 					</div>
-					<!-- 국가입력 END -->
+					<%-- 국가입력 END --%>
 				</div>
 
 			</div>
@@ -237,10 +245,10 @@
 
 	</div>
 
-	<!-- .content -->
+	<%-- .content --%>
 	</div>
-	<!-- /#right-panel -->
+	<%-- /#right-panel --%>
 
-	<!-- Right Panel -->
+	<%-- Right Panel --%>
 
 
