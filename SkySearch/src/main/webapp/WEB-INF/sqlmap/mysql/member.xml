@@ -37,6 +37,13 @@
 		where NAME = #{name}
 	</select>
 
+	<select id="find1" resultType="Map" parameterType="Map">
+		select
+		EMAIL,  PASSWORD
+		from SS_MEMBER
+		where EMAIL = #{email}
+	</select>
+	
 	<select id="idDoubleCheck" resultType="Map" parameterType="Map">
 		select
 		EMAIL

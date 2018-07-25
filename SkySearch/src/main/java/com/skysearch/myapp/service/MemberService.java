@@ -140,7 +140,7 @@ public class MemberService {
 	}
 	//회원 탈퇴시, 아이디 비번 확인
 	public Object Find(Object dataMap) {
-		String sqlMapId = "member.find";
+		String sqlMapId = "member.find1";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 	    return resultObject;
 	}
