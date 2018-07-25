@@ -52,6 +52,10 @@
                         <div class="mt-4 text-center">
                            <a href="<c:url value='/user/forgetIdPw'/>">Forget your ID or Password?</a>
                         </div>
+                        <hr>
+                         <div>
+                           <label>(Admin 계정)<br>ID:system@skysearch.com<br>PW:system123<br>(User 계정)<br>ID:User@skysearch.com<br>PW:user123</label>
+                     </div>
                      </div>
                   </div>
                </div>
