@@ -191,7 +191,10 @@ function validityCheck(){
       $("#PHONE").focus();
       return false;
     }
-
+    if (!(document.getElementById('EMAIL').disabled)) {
+        alert("아이디 중복 체크를 눌러주세요");
+        return false;
+      }
     //관심지역 체크박스
     var count = 0;
      for(var i=0;i<$('[name="LOCAL_SEQ"]').length;i++){ 
@@ -206,6 +209,7 @@ function validityCheck(){
       alert("관심지역을 하나 이상 체크해 주세요");
       return false;
     }
+   	document.getElementById('EMAIL').disabled = false;	
  
 } 
 </script>
