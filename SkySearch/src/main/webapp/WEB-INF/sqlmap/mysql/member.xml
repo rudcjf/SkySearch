@@ -10,7 +10,7 @@
 		SELECT	*
 		FROM
 		skysearch.ss_member
-		WHERE ENABLE= Y
+		WHERE ENABLE= 'Y'
 		ORDER BY NAME ASC;
 	</select>
 
