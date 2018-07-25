@@ -166,7 +166,7 @@
 		$.ajax({
 			type : "GET",  <%-- 값을 보낼 방식 --%>
 			url : "<c:url value='/ws/countyList'/>", <%--  보낼 컨트롤러 --%>
-			data : {  <%-- 서버에 보낼 데이터 (key, value형식) --%>
+			data : {  				<%-- 서버에 보낼 데이터 (key, value형식) --%>
 				"LOCAL_NAME" : value
 			},
 			success : function(result) {  <%-- result -> 컨트롤러에서 날라온 resultMap의 값 --%>
@@ -402,7 +402,7 @@
 				<div class="col-sm-12">
 					<form role="form" method="POST"
 						action="<c:url value='/manage/ti/countrymerge' />">
-						<input type="hidden" name="forwardView" value="/manage/ti/ci_list" />
+						<input type="hidden" name="forwardView" value="/manage/ti/ti_cilist" />
 						<div class="card padding-card">
 							<div class="card-body">
 								<div align="left">

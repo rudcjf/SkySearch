@@ -29,7 +29,5 @@
 		 now())
 	</insert>
 
-
-
 </mapper>
     

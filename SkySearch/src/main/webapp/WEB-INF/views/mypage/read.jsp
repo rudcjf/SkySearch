@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<!-- 회원시퀀스에 해당하는 정보 read 에서 관심지역 가져오기  -->
+<!-- 관심지역 가져오기  -->
+<%-- 회원seq에 해당하는 관심지역 정보를 가져와 출력 --%>
 <script type="text/javascript">
 var fn_setLocalID = function(url, id, params) {
     $.ajax({
@@ -16,7 +17,7 @@ var fn_setLocalID = function(url, id, params) {
                 var formTag = "";
                 formTag += "<p class='form-control-static' name='LOCAL_NAME'>";
                 $.each(data, function(i, item) {
-                	if(item.LOCAL_SEQ=="dummy_loc"){
+                	if(item.LOCAL_SEQ=="dummy_loc"){ <%-- 더미를 가져 왔을 때 넘어가기 위한 IF 문 --%>
 						return true;
 					}
                    formTag += item.LOCAL_NAME + "<br>";
@@ -74,7 +75,7 @@ $(document).ready(function() {
  <!-- END mypage tab -->   
      
       <!-- member Profile -->
-      <!-- DB로부터 회원 시퀀스에 해당하는 회원의 정보를 나타낸다 -->
+      <%-- DB로부터 회원 시퀀스에 해당하는 회원의 정보를 나타낸다  --%> 
       <section class="section-padding">
          <div class="container">
             <div class="row">

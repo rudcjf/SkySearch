@@ -37,14 +37,14 @@ public class MypageController {
 		// divided depending on action value
 		if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
+		} else if ("read".equalsIgnoreCase(action)) {//회원정보 출력
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<Object, Object>) service.getObject(paramMap);
-		} else if ("merge".equalsIgnoreCase(action)) {
+		} else if ("merge".equalsIgnoreCase(action)) {//회원정보수정
 			service.saveObject(paramMap);
-		} else if ("withdrawal".equalsIgnoreCase(action)) {
-		} else if ("disable".equalsIgnoreCase(action)) {
+		} else if ("withdrawal".equalsIgnoreCase(action)) {//회원탈퇴페이지이동 
+		} else if ("disable".equalsIgnoreCase(action)) { //회원탈퇴 진행
  			resultMap = (Map<Object, Object>) service.Find(paramMap);
 
  			String email = (String)resultMap.get("EMAIL");//DB의 아이디와 비밀번호
@@ -56,7 +56,7 @@ public class MypageController {
 			if(id.equals(email)&&pw.equals(pass)) {//일치여부 확인 
 				service.deleteObject(paramMap);
 			}
-		} else if("contact".equalsIgnoreCase(action)) {
+		} else if("contact".equalsIgnoreCase(action)) {//about us의 contact
 			service.sendObject(paramMap);
 		}
 		if (forwardView != null) {

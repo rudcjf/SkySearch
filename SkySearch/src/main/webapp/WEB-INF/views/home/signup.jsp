@@ -5,6 +5,7 @@
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-1.11.0.min.js' />"></script>
 
 <!-- 관심지역 다중 클릭 체크박스 -->
+<%-- DB에서 지역list 정보를 가져옴  --%>
 <script>
 	var fn_setFormTagCheckbox = function(url, id, params) {
 		$
@@ -209,7 +210,7 @@ function validityCheck(){
 } 
 </script>
 
-<!-- Sign Up -->
+<!-- Sign Up form-->
       <section class="section-padding">
          <div class="container">
             <div class="row">
@@ -251,29 +252,22 @@ function validityCheck(){
 								<div id=localDIV></div>
 							<input type=checkbox checked="checked" name="LOCAL_SEQ" style="opacity:0;" value="dummy_loc">	
 							</div>
-<!--                           <div class="form-group">
-                              <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                 <label class="custom-control-label" for="customControlAutosizing">개인 정보 제공에 동의합니다</label>
-                              </div>
-                           </div> 
-                           <br>-->
                           <div align="center">
 	                           <button type="submit" id="btn" class="btn btn-success col-3">Sign Up</button>
                         </form>
 	                           <button class="btn btn-default col-3" onclick="location.reload();">Reset</button>
                                                      </div>
-                        <!-- <div class="mt-4 text-center login-with-social">
+                        <%-- <div class="mt-4 text-center login-with-social">
                            <button type="button" class="btn btn-facebook btn-block" onClick="location.href='https://ko-kr.facebook.com/'"><i class="mdi mdi-facebook"></i> Login With Facebook</button>
                            <button type="button" class="btn btn-twitter btn-block" onClick="location.href='https://twitter.com/?lang=ko/'"><i class="mdi mdi-twitter"></i> Login With Twitter</button>
                            <button type="button" class="btn btn-google btn-block" onClick="location.href='https://www.google.com/'"><i class="mdi mdi-google-plus"></i> Login With Google</button>
-                        </div> -->
+                        </div> --%>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </section>
-      <!-- End Register -->
+      <!-- End Sign up form -->
       
    

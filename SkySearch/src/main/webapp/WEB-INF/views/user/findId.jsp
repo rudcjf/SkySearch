@@ -2,10 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-
+<%--회원ID 마스킹 --%>
 <script>
-
-
  $(document).ready(function() {
 	  var len = "${resultMap.EMAIL}".split('@')[0].length-3 ;  //  AB***@gamil.com
 	  var result = "${resultMap.EMAIL}".replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');  
@@ -37,5 +35,5 @@
             </div>
          </div>
       </section>
-      <!-- End Find ID -->
+      <!-- End 아이디 찾기 결과 -->
   

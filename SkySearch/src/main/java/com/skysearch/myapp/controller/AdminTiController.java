@@ -61,9 +61,10 @@ public class AdminTiController {
 			resultList = (List<Object>) service.getList(paramMap);
 		}  else if ("citymerge".equalsIgnoreCase(action)) {
 			service.saveCity(paramMap);
-			resultList = (List<Object>) service.getCiList(paramMap);
+			resultMap = (Map<Object, Object>) service.getCiObject(paramMap);
 		} else if ("countrymerge".equalsIgnoreCase(action)) {
 			service.saveCountry(paramMap);
+			resultList = (List<Object>) service.getCiList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
 		} else if ("ti_cilist".equalsIgnoreCase(action)) {

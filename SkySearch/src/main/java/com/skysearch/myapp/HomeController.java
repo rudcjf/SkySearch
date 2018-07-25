@@ -30,39 +30,29 @@ public class HomeController {
 
 	@Autowired
 	private TravelService service;
-	// Simply selects the home view to render by returning its name.
+
 
 	@RequestMapping(value = "/", method = {RequestMethod.GET})
 	public ModelAndView home(@RequestParam Map<String, Object> paramMap, Locale locale, Model model, ModelAndView modelandView, Principal principal) {
-//		Map<Object, Object> paramMap = paramMethodMap.getMap();
+
 		String viewName = "/home/index";
-		if(principal==null) {
-			
-		}else {
+		if(principal==null) {/*서버 처음 접속시*/
+		}else {/*로그인 이후 home화면*/
 			paramMap.put("EMAIL", principal.getName());
 		}
+		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
 		String formattedDate = dateFormat.format(date);
 
-		
+        /* 추천여행지 리스트 메인 화면에 출력 */
 		List<Object> resultUserCityList = new ArrayList<Object>();
 		List<Object> resultNoUserCityList = new ArrayList<Object>();
 		List<Object> resultAvgStarList = new ArrayList<Object>();
 		resultUserCityList = (List<Object>) service.getUserCityList(paramMap); // 도시 리스트를 가져온다.(로그인시)
 		resultNoUserCityList = (List<Object>) service.getNoUserCityList(paramMap); // 도시 리스트를 가져온다.(비로그인시)
 		resultAvgStarList = (List<Object>) service.getAvgStarList(paramMap); // 평균 평점을 가져온다.
-		
-		
-		/*Map<String, Object> resultCityMap = new HashMap<String, Object>();
-		Map<String, Object> resultMemberMap = new HashMap<String, Object>();
-		Map<String, Object> resultPaginationMap = new HashMap<String, Object>();
-		List<Object> resultUserCityList = new ArrayList<Object>();
-		List<Object> resultAvgStarList = new ArrayList<Object>();
-		List<Object> resultNoUserCityList = new ArrayList<Object>();
-		List<Object> resultLandmarkList = new ArrayList<Object>();*/
 		
 		modelandView.setViewName(viewName);
 		modelandView.addObject("resultUserCityList", resultUserCityList);

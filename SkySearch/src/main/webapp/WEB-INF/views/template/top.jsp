@@ -1,8 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-
 
 
 <!-- Navbar -->
@@ -61,6 +59,7 @@
 							<a class="dropdown-item" href="<c:url value='/aboutUs/contact'/>">Contact
 								Us</a>
 						</div></li>
+						
 					<li class="nav-item">
 						<!-- system과 admin의 경우에만 관리자페이지탭 생성 --> <c:set var="pName"
 							value="${pageContext.request.userPrincipal.name}" /> <c:choose>
@@ -88,15 +87,9 @@
 						</c:choose>
 					</li>
 				</ul>
+				<%--로그인 전:signup, login버튼 -> 로그인 후:회원 ID, logout버튼으로 바뀜--%>
 				<div class="my-2 my-lg-0">
 					<ul class="list-inline main-nav-right">
-						<!-- 국가명, 도시명 검색바
-                             <li class="list-inline-item">
-                              <form action="/action_page.php" >
-                             	 <input type="text" class="form-control" placeholder="국가명, 도시명 검색..." style="height:34px;">
-                              </form>
-                             </li> -->
-
 						<li class="list-inline-item"><c:set var="principalName"
 								value="${pageContext.request.userPrincipal.name}" /> <c:choose>
 								<c:when test="${principalName == null}">

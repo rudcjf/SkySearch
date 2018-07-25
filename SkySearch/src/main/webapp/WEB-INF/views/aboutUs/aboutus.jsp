@@ -49,7 +49,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/seungju.jpg'/>" alt=""/>
-                        <p class="mb-4">프로젝트 매니저를 맡고  있는 이승주 입니다. <br>워크하실분...</p>
+                        <p class="mb-4">프로젝트 매니저를 맡고 있는 이승주 입니다. <br>돈 받고 팝니다...</p>
                         <h6 class="mb-0 text-success">이승주</h6>
                         <small>Project Manager, 회원관리 총괄</small>
                      </div>
@@ -59,7 +59,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/taegun.jpg'/>" alt=""/>
-                        <p class="mb-4">팀에서 귀여움과 외모를 담당하는 유태근 입니다 XD.</p>
+                        <p class="mb-4">팀에서 귀여움과 외모를 담당하는 유태근 입니다 XD 뿌잉뿌잉.</p>
                         <h6 class="mb-0 text-success">유태근</h6>
                         <small>Trip Info 총괄</small>
                      </div>
@@ -69,9 +69,9 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/minchae.jpg'/>" alt=""/>
-                        <p class="mb-4">팀에서 FM겸 메인뷰,<br> 회원을 담당하는 김민채 입니다.</p>
+                        <p class="mb-4">팀에서 FM겸 메인뷰,<br>회원을 담당하는 김민채 입니다.</p>
                         <h6 class="mb-0 text-success">김민채</h6>
-                        <small>Publisher, Main뷰, Mypage 담당</small>
+                        <small>Publisher, 메인뷰, 마이페이지 담당</small>
                      </div>
                   </div>
                </div>
@@ -91,9 +91,9 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/minjeong.jpg'/>" alt=""/>
-                        <p class="mb-4">믿기지 않으시겠지만...<br> 팀에서 막내를 담당하고 있습니다ㅎㅎ.</p>
+                        <p class="mb-4">다른사이트보다 빠른 특가를 제공하는 사이트!<br> 팀에서 막내를 담당하고 있습니다ㅎㅎ.</p>
                         <h6 class="mb-0 text-success">이민정</h6>
-                        <small>Web Crawling Manager</small>
+                        <small>항공권 특가 Web Crawling 담당</small>
                      </div>
                   </div>
                </div>
@@ -101,7 +101,7 @@
                   <div class="card padding-card">
                      <div class="card-body agents-card text-center">
                         <img class="img-fluid mb-4" src="<c:url value='/resources/img/user/kkc.jpg'/>" alt=""/>
-                        <p class="mb-4">예비군을 다녀와도 1주일만에 끝내버릴 김경철 입니다 .<br> 코딩... 다부순다.</p>
+                        <p class="mb-4">관리자 메인 페이지를 담당한 김경철 입니다.</p>
                         <h6 class="mb-0 text-success">김경철</h6>
                         <small>Manager Main, Chart 담당</small>
                      </div>

@@ -7,11 +7,6 @@
 <mapper namespace="member">
 
 	<select id="list" resultType="Map" parameterType="Map">
-		<!-- SELECT member.MEMBER_SEQ, member.EMAIL, member.PASSWORD, member.NAME, 
-			member.PHONE, member.ENABLE, local.LOCAL_NAME FROM skysearch.ss_member member 
-			left JOIN skysearch.ss_int_local int_local ON member.MEMBER_SEQ = int_local.MEMBER_SEQ 
-			left JOIN skysearch.ss_local local ON int_local.local_SEQ = local.local_SEQ 
-			ORDER BY NAME ASC; -->
 		SELECT
 		MEMBER_SEQ,
 		EMAIL,
