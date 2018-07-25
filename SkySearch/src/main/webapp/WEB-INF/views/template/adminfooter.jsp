@@ -16,7 +16,6 @@
 
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/chart-js/Chart.bundle.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/dashboard.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/resources/assets/js/widgets.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/jquery.vmap.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/jquery.vmap.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/resources/assets/js/lib/vector-map/jquery.vmap.sampledata.js'/>"></script>
