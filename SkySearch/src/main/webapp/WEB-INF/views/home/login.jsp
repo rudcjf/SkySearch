@@ -11,7 +11,6 @@
                   <div class="card padding-card">
                      <div class="card-body">
                         <h3 class="card-title mb-4">Login</h3>
-                        <label>(Admin 계정)<br>ID:system@skysearch.com<br>PW:system123<br>(User 계정)<br>ID:User@skysearch.com<br>PW:user123</label>
                         <fieldset>
                     		 <c:if test="${not empty param.fail}">
 							 	<font color="red"> 로그인 실패! 다시 시도해보세요.<br /> Reason:
@@ -53,6 +52,10 @@
                         <div class="mt-4 text-center">
                            <a href="<c:url value='/user/forgetIdPw'/>">Forget your ID or Password?</a>
                         </div>
+                        <hr>
+                         <div>
+                           <label>(Admin 계정)<br>ID:system@skysearch.com<br>PW:system123<br>(User 계정)<br>ID:User@skysearch.com<br>PW:user123</label>
+                     </div>
                      </div>
                   </div>
                </div>
