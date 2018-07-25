@@ -85,9 +85,9 @@
 				<form role="form" method="POST"
 					action="<c:url value='/manage/member/merge' />"> <%--컨트롤러로 가기위한 정보를 담아 감--%>
 					<input type="hidden" name="forwardView" value="/manage/member/list" /> <%--앞으로 보여주는 페이지--%>
-					<input type="hidden" name="MEMBER_SEQ"/> <%--멤버 시퀀스 정보를 보내기 위한 INPUT--%>
+					<input type="hidden" name="MEMBER_SEQ" value="${resultMap.MEMBER_SEQ }" /> <%--멤버 시퀀스 정보를 보내기 위한 INPUT--%>
 					<input type="hidden" name="signup" value="false" /> <%--가입은 매니저에서 안하기에--%>
-						value="${resultMap.MEMBER_SEQ }" />
+						
 					<div class="card padding-card">
 						<div class="card-body">
 							<h4 class="card-title mb-4">회원정보 수정</h4>
