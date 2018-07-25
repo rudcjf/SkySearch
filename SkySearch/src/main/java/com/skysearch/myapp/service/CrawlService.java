@@ -71,7 +71,7 @@ public class CrawlService {
 				//class명이 inner_box이면
 				if (e.attr("class").contains("inner_box")) {
 					//타이틀에 특가가 포함된 element이면
-					if (e.text().contains("특가")) {
+					if (e.text().contains("특가") || e.text().contains("프로모션")) {
 						//url 만들기
 						StringBuffer sb = new StringBuffer();
 						sb.append("https://flyasiana.com/C/KR/KO/event");
@@ -120,7 +120,7 @@ public class CrawlService {
 				//element class명이 item이면
 				if (e.attr("class").contains("item")) {
 					//element가 프로모션, 특가를 포함하면
-					if (e.text().contains("프로모션") || e.text().contains("특가") ||e.text().contains("여행")) {
+					if (e.text().contains("프로모션") || e.text().contains("특가") ||e.text().contains("여행") ||e.text().contains("월") ) {
 
 						resultMap = new HashMap<>();
 						resultMap.put("title", e.select("span.subject").text());
