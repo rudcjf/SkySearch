@@ -7,15 +7,10 @@
 <mapper namespace="member">
 
 	<select id="list" resultType="Map" parameterType="Map">
-		SELECT
-		MEMBER_SEQ,
-		EMAIL,
-		PASSWORD,
-		NAME,
-		PHONE,
-		ENABLE
+		SELECT	*
 		FROM
 		skysearch.ss_member
+		WHERE ENABLE= Y
 		ORDER BY NAME ASC;
 	</select>
 
