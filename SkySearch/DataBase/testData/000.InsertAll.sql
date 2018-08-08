@@ -6,14 +6,14 @@ LIMIT 0, 1000
 */
 
 
-DELETE FROM ss_member;
-DELETE FROM SS_AUTHORITY;
-DELETE FROM SS_AUT_MEM_REL;
-DELETE FROM ss_local;
-DELETE FROM ss_country;
-DELETE FROM ss_city;
-DELETE FROM ss_travel_info;
 DELETE FROM SS_INT_LOCAL;
+DELETE FROM SS_AUT_MEM_REL;
+DELETE FROM SS_AUTHORITY;
+DELETE FROM ss_member;
+DELETE FROM ss_city;
+DELETE FROM ss_country;
+DELETE FROM ss_local;
+DELETE FROM ss_travel_info;
 DELETE FROM ss_attachfile;
 DELETE FROM ss_comment;
 DELETE FROM ss_contactus;
@@ -97,8 +97,6 @@ INSERT INTO `ss_member` (`MEMBER_SEQ`,`EMAIL`,`PASSWORD`,`NAME`,`PHONE`,`ENABLE`
 ('SYSUID-SS065','tomfelton@skysearch.com','tomtom123','tomfelton','0803691234','Y','UUID-1111-1111111','2018-01-19 18:17:06','UUID-1111-1111111','2018-07-17 18:17:06'),
 ('SYSUID-SS066','helenacarter@skysearch.com','helena123','helenacarter','0803691234','Y','UUID-1111-1111111','2018-07-17 18:17:06','UUID-1111-1111111','2018-07-17 18:17:06');
 
-DELETE FROM SS_AUT_MEM_REL;
-DELETE FROM SS_AUTHORITY;
 
 insert into SS_AUTHORITY 
 (AUTHORITY_NAME,NAME) 
@@ -184,7 +182,7 @@ VALUES
 ('LO0005', '남아메리카'),
 ('LO0006', '오세아니아'),
 ('LO0007', '아프리카'),
-('dummy_loc','');
+('dummy_loc',' ');
 
 INSERT INTO ss_country 
 VALUES 
